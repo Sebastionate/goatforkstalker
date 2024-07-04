@@ -11,6 +11,7 @@ ITEM.attSearch = { "kk_ins2_kobra" }
 ITEM.weight = 0.4
 ITEM.upgradeIcon = Material("materials/vgui/ui/stalker/weaponupgrades/sights.png")
 ITEM.Bal = 5
+ITEM.scopetype = "med"
   
 
 -- Slot Numbers Defined:

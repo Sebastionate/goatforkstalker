@@ -16,4 +16,5 @@ ITEM.flag = "3"
 ITEM.Range = 100
 ITEM.Pen = 12
 ITEM.Mag = 30
+ITEM.RPM = 8
 ITEM.barrel = "medium"
