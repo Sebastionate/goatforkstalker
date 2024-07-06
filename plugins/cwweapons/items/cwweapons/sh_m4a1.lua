@@ -17,4 +17,6 @@ ITEM.Range = 100
 ITEM.Pen = 12
 ITEM.Mag = 30
 ITEM.RPM = 8
+ITEM.recoil = -2
 ITEM.barrel = "medium"
+ITEM.weaponType = "rifles"

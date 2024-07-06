@@ -10,12 +10,13 @@ ITEM.isBodyArmor = true
 ITEM.resistance = true
 ITEM.category = "Armor"
 ITEM.res = {
-	["Fall"] = 0,
-	["Blast"] = 0,
+	["Impact"] = 0,
+	["Rupture"] = 0,
 	["Bullet"] = 0,
 	["Shock"] = 0,
 	["Burn"] = 0,
 	["Radiation"] = 0,
+	["Chemical"] = 0,
 	["Psi"] = 0,
 }
 ITEM.ballisticlevels = {"1", "1", "1", "1", "1", "1", "1"}
@@ -703,7 +704,9 @@ function ITEM:GetDescription()
 		
 		local mods = self:GetData("mod")
 		local resistances = {
-			["Fall"] = 0,
+			["Impact"] = 0,
+			["Rupture"] = 0,
+			["Bullet"] = 0,
 			["Shock"] = 0,
 			["Burn"] = 0,
 			["Radiation"] = 0,
@@ -718,7 +721,7 @@ function ITEM:GetDescription()
 		end
 
 		if(customData.impact) then
-			resistances["Fall"] = customData.impact
+			resistances["Impact"] = customData.impact
 			resistances["Shock"] = customData.shock
 			resistances["Burn"] = customData.burn
 			resistances["Chemical"] = customData.chemical
@@ -758,11 +761,7 @@ function ITEM:GetDescription()
 		str = str.."\n\nResistances:"
 		
 		for k,v in pairs(resistances) do
-			if k == "Fall" then
-				str = str.."\n".."Impact".."T"..(v*10)
-			else
-				str = str.."\n"..k..": ".. "T".. (v*10)
-			end
+			str = str.."\n"..k..": ".. (v*100) .. "%"
 		end
 	end
 
