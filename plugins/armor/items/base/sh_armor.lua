@@ -31,6 +31,7 @@ ITEM.radProt = 0
 ITEM.equipIcon = Material("materials/vgui/ui/stalker/misc/equip.png")
 ITEM.skincustom = {}
 ITEM.outfitCategory = "model"
+ITEM.ballisticRating = 0
 
 ITEM:Hook("drop", function(item)
 	if (item:GetData("equip")) then
@@ -306,6 +307,7 @@ end
 
 function ITEM:OnInstanced()
 	self:SetData("durability", 100)
+	self:SetData("ballisticRating", self.ballisticRating)
 end
 
 local function skinset(item, data)
@@ -699,6 +701,10 @@ function ITEM:GetDescription()
 		str = str.. "\n\n" ..customData.longdesc 
 	end
 
+	if self.ballisticRating then 
+		str = str .. "\n BR: " ..self:GetData("ballisticRating")
+	end 
+
 	if self.res then
 		
 		
@@ -761,12 +767,13 @@ function ITEM:GetDescription()
 		str = str.."\n\nResistances:"
 		
 		for k,v in pairs(resistances) do
-			str = str.."\n"..k..": ".. (v*100) .. "%"
+			local durabilitychange = self:GetData("durability") / 100
+			str = str.."\n"..k..": ".. math.Round((v*100) * durabilitychange) .. "%"
 		end
 	end
 
 
-	str = str .. "\n\nArtifact Containers: " .. self.artifactcontainers[1]
+	str = str .. "\n\n Belt Slots: " .. self.artifactcontainers[1]
 	
 	local mods = self:GetData("mod", {})
 	if mods then

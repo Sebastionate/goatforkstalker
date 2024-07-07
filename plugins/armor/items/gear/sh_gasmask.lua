@@ -12,12 +12,13 @@ ITEM.ar = 0.15
 ITEM.far = 1
 ITEM.radProt = 0.15
 ITEM.isGasmask = true
-ITEM.isHelmet = nil
+ITEM.isHelmet = true
 ITEM.overlayPath = "vgui/overlays/hud_gas"
 ITEM.ballisticlevels = {"0"}
 ITEM.ballisticrpglevels = {["head"] = "0"}
 ITEM.anomalousrpglevels = {"2","2","5","5","5"}
 ITEM.img = Material("vgui/hud/eo20.png")
+ITEM.ballisticRating = 10
 ITEM.weight = 0.5
 ITEM.res = {
 	["Fall"] = 0.02,

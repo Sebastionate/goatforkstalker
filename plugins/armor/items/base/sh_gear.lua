@@ -10,6 +10,16 @@ ITEM.br = 0
 ITEM.fbr = 0
 ITEM.ar = 0
 ITEM.far = 0
+ITEM.res = {
+	["Impact"] = 0,
+	["Rupture"] = 0,
+	["Bullet"] = 0,
+	["Shock"] = 0,
+	["Burn"] = 0,
+	["Radiation"] = 0,
+	["Chemical"] = 0,
+	["Psi"] = 0,
+}
 ITEM.radProt = 0
 ITEM.resistance = true
 ITEM.isHelmet = nil
@@ -20,6 +30,7 @@ ITEM.ballisticareas = {"  Head:"}
 ITEM.ballisticrpgtypes = {"Ballistic (Head)"}
 ITEM.anomalousrpgtypes = {"Impact","Burning","Radiation","Chemical","Electrical"}
 ITEM.isArmor = true
+ITEM.ballisticRating = 0
 
 ITEM.functions.RemoveUpgrade = {
 	name = "Remove Upgrade",
@@ -116,13 +127,19 @@ function ITEM:GetDescription()
 	if(customData.desc) then
 		str = customData.desc
 	end
+
+	if self.ballisticRating then
+		str = str .. "BR: " .. self:GetData("ballisticRating")
+	end 
 	
 	if self.res then
 		str = str.."\n\nResistances:"
 		
 		local mods = self:GetData("mod")
 		local resistances = {
-			["Fall"] = 0,
+			["Impact"] = 0,
+			["Rupture"] = 0,
+			["Bullet"] = 0,
 			["Shock"] = 0,
 			["Burn"] = 0,
 			["Radiation"] = 0,
@@ -152,11 +169,8 @@ function ITEM:GetDescription()
 		end
 		
 		for k,v in pairs(resistances) do
-			if k == "Fall" then
-				str = str.."\n".."Impact"..": "..(v*100).."%"
-			else
-				str = str.."\n"..k..": "..(v*100).."%"
-			end
+			local durabilitychange = self:GetData("durability", 100) / 100
+			str = str.."\n"..k..": ".. math.Round((v*100) * durabilitychange) .. "%"
 		end
 	end
 
@@ -280,18 +294,13 @@ if (CLIENT) then
 			end
 		end
 	end
-
-	function ITEM:PopulateTooltip(tooltip)
-		if !self.entity then
-			local duratitle = tooltip:AddRow("duratitle")
-			duratitle:SetText("\nDurability: " .. math.floor(self:GetData("durability", 100)) .. "%")
-			duratitle:SizeToContents()
-		end
-	end
 end
 
 function ITEM:OnInstanced()
 	self:SetData("durability", 100)
+	self:SetData("ballisticRating", self.ballisticRating)
+	
+
 end
 
 function ITEM:RemovePart(client)
@@ -442,24 +451,6 @@ function ITEM:OnUnequipped()
 	self.player:GetCharacter():setRPGValues()
 end
 
-function ITEM:pacAdjust(pacdata, client)
-	
-	if not client then return end
-	
-	if (client:GetModel() == "models/nasca/stalker/male_berill1.mdl") then
-		client:Notify("berill1")
-    	return self.pacDataBerill1
-	elseif (client:GetModel() == "models/nasca/stalker/male_expedition.mdl") then
-	  	client:Notify("expedition")
-	   	return self.pacDataExpedition
-	elseif (client:GetModel() == "models/nasca/stalker/male_nbc_lone.mdl" or client:GetModel() == "models/nasca/stalker/male_nbc_mono.mdl" or client:GetModel() == "models/nasca/stalker/male_nbc_free.mdl" or client:GetModel() == "models/nasca/stalker/male_nbc_duty.mdl") then
-	  	client:Notify("nbc")
-	   	return self.pacDataNBC
-    else
-    	client:Notify("generic")
-    	return self.pacData
-	end
-end
 
 ITEM.functions.Sell = {
 	name = "Sell",

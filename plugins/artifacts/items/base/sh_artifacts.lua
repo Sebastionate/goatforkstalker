@@ -19,6 +19,38 @@ function ITEM:GetDescription()
         str = customData.desc
     end
 
+    if self.ballisticRating then
+        str = str .. "\nBallistic Rating: +" .. self.ballisticRating 
+    end 
+
+    if self.res then
+        local resistances = {
+            ["Impact"] = 0,
+            ["Rupture"] = 0,
+            ["Bullet"] = 0,
+            ["Shock"] = 0,
+            ["Burn"] = 0,
+            ["Radiation"] = 0,
+            ["Chemical"] = 0,
+            ["Psi"] = 0,
+        }
+        
+        for k,v in pairs(self.res) do
+            if resistances[k] then
+                resistances[k] = resistances[k] + v
+            end
+        end
+
+        for k,v in pairs(resistances) do
+            if v ~= 0 then
+                str = str.."\n"..k..": ".. (v*100) .. "%"
+            end 
+        end
+    end 
+
+
+
+
     if (self.entity) then
         return (self.description)
     else
@@ -217,20 +249,29 @@ if (CLIENT) then
 	game.AddParticles("particles/vortigaunt_fx.pcf")
 	PrecacheParticleSystem("vortigaunt_charge_token_d")
 	
+
+
     function ITEM:DrawEntity(entity, item)
-        if LocalPlayer():GetPos():Distance(entity:GetPos()) > 150 then
-            entity:SetMaterial("models/shadertest/predator.vmt")
-            entity:DrawShadow(false)
-			entity:StopAndDestroyParticles()
-        else
-            entity:SetMaterial(null)
-            entity:DrawShadow(true)
-			local visualeffect = CreateParticleSystem(entity,"vortigaunt_charge_token_d",1)
-			timer.Simple(3, function() if entity:IsValid() then entity:StopAndDestroyParticles() end end)
-        end
+
+        local artifactrenderdistance = 50 + (LocalPlayer():GetCharacter():GetSkill("zonelore") * 10)
+
+        if not self.notAnomalous then 
+            if LocalPlayer():GetPos():Distance(entity:GetPos()) > artifactrenderdistance then
+                entity:SetMaterial("models/shadertest/predator.vmt")
+                entity:DrawShadow(false)
+                entity:StopAndDestroyParticles()
+            else
+                entity:SetMaterial(null)
+                entity:DrawShadow(true)
+                local visualeffect = CreateParticleSystem(entity,"vortigaunt_charge_token_d",1)
+                timer.Simple(3, function() if entity:IsValid() then entity:StopAndDestroyParticles() end end)
+            end
+        end 
 
         entity:DrawModel()
     end
+
+
     function ITEM:PaintOver(item, w, h)
         if (item:GetData("equip")) then
             surface.SetDrawColor(110, 255, 110, 255)
