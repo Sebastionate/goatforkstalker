@@ -24,6 +24,10 @@ ix.command.Add( "Movement", {
 
         else 
             client:Notify("You're moving. Use again to calculate distance travelled.")
+
+            local distance = char:GetMoveDistance()
+
+            client:Notify("Max Move Distance: " .. distance .. "m Sprint Distance: " .. distance*2 .. "m")
             local startPos = client:GetPos()
             char:SetVar("isMoving", startPos)
             ix.log.Add(client, "moveStart", client)
@@ -63,18 +67,14 @@ ix.command.Add( "rangefinder", {
 
         str = str .. "\nRange: " .. range
         str = str .. "\nMovement Cost: " .. apcost
-
         
-
         return str
-
-
-
-
           
 
     end
 } )
+
+
 
 if (SERVER) then
     ix.log.AddType("moveStart", function(client)
@@ -85,3 +85,46 @@ if (SERVER) then
         return string.format("%s has finished moving. Distance: %sm. AP Cost: %s.", client:Name(), distance, apcost)
     end)
 end
+
+
+
+
+local charMeta = ix.meta.character
+
+function charMeta:GetMoveDistance()
+    local movedistance = 20 + self:GetAttribute("reflex", 0) * 2
+    return movedistance
+end 
+
+if SERVER then
+
+   --[[  function PLUGIN:PlayerTick(ply)
+
+        local char = ply:GetCharacter()
+        if char:GetVar("isMoving") == nil then return end
+
+        if char:GetData("movementTick", 0) >= CurTime() then return end 
+
+
+        local startpos = char:GetVar("isMoving")
+        local currentpos = ply:GetPos()
+        local distance = currentpos:Distance(startpos)
+        local movedistance = 15
+        local sprintdistance = movedistance * 2
+
+        distance =  distance - (distance % 1)
+        distance = (distance / 39.3701) 
+        distance =  distance - (distance % 1)
+
+        --char:SetData("movementTick", CurTime() + 1)
+
+        if distance >= movedistance and char:GetData("movementWarning") == false then 
+            ply:Notify("Distance Moved: " .. distance .. "m")
+            ply:Notify("You've moved your max amount of movement for ordinary walking.")
+            char:SetData("movementWarning", true )
+        end 
+
+
+    end ]]
+
+end 

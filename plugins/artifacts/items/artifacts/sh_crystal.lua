@@ -6,6 +6,7 @@ ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 2400
 ITEM.flag = "A"
+ITEM.rads = 3
 ITEM.isArtefact = true
 ITEM.weight = 0.6
 ITEM.res = {

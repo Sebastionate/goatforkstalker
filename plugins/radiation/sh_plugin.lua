@@ -61,9 +61,9 @@ function playerMeta:radDebuffHandler(debuff)
 	end
 
 	if debuff == "MINOR" then
-		char:AddBoost("minorrad", "fortitude", -10)
-		char:AddBoost("minorrad", "reflex", -10)
-		char:AddBoost("minorrad", "strength", -10)
+		char:AddBoost("minorrad", "fortitude", -1)
+		char:AddBoost("minorrad", "reflex", -1)
+		char:AddBoost("minorrad", "strength", -1)
 
 		char:RemoveBoost("advancedrad", "fortitude")
 		char:RemoveBoost("advancedrad", "reflex")
@@ -84,9 +84,9 @@ function playerMeta:radDebuffHandler(debuff)
 		char:RemoveBoost("minorrad", "reflex")
 		char:RemoveBoost("minorrad", "strength")
 
-		char:AddBoost("advancedrad", "fortitude", -20)
-		char:AddBoost("advancedrad", "reflex", -20)
-		char:AddBoost("advancedrad", "strength", -20)
+		char:AddBoost("advancedrad", "fortitude", -2)
+		char:AddBoost("advancedrad", "reflex", -2)
+		char:AddBoost("advancedrad", "strength", -2)
 
 		char:RemoveBoost("criticalrad", "fortitude")
 		char:RemoveBoost("criticalrad", "reflex")
@@ -107,9 +107,9 @@ function playerMeta:radDebuffHandler(debuff)
 		char:RemoveBoost("advancedrad", "reflex")
 		char:RemoveBoost("advancedrad", "strength")
 
-		char:AddBoost("criticalrad", "fortitude", -40)
-		char:AddBoost("criticalrad", "reflex", -40)
-		char:AddBoost("criticalrad", "strength", -40)
+		char:AddBoost("criticalrad", "fortitude", -4)
+		char:AddBoost("criticalrad", "reflex", -4)
+		char:AddBoost("criticalrad", "strength", -4)
 
 		char:RemoveBoost("deadlyrad", "fortitude")
 		char:RemoveBoost("deadlyrad", "reflex")
@@ -119,18 +119,21 @@ function playerMeta:radDebuffHandler(debuff)
 
 	if debuff == "DEADLY" then
 		char:RemoveBoost("minorrad", "fortitude")
+		char:RemoveBoost("minorrad", "reflex")
+		char:RemoveBoost("minorrad", "strength")
 
 		char:RemoveBoost("advancedrad", "fortitude")
 		char:RemoveBoost("advancedrad", "reflex")
+		char:RemoveBoost("advancedrad", "strength")
 
 		char:RemoveBoost("criticalrad", "fortitude")
 		char:RemoveBoost("criticalrad", "reflex")
 		char:RemoveBoost("criticalrad", "strength")
 
-		char:AddBoost("deadlyrad", "fortitude", -40)
-		char:AddBoost("deadlyrad", "reflex", -40)
-		char:AddBoost("deadlyrad", "strength", -40)
-		char:AddBoost("deadlyrad", "observation", -40)
+		char:AddBoost("deadlyrad", "fortitude", -5)
+		char:AddBoost("deadlyrad", "reflex", -5)
+		char:AddBoost("deadlyrad", "strength", -5)
+		char:AddBoost("deadlyrad", "observation", -5)
 	end
 
 
@@ -173,25 +176,6 @@ function playerMeta:setRadiation(amount)
 	end
 
 end
-
-function playerMeta:hasGeiger()
-	local char = self:GetChar()
-	local geigercounter = self:GetNetVar("ixhasgeiger")
-
-	if !geigercounter then
-		return false
-	else
-		return true
-	end
-end
-
-function PLUGIN:PostPlayerLoadout(client)
-	if client:GetData("ixhasgeiger", false) then
-		client:SetNetVar("ixhasgeiger", true)
-	end
-end
-
-
 
 
 

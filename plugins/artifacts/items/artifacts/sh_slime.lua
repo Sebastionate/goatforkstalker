@@ -7,6 +7,7 @@ ITEM.height = 1
 ITEM.price = 5200
 ITEM.flag = "A"
 ITEM.isArtefact = true
+ITEM.bleedReduce = 1
 ITEM.weight = 0.9
 ITEM.res = {
 	["Fall"] = 0.00,

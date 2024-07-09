@@ -48,8 +48,6 @@ ix.command.Add("GetResistance", {
 		
     local resistance = target:GetResistance(key, headonly)
 
-
-
     return target:GetName() .. " has " .. resistance*100 .. "% resistance for " .. key .. "."
 		
 	end
@@ -104,11 +102,13 @@ ix.command.Add("Damage", {
     local armordamageamount = math.floor(damage / 10)
 
     target:DamageArmorScale(armordamageamount, headonly)
-
-
-
-
     target:AdjustHealth("hurt", damage)
+
+
+    -- If a sharp attack that ends up doing more than 25% of player's max health, add a bleed stack
+    if damagetype == "Rupture" and damage > (target:GetPlayer():GetTotalHp()* 0.25)  then
+      target:AddBleedStacks(1)
+    end 
 
 		
 	end
@@ -166,6 +166,7 @@ ix.command.Add("DamageBullet", {
       target:DamageArmorScale(armordamageamount, headshot)
 
       target:AdjustHealth("hurt", bluntdamage + bulletdamage)
+      target:AddBleedStacks(1)
 
 
     else
@@ -238,9 +239,11 @@ ix.command.Add("Status", {
 })
 
 
+
+
+
+
 local charMeta = ix.meta.character
-
-
 local playerMeta = FindMetaTable("Player")
 
 function playerMeta:GetTotalHp()
@@ -468,6 +471,127 @@ function charMeta:DamageArmorScale(amount, headonly)
 end 
 
 
+--------
+--Bleeds--
+--------
+
+
+
+function charMeta:GetBleedStacks()
+  return self:GetData("bleedStacks", 0)
+end 
+
+
+function charMeta:AddBleedStacks(amount)
+  if amount == 0 then return end 
+
+    local inventory = self:GetInventory()
+
+    local bleedmult = 0
+    for k, v in pairs (inventory:GetItems()) do
+      if(!v:GetData("equip", false)) then continue end --ignores unequipped items
+      if v.bleed then bleedmult = bleedmult + v.bleed end
+    end
+
+    amount = amount + bleedmult
+
+
+  self:SetData("bleedStacks", self:GetBleedStacks() + amount)
+
+  if amount == 1 then
+    self:GetPlayer():Notify("You recieve a bleed stack!")
+  elseif amount > 1 then 
+    self:GetPlayer():Notify("You receive " .. amount .. " bleed stacks!")
+  end 
+
+end 
+
+function charMeta:RemoveBleedStacks(amount)
+  if amount <= 0 then return end
+  if self:GetBleedStacks() == 0 then return end
+
+
+
+
+  self:SetData("bleedStacks", self:GetBleedStacks() - amount)
+  if self:GetBleedStacks() < 0 then self:SetData("bleedStacks", 0) end 
+
+  if amount == 1 then
+    self:GetPlayer():Notify("You remove a bleed stack!")
+  elseif amount > 1 then 
+    self:GetPlayer():Notify("You remove " .. amount .. " bleed stacks!")
+  end
+
+end 
+
+function charMeta:Bleed()
+
+  local client = self:GetPlayer()
+  local bleeds = self:GetBleedStacks()
+  local totaldamage = 0
+
+  if bleeds <= 0 then return end 
+
+  client:Notify("You're suffering from " .. bleeds .. " bleeding wounds!")
+  
+
+  for i = 1, bleeds do
+    local damage = math.random(1, 6)
+    totaldamage = totaldamage + damage
+    self:AdjustHealth("hurt", damage)
+  end 
+
+
+  client:Notify("You take " .. totaldamage .. " total damage!")
+
+end 
+
+function charMeta:BleedOnce(stacks)
+
+  for i = 1, bleeds do
+    local damage = math.random(1, 6)
+    totaldamage = totaldamage + damage
+    self:AdjustHealth("hurt", damage)
+  end 
+
+  if bleeds <= 0 then return end 
+
+  client:Notify("You're suffering from " .. bleeds .. " bleeding wounds!")
+  
+
+  for i = 1, bleeds do
+    local damage = math.random(1, 6)
+    totaldamage = totaldamage + damage
+    self:AdjustHealth("hurt", damage)
+  end 
+
+
+  client:Notify("You take " .. totaldamage .. " total damage!")
+
+end 
+
+
+
+
+ix.command.Add("CharAddBleedStacks", {
+  description = "Add stacks of bleed to given player.",
+  adminOnly = true,
+  arguments = {ix.type.character, ix.type.number},
+  OnRun = function(self, client, target, amount)
+    target:AddBleedStacks(amount)
+    return "Added " .. amount .. " bleed stacks to " .. target:GetName() .. ". They now have " .. target:GetBleedStacks()
+  end
+})
+
+ix.command.Add("CharRemoveBleedStacks", {
+  description = "Remove stacks of bleed from given player.",
+  adminOnly = true,
+  arguments = {ix.type.character, ix.type.number},
+  OnRun = function(self, client, target, amount)
+    target:RemoveBleedStacks(amount)
+    return "Removed " .. amount .. " bleed stacks from " .. target:GetName() .. ". They now have " .. target:GetBleedStacks()
+  end
+})
 
 
 
