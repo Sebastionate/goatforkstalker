@@ -3,6 +3,14 @@ PLUGIN.name = "Faction Reputation"
 PLUGIN.author = "Scrat Knapp"
 PLUGIN.desc = "A simple automated system for tracking faction reputation."
 
+ix.char.RegisterVar("LonerRep", {
+    field = "lonerrep",
+    fieldType = ix.type.number,
+    default = 0,
+    isLocal = true,
+    bNoDisplay = true
+})
+
 ix.char.RegisterVar("DutyRep", {
     field = "dutyrep",
     fieldType = ix.type.number,
@@ -60,156 +68,173 @@ ix.command.Add("MyFactionRep", {
 		local str = ""
         local char = client:GetCharacter()
 
-        local excellentstring = "You've done a great service for this faction and are a known basis with its leaders. Many if not all of its services are offered to you and at times the faction's dedicated assistance may be able to be requested."
-        local greatstring = "You've been a consistent ally to this faction, and some of its key figures know your name. You are very welcome in their territories and may be able to request their aid."
-        local goodstring = "You've helped out this faction a few times and some of the folks involved in these occassions have a positive outlook on you. You may be allowed in their territories and to partake in some of their offerings."
-        local neutralstring = "This faction has no clue who you are, but generally will leave you alone unless provoked."
-        local badstring = "This faction has no reason to trust you, and may be unfriendly or hostile without you provoking them depending on the situation."
-        local awfulstring = "You've put effort into causing trouble for this faction, and as a result they know who you are and see you as an enemy. Likely to be hostile on sight if they identify you."
-        local abysmalstring = "You've tried your very best to make life a living hell for this faction, so they're quite interested in ending yours. They know you and will attempt to carry out a kill order over your head, on sight."
 
+        -- Loners --
+        str = str .. "Loner: "
+        if (char:GetLonerRep() <= -30) then
+            str = str .. "Abysmal\n"
+        end
+        if (char:GetLonerRep() <= -15 and char:GetLonerRep() > -30) then
+            str = str .. "Awful\n"
+        end 
+        if (char:GetLonerRep() < 0 and char:GetLonerRep() > -15) then
+            str = str .. "Bad\n"
+        end
+        if (char:GetLonerRep() <= 4 and char:GetLonerRep() >= 0) then
+            str = str .. "Neutral\n"
+        end
+        if (char:GetLonerRep() >= 5 and char:GetLonerRep() < 15)  then
+            str = str .. "Good\n"
+        end
+        if (char:GetLonerRep() >= 15 and char:GetLonerRep() < 30)  then
+            str = str .. "Great\n"
+        end
+        if (char:GetLonerRep() >= 30)   then
+            str = str .. "Excellent\n"
+        end
+ 
         -- Duty --
-        str = str .. "Duty\n"
+        str = str .. "Duty: "
         if (char:GetDutyRep() <= -30) then
-            str = str .. "Abysmal\n" .. abysmalstring
+            str = str .. "Abysmal\n"
         end
         if (char:GetDutyRep() <= -15 and char:GetDutyRep() > -30) then
-            str = str .. "Awful\n" .. awfulstring .. "\n\n"
+            str = str .. "Awful\n"
+        end 
+        if (char:GetDutyRep() < 0 and char:GetDutyRep() > -15) then
+            str = str .. "Bad\n"
         end
-        if (char:GetDutyRep() <= 0 and char:GetDutyRep() > -15) then
-            str = str .. "Bad\n" .. badstring .. "\n\n"
-        end
-        if (char:GetDutyRep() <= 5 and char:GetDutyRep() > 0) then
-            str = str .. "Neutral\n" .. neutralstring .. "\n\n"
+        if (char:GetDutyRep() <= 4 and char:GetDutyRep() >= 0) then
+            str = str .. "Neutral\n"
         end
         if (char:GetDutyRep() >= 5 and char:GetDutyRep() < 15)  then
-            str = str .. "Good\n" .. goodstring .. "\n\n"
+            str = str .. "Good\n"
         end
         if (char:GetDutyRep() >= 15 and char:GetDutyRep() < 30)  then
-            str = str .. "Great\n" .. greatstring .. "\n\n"
+            str = str .. "Great\n"
         end
         if (char:GetDutyRep() >= 30)   then
-            str = str .. "Excellent\n" .. excellentstring .. "\n\n"
+            str = str .. "Excellent\n"
         end
 
         -- Freedom --
-        str = str .. "Freedom\n"
+        str = str .. "Freedom: "
         if (char:GetFreedomRep() <= -30) then
-            str = str .. "Abysmal\n" .. abysmalstring
+            str = str .. "Abysmal\n"
         end
         if (char:GetFreedomRep() <= -15 and char:GetFreedomRep() > -30) then
-            str = str .. "Awful\n" .. awfulstring .. "\n\n"
+            str = str .. "Awful\n"
         end
-        if (char:GetFreedomRep() <= 0 and char:GetFreedomRep() > -15) then
-            str = str .. "Bad\n" .. badstring .. "\n\n"
+        if (char:GetFreedomRep() < 0 and char:GetFreedomRep() > -15) then
+            str = str .. "Bad\n"
         end
-        if (char:GetFreedomRep() <= 5 and char:GetFreedomRep() >  0) then
-            str = str .. "Neutral\n" .. neutralstring .. "\n\n"
+        if (char:GetFreedomRep() <= 4 and char:GetFreedomRep() >=  0) then
+            str = str .. "Neutral\n"
         end
         if (char:GetFreedomRep() >= 5 and char:GetFreedomRep() < 15)  then
-            str = str .. "Good\n" .. goodstring .. "\n\n"
+            str = str .. "Good\n"
         end
         if (char:GetFreedomRep() >= 15 and char:GetFreedomRep() < 30)  then
-            str = str .. "Great\n" .. greatstring .. "\n\n"
+            str = str .. "Great\n"
         end
         if (char:GetFreedomRep() >= 30)   then
-            str = str .. "Excellent\n" .. excellentstring .. "\n\n"
+            str = str .. "Excellent\n"
         end
 
         -- Army --
-        str = str .. "Ukranian Military\n"
+        str = str .. "Ukranian Military: "
         if (char:GetArmyRep() <= -30) then
-            str = str .. "Abysmal\n" .. abysmalstring
+            str = str .. "Abysmal\n"
         end
         if (char:GetArmyRep() <= -15 and char:GetArmyRep() > -30) then
-            str = str .. "Awful\n" .. awfulstring .. "\n\n"
+            str = str .. "Awful\n"
         end
-        if (char:GetArmyRep() <= 0 and char:GetArmyRep() > -15) then
-            str = str .. "Bad\n" .. badstring .. "\n\n"
+        if (char:GetArmyRep() < 0 and char:GetArmyRep() > -15) then
+            str = str .. "Bad\n"
         end
-        if (char:GetArmyRep() <= 5 and char:GetArmyRep() > 0) then
-            str = str .. "Neutral\n" .. neutralstring .. "\n\n"
+        if (char:GetArmyRep() <= 4 and char:GetArmyRep() >= 0) then
+            str = str .. "Neutral\n"
         end
         if (char:GetArmyRep() >= 5 and char:GetArmyRep() < 15)  then
-            str = str .. "Good\n" .. goodstring .. "\n\n"
+            str = str .. "Good\n"
         end
         if (char:GetArmyRep() >= 15 and char:GetArmyRep() < 30)  then
-            str = str .. "Great\n" .. greatstring .. "\n\n"
+            str = str .. "Great\n"
         end
         if (char:GetArmyRep() >= 30)   then
-            str = str .. "Excellent\n" .. excellentstring .. "\n\n"
+            str = str .. "Excellent\n"
         end
 
          -- Eco --
-         str = str .. "Ecologists\n"
+         str = str .. "Ecologists: "
          if (char:GetEcoRep() <= -30) then
-             str = str .. "Abysmal\n" .. abysmalstring
+             str = str .. "Abysmal\n"
          end
          if (char:GetEcoRep() <= -15 and char:GetEcoRep() > -30) then
-             str = str .. "Awful\n" .. awfulstring .. "\n\n"
+             str = str .. "Awful\n"
          end
-         if (char:GetEcoRep() <= 0 and char:GetEcoRep() > -15) then
-             str = str .. "Bad\n" .. badstring .. "\n\n"
+         if (char:GetEcoRep() < 0 and char:GetEcoRep() > -15) then
+             str = str .. "Bad\n"
          end
-         if (char:GetEcoRep() <= 5 and char:GetEcoRep() > 0) then
-             str = str .. "Neutral\n" .. neutralstring .. "\n\n"
+         if (char:GetEcoRep() <= 4 and char:GetEcoRep() >= 0) then
+             str = str .. "Neutral\n"
          end
          if (char:GetEcoRep() >= 5 and char:GetEcoRep() < 15)  then
-             str = str .. "Good\n" .. goodstring .. "\n\n"
+             str = str .. "Good\n"
          end
          if (char:GetEcoRep() >= 15 and char:GetEcoRep() < 30)  then
-             str = str .. "Great\n" .. greatstring .. "\n\n"
+             str = str .. "Great\n"
          end
          if (char:GetEcoRep() >= 30)   then
-             str = str .. "Excellent\n" .. excellentstring .. "\n\n"
+             str = str .. "Excellent\n"
          end
 
-         -- Sultan Bandits --
-         str = str .. "Sultan's Bratva\n"
+         -- Bandits --
+         str = str .. "Bandits: "
          if (char:GetMobRep() <= -30) then
-             str = str .. "Abysmal\n" .. abysmalstring
+             str = str .. "Abysmal\n"
          end
          if (char:GetMobRep() <= -15 and char:GetMobRep() > -30) then
-             str = str .. "Awful\n" .. awfulstring .. "\n\n"
+             str = str .. "Awful\n"
          end
-         if (char:GetMobRep() <= 0 and char:GetMobRep() > -15) then
-             str = str .. "Bad\n" .. badstring .. "\n\n"
+         if (char:GetMobRep() < 0 and char:GetMobRep() > -15) then
+             str = str .. "Bad\n"
          end
-         if (char:GetMobRep() <= 5 and char:GetMobRep() > 0) then
-             str = str .. "Neutral\n" .. neutralstring .. "\n\n"
+         if (char:GetMobRep() <= 4 and char:GetMobRep() >= 0) then
+             str = str .. "Neutral\n"
          end
          if (char:GetMobRep() >= 5 and char:GetMobRep() < 15)  then
-             str = str .. "Good\n" .. goodstring .. "\n\n"
+             str = str .. "Good\n"
          end
          if (char:GetMobRep() >= 15 and char:GetMobRep() < 30)  then
-             str = str .. "Great\n" .. greatstring .. "\n\n"
+             str = str .. "Great\n"
          end
          if (char:GetMobRep() >= 30)   then
-             str = str .. "Excellent\n" .. excellentstring .. "\n\n"
+             str = str .. "Excellent\n"
          end
 
         -- Blue Eagle --
-        str = str .. "Blue Eagle PMC\n"
+        str = str .. "Blue Eagle PMC: "
         if (char:GetMercRep() <= -30) then
-            str = str .. "Abysmal\n" .. abysmalstring
+            str = str .. "Abysmal\n"
         end
         if (char:GetMercRep() <= -15 and char:GetMercRep() > -30) then
-            str = str .. "Awful\n" .. awfulstring .. "\n\n"
+            str = str .. "Awful\n"
         end
-        if (char:GetMercRep() <= 0 and char:GetMercRep() > -15) then
-            str = str .. "Bad\n" .. badstring .. "\n\n"
+        if (char:GetMercRep() < 0 and char:GetMercRep() > -15) then
+            str = str .. "Bad\n"
         end
-        if (char:GetMercRep() <= 5 and char:GetMercRep() > 0) then
-            str = str .. "Neutral\n" .. neutralstring .. "\n\n"
+        if (char:GetMercRep() <= 4 and char:GetMercRep() >= 0) then
+            str = str .. "Neutral\n" 
         end
         if (char:GetMercRep() >= 5 and char:GetMercRep() < 15)  then
-            str = str .. "Good\n" .. goodstring .. "\n\n"
+            str = str .. "Good\n"
         end
         if (char:GetMercRep() >= 15 and char:GetMercRep() < 30)  then
-            str = str .. "Great\n" .. greatstring .. "\n\n"
+            str = str .. "Great\n"
         end
         if (char:GetMercRep() >= 30)   then
-            str = str .. "Excellent\n" .. excellentstring .. "\n\n"
+            str = str .. "Excellent\n"
         end
 
 
@@ -228,6 +253,7 @@ ix.command.Add("CharGetFactionRep", {
         local char = target
 
         str = str .. target:GetName() .. " has the following reputation:\n"
+        str = str .. "Loners: " .. char:GetLonerRep() .. "\n"
         str = str .. "Duty: " .. char:GetDutyRep() .. "\n"
         str = str .. "Freedom: " .. char:GetFreedomRep() .. "\n"
         str = str .. "Ukranian Military: " .. char:GetArmyRep() .. "\n"
@@ -251,6 +277,16 @@ ix.command.Add("CharAddFactionRep", {
 
         if amount == 0 then
             return "Please enter a valid positive or negative number."
+        end
+
+        if string.upper(faction) == "LONER" then
+            char:SetLonerRep(char:GetLonerRep() + amount)
+            if amount < 0 then
+                char:GetPlayer():Notify("You lose favor with the Loner community.")
+            else
+                char:GetPlayer():Notify("You gain favor with the Loner community.")
+            end 
+            return "You gave " .. amount .. " Loner Rep Points to " .. char:GetName() .. ". They now have " .. char:GetLonerRep().. " points."
         end
 
         if string.upper(faction) == "DUTY" then
@@ -293,14 +329,14 @@ ix.command.Add("CharAddFactionRep", {
             return "You gave " .. amount .. " Ecologist Rep Points to " .. char:GetName() .. ". They now have " .. char:GetEcoRep().. " points."
         end
 
-        if string.upper(faction) == "BRATVA" then
+        if string.upper(faction) == "BANDIT" then
             char:SetMobRep(char:GetMobRep() + amount)
             if amount < 0 then
                 char:GetPlayer():Notify("You lose favor with Sultan's Bratva.")
             else
                 char:GetPlayer():Notify("You gain favor with Sultan's Bratva.")
             end 
-            return "You gave " .. amount .. " Bratva Rep Points to " .. char:GetName() .. ". They now have " .. char:GetMobRep().. " points."
+            return "You gave " .. amount .. " Bandit Rep Points to " .. char:GetName() .. ". They now have " .. char:GetMobRep().. " points."
         end
 
         if string.upper(faction) == "MERC" then
@@ -314,7 +350,7 @@ ix.command.Add("CharAddFactionRep", {
         end
 
 
-        return "Invalid faction. Valid factions are: Duty, Freedom, Army, Eco, Bratva, and Merc."
+        return "Invalid faction. Valid factions are: Duty, Freedom, Army, Eco, Bandit, and Merc."
 
     end
 })

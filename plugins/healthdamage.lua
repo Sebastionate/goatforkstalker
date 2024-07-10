@@ -594,4 +594,34 @@ ix.command.Add("CharRemoveBleedStacks", {
 })
 
 
+function PLUGIN:HUDPaint()
+	local bleed = Material("vgui/hud/thirst.png", "noclamp smooth") 
+	local bleed2 = Material("vgui/hud/thirst2.png", "noclamp smooth") 
+	local bleed3 = Material("vgui/hud/thirst3.png", "noclamp smooth") 
+	local bleed4 = Material("vgui/hud/thirst4.png", "noclamp smooth") 
+	local lp = LocalPlayer()
+	local wep = LocalPlayer():GetActiveWeapon()
+	local char = lp:GetCharacter()
+	if (!lp:GetCharacter() or !lp:Alive() or ix.gui.characterMenu:IsVisible()) then return end
+
+	surface.SetMaterial(bleed)
+	if char:GetBleedStacks() == 0 then
+		surface.SetMaterial(bleed)
+		surface.SetDrawColor(Color(0, 0, 0, 0))
+	elseif char:GetBleedStacks() == 1 then
+		surface.SetMaterial(bleed)
+		surface.SetDrawColor(Color(255, 255, 255, 255))
+	elseif char:GetBleedStacks() > 1 and char:GetBleedStacks() < 4 then
+		surface.SetMaterial(bleed2)
+		surface.SetDrawColor(Color(255, 255, 255, 255))
+	elseif char:GetBleedStacks() >= 4 and char:GetBleedStacks() < 6 then
+		surface.SetMaterial(bleed3)
+		surface.SetDrawColor(Color(255, 255, 255, 255))
+	elseif char:GetBleedStacks() >= 6 then
+		surface.SetMaterial(bleed4)
+		surface.SetDrawColor(Color(255, 255, 255, 255))
+	end
+	surface.DrawTexturedRect(ScrW()-80, ScrH()-550, 33, 35, Color(0, 255, 0, 255))
+end
+
 

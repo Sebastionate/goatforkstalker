@@ -9,6 +9,7 @@ ITEM.sound = "stalker/interface/inv_eat_pills_effect.ogg"
 ITEM.price = "600"
 ITEM.flag = "1"
 ITEM.quantity = 3
+ITEM.duration = 4
 ITEM.weight = 0.2
 ITEM.stopsBleed = true
 
@@ -30,16 +31,7 @@ if (CLIENT) then
 	end
 end
 
-local function stopBleed(item)
-	local client = item.player
-	if(item.stopsBleed) then
-		if(timer.Exists(client:Name().."res_bleed")) then
-			timer.Remove(client:Name().."res_bleed")
-			
-			client:Notify("Your bleeding has stopped.")
-		end
-	end
-end
+
 
 ITEM.functions.use = {
 	name = "Swallow",
@@ -47,19 +39,41 @@ ITEM.functions.use = {
 	OnRun = function(item)
 		local quantity = item:GetData("quantity", item.quantity)
 		ix.chat.Send(item.player, "iteminternal", "swallows some "..item.name..".", false)
-		stopBleed(item)
-		
+
+		curplayer = item.player:GetCharacter()
+		item.name = item.name
+		duration = item.duration
+
+		curplayer:SetData("usingVinca", true)
+		timer.Create(item.name, item.duration, 1, function() 
+			curplayer:GetPlayer():Notify(item.name .. " has worn off.")
+			curplayer:SetData("usingVinca", false)
+
+		end)
+
+		timer.Pause(item.name)
+		local drugtable = curplayer:GetData("timertable") or {}
+		table.insert(drugtable, item.name)
+		curplayer:SetData("timertable", drugtable)
+
+
+	
 		quantity = quantity - 1
 		
 		if (quantity >= 1) then
 			item:SetData("quantity", quantity)
 			return false
 		end
-		
+	
 		return true
 	end,
 	OnCanRun = function(item)
-		return (!IsValid(item.entity))
+		curplayer = item.player:GetCharacter()
+		if (curplayer:GetData("usingVinca")) then 
+			return false
+		else 
+			return (!IsValid(item.entity))
+		end 
 	end
 }
 /*

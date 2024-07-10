@@ -174,6 +174,56 @@ ix.command.Add("SpendUtilitySkillpoints", {
     end
 })
 
+
+ix.command.Add("CharAddTrait", {
+    description = "Utilize your improvisational medical skills to heal a friendly without use of supplies.",
+    adminOnly = true,
+    arguments = {
+        ix.type.character, 
+        ix.type.string},
+    OnRun = function(self, client, target, trait)
+        
+        target:AddTrait(trait)
+
+        return "Added " .. trait .. " to " .. target:GetName()
+
+        
+    end
+})
+
+-- Skill Abilities
+ix.command.Add("FirstAid", {
+    description = "Utilize your improvisational medical skills to heal a friendly without use of supplies.",
+    OnRun = function(self, client)
+        local char = client:GetCharacter()
+        local ply = client
+        
+        if not char:HasTrait("firstresponder") then return "You need the First Responder trait to use this ability." end 
+
+        if char:GetData("firstAidCooldown", CurTime()) < CurTime() then client:Notify(CurTime()) return "First Aid has a cooldown of 45 minutes between uses." end 
+
+        local data = {}
+		data.start = client:GetShootPos()
+		data.endpos = data.start + client:GetAimVector() * 96
+		data.filter = client
+		local target = util.TraceLine(data).Entity
+
+        if not (IsValid(target) and target:IsPlayer() and target:GetCharacter()) then return "You need to be looking at another character." end 
+
+        local medicskill = char:GetSkill("medic", 0)
+        local healamt = math.random(1, 20 + medicskill)
+        local bleedstacksreduce = math.random(1, math.floor(medicskill / 5))
+
+
+        target:GetCharacter():AdjustHealth("heal", healamt)
+        target:GetCharacter():RemoveBleedStacks(bleedstacksreduce)
+        client:SetData("firstAidCooldown", CurTime() + 2700)
+        client:Notify("You restore " .. healamt .. " health to " .. target:GetCharacter():GetName() .. " and remove up to " .. bleedstacksreduce .. " stacks of Bleed.")
+
+        
+    end
+})
+
 local charmeta = ix.meta.character
 
 function charmeta:AddUtilityXp(target, points)
