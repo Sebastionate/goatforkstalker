@@ -219,7 +219,7 @@ ix.command.Add("FirstAid", {
         target:GetCharacter():RemoveBleedStacks(bleedstacksreduce)
         client:SetData("firstAidCooldown", CurTime() + 2700)
         client:Notify("You restore " .. healamt .. " health to " .. target:GetCharacter():GetName() .. " and remove up to " .. bleedstacksreduce .. " stacks of Bleed.")
-
+        target:GetPlayer():Notify(char:GetName() .. " has restored " .. healamt .. "  of your health and removed up to " .. bleedstacksreduce .. " stacks of Bleed.")
         
     end
 })
