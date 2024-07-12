@@ -60,12 +60,21 @@ ix.command.Add("Damage", {
 		ix.type.character,
 		ix.type.string,
     ix.type.number,
-    bit.bor(ix.type.bool, ix.type.optional)
+    bit.bor(ix.type.string, ix.type.optional)
 	},
-	OnRun = function(self, client, target, damagetype, damage, headonly)
+	OnRun = function(self, client, target, damagetype, damage, area)
 
     damagetype = string.lower(damagetype)
     damagetype = damagetype:gsub("^%l", string.upper)
+
+    if not area then area = "all" end 
+
+    if area == "body" then
+    elseif area ==  "all" then
+    elseif area == "head" then
+    else return "Area must be either 'body', 'head', or 'all'" end 
+    
+    
 
     local res = {
       ["Impact"] = 0,
@@ -86,11 +95,11 @@ ix.command.Add("Damage", {
     if not validtype then return "Invalid type. Must be: Impact, Rupture, Shock, Burn, Chemical, Radiation, or Psi." end 
 
     local targethead = ""
-    if headonly then targethead = " to the head" end
+    if area == "head" then targethead = " to the head" end
 
     target:GetPlayer():Notify("You're hit with " .. damage .. " " .. damagetype .. " damage " .. targethead .. "!"  )
 
-    local resistance = target:GetResistance(damagetype, headonly)
+    local resistance = target:GetResistance(damagetype, area)
 
     target:GetPlayer():Notify("Your protection reduces the damage by " .. resistance*100 .. "%!")
     
@@ -105,7 +114,7 @@ ix.command.Add("Damage", {
     target:AdjustHealth("hurt", damage)
 
 
-    -- If a sharp attack that ends up doing more than 25% of player's max health, add a bleed stack
+    -- If a sharp attack that ends up doing more than 20% of player's max health, add a bleed stack
     if damagetype == "Rupture" and damage > (target:GetPlayer():GetTotalHp()* 0.25)  then
       target:AddBleedStacks(1)
     end 
@@ -137,6 +146,7 @@ ix.command.Add("DamageBullet", {
     for k, v in pairs (inventory:GetItems()) do
       if(!v:GetData("equip", false)) then continue end --ignores unequipped items
       if headshot and v.isBodyArmor then continue end -- Ignores body armor if shot in the head (artifacts affect your full body)
+      if headshot and v.notAnomalous then continue end -- Ignores non-anomalous belt slot items like kevlar inserts because they don't affect full body
       if not headshot and v.isHelmet then continue end -- Ignores helmet armor if it hits your body
   
       local br = v:GetData("ballisticRating")
@@ -145,23 +155,26 @@ ix.command.Add("DamageBullet", {
       end
     end
 
+    local area 
+    if headshot then area = "head" else area = "body" end 
+
 
     if br > playerbr then 
 
       player:Notify("It pierces your armor!")
 
       
-      local bulletresist = target:GetResistance("Bullet", headshot)
-      local bluntresist = target:GetResistance("Impact", headshot)
+      local bulletresist = target:GetResistance("Bullet", area)
+      local bluntresist = target:GetResistance("Impact", area)
 
       player:Notify("Your armor reduces the ballistic damage by " .. bulletresist*100  .."% and blunt force trauma by " .. bluntresist*100 .. "%!")
-      local bulletdamage = pierce * (1 - bulletresist)
-      local bluntdamage = bluntforce * (1 - bluntresist)
+      local bulletdamage = math.floor(pierce * (1 - bulletresist))
+      local bluntdamage = math.floor(bluntforce * (1 - bluntresist))
 
       player:Notify("You take " .. bulletdamage .. " ballistic damage and " .. bluntdamage .. " blunt force trauma damage!")
 
       
-      local armordamageamount = math.floor((bulletdamage + bluntdamage) / 10)
+      local armordamageamount = (bulletdamage + bluntdamage) / 10
 
       target:DamageArmorScale(armordamageamount, headshot)
 
@@ -172,10 +185,10 @@ ix.command.Add("DamageBullet", {
     else
 
       player:Notify("It fails to pierce your armor!")
-      local bluntresist = target:GetResistance("Impact")
+      local bluntresist = target:GetResistance("Impact", area)
       player:Notify("Your armor reduces the remaining blunt force trauma by " .. bluntresist*100 .. "%!")
 
-      local bluntdamage = bluntforce * (1 - bluntresist)
+      local bluntdamage = math.floor(bluntforce * (1 - bluntresist))
       player:Notify("You take " .. bluntdamage .. " blunt force trauma damage!")
 
       local armordamageamount = math.floor(bluntdamage / 10)
@@ -252,18 +265,21 @@ function playerMeta:GetTotalHp()
 return maxhp
 end
 
-function charMeta:GetResistance(key, headonly)
+function charMeta:GetResistance(key, area)
 
   local resistances = {
     [key] = 0
   }
 
+
   local inventory = self:GetInventory()
 
   for k, v in pairs (inventory:GetItems()) do
     if(!v:GetData("equip", false)) then continue end --ignores unequipped items
-    if headonly and v.isBodyArmor then continue end -- Ignores body armor if set to only check for head protection (artifacts affect your full body)
-
+    if area == "head" and v.isBodyArmor then continue end -- Ignores body armor if set to only check for head protection (artifacts affect your full body)
+    if area == "body" and v.isHelmet then continue end -- Ignores body armor if set to only check for body protection (artifacts affect your full body)
+    if area == "head" and v.notAnomalous then continue end -- Ignores non-anomalous belt slot items like kevlar inserts because they don't affect full body
+    
     local res = v.res
     if res and res[key] then
       

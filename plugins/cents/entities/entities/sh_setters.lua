@@ -18,28 +18,44 @@ function ENT:SetCombatHealthMax(value)
     return self:SetNetVar("maxhp", value)
 end
 
-function ENT:SetAP(value)
-    return self:SetNetVar("ap", value)
+function ENT:SetHeadBR(value)
+    return self:SetNetVar("headbr", value)
 end
 
-function ENT:SetAttackBoost(value)
-    return self:SetNetVar("attack", value)
+function ENT:SetHeadBullet(value)
+    return self:SetNetVar("headbullet", value)
 end
 
-function ENT:SetDodgeBoost(value)
+function ENT:SetHeadImpact(value)
+    return self:SetNetVar("headimpact", value)
+end
+
+function ENT:SetHeadRupture(value)
+    return self:SetNetVar("headrupture", value)
+end
+
+function ENT:SetTorsoBR(value)
+    return self:SetNetVar("torsobr", value)
+end
+
+function ENT:SetTorsoBullet(value)
+    return self:SetNetVar("torsobullet", value)
+end
+
+function ENT:SetTorsoImpact(value)
+    return self:SetNetVar("torsoimpact", value)
+end
+
+function ENT:SetTorsoRupture(value)
+    return self:SetNetVar("torsorupture", value)
+end
+
+function ENT:SetWeaponSkill(value)
+    return self:SetNetVar("weaponskill", value)
+end
+
+function ENT:SetDodge(value)
     return self:SetNetVar("dodge", value)
-end
-
-function ENT:SetDT(value)
-    return self:SetNetVar("dt", value)
-end
-
-function ENT:SetET(value)
-    return self:SetNetVar("et", value)
-end
-
-function ENT:SetDR(value)
-    return self:SetNetVar("dr", value)
 end
 
 function ENT:SetWeapon(value)

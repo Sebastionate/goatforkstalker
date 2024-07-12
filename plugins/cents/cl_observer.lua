@@ -41,12 +41,19 @@ function FNFF_CE:HUDPaint()
             local barWidth = math.Clamp(textWidth, 0, textWidth)
             local hp = v:GetCombatHealth()
             local maxhp = v:GetCombatHealthMax()
-            local ap = v:GetAP()
-            local attack = v:GetAttackBoost()
-            local dodge = v:GetDodgeBoost()
-            local dt = v:GetDT()
-            local et = v:GetET()
-            local dr = v:GetDR()
+
+            local headbr = v:GetHeadBR()
+            local headbullet = v:GetHeadBullet()
+            local headimpact = v:GetHeadImpact()
+            local headrupture = v:GetHeadRupture()
+
+            local bodybr = v:GetTorsoBR()
+            local bodybullet = v:GetTorsoBR()
+            local bodyimpact = v:GetTorsoImpact()
+            local bodyrupture = v:GetTorsoImpact()
+
+            local weaponskill = v:GetWeaponSkill()
+            local dodge = v:GetDodge()
 
             -- we can assume that if we're using cheap blur, we'd want to save some fps here
             if (!ix.option.Get("cheapBlur", false)) then
@@ -64,9 +71,9 @@ function FNFF_CE:HUDPaint()
 
             local nameColor = v:IsTurn() and Color(51, 240, 60) or Color(230, 100, 100)
             ix.util.DrawText(text, x, y - nameSize * 4, ColorAlpha(nameColor, nameAlpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, nameAlpha)
-            ix.util.DrawText(hp .. "/" .. maxhp, x, y - nameSize * 3, ColorAlpha(nameColor, nameAlpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, nameAlpha)
-            ix.util.DrawText("AP:".. ap .. "  Dodge:" .. dodge .. "  Attack:" .. attack, x, y - nameSize * 2, ColorAlpha(nameColor, nameAlpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, nameAlpha)
-            ix.util.DrawText("DT:".. dt .. "  ET:" .. et .. "  DR:" .. dr .. "%", x, y - nameSize * 1, ColorAlpha(nameColor, nameAlpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, nameAlpha)
+            ix.util.DrawText(hp .. "/" .. maxhp .. " Skill: " .. weaponskill .. " Evasion :" .. dodge, x, y - nameSize * 3, ColorAlpha(nameColor, nameAlpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, nameAlpha)
+            ix.util.DrawText("Head BR: ".. headbr .. " Bullet:" .. headbullet .. "%  Impact:" .. headimpact .. "% Rupture: " .. headrupture .. "%", x, y - nameSize * 2, ColorAlpha(nameColor, nameAlpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, nameAlpha)
+            ix.util.DrawText("Body BR: ".. bodybr .. "  Bullet:" .. bodybullet .. " % Impact:" .. bodyimpact .. "% Rupture:" .. bodyrupture .. "%", x, y - nameSize * 1, ColorAlpha(nameColor, nameAlpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, nameAlpha)
         end
     end 
 end

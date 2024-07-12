@@ -16,7 +16,6 @@ ENT.combatEntity = true
 
 ENT.model = "models/Humans/Group01/male_02.mdl"
 
-
 ENT.RenderGroup = RENDERGROUP_TRANSLUCENT
 
 function ENT:Initialize()
@@ -35,6 +34,7 @@ end
 
 function ENT:BasicSetup()
     self:SetRenderMode(RENDERMODE_TRANSALPHA)
+
 
     if (SERVER) then
         self.inventory = self.inventory or {}

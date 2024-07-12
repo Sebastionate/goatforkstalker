@@ -11,8 +11,6 @@ ENT.name = "A Loner."
 ENT.description = "Lonely Lonely!"
 
 ENT.models = {
-    "models/nasca/stalker/male_seva_lone.mdl",
-    "models/nasca/stalker/male_sunset_lone.mdl",
     "models/nasca/stalker/male_dusk_lone.mdl",
     "models/nasca/stalker/male_dusk_lone2.mdl",
     "models/nasca/stalker/male_berill5m_lone.mdl",

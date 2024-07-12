@@ -30,30 +30,49 @@ function ENT:GetCombatHealthMax()
     return self:GetNetVar("maxhp", self.maxHP or 50)
 end
 
-function ENT:GetAP()
-    return self:GetNetVar("ap", self.AP or 10)
+function ENT:GetHeadBR(value)
+    return self:GetNetVar("headbr", value)
 end
 
-function ENT:GetAttackBoost()
-    return self:GetNetVar("attack", self.Attack or 5)
+function ENT:GetHeadBullet(value)
+    return self:GetNetVar("headbullet", value)
 end
 
-function ENT:GetDodgeBoost()
-    return self:GetNetVar("dodge", self.Dodge or 5)
+function ENT:GetHeadImpact(value)
+    return self:GetNetVar("headimpact", value)
 end
 
-function ENT:GetDT()
-    return self:GetNetVar("dt", self.DT or 0)
+function ENT:GetHeadRupture(value)
+    return self:GetNetVar("headrupture", value)
 end
 
-function ENT:GetET()
-    return self:GetNetVar("et", self.ET or 0)
+function ENT:GetTorsoBR(value)
+    return self:GetNetVar("torsobr", value)
 end
 
-function ENT:GetDR()
-    return self:GetNetVar("dr", self.DR or 0)
+function ENT:GetTorsoBullet(value)
+    return self:GetNetVar("torsobullet", value)
 end
 
+function ENT:GetTorsoImpact(value)
+    return self:GetNetVar("torsoimpact", value)
+end
+
+function ENT:GetTorsoRupture(value)
+    return self:GetNetVar("torsorupture", value)
+end
+
+function ENT:GetWeaponSkill(value)
+    return self:GetNetVar("weaponskill", value)
+end
+
+function ENT:GetDodge(value)
+    return self:GetNetVar("dodge", value)
+end
+
+function ENT:GetWeaponModel()
+    return self:GetNetVar("weaponModel", false)
+end
 
 function ENT:InCombat()
     return self:GetNetVar("inFNFFCombat", false)
@@ -63,9 +82,8 @@ function ENT:IsTurn()
     return self:GetNetVar("isTurn", false)
 end
 
-function ENT:GetWeaponModel()
-    return self:GetNetVar("weaponModel", false)
-end
+
+
 
 -- We have to sterilize the table, since functions can't be set through networking.
 local function formatAction(tbl)
