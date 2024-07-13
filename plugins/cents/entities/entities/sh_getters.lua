@@ -30,44 +30,44 @@ function ENT:GetCombatHealthMax()
     return self:GetNetVar("maxhp", self.maxHP or 50)
 end
 
-function ENT:GetHeadBR(value)
-    return self:GetNetVar("headbr", value)
+function ENT:GetHeadBR()
+    return self:GetNetVar("headbr", 0 )
 end
 
-function ENT:GetHeadBullet(value)
-    return self:GetNetVar("headbullet", value)
+function ENT:GetHeadBullet()
+    return self:GetNetVar("headbullet", 0 )
 end
 
-function ENT:GetHeadImpact(value)
-    return self:GetNetVar("headimpact", value)
+function ENT:GetHeadImpact()
+    return self:GetNetVar("headimpact", 0)
 end
 
-function ENT:GetHeadRupture(value)
-    return self:GetNetVar("headrupture", value)
+function ENT:GetHeadRupture()
+    return self:GetNetVar("headrupture", 0)
 end
 
-function ENT:GetTorsoBR(value)
-    return self:GetNetVar("torsobr", value)
+function ENT:GetTorsoBR()
+    return self:GetNetVar("torsobr", 0)
 end
 
-function ENT:GetTorsoBullet(value)
-    return self:GetNetVar("torsobullet", value)
+function ENT:GetTorsoBullet()
+    return self:GetNetVar("torsobullet", 0)
 end
 
-function ENT:GetTorsoImpact(value)
-    return self:GetNetVar("torsoimpact", value)
+function ENT:GetTorsoImpact()
+    return self:GetNetVar("torsoimpact", 0)
 end
 
-function ENT:GetTorsoRupture(value)
-    return self:GetNetVar("torsorupture", value)
+function ENT:GetTorsoRupture()
+    return self:GetNetVar("torsorupture", 0)
 end
 
-function ENT:GetWeaponSkill(value)
-    return self:GetNetVar("weaponskill", value)
+function ENT:GetWeaponSkill()
+    return self:GetNetVar("weaponskill", 0)
 end
 
-function ENT:GetDodge(value)
-    return self:GetNetVar("dodge", value)
+function ENT:GetDodge()
+    return self:GetNetVar("dodge", 0)
 end
 
 function ENT:GetWeaponModel()
@@ -81,6 +81,22 @@ end
 function ENT:IsTurn()
     return self:GetNetVar("isTurn", false)
 end
+
+
+function ENT:IsTurn()
+    return self:GetNetVar("isTurn", false)
+end
+
+function ENT:GetChatter()
+    return self:GetNetVar("chatter")
+end 
+
+function ENT:PlayChatter()
+    return self:EmitSound(table.Random(self.chatter))
+end
+
+
+
 
 
 

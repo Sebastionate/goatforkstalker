@@ -221,3 +221,125 @@ PLUGIN.femalenameslast = {
     "Wonder Woman", "Lassie", "Prettyface", "Man Killer", "Maneater",
     "Tatt Babe", "Lassassin", "Babycakes", "Joan of Arc"
 }
+
+PLUGIN.banditnameslast = {"Thrash", "Scavenger", "Thief", "Vile", "Flayer", "Villain",
+"Bully", "Rubbish", "Scum", "Scumbag", "Filth", "Rotten",
+"Desperate", "Nasty", "Mean", "Heinous", "Hound", "Scalper",
+"Skullsmash", "Ripper", "Clot", "Thrasher", "Daredevil",
+"Squid", "Sleaze", "Poker", "Addict", "Meth", "Cigar",
+"Slayer", "Skid", "Smear", "Pain", "Ratbag", "Pig",
+"Avarice", "Mistake", "Roadrash", "Smasher", "Gasher",
+"Opportunist", "Ruse", "Snide", "Sly", "Faceoff",
+"Bloodshot", "Hallows", "Gallows", "Danger", "Rustbucket",
+"Artery", "Bruiser", "Basher", "Trainwreck", "Guts",
+"Violence", "Vicious", "Arrogance", "Blister", "Wart",
+"Sick", "Raider", "Carver", "Underdog", "Goon", "Ashtray",
+"Alcoholic", "Disease", "Plague", "Anthrax", "Cinder",
+"Stoker", "Guilty", "Stealer", "Badman", "Destruction",
+"Trapper", "Liar", "Limp", "Orifice", "Wound", "Devildust",
+"Vamp", "Blood", "Uneasy", "Deadswitch", "Redblade",
+"Dagger", "Blackheart", "Blackbeard", "Silvertongue",
+"Coppermouth", "Diamondeye", "Strange", "Hopeless",
+"Roadkill", "Slender", "Gawker", "Puke", "Putrid",
+"Banished", "Blackfire", "Killsalot", "Squeal", "Twistknife",
+"Vengeance", "Redwood", "Rash", "Rabies", "Trickster",
+"Eyegauge", "Stalk", "Deaddrop", "Pale", "Wrong", "Stupid",
+"Kneebone", "Shudder", "Faker", "Deadeye", "Slitter",
+"Sadistic", "Miserable", "Nimrod", "Pillager", "Plunder",
+"Convict", "Offender", "Tracks", "Dustbowl", "Graveyard",
+"Tombstone", "Freak", "Tamper", "Fraud", "Manic", "Desolate",
+"Forger", "Breaker", "Bossy", "Hostile", "Arsonist",
+"Atrocious", "Axe", "Barbarian", "Syndicate", "Butcher",
+"Brown Nose", "Cheat", "Choker", "Chopper", "Coffin", "Coma",
+"Comatose", "Conman", "Crazy", "Crooked", "Crowbar",
+"Cutter", "Deadbeat", "Gangster", "Thug", "Goblin", "Grinch",
+"Gouge", "Gremlin", "Grudge", "Guerilla", "Harsh", "Hook",
+"Joker", "Kamikaze", "Knuckles", "Lucky Bastard", "Maggots",
+"Maniac", "Moonshine", "Narc", "Necro", "Paranoid", "Pirate",
+"Prick", "Psycho", "Punk", "Raker", "Scoundrel", "Slasher",
+"Slime", "Snot", "Spike", "Strangler", "Toad", "Vandal",
+"Gangrene", "Germ", "Buster", "Outlaw", "Lawless",
+"Criminal", "Underworld", "Exploit", "Abuser", "Anarchy",
+"Bloodrain", "Illness", "Cough", "Grub", "Skillsplitter",
+"OG", "Rebel", "Extinction", "Purge", "Faceless", "Scream",
+"Gutter", "Drainpipe", "Scallywag", "Rotwood", "Poison",
+"Acidbath", "Traitor", "Betrayer", "Cottonmouth", "One-ear",
+"One-eye", "Hotrod", "Flea", "Tick", "Tripper", "Druggie",
+"Gross", "Unclean", "Stink", "Menace", "Trouble", "Forsworn",
+"Bentnose", "Crooked-eye", "Bloodbeard", "Vomit",
+"Roughneck", "Murk", "Anubis", "Bane", "Freakout",
+"Slippery", "Slug", "Decay", "Bandaid", "Bulldozer",
+"Deserter", "Executioner", "Gravemaker", "Gravedigger",
+"Hatchet", "Hitman", "Judge", "Mayhem", "Monster", "Outcast",
+"Savage", "Scythe", "Terminator", "Trasher", "Trigger",
+"Tyrant", "Undertaker", "The End", "Anguish", "Suffering",
+"Harrow", "Tragedy", "Torment", "Misery", "Affliction",
+"Rogue", "Shredder", "Jury", "Molten", "Leadhead", "Reaper",
+"Grim", "Grunge", "Grime", "Sabotage", "Mauler", "Chomp",
+"Deathroll", "Fury", "Hurt", "Agony", "Wraith", "Banshee",
+"Pentagram", "Insidious", "Inside-Out", "Diablo", "Lucifer",
+"Omen", "Saul", "Hacksaw", "Chainsaw", "Achilles",
+"Terrible", "Awful", "Scourge", "Blight", "Medusa",
+"Headshot", "Mangler", "Noose", "Splinter", "Fragger",
+"Blackmail", "Bribe", "Doubletap", "Entrapment", "Jailbreak",
+"Shank", "Shiv", "Bucktooth", "Nofear", "Regiment",
+"Seclude", "Infiltrate", "Net", "Drag", "Staller", "Excuse",
+"Elusive", "Eyeroll", "Banban", "Doom", "Dangle", "Jugular",
+"Juggernaut", "Cannibal", "Hannibal", "Bleach", "Toxin",
+"Harm", "Bad-day", "Monday", "Grey", "Blackhand", "Recluse",
+"Trapdoor", "Funnelweb", "Prion", "Deathjab", "Harlot",
+"Knockout", "Fear", "Sorrow", "Facemask", "Topple",
+"Papercut", "Hairless", "Hairy", "Loophole", "Curse",
+"Witch", "Spooker", "Prankster", "Dissect", "Dice",
+"Twinblade", "Bloodlust", "Terrorist", "Ghoul", "Gambino",
+"Blackjack", "Casino", "Roulette", "Draco", "Slither",
+"Husk", "Jeepers", "Creeper", "Lucky-shot", "Eight-ball",
+"Postal", "Half-hand", "Pinkie", "Thumbless", "Limbo",
+"Purgatory", "Rugged", "Loot", "Diehard", "Missing",
+"Kidnap", "Godfather", "Crabs", "Swordfish", "Boltcutter",
+"Lockpick", "Scatter", "Trip", "Commie", "Sickle",
+"Abortion", "Conflict", "Crosswire", "Barbed", "Razorwire",
+"Sockmouth", "Nethead", "Brainfry", "Tourniquet", "Tweezers",
+"Dropper", "Lopper", "Lips", "Cheekbone", "Dropjaw",
+"Deepfry", "Burp", "Fart", "Hag", "Haggler", "Harass",
+"Pressure", "Stigma", "Fluke", "Objection", "Tarmac",
+"Skinner", "Fane", "Collector", "Loanshark", "Cap'n",
+"Arsehat", "Bellows", "Shanty", "Barnacle", "Freeloader",
+"Hitch", "Snagged", "Snapper"}
+
+
+
+PLUGIN.LonerVoice1 = {}
+PLUGIN.LonerVoice2 = {}
+PLUGIN.LonerVoice3 = {}
+PLUGIN.BanditVoice1 = {}
+PLUGIN.BanditVoice2 = {}
+PLUGIN.BanditVoice3 = {}
+
+for i = 1, 31, 1 do 
+    PLUGIN.LonerVoice1[i] = "characters_voice/human/stalker_1/states/idle/idle_" .. i .. ".ogg"
+    PLUGIN.LonerVoice2[i] = "characters_voice/human/stalker_2/states/idle/idle_" .. i .. ".ogg"
+    PLUGIN.LonerVoice3[i] = "characters_voice/human/stalker_3/states/idle/idle_" .. i .. ".ogg"
+    PLUGIN.BanditVoice1[i] = "characters_voice/human/bandit_1/states/idle/idle_" .. i .. ".ogg"
+    PLUGIN.BanditVoice2[i] = "characters_voice/human/bandit_2/states/idle/idle_" .. i .. ".ogg"
+    PLUGIN.BanditVoice3[i] = "characters_voice/human/bandit_3/states/idle/idle_" .. i .. ".ogg"
+end 
+
+PLUGIN.LonerVoiceCombat1 = {}
+PLUGIN.LonerVoiceCombat2 = {}
+PLUGIN.LonerVoiceCombat3 = {}
+PLUGIN.BanditVoiceCombat1 = {}
+PLUGIN.BanditVoiceCombat2 = {}
+PLUGIN.BanditVoiceCombat3 = {}
+
+for i = 1, 19, 1 do 
+    PLUGIN.LonerVoiceCombat1[i] = "characters_voice/human/stalker_1/fight/attack/script_attack_" .. i .. ".ogg"
+    PLUGIN.LonerVoiceCombat2[i] = "characters_voice/human/stalker_2/fight/attack/script_attack_" .. i .. ".ogg"
+    PLUGIN.LonerVoiceCombat3[i] = "characters_voice/human/stalker_3/fight/attack/script_attack_" .. i .. ".ogg"
+    PLUGIN.BanditVoiceCombat1[i] = "characters_voice/human/bandit_1/fight/attack/script_attack_" .. i .. ".ogg"
+    PLUGIN.BanditVoiceCombat2[i] = "characters_voice/human/bandit_2/fight/attack/script_attack_" .. i .. ".ogg"
+    PLUGIN.BanditVoiceCombat3[i] = "characters_voice/human/bandit_3/fight/attack/script_attack_" .. i .. ".ogg"
+end 
+
+
+

@@ -2,23 +2,24 @@ local PLUGIN = PLUGIN
 
 ENT.Type = "nextbot"
 ENT.Base = "ix_combat_base"
-ENT.PrintName = "Loner Rookie"
-ENT.Category = "Helix - Combat Entities - Loner"
+ENT.PrintName = "Bandit Experienced"
+ENT.Category = "Helix - Combat Entities - Bandit"
 ENT.Spawnable = true
 ENT.AdminOnly = true
 
-ENT.name = "A Loner."
-ENT.description = "Lonely Lonely!"
+ENT.name = "A Bandit."
+ENT.description = "Cheeki Breeki, Stalker!"
 
 ENT.models = {
-    "models/nasca/stalker/male_anorak.mdl",
-    "models/player/stalker_lone/lone_novice/lone_novice.mdl",
-    "models/player/stalker_lone/lone_jacket/lone_jacket.mdl",
-    "models/nasca/stalker/female_anorak.mdl"
+    "models/player/stalker_bandit/bandit_gp5/bandit_gp5.mdl",
+    "models/nasca/stalker/male_eagle_bandit.mdl",
+    "models/silver/stalker/female_eagle_bandit.mdl",
+    "models/player/stalker_bandit/bandit_old/bandit_old.mdl",
+    "models/player/stalker_bandit/bandit_berill/bandit_berill.mdl"
 }
 
 
-ENT.skin = table.Random({0, 2, 3, 4, 5, 6}) 
+ENT.skin = 1
 ENT.head = table.Random({"0"})
 ENT.hood = table.Random({"0", "1"})
 ENT.vest = table.Random({"0", "1"})
@@ -43,23 +44,23 @@ local weapontypes = {
 }
 
 local smallarms = {
-    "models/tnb/weapons/w_makarov.mdl",
-    "models/tnb/weapons/w_tokarev.mdl",
-    "models/tnb/weapons/w_aps.mdl",
-    "models/tnb/weapons/w_38.mdl",
-    "models/tnb/weapons/w_grach.mdl",
-    "models/tnb/weapons/w_glock.mdl",
-    "models/tnb/weapons/w_m9.mdl",
     "models/tnb/weapons/w_mac10.mdl",
     "models/tnb/weapons/w_1911.mdl",
-    "models/tnb/weapons/w_ots.mdl",
-    "models/tnb/weapons/w_skorpion.mdl"
+    "models/tnb/weapons/w_p99.mdl",
+    "models/tnb/weapons/w_ppk.mdl"
+
 }
 
 local riflegrip = {
-    "models/tnb/weapons/w_sawnoff.mdl",
-    "models/tnb/weapons/w_bizon.mdl",
-    "models/tnb/weapons/w_ppsh.mdl",
+    "models/tnb/weapons/w_m14.mdl",
+    "models/tnb/weapons/w_mac10.mdl",
+    "models/tnb/weapons/w_ak74u.mdl",
+    "models/tnb/weapons/w_akm.mdl",
+    "models/tnb/weapons/w_ak74.mdl",
+    "models/tnb/weapons/w_sks.mdl",
+    "models/tnb/weapons/w_ithaca.mdl",
+    "models/tnb/weapons/w_shorty.mdl",
+    "models/tnb/weapons/w_mp5.mdl",
 }
 
 
@@ -82,11 +83,11 @@ if (SERVER) then
         self:SetTorsoRupture(0)
 
         local firstname = table.Random(PLUGIN.firstnamesnormal)
-        local lastname = table.Random(PLUGIN.lastnamesnormal)
+        local lastname = table.Random(PLUGIN.banditnameslast)
 
         if string.find(self:GetModel(), "female") then firstname = table.Random(PLUGIN.femalenamesfirst) lastname = table.Random(PLUGIN.femalenameslast) end 
 
-        self:SetDescription("Rookie")
+        self:SetDescription("Professional")
 
         self:SetCEntName(firstname .. " " .. lastname)
 

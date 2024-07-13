@@ -517,6 +517,125 @@ ix.command.Add("CEntattack", {
 
 })
 
+ix.command.Add("CEntMakeSound", {
+
+	adminOnly = true,
+
+	syntax = "<string bandit>", "<int volume>",
+
+	OnRun = function(self, client, arguments)
+
+		local entity = client:GetEyeTrace().Entity
+
+		if (IsValid(entity) and entity.combatEntity) then
+
+			entity:EmitSound(arguments[1], arguments[2])
+
+		else
+
+			client:Notify("You must be looking at a combat entity.")
+
+		end
+
+	end
+
+})
+
+ix.command.Add("CEntChatter", {
+
+	adminOnly = true,
+
+
+	OnRun = function(self, client)
+
+		local entity = client:GetEyeTrace().Entity
+
+		if (IsValid(entity) and entity.combatEntity) then
+
+			local classname = entity:GetClass()
+	
+
+			entity:EmitSound(PLUGIN:GetChatterVoiceline(entity))
+
+		else
+
+			client:Notify("You must be looking at a combat entity.")
+
+		end
+
+	end
+
+})
+
+ix.command.Add("CEntCombatBark", {
+
+	adminOnly = true,
+
+
+	OnRun = function(self, client)
+
+		local entity = client:GetEyeTrace().Entity
+
+		if (IsValid(entity) and entity.combatEntity) then
+
+			local classname = entity:GetClass()
+	
+
+			entity:EmitSound(PLUGIN:GetCombatVoiceline(entity))
+
+		else
+
+			client:Notify("You must be looking at a combat entity.")
+
+		end
+
+	end
+
+})
+
+function PLUGIN:GetChatterVoiceline(entity)
+
+	local classname = entity:GetClass()
+	local voiceline
+
+	if string.find(classname, "loner_") then 
+		if entity.voicevariant == 1 then voiceline = table.Random(PLUGIN.LonerVoice1) end 
+		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.LonerVoice2) end 
+		if entity.voicevariant == 3 then voiceline = table.Random(PLUGIN.LonerVoice3) end 
+	end 
+
+	if string.find(classname, "bandit_") then 
+		if entity.voicevariant == 1 then voiceline = table.Random(PLUGIN.BanditVoice1) end 
+		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.BanditVoice2) end 
+		if entity.voicevariant == 3 then voiceline = table.Random(PLUGIN.BanditVoice3) end 
+	end 
+
+	return voiceline 
+
+end 
+
+function PLUGIN:GetCombatVoiceline(entity)
+
+	local classname = entity:GetClass()
+	local voiceline
+
+	if string.find(classname, "loner_") then 
+		if entity.voicevariant == 1 then voiceline = table.Random(PLUGIN.LonerVoiceCombat1) end 
+		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.LonerVoiceCombat2) end 
+		if entity.voicevariant == 3 then voiceline = table.Random(PLUGIN.LonerVoiceCombat3) end 
+	end 
+
+	
+	if string.find(classname, "bandit_") then 
+		if entity.voicevariant == 1 then voiceline = table.Random(PLUGIN.BanditVoiceCombat1) end 
+		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.BanditVoiceCombat2) end 
+		if entity.voicevariant == 3 then voiceline = table.Random(PLUGIN.BanditVoiceCombat3) end 
+	end 
+
+	return voiceline 
+
+end 
+
 ix.command.Add("CEntaim", {
 
 	adminOnly = true,
@@ -730,7 +849,7 @@ ix.command.Add("CEntdr", {
 })
 
 ix.command.Add("CentDamage", {
-	description = "Inflict non-bullet damage on a player.",
+	description = "Inflict non-bullet damage on a CEnt.",
 	adminOnly = true,
 	arguments = {
 		ix.type.string,
@@ -792,6 +911,68 @@ ix.command.Add("CentDamage", {
     target:SetCombatHealth(target:GetCombatHealth() - damage)
 	if target:GetCombatHealth() <= 0 then target:Die() end
 
+
+	end
+})
+
+ix.command.Add("CentDamageBullet", {
+	description = "Inflict bullet damage on a CEnt.",
+	adminOnly = true,
+	arguments = {
+    ix.type.number,
+    ix.type.number,
+    ix.type.number,
+    bit.bor(ix.type.bool, ix.type.optional)
+	},
+	OnRun = function(self, client, br, pierce, bluntforce, headshot)
+
+	local entity = client:GetEyeTrace().Entity
+	if not (IsValid(entity) and entity.combatEntity) then return "You need to be looking at a CEnt." end
+	local target = entity 
+
+    local area 
+	local playerbr
+	local bulletresist
+	local bluntresist
+
+	
+    if headshot then area = "head" else area = "body" end 
+
+	if area == "head" then 
+		playerbr = target:GetHeadBR() 
+		bulletresist = target:GetHeadBullet() / 100
+		bluntresist = target:GetHeadImpact() / 100
+	else 
+		playerbr = target:GetTorsoBR()
+		bulletresist = target:GetTorsoBullet() / 100
+		bluntresist = target:GetTorsoImpact() / 100
+	end 
+
+	playerbr = tonumber(playerbr)
+
+    if br > playerbr then 
+
+      local bulletdamage = math.floor(pierce * (1 - bulletresist))
+      local bluntdamage = math.floor(bluntforce * (1 - bluntresist))
+      client:Notify(target:Name() .. " takes " .. bulletdamage .. " ballistic damage and " .. bluntdamage .. " blunt force trauma damage!")
+
+
+	  target:SetCombatHealth(target:GetCombatHealth() - bulletdamage)
+	  target:SetCombatHealth(target:GetCombatHealth() - bluntdamage)
+	  if target:GetCombatHealth() <= 0 then target:Die() end
+
+    else
+
+
+      local bluntdamage = math.floor(bluntforce * (1 - bluntresist))
+      client:Notify(target:Name() .. " takes " .. bluntdamage .. " blunt force trauma damage!")
+
+
+	  target:SetCombatHealth(target:GetCombatHealth() - bluntdamage)
+	  if target:GetCombatHealth() <= 0 then target:Die() end
+
+    end 
+		
 
 	end
 })

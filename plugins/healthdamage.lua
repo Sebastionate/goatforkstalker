@@ -158,6 +158,9 @@ ix.command.Add("DamageBullet", {
     local area 
     if headshot then area = "head" else area = "body" end 
 
+    playerbr = tonumber(playerbr)
+
+    client:Notify(playerbr)
 
     if br > playerbr then 
 

@@ -74,3 +74,7 @@ function ENT:SetCEntBodyGroups(bodygroups)
     return self:SetBodyGroups(bodygroups)
 end
 
+function ENT:SetChatter(chatter)
+    return self:SetNetVar("chatter", chatter)
+end 
+
