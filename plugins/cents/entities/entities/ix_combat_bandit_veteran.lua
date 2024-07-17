@@ -2,7 +2,7 @@ local PLUGIN = PLUGIN
 
 ENT.Type = "nextbot"
 ENT.Base = "ix_combat_base"
-ENT.PrintName = "Bandit Professional"
+ENT.PrintName = "Bandit Veteran"
 ENT.Category = "Helix - Combat Entities - Bandit"
 ENT.Spawnable = true
 ENT.AdminOnly = true
@@ -15,7 +15,8 @@ ENT.models = {
     "models/nasca/stalker/male_eagle_bandit.mdl",
     "models/silver/stalker/female_eagle_bandit.mdl",
     "models/player/stalker_bandit/bandit_old/bandit_old.mdl",
-    "models/player/stalker_bandit/bandit_berill/bandit_berill.mdl"
+    "models/player/stalker_bandit/bandit_berill/bandit_berill.mdl",
+    "models/player/stalker_bandit/bandit_seva/bandit_seva.mdl"
 }
 
 
@@ -44,23 +45,22 @@ local weapontypes = {
 }
 
 local smallarms = {
-    "models/tnb/weapons/w_mac10.mdl",
-    "models/tnb/weapons/w_1911.mdl",
-    "models/tnb/weapons/w_p99.mdl",
-    "models/tnb/weapons/w_ppk.mdl"
-
+    "models/tnb/weapons/w_deserteagle.mdl",
+    "models/tnb/weapons/w_magnum.mdl",
 }
 
 local riflegrip = {
     "models/tnb/weapons/w_m14.mdl",
-    "models/tnb/weapons/w_mac10.mdl",
-    "models/tnb/weapons/w_ak74u.mdl",
+    "models/tnb/weapons/w_ump.mdl",
+    "models/tnb/weapons/w_m16.mdl",
     "models/tnb/weapons/w_akm.mdl",
     "models/tnb/weapons/w_ak74.mdl",
     "models/tnb/weapons/w_sks.mdl",
     "models/tnb/weapons/w_ithaca.mdl",
-    "models/tnb/weapons/w_shorty.mdl",
-    "models/tnb/weapons/w_mp5.mdl",
+    "models/tnb/weapons/w_mossberg.mdl",
+    "models/tnb/weapons/w_mosin.mdl",
+    "models/tnb/weapons/w_ak107.mdl",
+    
 }
 
 
@@ -87,7 +87,7 @@ if (SERVER) then
 
         if string.find(self:GetModel(), "female") then firstname = table.Random(PLUGIN.femalenamesfirst) lastname = table.Random(PLUGIN.femalenameslast) end 
 
-        self:SetDescription("Professional")
+        self:SetDescription("Veteran")
 
         self:SetCEntName(firstname .. " " .. lastname)
 

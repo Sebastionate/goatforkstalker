@@ -598,7 +598,7 @@ function PLUGIN:GetChatterVoiceline(entity)
 	local classname = entity:GetClass()
 	local voiceline
 
-	if string.find(classname, "loner_") then 
+	if string.find(classname, "loner_") or string.find(classname, "eco_") then 
 		if entity.voicevariant == 1 then voiceline = table.Random(PLUGIN.LonerVoice1) end 
 		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.LonerVoice2) end 
 		if entity.voicevariant == 3 then voiceline = table.Random(PLUGIN.LonerVoice3) end 
@@ -610,6 +610,28 @@ function PLUGIN:GetChatterVoiceline(entity)
 		if entity.voicevariant == 3 then voiceline = table.Random(PLUGIN.BanditVoice3) end 
 	end 
 
+	if string.find(classname, "duty_") then 
+		if entity.voicevariant == 1 then voiceline = table.Random(PLUGIN.DutyVoice1) end 
+		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.DutyVoice2) end 
+		if entity.voicevariant == 3 then voiceline = table.Random(PLUGIN.DutytVoice3) end 
+	end 
+
+	if string.find(classname, "army_") then 
+		if entity.voicevariant == 1 then voiceline = table.Random(PLUGIN.ArmyVoice1) end 
+		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.ArmyVoice2) end 
+	end 
+
+	if string.find(classname, "freedom_") then 
+		if entity.voicevariant == 1 then voiceline = table.Random(PLUGIN.FreedomVoice1) end 
+		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.FreedomVoice2) end 
+	end 
+
+	if string.find(classname, "merc_") then 
+		if entity.voicevariant == 1 then voiceline = table.Random(PLUGIN.MercVoice1) end 
+		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.MercVoice2) end 
+		if entity.voicevariant == 3 then voiceline = table.Random(PLUGIN.MercVoice2) end 
+	end 
+
 	return voiceline 
 
 end 
@@ -619,7 +641,7 @@ function PLUGIN:GetCombatVoiceline(entity)
 	local classname = entity:GetClass()
 	local voiceline
 
-	if string.find(classname, "loner_") then 
+	if string.find(classname, "loner_") or string.find(classname, "eco_") then 
 		if entity.voicevariant == 1 then voiceline = table.Random(PLUGIN.LonerVoiceCombat1) end 
 		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.LonerVoiceCombat2) end 
 		if entity.voicevariant == 3 then voiceline = table.Random(PLUGIN.LonerVoiceCombat3) end 
@@ -631,6 +653,29 @@ function PLUGIN:GetCombatVoiceline(entity)
 		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.BanditVoiceCombat2) end 
 		if entity.voicevariant == 3 then voiceline = table.Random(PLUGIN.BanditVoiceCombat3) end 
 	end 
+
+	if string.find(classname, "duty_") then 
+		if entity.voicevariant == 1 then voiceline = table.Random(PLUGIN.DutyVoiceCombat1) end 
+		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.DutyVoiceCombat2) end 
+		if entity.voicevariant == 3 then voiceline = table.Random(PLUGIN.DutytVoiceCombat3) end 
+	end 
+
+	if string.find(classname, "army_") then 
+		if entity.voicevariant == 1 then voiceline = table.Random(PLUGIN.ArmyVoiceCombat1) end 
+		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.ArmyVoiceCombat2) end 
+	end 
+
+	if string.find(classname, "freedom_") then 
+		if entity.voicevariant == 1 then voiceline = table.Random(PLUGIN.FreedomVoiceCombat1) end 
+		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.FreedomVoiceCombat2) end 
+	end
+
+	if string.find(classname, "merc_") then 
+		if entity.voicevariant == 1 then voiceline = table.Random(PLUGIN.MercVoiceCombat1) end 
+		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.MercVoiceCombat2) end 
+		if entity.voicevariant == 3 then voiceline = table.Random(PLUGIN.MercVoiceCombat3) end 
+	end 
+
 
 	return voiceline 
 
@@ -785,6 +830,23 @@ ix.command.Add("CEntdodge", {
 
 			entity:SetDodge(arguments[1])
 			client:Notify("Set Dodge of CEnt " .. entity:Name() .. " to " .. entity:GetDodge())
+		else
+			client:Notify("You must be looking at a combat entity.")
+
+		end
+	end
+})
+
+ix.command.Add("CEntWeaponBodyGroup", {
+	adminOnly = true,
+	syntax = "<int group>", "<int index>",
+	OnRun = function(self, client, arguments)
+		local entity = client:GetEyeTrace().Entity
+		if (IsValid(entity) and entity.combatEntity) then
+
+			local weapon = entity.weapon
+
+			weapon:SetBodygroup(arguments[1], arguments[2])
 		else
 			client:Notify("You must be looking at a combat entity.")
 

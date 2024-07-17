@@ -2,7 +2,7 @@ local PLUGIN = PLUGIN
 
 ENT.Type = "nextbot"
 ENT.Base = "ix_combat_base"
-ENT.PrintName = "Bandit Professional"
+ENT.PrintName = "Bandit Expert"
 ENT.Category = "Helix - Combat Entities - Bandit"
 ENT.Spawnable = true
 ENT.AdminOnly = true
@@ -11,11 +11,9 @@ ENT.name = "A Bandit."
 ENT.description = "Cheeki Breeki, Stalker!"
 
 ENT.models = {
-    "models/player/stalker_bandit/bandit_gp5/bandit_gp5.mdl",
-    "models/nasca/stalker/male_eagle_bandit.mdl",
-    "models/silver/stalker/female_eagle_bandit.mdl",
-    "models/player/stalker_bandit/bandit_old/bandit_old.mdl",
-    "models/player/stalker_bandit/bandit_berill/bandit_berill.mdl"
+    "models/nasca/stalker/male_exo_bandit.mdl",
+    "models/player/stalker_bandit/bandit_seva/bandit_seva.mdl",
+    "models/player/stalker_bandit/bandit_metro/bandit_metro.mdl",
 }
 
 
@@ -38,29 +36,18 @@ function ENT:OnTakeDamage(dmgInfo)
     return 0
 end
 
-local weapontypes = {
-    "smallarms",
-    "riflegrip"
-}
-
-local smallarms = {
-    "models/tnb/weapons/w_mac10.mdl",
-    "models/tnb/weapons/w_1911.mdl",
-    "models/tnb/weapons/w_p99.mdl",
-    "models/tnb/weapons/w_ppk.mdl"
-
-}
-
 local riflegrip = {
-    "models/tnb/weapons/w_m14.mdl",
-    "models/tnb/weapons/w_mac10.mdl",
-    "models/tnb/weapons/w_ak74u.mdl",
+    "models/tnb/weapons/w_fal.mdl",
+    "models/tnb/weapons/w_ump.mdl",
+    "models/tnb/weapons/w_famas.mdl",
     "models/tnb/weapons/w_akm.mdl",
     "models/tnb/weapons/w_ak74.mdl",
-    "models/tnb/weapons/w_sks.mdl",
-    "models/tnb/weapons/w_ithaca.mdl",
-    "models/tnb/weapons/w_shorty.mdl",
-    "models/tnb/weapons/w_mp5.mdl",
+    "models/tnb/weapons/w_galil.mdl",
+    "models/tnb/weapons/w_dp27.mdl",
+    "models/tnb/weapons/w_saiga12.mdl",
+    "models/tnb/weapons/w_svd.mdl",
+    "models/tnb/weapons/w_vss.mdl",
+    
 }
 
 
@@ -87,29 +74,17 @@ if (SERVER) then
 
         if string.find(self:GetModel(), "female") then firstname = table.Random(PLUGIN.femalenamesfirst) lastname = table.Random(PLUGIN.femalenameslast) end 
 
-        self:SetDescription("Professional")
+        self:SetDescription("Expert")
 
         self:SetCEntName(firstname .. " " .. lastname)
 
-        local weapontype = table.Random(weapontypes)
-        if string.find(weapontype, "smallarms") then
+        local chosenweapon = table.Random(riflegrip)
+        self:SetCEntWeaponModel(chosenweapon)
 
-            self.IdleAnim = "idle_all_0" .. math.random(1,2)
-            self.AttackAnim = "idle_revolver"
-            self.RunAnim = "run_all_0" .. math.random(1, 2)
-            self.WalkAnim = "walk_all"
 
-            local chosenweapon = table.Random(smallarms)
-            self:SetCEntWeaponModel(chosenweapon)
-        end
-
-        if string.find(weapontype, "riflegrip") then
-            local chosenweapon = table.Random(riflegrip)
-            self:SetCEntWeaponModel(chosenweapon)
-        end
 
         self:SetCEntSkin(self.skin)
-        self:SetCEntBodyGroups(self.head .. self.hood .. self.vest)
+        if string.find(self:GetModel(), "exo") then self:SetCEntBodyGroups("1") end 
    
     end
 end
