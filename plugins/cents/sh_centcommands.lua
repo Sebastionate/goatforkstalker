@@ -632,7 +632,13 @@ function PLUGIN:GetChatterVoiceline(entity)
 		if entity.voicevariant == 3 then voiceline = table.Random(PLUGIN.MercVoice2) end 
 	end 
 
-	return voiceline 
+	
+	if string.find(classname, "mono_") then 
+		voiceline = table.Random(PLUGIN.MonoVoice1)
+		return voiceline 
+	end 
+
+
 
 end 
 
@@ -675,6 +681,12 @@ function PLUGIN:GetCombatVoiceline(entity)
 		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.MercVoiceCombat2) end 
 		if entity.voicevariant == 3 then voiceline = table.Random(PLUGIN.MercVoiceCombat3) end 
 	end 
+	
+	if string.find(classname, "mono_") then 
+		voiceline = table.Random(PLUGIN.MonoVoiceCombat1)
+		return voiceline 
+	end 
+
 
 
 	return voiceline 

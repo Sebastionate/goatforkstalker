@@ -593,6 +593,8 @@ PLUGIN.MercVoice1 = {}
 PLUGIN.MercVoice2 = {}
 PLUGIN.MercVoice3 = {}
 
+PLUGIN.MonoVoice1 = {}
+
 for i = 1, 31, 1 do
     PLUGIN.LonerVoice1[i] =
         "characters_voice/human/stalker_1/states/idle/idle_" .. i .. ".ogg"
@@ -632,6 +634,9 @@ for i = 1, 31, 1 do
     PLUGIN.MercVoice3[i] =
         "characters_voice/human/killer_3/states/idle/idle_" .. i .. ".ogg"
 
+    PLUGIN.MonoVoice1[i] =
+    "characters_voice/human/monolith_1/states/idle/idle_" .. i .. ".ogg"
+
 end
 
 PLUGIN.LonerVoiceCombat1 = {}
@@ -650,6 +655,7 @@ PLUGIN.FreedomVoiceCombat2 = {}
 PLUGIN.MercVoiceCombat1 = {}
 PLUGIN.MercVoiceCombat2 = {}
 PLUGIN.MercVoiceCombat3 = {}
+PLUGIN.MonoVoiceCombat1 = {}
 
 for i = 1, 19, 1 do
     PLUGIN.LonerVoiceCombat1[i] =
@@ -705,5 +711,9 @@ for i = 1, 19, 1 do
     PLUGIN.MercVoiceCombat3[i] =
         "characters_voice/human/killer_3/fight/attack/script_attack_" .. i ..
             ".ogg"
+
+    PLUGIN.MonoVoiceCombat1[i] =
+    "characters_voice/human/monolith_1/fight/attack/script_attack_" .. i ..
+        ".ogg"
 end
 

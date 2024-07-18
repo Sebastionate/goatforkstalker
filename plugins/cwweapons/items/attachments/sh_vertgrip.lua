@@ -9,6 +9,7 @@ ITEM.slot = 5
 ITEM.isAttachment = true
 ITEM.attSearch = { "kk_ins2_vertgrip"}
 ITEM.weight = 0.068
+ITEM.isGrip = true 
 ITEM.upgradeIcon = Material("materials/vgui/ui/stalker/weaponupgrades/grip.png")
   
 

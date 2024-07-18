@@ -19,7 +19,7 @@ ix.command.Add( "Movement", {
        
             client:Notify("You've moved " .. distance .. " Meters.")
             char:SetVar("isMoving", nil)
-            ix.log.Add(client, "moveEnd", distance, apcost)
+            ix.log.Add(client, "moveEnd", distance)
 
 
         else 
@@ -66,7 +66,7 @@ ix.command.Add( "rangefinder", {
         end 
 
         str = str .. "\nRange: " .. range
-        str = str .. "\nMovement Cost: " .. apcost
+
         
         return str
           
@@ -81,8 +81,8 @@ if (SERVER) then
         return string.format("%s has begun moving.", client:Name())
     end)
 
-    ix.log.AddType("moveEnd", function(client, distance, apcost)
-        return string.format("%s has finished moving. Distance: %sm. AP Cost: %s.", client:Name(), distance, apcost)
+    ix.log.AddType("moveEnd", function(client, distance)
+        return string.format("%s has finished moving. Distance: %sm.", client:Name(), distance)
     end)
 end
 

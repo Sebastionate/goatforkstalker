@@ -1,0 +1,9 @@
+ITEM.name = "9x21mm Zone-Loaded"
+ITEM.model = "models/kek1ch/ammo_9x18_fmj.mdl"
+ITEM.ammo = "9x21MM -ZL-" // type of the ammo
+ITEM.ammoAmount = 30 // amount of the ammo
+ITEM.description= "A box that contains %s rounds of 9x21mm ammo. "
+ITEM.longdesc = "The 9×21mm Gyurza round is a Russian handgun round designed to defeat body armor that was developed by TsNIITochMash for its SR-1 Vektor semi-automatic pistol and SR-2 Veresk submachine gun. These were made in the Zone under slightly less ideal conditions."
+ITEM.flag = "A"
+ITEM.weight = 0.2
+ITEM.isAmmo = true

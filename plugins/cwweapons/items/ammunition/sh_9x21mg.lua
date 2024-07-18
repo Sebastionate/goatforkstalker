@@ -1,4 +1,4 @@
-ITEM.name = "9x21mm Match Grade"
+ITEM.name = "9x21mm Zone-Loaded"
 ITEM.model = "models/kek1ch/ammo_9x18_fmj.mdl"
 ITEM.ammo = "9x21MM -MG-" // type of the ammo
 ITEM.ammoAmount = 30 // amount of the ammo

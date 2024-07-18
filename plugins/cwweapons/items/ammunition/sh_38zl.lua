@@ -1,0 +1,12 @@
+ITEM.name = ".38 Special Zone-Loaded"
+ITEM.model = "models/kek1ch/ammo_9x18_fmj.mdl"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.ammoAmount = 30
+ITEM.ammo = ".38 Special -ZL-" // type of the ammo
+ITEM.description = "A box that contains .38 Special. These were made in the Zone under slightly less ideal conditions."
+ITEM.category = "Ammunition"
+ITEM.price = 450
+ITEM.flag = "A"
+ITEM.weight = 0.2
+ITEM.isAmmo = true

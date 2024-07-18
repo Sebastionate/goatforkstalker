@@ -1,0 +1,12 @@
+ITEM.name = ".30 Carbine Zone-Loaded"
+ITEM.model = "models/kek1ch/ammo_86x70_fmj.mdl"
+ITEM.ammo = ".30 Carbine -ZL-" // type of the ammo
+ITEM.ammoAmount = 20 // amount of the ammo
+ITEM.description= "A box that contains %s rounds of .30 Carbine ammo."
+ITEM.longdesc = "The .30 Carbine is a rimless carbine/rifle cartridge used in the M1 carbine introduced in the 1940s. It is a light rifle rounddesigned to be fired from the M1 carbine's 18-inch barrel. These were made in the Zone under slightly less ideal conditions."
+ITEM.flag = "A"
+ITEM.price = 900
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 0.5
+ITEM.isAmmo = true

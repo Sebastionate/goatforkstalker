@@ -36,7 +36,7 @@ ix.command.Add("RollshootDetails", {
 } )
 
 ix.chat.Register("rollshoot", {
-    format = "** %s fires their %s (%s/%s) %s: %s at %s distance target %s",
+    format = "** %s fires their %s (%s/%s) %s: %s at %s distance target %s %s",
     color = Color(155, 111, 176),
     CanHear = ix.config.Get("chatRange", 280) * 2,
     deadCanChat = true,
@@ -48,16 +48,19 @@ ix.chat.Register("rollshoot", {
 		local total = data.total
 		local range = data.range
 		local crit = data.crit
+		local target = data.target
 
+		if not target then target = "" end 
         local translated = L2(self.uniqueID.."Format", speaker:Name(), text)
 
-        chat.AddText(self.color, translated and "** "..translated or string.format(self.format,speaker:Name(), weaponname, clip, capacity, specialammo, total, range, crit))
+        chat.AddText(self.color, translated and "** "..translated or string.format(self.format,speaker:Name(), weaponname, clip, capacity, specialammo, total, range, crit, target))
     end
 })
 
 if (SERVER) then
-    ix.log.AddType("rollShoot", function(client, weaponname, clip, capacity, specialammo, total, range, crit)
-        return string.format("%s fires their %s (%s/%s) %s: %s at %s distance target %s", client:Name(), weaponname, clip, capacity, specialammo, total, range, crit)
+    ix.log.AddType("rollShoot", function(client, weaponname, clip, capacity, specialammo, total, range, crit, target)
+		if not target then target = "" end 
+        return string.format("%s fires their %s (%s/%s) %s: %s at %s distance target %s %s", client:Name(), weaponname, clip, capacity, specialammo, total, range, crit, target)
     end)
 end
 
@@ -99,13 +102,15 @@ function PLUGIN:WeaponFired(entity)
 	
 
 	local scope
+	local grip
 	local atts = weaponItem:GetData("attachments")
 	if atts then
 		for k,v in pairs(atts) do
 			local attItem = ix.item.list[v[1]]
-			if attItem.scopetype == "short" then scope = "short"
-			elseif attItem.scopetype == "medium" then scope = "medium"
+			if attItem.scopetype == "short" then scope = "short" 
+			elseif attItem.scopetype == "medium" then scope = "medium" 
 			elseif attItem.scopetype == "long" then scope = "long"
+			elseif attItem.isGrip then grip = true
 			end 
 		end
 	end
@@ -125,11 +130,15 @@ function PLUGIN:WeaponFired(entity)
 	local ammobonus = 0
 	local specialammo = ""
 	if string.find(ammotype, "-MG-") then ammobonus = 3 specialammo = "using Match Ammo" end
+	if string.find(ammotype, "-ZL-") then ammobonus = -1 specialammo = "using Zone-Loaded Ammo" end
 
 
 	local recoildebuff = 0
 	if (weaponItem.recoil) then 
-		recoildebuff = weaponItem.recoil * entity:GetData("shotsfired", 0)
+		recoil = weaponItem.recoil
+
+		if grip then recoil = recoil + 1 end
+		recoildebuff = recoil * entity:GetData("shotsfired", 0)
 	end 
 
 
@@ -146,6 +155,15 @@ function PLUGIN:WeaponFired(entity)
 	local shotsleft = swep:Clip1() - 1
 	local capacity = swep.Primary["ClipSize"]
 
+	local target 
+
+	local shootingCent = entity:GetEyeTrace().Entity
+
+	
+	if IsValid(shootingCent) and shootingCent.combatEntity then 
+		target = shootingCent:Name()
+	end 
+
 	
 
 	ix.chat.Send(entity, "rollshoot", tostring(value), nil, nil, {
@@ -155,10 +173,11 @@ function PLUGIN:WeaponFired(entity)
 		specialammo = specialammo,
 		total = totalamount,
 		range = range,
-		crit = critical
+		crit = critical,
+		target = target
 
 	})
-	ix.log.Add(entity, "rollShoot", weaponItem:GetName(), shotsleft, capacity, specialammo, totalamount, range, critical)
+	ix.log.Add(entity, "rollShoot", weaponItem:GetName(), shotsleft, capacity, specialammo, totalamount, range, critical, target)
 
 
 	
