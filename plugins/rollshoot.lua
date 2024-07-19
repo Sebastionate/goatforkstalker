@@ -130,7 +130,9 @@ function PLUGIN:WeaponFired(entity)
 	local ammobonus = 0
 	local specialammo = ""
 	if string.find(ammotype, "-MG-") then ammobonus = 3 specialammo = "using Match Ammo" end
-	if string.find(ammotype, "-ZL-") then ammobonus = -1 specialammo = "using Zone-Loaded Ammo" end
+	if string.find(ammotype, "-ZL-") then ammobonus = -2 specialammo = "using Zone-Loaded Ammo" end
+	if string.find(ammotype, "-AP-") then ammobonus = 0 specialammo = "using Armor Piercing Ammo" end
+	if string.find(ammotype, "-HP-") then ammobonus = 0 specialammo = "using Hollow Point Ammo" end
 
 
 	local recoildebuff = 0

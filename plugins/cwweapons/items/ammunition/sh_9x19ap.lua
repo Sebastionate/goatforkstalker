@@ -1,4 +1,4 @@
-ITEM.name = "9x19mm Armor Piercing"
+ITEM.name = "9x19mm Armor-Piercing"
 ITEM.model = "models/kek1ch/ammo_9x19_fmj.mdl"
 ITEM.ammo = "9x19MM -AP-" // type of the ammo
 ITEM.ammoAmount = 20 // amount of the ammo
