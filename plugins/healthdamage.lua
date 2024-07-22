@@ -106,11 +106,29 @@ ix.command.Add("Damage", {
     damage = damage * (1 - resistance)
     damage = math.floor(damage)
 
-    target:GetPlayer():Notify("You take " .. damage .. " damage!")
+    
 
     local armordamageamount = math.floor(damage / 10)
 
     target:DamageArmorScale(armordamageamount, headonly)
+
+    if target:HasTrait("injury_head2") and damagetype == "Psi" then 
+      damage = damage + math.floor(damage * 0.20)
+      target:GetPlayer():Notify("Your existing head injury makes you take extra Psi damage.")
+    end 
+
+    if area == "head" and target:HasTrait("injury_head1") then 
+      damage = damage + math.floor(damage * 0.15)
+      target:GetPlayer():Notify("Your existing head injury made you take more damage.")
+    end 
+
+    if area == "body" and target:HasTrait("injury_torso1") then 
+      damage = damage + math.floor(damage * 0.15)
+      target:GetPlayer():Notify("Your existing torso injury made you take more damage.")
+    end 
+
+    target:GetPlayer():Notify("You take " .. damage .. " damage!")
+
     target:AdjustHealth("hurt", damage)
 
 
@@ -122,6 +140,22 @@ ix.command.Add("Damage", {
 		
 	end
 })
+
+ix.command.Add("DamageDirect", {
+	description = "Inflict direct damage on a player that bypasses all resistances or weaknesses.",
+	adminOnly = true,
+	arguments = {
+		ix.type.character,
+    ix.type.number,
+	},
+	OnRun = function(self, client, target, damage)
+
+    target:AdjustHealth("hurt", damage)
+    client:Notify("You inflict " .. damage .. " damage on " .. target:GetName() .. ".")
+    target:GetPlayer():Notify("You take " .. damage .. " damage!")	
+	end
+})
+
 
 ix.command.Add("DamageBullet", {
 	description = "Inflict bullet damage on a player.",
@@ -181,6 +215,18 @@ ix.command.Add("DamageBullet", {
 
       target:DamageArmorScale(armordamageamount, headshot)
 
+      if area == "head" and target:HasTrait("injury_head1") then 
+        bulletdamage = bulletdamage + math.floor(bulletdamage * 0.15)
+        bluntdamage = bluntdamage + math.floor(bluntdamage * 0.15)
+        player:Notify("Your existing head injury made you take more damage.")
+      end 
+
+      if area == "body" and target:HasTrait("injury_torso1") then 
+        bulletdamage = bulletdamage + math.floor(bulletdamage * 0.15)
+        bluntdamage = bluntdamage + math.floor(bluntdamage * 0.15)
+        player:Notify("Your existing torso injury made you take more damage.")
+      end 
+
       target:AdjustHealth("hurt", bluntdamage + bulletdamage)
       target:AddBleedStacks(1)
 
@@ -195,6 +241,16 @@ ix.command.Add("DamageBullet", {
       player:Notify("You take " .. bluntdamage .. " blunt force trauma damage!")
 
       local armordamageamount = math.floor(bluntdamage / 10)
+
+      if area == "head" and target:HasTrait("injury_head1") then 
+        bluntdamage = bluntdamage + math.floor(bluntdamage * 0.15)
+        player:Notify("Your existing head injury made you take more damage.")
+      end 
+
+      if area == "body" and target:HasTrait("injury_torso1") then 
+        bluntdamage = bluntdamage + math.floor(bluntdamage * 0.15)
+        player:Notify("Your existing torso injury made you take more damage.")
+      end 
 
       target:AdjustHealth("hurt", bluntdamage)
 
@@ -285,10 +341,28 @@ function charMeta:GetResistance(key, area)
     
     local res = v.res
     if res and res[key] then
-      
-      local durabilitychange = v:GetData("durability", 100) / 100
+      durabilitychange = v:GetData("durability", 100) / 100
       resistances[key] = resistances[key] + math.Round((res[key] * durabilitychange), 2)
     end
+
+    local mods = v:GetData("mod")
+
+    if mods then
+			for x,y in pairs(mods) do
+				local moditem = ix.item.Get(y[1])
+				local modres = moditem.res
+				
+				if modres then
+					for k,v in pairs(modres) do
+						if resistances[k] then
+							resistances[k] = resistances[k] + math.Round((modres[key] * durabilitychange), 2)
+						end
+					end 
+				end	
+			end
+		end
+
+
 
   end
 
@@ -512,16 +586,18 @@ function charMeta:AddBleedStacks(amount)
       if v.bleed then bleedmult = bleedmult + v.bleed end
     end
 
+    if self:HasTrait("injury_torso2") then amount = amount + 1 end 
+
     amount = amount + bleedmult
 
 
-  self:SetData("bleedStacks", self:GetBleedStacks() + amount)
+    self:SetData("bleedStacks", self:GetBleedStacks() + amount)
 
-  if amount == 1 then
-    self:GetPlayer():Notify("You recieve a bleed stack!")
-  elseif amount > 1 then 
-    self:GetPlayer():Notify("You receive " .. amount .. " bleed stacks!")
-  end 
+    if amount == 1 then
+      self:GetPlayer():Notify("You recieve a bleed stack!")
+    elseif amount > 1 then 
+      self:GetPlayer():Notify("You receive " .. amount .. " bleed stacks!")
+    end 
 
 end 
 

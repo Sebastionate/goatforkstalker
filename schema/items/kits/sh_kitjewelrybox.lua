@@ -1,7 +1,7 @@
 ITEM.name = "Jewlery Box"
 ITEM.description= "A scuffed but intact metal box used for storing valuables."
 ITEM.longdesc = "A solid jewelry box is popular among many Stalkers for storing shiny items to keep them safe from damage when things get rough. You'll need to open it to see what's inside."
-ITEM.model = "models/kek1ch/tobacco.mdl"
+ITEM.model = "models/propsforkek/monetniza.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.category = "Kits"

@@ -12,7 +12,6 @@ ENT.description = "OK, drop that retard!"
 
 ENT.models = {
     "models/silver/stalker/male_sunrise_merc.mdl",
-    "models/player/stalker_merc/merc_gear/merc_gear.mdl",
     "models/player/stalker_merc/merc_sunrise/merc_sunrise.mdl",
     "models/player/stalker_merc/merc_gp5/merc_gp5.mdl",
     "models/player/stalker_merc/merc_old/merc_old.mdl"

@@ -23,6 +23,10 @@ function ITEM:GetDescription()
         str = str .. "\nBallistic Rating: +" .. self.ballisticRating 
     end 
 
+    if self.bonusMove then
+        str = str .. "\nExtra Movement: +" .. self.bonusMove .. "m" 
+    end 
+
     if self.res then
         local resistances = {
             ["Impact"] = 0,
@@ -46,6 +50,12 @@ function ITEM:GetDescription()
                 str = str.."\n"..k..": ".. (v*100) .. "%"
             end 
         end
+    end 
+
+    if self.rads then 
+        if self.rads > 0 then str = str .. "Rads +" .. self.rads
+        else str = str .. "Rads -" .. self.rads
+        end  
     end 
 
 

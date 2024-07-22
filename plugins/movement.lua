@@ -30,7 +30,7 @@ ix.command.Add( "Movement", {
             client:Notify("Max Move Distance: " .. distance .. "m Sprint Distance: " .. distance*2 .. "m")
             local startPos = client:GetPos()
             char:SetVar("isMoving", startPos)
-            ix.log.Add(client, "moveStart", client)
+            ix.log.Add(client, "moveStart", distance, distance*2)
         end 
     end
 } )
@@ -77,8 +77,8 @@ ix.command.Add( "rangefinder", {
 
 
 if (SERVER) then
-    ix.log.AddType("moveStart", function(client)
-        return string.format("%s has begun moving.", client:Name())
+    ix.log.AddType("moveStart", function(client, walk, sprint)
+        return string.format("%s has begun moving. Max Walk: %s, Max Sprint: %s", client:Name(), walk, sprint)
     end)
 
     ix.log.AddType("moveEnd", function(client, distance)
@@ -93,6 +93,23 @@ local charMeta = ix.meta.character
 
 function charMeta:GetMoveDistance()
     local movedistance = 20 + self:GetAttribute("reflex", 0) * 2
+
+    local inventory = self:GetInventory()
+
+    for k, v in pairs (inventory:GetItems()) do
+        if(!v:GetData("equip", false)) then continue end --ignores unequipped items
+        local bonusMove = v.bonusMove
+        if bonusMove then
+          movedistance = movedistance + bonusMove
+        end
+    end 
+
+
+    if self:HasTrait("injury_leg1") then movedistance = movedistance - 5 end
+    if self:HasTrait("injury_leg2") then movedistance = movedistance - 5 end 
+    if self:HasTrait("injury_leg3") and movedistance > 10 then movedistance = 10 end 
+
+
     return movedistance
 end 
 

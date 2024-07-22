@@ -126,6 +126,14 @@ function PLUGIN:WeaponFired(entity)
 	if value == 1 then critical = "!CRIT FAIL!" elseif value == 20 then critical = "!CRIT SUCCESS!" end
 	local skillbonus = entity:GetChar():GetSkill(weaponcategory, 0)
 
+	if entity:GetChar():HasTrait("injury_arm1") then skillbonus = skillbonus - 5 end 
+	if entity:GetChar():HasTrait("injury_arm3") then skillbonus = skillbonus - 5 end 
+
+	if entity:GetChar():HasTrait("injury_arm2") and weaponcategory ~= "smallarms" then 
+		entity:GetChar():AdjustHealth("hurt", math.random(1, 4))
+		entity:Notify("You agitate your damaged arm by firing with a weapon that is not a smallarm!")
+	end 
+
 	local ammotype = swep.Primary["Ammo"]
 	local ammobonus = 0
 	local specialammo = ""

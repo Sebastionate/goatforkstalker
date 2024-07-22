@@ -851,14 +851,14 @@ ix.command.Add("CEntdodge", {
 
 ix.command.Add("CEntWeaponBodyGroup", {
 	adminOnly = true,
-	syntax = "<int group>", "<int index>",
+	syntax = "<int index>",
 	OnRun = function(self, client, arguments)
 		local entity = client:GetEyeTrace().Entity
 		if (IsValid(entity) and entity.combatEntity) then
 
 			local weapon = entity.weapon
 
-			weapon:SetBodygroup(arguments[1], arguments[2])
+			weapon:SetBodygroup(1, arguments[1])
 		else
 			client:Notify("You must be looking at a combat entity.")
 

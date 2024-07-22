@@ -11,6 +11,7 @@ ITEM.notAnomalous = true
 ITEM.ballisticRating = 1
 ITEM.weight = 0.5
 ITEM.res = {
-	["Bullet"] = 0.10,
+	["Bullet"] = 0.04,
+	["Impact"] = 0.05,
 }
 
