@@ -9,9 +9,12 @@ function PLUGIN:OnCharacterDisconnect(client, character)
 	local inventory = character:GetInventory()
 	local equippedItems = {} 
 
-	
-
+	character:SetData("usingCocaine", false)
+	character:SetData("usingHercules", false)
+	character:SetData("usingRadioprotectant", false)
+	character:SetData("usingAntidote", false)
 	character:SetData("usingVinca", false)
+	character:SetData("usingPsyblock", false)
 	character:SetData("timertable", {})
 
 

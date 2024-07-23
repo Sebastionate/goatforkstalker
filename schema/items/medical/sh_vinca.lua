@@ -1,6 +1,6 @@
 ITEM.name = "Vinca"
 ITEM.description = "A drug that causes blood to coagulate for open wounds."
-ITEM.longdesc = "An ingestible drug to counter-act medium strength bleeding by means of accelerating clotting and increasing blood thickness."
+ITEM.longdesc = "An ingestible drug to counter-act medium strength bleeding by means of accelerating clotting and increasing blood thickness.\n-1 Bleed per turn for 5 turns"
 ITEM.model = "models/ethprops/medical/psy_pills.mdl"
 ITEM.width = 1
 ITEM.height = 1
@@ -9,7 +9,7 @@ ITEM.sound = "stalker/interface/inv_eat_pills_effect.ogg"
 ITEM.price = "600"
 ITEM.flag = "1"
 ITEM.quantity = 3
-ITEM.duration = 4
+ITEM.duration = 5
 ITEM.weight = 0.2
 ITEM.stopsBleed = true
 
@@ -76,4 +76,3 @@ ITEM.functions.use = {
 		end 
 	end
 }
-/*

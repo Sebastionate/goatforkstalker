@@ -1,0 +1,9 @@
+ITEM.name = "Broken Detector"
+ITEM.model = "models/kek1ch/dev_detector_0_samodel.mdl"
+ITEM.description = "A broken Echo detector, evidently having met an untimely end. Still useful for some component parts, or restoring to a working model if you're handy."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 100
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 0.10

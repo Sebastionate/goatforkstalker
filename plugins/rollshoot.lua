@@ -126,6 +126,9 @@ function PLUGIN:WeaponFired(entity)
 	if value == 1 then critical = "!CRIT FAIL!" elseif value == 20 then critical = "!CRIT SUCCESS!" end
 	local skillbonus = entity:GetChar():GetSkill(weaponcategory, 0)
 
+	if entity:GetChar():GetData("usingRadioprotectant") then skillbonus = skillbonus - 5 end 
+
+
 	if entity:GetChar():HasTrait("injury_arm1") then skillbonus = skillbonus - 5 end 
 	if entity:GetChar():HasTrait("injury_arm3") then skillbonus = skillbonus - 5 end 
 

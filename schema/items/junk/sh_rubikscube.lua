@@ -1,0 +1,10 @@
+ITEM.name = "Rubik's Cube"
+ITEM.model = "models/propsforkek/rubik.mdl"
+ITEM.description = "A classic puzzle known the world over."
+ITEM.longdesc = "The famous color-matching puzzle toy. Being able to solve one, especially if done quickly, is commonly seen as a sign of intelligence. Naturally, many Stalkers mess with these to prove their brainpower as much as to stave off boredom."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 350
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 0.2

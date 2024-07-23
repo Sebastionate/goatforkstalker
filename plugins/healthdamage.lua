@@ -364,7 +364,15 @@ function charMeta:GetResistance(key, area)
 
 
 
+
+
+
   end
+
+  if key == "Psi" and self:GetData("usingPsyblock") then resistances[key] = resistances[key] + 0.20 end 
+  if key == "Chemical" and self:GetData("usingAntidote") then resistances[key] = resistances[key] + 0.20 end 
+  if key == "Radiation" and self:GetData("usingRadioprotectant") then resistances[key] = resistances[key] + 0.20 end 
+  
 
   if resistances[key] > 0.85 then resistances[key] = 0.85 end 
 
@@ -375,6 +383,8 @@ end
 function charMeta:AdjustHealth(type, amount)
   local char = self
   local player = self:GetPlayer()
+
+  if amount == 0 then return end
 
   -- A player is considered staggered if they're at or below 80% HP, Stunned if at or below 40% HP, and Incapped at 0% HP. Find out what these tresholds are by comparing them to player's max hp.
   maxhp = player:GetTotalHp()
@@ -720,3 +730,59 @@ function PLUGIN:HUDPaint()
 end
 
 
+--------
+--Injuries--
+--------
+
+
+
+ix.command.Add("AddInjury", {
+  description = "Add an injury to a player.",
+  adminOnly = true,
+  arguments = {ix.type.character, ix.type.string},
+  OnRun = function(self, client, target, area)
+
+    area = string.lower(area)
+
+    if area ~= "head" and area ~= "torso" and area ~= "arm" and area ~= "leg" then return "Area must be one of type: head, torso, arm, leg" end 
+
+    if target:HasTrait("injury_" .. area .. "2")  then 
+      target:AddTrait("injury_" .. area .. "3")
+      client:Notify("Added " .. area .. "injury level 3 to target.")
+
+    elseif target:HasTrait("injury_" .. area .. "1")  then
+      target:AddTrait("injury_" .. area .. "2")
+      client:Notify("Added " .. area .. "injury level 2 to target.")
+
+    else 
+      target:AddTrait("injury_" .. area .. "1")
+      client:Notify("Added " .. area .. "injury level 1 to target.")
+
+    end
+  end
+})
+
+ix.command.Add("RemoveInjury", {
+  description = "Remove an injury from a player.",
+  adminOnly = true,
+  arguments = {ix.type.character, ix.type.string},
+  OnRun = function(self, client, target, area)
+
+    area = string.lower(area)
+
+    if area ~= "head" and area ~= "torso" and area ~= "arm" and area ~= "leg" then return "Area must be one of type: head, torso, arm, leg" end 
+
+    if target:HasTrait("injury_" .. area .. "3")  then 
+      target:RemoveTrait("injury_" .. area .. "3")
+      client:Notify("Reduced " .. area .. " injury to Level 2.")
+
+    elseif target:HasTrait("injury_" .. area .. "2")  then
+      target:RemoveTrait("injury_" .. area .. "2")
+      client:Notify("Reduced " .. area .. " injury to Level 1.")
+    else 
+      target:RemoveTrait("injury_" .. area .. "1")
+      client:Notify("Removed " .. area .. " injury from target.")
+
+    end
+  end
+})

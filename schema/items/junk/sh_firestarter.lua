@@ -1,0 +1,9 @@
+ITEM.name = "Fire Starter Kit"
+ITEM.model = "models/kek1ch/item_ignition_set.mdl"
+ITEM.description = "Merely a bundle of dried twigs wrapped up in some kindling, useful to have to set up a quick fire without scrounging for those things on-location."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 50
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 0.2

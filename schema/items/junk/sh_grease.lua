@@ -1,0 +1,9 @@
+ITEM.name = "Electrical Fuse"
+ITEM.model = "models/kek1ch/grease.mdl"
+ITEM.description = "A jar of grease to keep mechanic parts from seizing up. Never know when you need to get greasy!"
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 150
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 0.10

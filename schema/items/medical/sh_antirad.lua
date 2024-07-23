@@ -1,6 +1,6 @@
 ITEM.name = "Anti-radiation drugs"
 ITEM.description = "Features anti-radiation signs on the package."
-ITEM.longdesc = "Mexaminum radiation protection drugs are common in the Zone. When used, this drug induces contraction of peripheral blood vessels and oxygen deprivation, which serve to treat and prevent radiation exposure. The drug does not have severe side effects, although isolated cases of mild nausea, dizziness, cramps and stomach pain have been reported."
+ITEM.longdesc = "Mexaminum radiation protection drugs are common in the Zone. When used, this drug induces contraction of peripheral blood vessels and oxygen deprivation, which serve to treat and prevent radiation exposure. The drug does not have severe side effects, although isolated cases of mild nausea, dizziness, cramps and stomach pain have been reported.\n-150 Rad Removal, dehydrates slightly"
 ITEM.model = "models/kek1ch/dev_antirad.mdl"
 ITEM.width = 1
 ITEM.height = 1
@@ -34,7 +34,8 @@ ITEM.functions.use = {
 	icon = "icon16/stalker/swallow.png",
 	OnRun = function(item)
 		local quantity = item:GetData("quantity", item.quantity)
-		item.player:addRadiation(-200)
+		item.player:addRadiation(-150)
+		item.player:SetThirst(item.player:GetThirst() + 25)
 		ix.chat.Send(item.player, "iteminternal", "swallows some "..item.name..".", false)
 		quantity = quantity - 1
 

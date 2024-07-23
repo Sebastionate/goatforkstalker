@@ -1,4 +1,4 @@
-ITEM.name = "Capacitators"
+ITEM.name = "Capacitors"
 ITEM.model = "models/illusion/eftcontainers/capacitors.mdl"
 ITEM.description = "A few functioning electrical capacitors for a circuit board of some sort. Relatively useful to scavenge, but very common."
 ITEM.category = "junk"

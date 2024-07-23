@@ -176,7 +176,7 @@ ix.command.Add("SpendUtilitySkillpoints", {
 
 
 ix.command.Add("CharAddTrait", {
-    description = "Utilize your improvisational medical skills to heal a friendly without use of supplies.",
+    description = "Give trait to a character.",
     adminOnly = true,
     arguments = {
         ix.type.character, 
@@ -186,6 +186,21 @@ ix.command.Add("CharAddTrait", {
         target:AddTrait(trait)
 
         return "Added " .. trait .. " to " .. target:GetName()
+
+        
+    end
+})
+
+ix.command.Add("CharRemoveTrait", {
+    description = "Remove trait from a character.",
+    adminOnly = true,
+    arguments = {
+        ix.type.character, 
+        ix.type.string},
+    OnRun = function(self, client, target, trait)
+        
+        target:RemoveTrait(trait)
+        return "Removed " .. trait .. " from " .. target:GetName()
 
         
     end

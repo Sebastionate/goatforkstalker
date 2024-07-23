@@ -290,7 +290,7 @@ ix.command.Add("Irradiate", {
 
 		local radresist = target:GetResistance("Radiation")
 
-		radiation = math.radiation * (1 - radresist)
+		radiation = math.Round(radiation * (1 - radresist))
 
 		target:GetPlayer():addRadiation(radiation)
 
