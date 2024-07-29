@@ -1,6 +1,6 @@
 ITEM.name = "First-Aid Kit"
 ITEM.description = "A small general-purpose medkit."
-ITEM.longdesc = "Basic first aid kit for dealing with minor pains and wounds, but does not stop bleeding by itself.\nBase Heal: 25hp"
+ITEM.longdesc = "Basic first aid kit with a few painkiller shots for dealing with minor pains and wounds, but does not stop bleeding by itself.\nBase Heal: 25hp"
 ITEM.model = "models/kek1ch/dev_aptechka_low.mdl"
 ITEM.width = 1
 ITEM.height = 1

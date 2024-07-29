@@ -15,6 +15,8 @@ function PLUGIN:OnCharacterDisconnect(client, character)
 	character:SetData("usingAntidote", false)
 	character:SetData("usingVinca", false)
 	character:SetData("usingPsyblock", false)
+	character:SetData("usingStim", nil)
+	curplayer:SetData("usingSciStim", false)
 	character:SetData("timertable", {})
 
 

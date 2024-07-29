@@ -32,7 +32,11 @@ ix.command.Add("Turn", {
       if v.passiveHeal then passiveheal = passiveheal + v.passiveHeal end
     end
 
-    if passiveheal > 0 and char:GetCurrenthp() < client:GetTotalHp() then client:Notify("Your passive healing equipment heals you for " .. passiveheal .. " health!") end 
+    if char:GetData("usingStim") then passiveheal = passiveheal + char:GetData("usingStim") end 
+
+    if passiveheal > 0 and char:GetCurrenthp() < client:GetTotalHp() then client:Notify("Your passive healing equipment / meds heal you for " .. passiveheal .. " health!") end 
+
+    
 
     char:AdjustHealth("heal", passiveheal)
 
@@ -68,6 +72,8 @@ ix.command.Add("Turn", {
     local radstogive = rads * 10
    
     client:addRadiation(radstogive)
+
+    if char:GetData("usingSciStim") then client:addRadiation(-50) end 
 
     if radstogive < 0 and hasGeiger and client:GetRads() > 0 then client:Notify("Your Geiger Counter ticks gradually softer, indicating your equipment is eating up excess radiation.") end  
     if radstogive > 0 and hasGeiger then client:Notify("Your Geiger Counter ticks loudly, indicating your equipment is giving off excess radiation.") end 

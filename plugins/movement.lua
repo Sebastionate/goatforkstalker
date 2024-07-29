@@ -102,6 +102,15 @@ function charMeta:GetMoveDistance()
         if bonusMove then
           movedistance = movedistance + bonusMove
         end
+
+        local mods = v:GetData("mod")
+		if mods then
+			for x,y in pairs(mods) do
+				local moditem = ix.item.Get(y[1])
+				if moditem.bonusMove then movedistance = movedistance + moditem.bonusMove end
+			end
+		end
+
     end 
 
 

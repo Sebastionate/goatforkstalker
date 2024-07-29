@@ -535,7 +535,22 @@ function charMeta:DamageArmorScale(amount, headonly)
     if durability < 59 and durability > 39 then damagefactor = 3 end 
     if durability < 39 then damagefactor = 4 end 
 
+
+    local durabilityreduce = 0
+    local mods = bodywear:GetData("mod")
+	
+		if mods then
+			for x,y in pairs(mods) do
+				local moditem = ix.item.Get(y[1])
+				if moditem.durabilityReduce then durabilityreduce = durabilityreduce + moditem.durabilityReduce end
+			end
+		end
+
+    
+
     local totaldamage = amount * damagefactor
+
+    totaldamage = totaldamage - math.Round((totaldamage * durabilityreduce))
     bodywear:SetData("durability", durability - totaldamage)
 
   end 

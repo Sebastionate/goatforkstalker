@@ -7,3 +7,4 @@ ITEM.longdesc = "The 9×21mm Gyurza round is a Russian handgun round designed to
 ITEM.flag = "A"
 ITEM.weight = 0.2
 ITEM.isAmmo = true
+ITEM.price = "1350"

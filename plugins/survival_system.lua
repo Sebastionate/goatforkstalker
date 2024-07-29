@@ -108,12 +108,24 @@ if SERVER then
 		end
 	
 		if ply:GetNetVar("hungertick", 0) <= CurTime() then
-			ply:SetNetVar("hungertick", 300 + CurTime())
+
+			local duration = 300
+			if ply:GetHungerReduce() ~= 0 then 
+				local duration = duration + (duration * ply:GetHungerReduce())
+			end 
+
+			ply:SetNetVar("hungertick", duration + CurTime())
 			ply:TickHunger(1)
 		end
 
 		if ply:GetNetVar("thirsttick", 0) <= CurTime() then
-			ply:SetNetVar("thirsttick", 300 + CurTime())
+
+			local duration = 300
+			if ply:GetThirstReduce() ~= 0 then 
+				local duration = duration + (duration * ply:GetThirstReduce())
+			end 
+
+			ply:SetNetVar("thirsttick", duration + CurTime())
 			ply:TickThirst(1)
 		end
 	end
@@ -190,6 +202,48 @@ function playerMeta:GetThirst()
 		return char:GetData("thirst", 100)
 	end
 end
+
+function playerMeta:GetHungerReduce()
+	local char = self:GetCharacter()
+	local hungerreduce = 0
+	for k, v in pairs (inventory:GetItems()) do
+		if(!v:GetData("equip", false)) then continue end --ignores unequipped items
+		
+		if v.hungerReduce then hungerreduce = hungerreduce + v.hungerReduce end 
+	
+		local mods = v:GetData("mod")
+	
+		if mods then
+			for x,y in pairs(mods) do
+				local moditem = ix.item.Get(y[1])
+				if moditem.hungerReduce then hungerreduce = hungerreduce + moditem.hungerReduce end
+			end
+		end
+
+	end
+	return hungerreduce
+end 
+
+function playerMeta:GetThirstReduce()
+	local char = self:GetCharacter()
+	local thirstreduce = 0
+	for k, v in pairs (inventory:GetItems()) do
+		if(!v:GetData("equip", false)) then continue end --ignores unequipped items
+		
+		if v.thirstReduce then thirstreduce = thirstreduce + v.thirstReduce end 
+	
+		local mods = v:GetData("mod")
+	
+		if mods then
+			for x,y in pairs(mods) do
+				local moditem = ix.item.Get(y[1])
+				if moditem.thirstReduce then thirstreduce = thirstreduce + moditem.thirstReduce end 
+			end
+		end
+
+	end
+	return thirstreduce
+end 
 
 function PLUGIN:AdjustStaminaOffset(client, offset)
 	local hunger = client:GetHunger()
