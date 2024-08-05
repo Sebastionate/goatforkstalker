@@ -1,0 +1,19 @@
+ITEM.name = "Night Raider Mk. 6 Nightvision Goggles"
+ITEM.description = "A set of mid-grade NVGs."
+ITEM.longdesc = "A set of higher-end, dual-tube night vision goggles with a cyan lens. Picture quality and contrast are decent, so it does the trick for most factions or fortunate loners equipping for nighttime raids."
+ITEM.model = "models/arctic_nvgs/nvg_n15.mdl"
+ITEM.price = 15000
+ITEM.flag = "4"
+ITEM.height = 1
+ITEM.width = 2
+ITEM.br = 0.2
+ITEM.fbr = 0
+ITEM.ar = 0
+ITEM.far = 0
+ITEM.isGoggles = true
+ITEM.goggleType = "nvg_n15"
+ITEM.drainFactor = 2
+ITEM.ballisticlevels = {"lll-a"}
+ITEM.ballisticrpglevels = {["head"] = "12"}
+ITEM.anomalousrpglevels = {"10","0","0","0","0"}
+ITEM.weight = 5.5

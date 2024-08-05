@@ -48,9 +48,9 @@ function FNFF_CE:HUDPaint()
             local headrupture = v:GetHeadRupture()
 
             local bodybr = v:GetTorsoBR()
-            local bodybullet = v:GetTorsoBR()
+            local bodybullet = v:GetTorsoBullet()
             local bodyimpact = v:GetTorsoImpact()
-            local bodyrupture = v:GetTorsoImpact()
+            local bodyrupture = v:GetTorsoRupture()
 
             local weaponskill = v:GetWeaponSkill()
             local dodge = v:GetDodge()

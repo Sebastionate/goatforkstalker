@@ -1,0 +1,3 @@
+TRAIT.name = "Chink In The Armor"
+TRAIT.description = "You know that even the most heavily armored foes have a weakness - and you know how to exploit it.\nDuring your turn, the first successful attack you make also applies a debuff. This ability can be used once per enemy. Choose between the following: The target has increased recoil on their next turn; The target must exit cover."
+TRAIT.icon = "icon16/ws2/target.png"

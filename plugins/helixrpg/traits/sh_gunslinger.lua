@@ -1,0 +1,3 @@
+TRAIT.name = "Gunslinger"
+TRAIT.description = "Small arms are your bread and butter, and your preference for them shines through your usage.\nWhen using Small Arms weaponry, your reaction time is unmatched. When you are attacked, you may take a Reaction Shot, and fire back on the enemies turn as if you were on Overwatch. This can only be used against the target that attacked you."
+TRAIT.icon = "vgui/inventory/killicons/weapon_browninghp"

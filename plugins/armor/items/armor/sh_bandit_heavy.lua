@@ -1,0 +1,31 @@
+ITEM.name = "'Tomb-Raider' Assault Suit"
+ITEM.model = "models/kek1ch/exolight_outfit.mdl"
+ITEM.replacements = "models/player/stalker_bandit/bandit_metro/bandit_metro.mdl"
+ITEM.description = "A suit of lab-raiding gear."
+ITEM.longdesc = "A set of heavier armor cobbled together by more powerful Bandit gangs, with their sights set on looting X-Labs for all their worth, with the expectation of facing heavy resistance all the while."
+ITEM.width = 2
+ITEM.height = 4
+ITEM.price = 125000
+ITEM.flag = "A"
+ITEM.br = 0.6
+ITEM.fbr = 11
+ITEM.ar = 0.2
+ITEM.far = 3
+ITEM.isArmor = true
+ITEM.overlayPath = "vgui/overlays/hud_merc"
+ITEM.img = Material("vgui/hud/xm40.png")
+ITEM.artifactcontainers = {"1"}
+ITEM.noBusiness = true
+ITEM.weightClass = 3
+ITEM.ballisticRating = 40
+ITEM.res = {
+	["Impact"] = 0.11,
+	["Rupture"] = 0.23,
+	["Bullet"] = 0.21,
+	["Shock"] = 0.10,
+	["Burn"] = 0.10,
+	["Radiation"] = 0.10,
+	["Chemical"] = 0.03,
+	["Psi"] = 0.04,
+}
+

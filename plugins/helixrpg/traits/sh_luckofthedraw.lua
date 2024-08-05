@@ -1,0 +1,3 @@
+TRAIT.name = "Luck Of The Draw"
+TRAIT.description = "Your whole life, you've had a font of luck. Thing is, something tells you it'll run out someday - with dire consequence.\nDuring any failed roll, You may reroll the result using Fortune instead. However, failing the roll will result in catastrophe, up to GM discretion. Examples include total weapon failure, potential injury, active debuffs, or other roleplay penalties."
+TRAIT.icon = "icon16/sitemap_color.png"

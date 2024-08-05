@@ -1,0 +1,19 @@
+ITEM.name = "Quadtube Pro Nightvision Goggles"
+ITEM.description = "A set of military-issue nightvision goggles."
+ITEM.longdesc = "While looking perhaps a bit silly, this four-tube set of goggles provides excellent illumination, with a completely unobstructed field of view for maximum awareness. Often equipped by Military operators in nighttime or underground raids."
+ITEM.model = "models/arctic_nvgs/nvg_gpnvg.mdl"
+ITEM.price = 30000
+ITEM.flag = "4"
+ITEM.height = 1
+ITEM.width = 2
+ITEM.br = 0.2
+ITEM.fbr = 0
+ITEM.ar = 0
+ITEM.far = 0
+ITEM.isGoggles = true
+ITEM.goggleType = "nvg_gpnvg"
+ITEM.drainFactor = 3
+ITEM.ballisticlevels = {"lll-a"}
+ITEM.ballisticrpglevels = {["head"] = "12"}
+ITEM.anomalousrpglevels = {"10","0","0","0","0"}
+ITEM.weight = 5.5

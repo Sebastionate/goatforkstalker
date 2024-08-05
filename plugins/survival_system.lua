@@ -205,44 +205,52 @@ end
 
 function playerMeta:GetHungerReduce()
 	local char = self:GetCharacter()
-	local hungerreduce = 0
-	for k, v in pairs (inventory:GetItems()) do
-		if(!v:GetData("equip", false)) then continue end --ignores unequipped items
-		
-		if v.hungerReduce then hungerreduce = hungerreduce + v.hungerReduce end 
-	
-		local mods = v:GetData("mod")
-	
-		if mods then
-			for x,y in pairs(mods) do
-				local moditem = ix.item.Get(y[1])
-				if moditem.hungerReduce then hungerreduce = hungerreduce + moditem.hungerReduce end
-			end
-		end
 
-	end
-	return hungerreduce
+	if char then
+		local inventory = char:GetInventory()
+		local hungerreduce = 0
+		for k, v in pairs (inventory:GetItems()) do
+			if(!v:GetData("equip", false)) then continue end --ignores unequipped items
+			
+			if v.hungerReduce then hungerreduce = hungerreduce + v.hungerReduce end 
+		
+			local mods = v:GetData("mod")
+		
+			if mods then
+				for x,y in pairs(mods) do
+					local moditem = ix.item.Get(y[1])
+					if moditem.hungerReduce then hungerreduce = hungerreduce + moditem.hungerReduce end
+				end
+			end
+
+		end
+		return hungerreduce
+	end 
 end 
 
 function playerMeta:GetThirstReduce()
 	local char = self:GetCharacter()
-	local thirstreduce = 0
-	for k, v in pairs (inventory:GetItems()) do
-		if(!v:GetData("equip", false)) then continue end --ignores unequipped items
-		
-		if v.thirstReduce then thirstreduce = thirstreduce + v.thirstReduce end 
-	
-		local mods = v:GetData("mod")
-	
-		if mods then
-			for x,y in pairs(mods) do
-				local moditem = ix.item.Get(y[1])
-				if moditem.thirstReduce then thirstreduce = thirstreduce + moditem.thirstReduce end 
-			end
-		end
 
-	end
-	return thirstreduce
+	if char then 
+		local inventory = char:GetInventory()
+		local thirstreduce = 0
+		for k, v in pairs (inventory:GetItems()) do
+			if(!v:GetData("equip", false)) then continue end --ignores unequipped items
+			
+			if v.thirstReduce then thirstreduce = thirstreduce + v.thirstReduce end 
+		
+			local mods = v:GetData("mod")
+		
+			if mods then
+				for x,y in pairs(mods) do
+					local moditem = ix.item.Get(y[1])
+					if moditem.thirstReduce then thirstreduce = thirstreduce + moditem.thirstReduce end 
+				end
+			end
+
+		end
+		return thirstreduce
+	end 
 end 
 
 function PLUGIN:AdjustStaminaOffset(client, offset)

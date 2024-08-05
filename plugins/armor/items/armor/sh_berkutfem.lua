@@ -18,17 +18,19 @@ ITEM.overlayPath = "vgui/overlays/hud_gas"
 ITEM.img = Material("vgui/hud/eo20.png")
 ITEM.artifactcontainers = {"1"}
 ITEM.weight = 10
-ITEM.maxArmor = 20
+ITEM.weightClass = 2
+ITEM.ballisticRating = 25
 ITEM.res = {
-	["Bullet"] = 0.5,
-	["Blast"] = 0.5,
-	["Fall"] = 0.5,
-	["Burn"] = 0.1,
-	["Radiation"] = 0.2,
-	["Chemical"] = 0.2,
-	["Shock"] = 0.0,
-	["Psi"] = 0.0,
+	["Impact"] = 0.20,
+	["Rupture"] = 0.30,
+	["Bullet"] = 0.12,
+	["Shock"] = 0.02,
+	["Burn"] = 0.10,
+	["Radiation"] = 0,
+	["Chemical"] = 0,
+	["Psi"] = 0,
 }
+
 
 ITEM.newSkin = 0
 ITEM.bodygroup = {0}

@@ -206,6 +206,24 @@ ix.command.Add("CharRemoveTrait", {
     end
 })
 
+ix.command.Add("CharGetTraits", {
+	description = "Get all traits given character has.",
+    adminOnly = true,
+    arguments = {ix.type.character},
+	OnRun = function(self, client, target)
+		local str = target:GetName() .. " has the following traits:"
+        local char = target
+        local player = target:GetPlayer()
+        local traitTable = char:GetTraits()
+
+        for k, v in pairs(traitTable) do
+            str = str .. "\n" .. k
+        end 
+
+        return str
+	end
+})
+
 -- Skill Abilities
 ix.command.Add("FirstAid", {
     description = "Utilize your improvisational medical skills to heal a friendly without use of supplies.",

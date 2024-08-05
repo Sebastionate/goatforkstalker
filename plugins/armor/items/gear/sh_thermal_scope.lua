@@ -1,0 +1,19 @@
+ITEM.name = "Cyclops Thermal Vision Monocular"
+ITEM.description = "A thermal monocular."
+ITEM.longdesc = "A single-tube monocular that goes over one eye that maintains most of the world's origonal color while amplifying light and picking up IR signals, but with a very restrictive field of vision that can leave your flanks open."
+ITEM.model = "models/arctic_nvgs/nvg_pvs14.mdl"
+ITEM.price = 20000
+ITEM.flag = "4"
+ITEM.height = 1
+ITEM.width = 2
+ITEM.br = 0.2
+ITEM.fbr = 0
+ITEM.ar = 0
+ITEM.far = 0
+ITEM.isGoggles = true
+ITEM.goggleType = "nvg_pvs14"
+ITEM.drainFactor = 2
+ITEM.ballisticlevels = {"lll-a"}
+ITEM.ballisticrpglevels = {["head"] = "12"}
+ITEM.anomalousrpglevels = {"10","0","0","0","0"}
+ITEM.weight = 5.5

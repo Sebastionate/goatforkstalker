@@ -14,7 +14,6 @@ ENT.models = {
     "models/nasca/stalker/male_dusk_lone.mdl",
     "models/nasca/stalker/male_dusk_lone2.mdl",
     "models/nasca/stalker/male_berill5m_lone.mdl",
-    "models/silver/stalker/female_seva_lone.mdl",
     "models/nasca/stalker/male_sunset_lone.mdl",
     "models/silver/stalker/female_sunset_lone.mdl",
     "models/silver/stalker/female_dusk_lone.mdl",

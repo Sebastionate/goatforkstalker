@@ -12,7 +12,6 @@ ENT.description = "YooUUUU"
 
 ENT.models = {
     "models/nasca/stalker/male_stingray9_mili.mdl",
-    "models/player/stalker_soldier/soldier_metro/soldier_metro.mdl"
 }
 
 

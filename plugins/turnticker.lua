@@ -30,6 +30,15 @@ ix.command.Add("Turn", {
     for k, v in pairs (inventory:GetItems()) do
       if(!v:GetData("equip", false)) then continue end --ignores unequipped items
       if v.passiveHeal then passiveheal = passiveheal + v.passiveHeal end
+
+      local mods = v:GetData("mod")
+      if mods then
+        for x,y in pairs(mods) do
+          local moditem = ix.item.Get(y[1])
+          if moditem.passiveHeal then passiveheal = passiveheal + moditem.passiveHeal end
+        end
+      end
+
     end
 
     if char:GetData("usingStim") then passiveheal = passiveheal + char:GetData("usingStim") end 
@@ -49,6 +58,16 @@ ix.command.Add("Turn", {
     for k, v in pairs (inventory:GetItems()) do
       if(!v:GetData("equip", false)) then continue end --ignores unequipped items
       if v.bleedReduce then bleedreduce = bleedreduce + v.bleedReduce end
+
+      local mods = v:GetData("mod")
+      if mods then
+        for x,y in pairs(mods) do
+          local moditem = ix.item.Get(y[1])
+          if moditem.bleedReduce then bleedreduce = bleedreduce + moditem.bleedReduce end
+        end
+      end
+
+
     end
 
 

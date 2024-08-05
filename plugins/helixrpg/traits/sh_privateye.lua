@@ -1,0 +1,3 @@
+TRAIT.name = "Private Eye"
+TRAIT.description = "Either from doing police work, acting as a detective, or just old-fashioned treasure hunting, you have an eye for details.\nAt the start of a Scene, you may roll Insight twice and take the higher value, when it comes to looking for interesting details, likely ambushes, traps, hidden items, or other curiousities. Subject to GM discretion."
+TRAIT.icon = "icon16/ws2/eye-half.png"

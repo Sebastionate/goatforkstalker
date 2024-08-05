@@ -1,0 +1,19 @@
+ITEM.name = "RedForce QJ-8691"
+ITEM.description = "A set of civvie-grade NVGs."
+ITEM.longdesc = "A set of consumer grade NVGs. While not too cheap for the average consumer, its performance can be somewhat lackluster with a slightly limited field of vision and noticable light bleed, but many newer Stalkers value it for nighttime treks all the same."
+ITEM.model = "models/arctic_nvgs/nvg_pnv.mdl"
+ITEM.price = 5000
+ITEM.flag = "4"
+ITEM.height = 1
+ITEM.width = 2
+ITEM.br = 0.2
+ITEM.fbr = 0
+ITEM.ar = 0
+ITEM.far = 0
+ITEM.isGoggles = true
+ITEM.goggleType = "nvg_pnv10t"
+ITEM.drainFactor = 1
+ITEM.ballisticlevels = {"lll-a"}
+ITEM.ballisticrpglevels = {["head"] = "12"}
+ITEM.anomalousrpglevels = {"10","0","0","0","0"}
+ITEM.weight = 5.5

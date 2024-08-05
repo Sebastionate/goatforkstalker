@@ -1,0 +1,36 @@
+ITEM.name = "'Shakedown' SEVA Suit"
+ITEM.model ="models/kek1ch/scientific_outfit.mdl"
+ITEM.replacements ="models/nasca/stalker/male_seva_lone.mdl"
+ITEM.description= "A scrappy closed cycle suit."
+ITEM.longdesc = "A SEVA suit acquired and modified by Bandits. It serves two purposes: To try and snag the occassional artifact, and waltzing up to people trying to hunt artifacts and robbing them where they'd never expect. It works decently at both."
+ITEM.width = 2
+ITEM.height = 2
+ITEM.price = 80000
+ITEM.flag = "4"
+ITEM.br = 0.2
+ITEM.fbr = 10
+ITEM.ar = 0.6
+ITEM.far = 6
+ITEM.isArmor = true
+ITEM.radProt = 0.3
+ITEM.overlayPath = "vgui/overlays/hud_sci"
+ITEM.artifactcontainers = {"4"}
+ITEM.img = Material("vgui/hud/seva.png")
+ITEM.weight = 13
+ITEM.maxArmor = 10
+ITEM.weightClass = 2
+ITEM.ballisticRating = 36
+ITEM.res = {
+	["Impact"] = 0.11,
+	["Rupture"] = 0.15,
+	["Bullet"] = 0.18,
+	["Shock"] = 0.07,
+	["Burn"] = 0.15,
+	["Radiation"] = 0.06,
+	["Chemical"] = 0.04,
+	["Psi"] = 0.07,
+}
+ITEM.newSkin = 1
+ITEM.bodyGroups = {
+	["Screen"] = 0,
+}

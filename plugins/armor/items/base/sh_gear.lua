@@ -10,16 +10,6 @@ ITEM.br = 0
 ITEM.fbr = 0
 ITEM.ar = 0
 ITEM.far = 0
-ITEM.res = {
-	["Impact"] = 0,
-	["Rupture"] = 0,
-	["Bullet"] = 0,
-	["Shock"] = 0,
-	["Burn"] = 0,
-	["Radiation"] = 0,
-	["Chemical"] = 0,
-	["Psi"] = 0,
-}
 ITEM.radProt = 0
 ITEM.resistance = true
 ITEM.isHelmet = nil
@@ -30,7 +20,7 @@ ITEM.ballisticareas = {"  Head:"}
 ITEM.ballisticrpgtypes = {"Ballistic (Head)"}
 ITEM.anomalousrpgtypes = {"Impact","Burning","Radiation","Chemical","Electrical"}
 ITEM.isArmor = true
-ITEM.ballisticRating = 0
+
 
 ITEM.functions.RemoveUpgrade = {
 	name = "Remove Upgrade",
@@ -107,7 +97,6 @@ end,
 					end
 				end
 			end
-			char:setRPGValues()
 		else
 			client:NotifyLocalized("detTarget")
 		end
@@ -174,10 +163,13 @@ function ITEM:GetDescription()
 		end
 	end
 
+	local descriptor = "Durability: "
+	if self.isGoggles then descriptor = "Power: " end
+
 	if (self.entity) then
-		return (self.description .. "\n \nDurability: " .. math.floor(self:GetData("durability", 100)) .. "%")
+		return (self.description .. "\n \n" .. descriptor .. math.floor(self:GetData("durability", 100)) .. "%")
 	else
-        return (str.. "\n \nDurability: " .. math.floor(self:GetData("durability", 100)) .. "%")
+        return (str.. "\n \n" ..descriptor  .. math.floor(self:GetData("durability", 100)) .. "%")
 	end
 end
 
@@ -315,6 +307,10 @@ function ITEM:RemovePart(client)
 		end
 	end
 
+	if self.isGoggles then
+		self.player:SetNWInt("nvg", 0)
+	end 
+
 	self:OnUnequipped()
 end
 
@@ -326,8 +322,8 @@ end
 -- On item is dropped, Remove a weapon from the player and keep the ammo in the item.
 ITEM:Hook("drop", function(item)
 	if (item:GetData("equip")) then
-		item.player:RecalculateResistances()
 		item.player:ReevaluateOverlay()
+
 		item:RemovePart(item.player)
 	end
 end)
@@ -339,9 +335,12 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 	icon = "icon16/stalker/unequip.png",
 	OnRun = function(item)
 		item:RemovePart(item.player)
-		item.player:GetCharacter():setRPGValues()
-		item.player:RecalculateResistances()
 		item.player:ReevaluateOverlay()
+
+		if item.isGoggles then
+			item.player:SetNWInt("nvg", 0)
+		end 
+
 
 		return false
 	end,
@@ -375,6 +374,8 @@ ITEM.functions.Equip = {
 		local char = item.player:GetCharacter()
 		local items = char:GetInventory():GetItems()
 
+		if item.isGoggles and item:GetData("durability", 100) <= 0 then item.player:Notify("The battery on these goggles is dead. Recharge it with a Battery Pack.") return false end
+
 		for _, v in pairs(items) do
 			if (v.id != item.id) then
 				local itemTable = ix.item.instances[v.id]
@@ -390,6 +391,18 @@ ITEM.functions.Equip = {
 
 					return false
 				end
+
+				if (v.isHelmet == true and item.isHelmet == true and itemTable:GetData("equip")) then
+					item.player:Notify("You are already equipping a helmet!")
+
+					return false
+				end
+
+				if (v.isGoggles == true and item.isGoggles == true and itemTable:GetData("equip")) then
+					item.player:Notify("You are already equipping a set of goggles!")
+
+					return false
+				end
 			end
 		end
 
@@ -402,9 +415,14 @@ ITEM.functions.Equip = {
 			end
 		end
 
-		item.player:RecalculateResistances()
+
+		if item.isGoggles then
+			ArcticNVGs_SetPlayerGoggles(item.player, item.goggleType)
+		end 
+
+		
 		item.player:ReevaluateOverlay()
-		item.player:GetCharacter():setRPGValues()
+
 		item:OnEquipped()
 		return false
 	end,
@@ -440,7 +458,6 @@ function ITEM:OnEquipped()
 		self.player:EmitSound("stalkersound/gasmask_on.ogg")
 		return
 	end
-	self.player:GetCharacter():setRPGValues()
 end
 
 function ITEM:OnUnequipped()
@@ -448,7 +465,6 @@ function ITEM:OnUnequipped()
 		self.player:EmitSound("stalkersound/gasmask_off.ogg")
 		return
 	end
-	self.player:GetCharacter():setRPGValues()
 end
 
 

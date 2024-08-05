@@ -1,0 +1,35 @@
+ITEM.name = "PSS-R Scout Vest" 
+ITEM.model = "models/kek1ch/merc_outfit.mdl"
+ITEM.replacements = "models/nasca/stalker/male_hawk_duty.mdl"
+ITEM.description= "A lightweight PSZ-9d Variant."
+ITEM.longdesc = "A stripped down variant of the PSZ-9, recycled from worn down versions of it. This vest is issued to newer recruits to provide some basic protection in combat, but fares poorly in anomalous protection."
+ITEM.width = 2
+ITEM.height = 2
+ITEM.price = 18000
+ITEM.flag = "3"
+ITEM.br = 0.2
+ITEM.fbr = 7
+ITEM.ar = 0.2
+ITEM.far = 3
+ITEM.isArmor = true
+ITEM.artifactcontainers = {"1"}
+ITEM.overlayPath = "vgui/overlays/hud_gas"
+ITEM.img = Material("vgui/hud/eo20.png")
+ITEM.noBusiness = true
+ITEM.weight = 13
+ITEM.weightClass = 1
+ITEM.ballisticRating = 25
+ITEM.res = {
+	["Impact"] = 0.15,
+	["Rupture"] = 0.18,
+	["Bullet"] = 0.11,
+	["Shock"] = 0.03,
+	["Burn"] = 0.06,
+	["Radiation"] = 0.04,
+	["Chemical"] = 0.03,
+	["Psi"] = 0,
+}
+
+ITEM.newSkin = 0
+ITEM.bodygroup = {0}
+ITEM.bodygroupsub = {0}

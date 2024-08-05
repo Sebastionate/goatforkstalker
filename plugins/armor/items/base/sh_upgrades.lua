@@ -177,7 +177,40 @@ ITEM.functions.Value = {
 }
 
 function ITEM:GetDescription()
-	local description = self.description
-	description = description.."\nWeight: "..self.weight.."kg"
-	return description
+	local str = self.description
+
+    if self.ballisticRating then
+        str = str .. "\nBallistic Rating: +" .. self.ballisticRating 
+    end 
+
+    if self.bonusMove then
+        str = str .. "\nExtra Movement: +" .. self.bonusMove .. "m" 
+    end 
+
+    if self.res then
+        local resistances = {
+            ["Impact"] = 0,
+            ["Rupture"] = 0,
+            ["Bullet"] = 0,
+            ["Shock"] = 0,
+            ["Burn"] = 0,
+            ["Radiation"] = 0,
+            ["Chemical"] = 0,
+            ["Psi"] = 0,
+        }
+        
+        for k,v in pairs(self.res) do
+            if resistances[k] then
+                resistances[k] = resistances[k] + v
+            end
+        end
+
+        for k,v in pairs(resistances) do
+            if v ~= 0 then
+                str = str.."\n"..k..": ".. (v*100) .. "%"
+            end 
+        end
+    end 
+
+	return str
 end

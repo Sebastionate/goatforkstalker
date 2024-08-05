@@ -1,0 +1,3 @@
+TRAIT.name = "The Basics of CQC"
+TRAIT.description = "Combat in tight spaces is your forte, and you know how to manipulate it in your favor.\nWhen you are engaged in combat using a Close Quarters weapon, you may make an additional free attack with another Close Quarters weapon of a different type once per turn; Shotgun into melee, or melee into shotgun."
+TRAIT.icon = "vgui/inventory/killicons/weapon_enfield_bayonet"

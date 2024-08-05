@@ -187,6 +187,20 @@ ix.command.Add("DamageBullet", {
       if br then
         playerbr = playerbr + br
       end
+
+      local mods = v:GetData("mod")
+
+      if mods and not headshot then
+        for x,y in pairs(mods) do
+          local moditem = ix.item.Get(y[1])
+          if moditem.ballisticRating then playerbr = playerbr + moditem.ballisticRating end 
+          
+
+        end
+      end
+
+
+
     end
 
     local area 
