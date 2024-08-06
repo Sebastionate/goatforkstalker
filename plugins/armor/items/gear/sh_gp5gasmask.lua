@@ -1,0 +1,32 @@
+ITEM.name = "GP5 Gasmask"
+ITEM.description = "A Soviet-era NBC mask."
+ITEM.longdesc = "A cold-war era gas mask famously used by Liquidators sent to clean up after the accident in '86, now seen on Snorks. It's not very comfortable at all, but tolerated by Stalkers who like anomaly-hopping because it's still quite useful."
+ITEM.model = "models/shtokerbox/ground_mask_gp5.mdl"
+ITEM.price = 1000
+ITEM.flag = "1"
+ITEM.width = 1
+ITEM.height = 2
+ITEM.br = 0
+ITEM.fbr = 0
+ITEM.ar = 0.15
+ITEM.far = 1
+ITEM.radProt = 0.15
+ITEM.isGasmask = true
+ITEM.isHelmet = true
+ITEM.overlayPath = "vgui/overlays/hud_gas"
+ITEM.ballisticlevels = {"0"}
+ITEM.ballisticrpglevels = {["head"] = "0"}
+ITEM.anomalousrpglevels = {"2","2","5","5","5"}
+ITEM.img = Material("vgui/hud/eo20.png")
+ITEM.ballisticRating = 10
+ITEM.weight = 0.5
+ITEM.res = {
+	["Impact"] = 0.06,
+	["Rupture"] = 0.02,
+	["Bullet"] = 0.01,
+	["Shock"] = 0.01,
+	["Burn"] = 0.01,
+	["Radiation"] = 0.24,
+	["Chemical"] = 0.08,
+	["Psi"] = 0.01,
+}

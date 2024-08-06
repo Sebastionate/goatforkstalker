@@ -1,0 +1,32 @@
+ITEM.name = "PMK-3 Gas Mask"
+ITEM.description = "A modern Russian gas mask."
+ITEM.longdesc = "This mask was introduced within the past couple years to the Russian armed forces as its new standard issue, and of course a fair amount of them trickled their way into the Zone."
+ITEM.model = "models/shtokerbox/ground_mask_pmk3.mdl"
+ITEM.price = 6500
+ITEM.flag = "1"
+ITEM.width = 1
+ITEM.height = 2
+ITEM.br = 0
+ITEM.fbr = 0
+ITEM.ar = 0.15
+ITEM.far = 1
+ITEM.radProt = 0.15
+ITEM.isGasmask = true
+ITEM.isHelmet = true
+ITEM.overlayPath = "vgui/overlays/hud_gas"
+ITEM.ballisticlevels = {"0"}
+ITEM.ballisticrpglevels = {["head"] = "0"}
+ITEM.anomalousrpglevels = {"2","2","5","5","5"}
+ITEM.img = Material("vgui/hud/eo20.png")
+ITEM.ballisticRating = 15
+ITEM.weight = 0.5
+ITEM.res = {
+	["Impact"] = 0.10,
+	["Rupture"] = 0.03,
+	["Bullet"] = 0.05,
+	["Shock"] = 0.02,
+	["Burn"] = 0.03,
+	["Radiation"] = 0.35,
+	["Chemical"] = 0.08,
+	["Psi"] = 0.06,
+}

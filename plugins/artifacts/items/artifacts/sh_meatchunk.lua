@@ -1,20 +1,14 @@
 ITEM.name = "Meat Chunk"
 ITEM.model ="models/nasca/etherealsrp_artifacts/meatchunk.mdl"
 ITEM.description = "Looks like flayed skin. Artifact."
-ITEM.longdesc = "Formed in gravitational anomalies, this artifact is mostly organic and composed of fossilized and mutated animal tissue. When exposed to chemical contamination, it transforms harmful chemicals into a mucous fluid.\n\nT1 Rad\n+2 Chemical"
+ITEM.longdesc = "Formed in gravitational anomalies, this artifact is mostly organic and composed of fossilized and mutated animal tissue. When exposed to chemical contamination, it transforms harmful chemicals into a mucous fluid."
 ITEM.width = 1
 ITEM.height = 1
-ITEM.price = 9300
+ITEM.price = 4000
 ITEM.flag = "A"
 ITEM.isArtefact = true
+ITEM.rads = 2
 ITEM.res = {
-	["Fall"] = 0.00,
-	["Blast"] = 0.00,
-	["Bullet"] = 0.00,
-	["Shock"] = 0.00,
-	["Burn"] = 0.00,
-	["Radiation"] = -0.10,
-	["Chemical"] = 0.20,
-	["Psi"] = 0.00,
+	["Chemical"] = 0.30,
 }
 ITEM.weight = 2.4;

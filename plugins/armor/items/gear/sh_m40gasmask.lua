@@ -1,0 +1,32 @@
+ITEM.name = "M40 Gasmask"
+ITEM.description = "A cold-war era Western gas mask."
+ITEM.longdesc = "A Western gas mask from the 80s that tends to be more comfortable and effective than what most Stalkers tote around, often seen used by Mercenaries."
+ITEM.model = "models/shtokerbox/ground_mask_m40.mdl
+ITEM.price = 2000
+ITEM.flag = "1"
+ITEM.width = 1
+ITEM.height = 2
+ITEM.br = 0
+ITEM.fbr = 0
+ITEM.ar = 0.15
+ITEM.far = 1
+ITEM.radProt = 0.15
+ITEM.isGasmask = true
+ITEM.isHelmet = true
+ITEM.overlayPath = "vgui/overlays/hud_gas"
+ITEM.ballisticlevels = {"0"}
+ITEM.ballisticrpglevels = {["head"] = "0"}
+ITEM.anomalousrpglevels = {"2","2","5","5","5"}
+ITEM.img = Material("vgui/hud/eo20.png")
+ITEM.ballisticRating = 10
+ITEM.weight = 0.5
+ITEM.res = {
+	["Impact"] = 0.08,
+	["Rupture"] = 0.04,
+	["Bullet"] = 0.03,
+	["Shock"] = 0.01,
+	["Burn"] = 0.02,
+	["Radiation"] = 0.29,
+	["Chemical"] = 0.08,
+	["Psi"] = 0.05,
+}

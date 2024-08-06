@@ -1,0 +1,29 @@
+ITEM.name = "Respirator"
+ITEM.description = "A half-gas-mask."
+ITEM.longdesc = "A simple respirator, usually worn by those working around stuff you don't want to breathe in, but doesn't really protect the skin from irritants or other such threats. For a Rookie stalker, though, each cancer particle you don't breathe in means a longer life in the Zone."
+ITEM.model = "models/shtokerbox/ground_mask_respirator.mdl"
+ITEM.price = 500
+ITEM.flag = "3"
+ITEM.height = 1
+ITEM.width = 1
+ITEM.br = 0.2
+ITEM.fbr = 0
+ITEM.ar = 0
+ITEM.far = 0
+ITEM.radProt = 0
+ITEM.isHelmet = true
+ITEM.isGasmask = true
+ITEM.ballisticlevels = {"ll"}
+ITEM.ballisticrpglevels = {["head"] = "18"}
+ITEM.anomalousrpglevels = {"10","0","0","0","0"}
+ITEM.ballisticRating = 5
+ITEM.res = {
+	["Impact"] = 0.04,
+	["Rupture"] = 0.01,
+	["Bullet"] = 0.01,
+	["Shock"] = 0.01,
+	["Burn"] = 0.01,
+	["Radiation"] = 0.10,
+	["Chemical"] = 0.03,
+	["Psi"] = 0.01,
+}

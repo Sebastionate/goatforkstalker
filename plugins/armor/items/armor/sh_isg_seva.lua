@@ -1,0 +1,36 @@
+ITEM.name = "UNISG SEVA"
+ITEM.model ="models/kek1ch/scientific_outfit.mdl"
+ITEM.replacements ="models/player/stalker_isg/isg_seva/isg_seva.mdl"
+ITEM.description= "A closed cycle suit commissioned by the ISG."
+ITEM.longdesc = "A modified SEVA suit improved by western technology, issued to squad leaders or those exploring especially anomalous zones."
+ITEM.width = 2
+ITEM.height = 2
+ITEM.price = 85000
+ITEM.flag = "4"
+ITEM.br = 0.2
+ITEM.fbr = 10
+ITEM.ar = 0.6
+ITEM.far = 6
+ITEM.isArmor = true
+ITEM.radProt = 0.3
+ITEM.overlayPath = "vgui/overlays/hud_sci"
+ITEM.artifactcontainers = {"4"}
+ITEM.img = Material("vgui/hud/seva.png")
+ITEM.weight = 13
+ITEM.maxArmor = 10
+ITEM.weightClass = 2
+ITEM.ballisticRating = 39
+ITEM.res = {
+	["Impact"] = 0.16,
+	["Rupture"] = 0.17,
+	["Bullet"] = 0.15,
+	["Shock"] = 0.20,
+	["Burn"] = 0.47,
+	["Radiation"] = 0.12,
+	["Chemical"] = 0.10,
+	["Psi"] = 0.15,
+}
+ITEM.newSkin = 0
+ITEM.bodyGroups = {
+	["Screen"] = 0,
+}

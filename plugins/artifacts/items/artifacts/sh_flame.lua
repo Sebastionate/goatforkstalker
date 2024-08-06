@@ -1,0 +1,12 @@
+ITEM.name = "Flame"
+ITEM.model ="models/nasca/etherealsrp_artifacts/flame.mdl"
+ITEM.description = "This artifact looks like an glassy orb."
+ITEM.longdesc = "A ponderous orb with a glassy surface and a constant lightshow going on within. "
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 110000
+ITEM.flag = "A"
+ITEM.isArtefact = true
+ITEM.weight = 1.1
+ITEM.bleedReduce = 4
+ITEM.rads = 3

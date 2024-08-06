@@ -1,0 +1,37 @@
+ITEM.name = "Vyraj Power Armor"
+ITEM.model = "models/kek1ch/exolight_outfit.mdl"
+ITEM.replacements = "models/player/stalker_greh/greh_exo/greh_exo.mdl"
+TEM.description = "A set of modified TB-3d heavy armor."
+ITEM.longdesc = "This suit of armor was once a regular TB-3, but has had some extra armor plating attached. In addition, a closer look reveals that the exoskeleton parts are not merely clamped on like any other suit, but permanently and roughly bolted on, as if they're holding the entire piece together by existing."
+ITEM.width = 3
+ITEM.height = 3
+ITEM.price = 250000
+ITEM.flag = "A"
+ITEM.br = 0.6
+ITEM.fbr = 11
+ITEM.ar = 0.2
+ITEM.far = 3
+ITEM.isGasmask = true
+ITEM.isHelmet = false
+ITEM.isArmor = true
+ITEM.overlayPath = "vgui/overlays/hud_merc"
+ITEM.img = Material("vgui/hud/xm40.png")
+ITEM.artifactcontainers = {"1"}
+ITEM.noBusiness = true
+ITEM.weight = 26
+ITEM.weightClass = 4
+ITEM.ballisticRating = 60
+ITEM.res = {
+	["Impact"] = 0.30,
+	["Rupture"] = 0.34,
+	["Bullet"] = 0.34,
+	["Shock"] = 0.15,
+	["Burn"] = 0.20,
+	["Radiation"] = 0.10,
+	["Chemical"] = 0.08,
+	["Psi"] = 0.10,
+}
+ITEM.newSkin = 0
+ITEM.bodyGroups = {
+	["Servomotors"] = 1,
+}

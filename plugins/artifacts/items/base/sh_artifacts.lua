@@ -53,10 +53,24 @@ function ITEM:GetDescription()
     end 
 
     if self.rads then 
-        if self.rads > 0 then str = str .. "Rads +" .. self.rads
-        else str = str .. "Rads -" .. self.rads
+        if self.rads > 0 then str = str .. "\nRads +" .. self.rads
+        else str = str .. "\nRads -" .. self.rads
         end  
     end 
+
+    if self.bleeds then 
+        str = str .. "\nBleed +" .. self.bleeds  
+    end 
+
+    if self.bleedReduce then 
+        str = str .. "\nBleed -" .. self.bleedReduce 
+    end 
+
+    if self.passiveHeal then 
+        str = str .. "\nHeal " .. self.passiveHeal .. "hp per turn" 
+    end 
+
+
 
 
 

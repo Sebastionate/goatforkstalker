@@ -1,0 +1,35 @@
+ITEM.name = "UNISG Exokeleton"
+ITEM.model = "models/kek1ch/exolight_outfit.mdl"
+ITEM.replacements = "models/player/stalker_isg/isg_exo/isg_exo.mdl"
+ITEM.description = "A set of ISG TB-3 heavy armor."
+ITEM.longdesc = "A heavy armor, based off the local TB-3 suit with some Western innovation that makes it close to, if not the, best in class, issued to heavy assault units."
+ITEM.width = 3
+ITEM.height = 3
+ITEM.price = 175000
+ITEM.flag = "A"
+ITEM.br = 0.6
+ITEM.fbr = 11
+ITEM.ar = 0.2
+ITEM.far = 3
+ITEM.isArmor = true
+ITEM.overlayPath = "vgui/overlays/hud_merc"
+ITEM.img = Material("vgui/hud/xm40.png")
+ITEM.artifactcontainers = {"3"}
+ITEM.noBusiness = true
+ITEM.weight = 26
+ITEM.weightClass = 4
+ITEM.ballisticRating = 65
+ITEM.res = {
+	["Impact"] = 0.41,
+	["Rupture"] = 0.39,
+	["Bullet"] = 0.41,
+	["Shock"] = 0.19,
+	["Burn"] = 0.41,
+	["Radiation"] = 0.13,
+	["Chemical"] = 0.13,
+	["Psi"] = 0.16,
+}
+ITEM.newSkin = 0
+ITEM.bodyGroups = {
+	["Servomotors"] = 0
+}
