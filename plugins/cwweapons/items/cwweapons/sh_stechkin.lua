@@ -1,6 +1,6 @@
 ITEM.name = "Stechkin APS"
 ITEM.description= "A fully-automatic handgun with a large magazine. Fires 9x18mm."
-ITEM.longdesc = "When the Stetchkin automatic pistol was phased out of Soviet army service, a few hundred mysteriously made their way into the Zone.\nIt's low weight of 1.2 kilograms, fully automatic capacity and concealability makes it an useful alternative to a submachinegun.\nIts 750 rounds per minute firerate makes the recoil an issue.\n\nAmmo: 9x18mm \nMagazine Capacity: 20\n\n-This weapon is a Secondary, meaning it can be used while Stunned.\n\n-This weapon is designated as Light, meaning it can be reloaded using 4s of Movement Speed, instead of a full action.\n\nShots per round: 7"
+ITEM.longdesc = "When the Stetchkin automatic pistol was phased out of Soviet army service, a few hundred mysteriously made their way into the Zone.\nIt's low weight of 1.2 kilograms, fully automatic capacity and concealability makes it an useful alternative to a submachinegun.\nIts 750 rounds per minute firerate makes the recoil an issue.\n\nAmmo: 9x18mm \nMagazine Capacity: 20"
 ITEM.model = "models/silver/stalker/weapons/w_stechkin.mdl"
 ITEM.class = "cw_sil_stechkin"
 ITEM.weaponCategory = "sidearm"
@@ -16,6 +16,9 @@ ITEM.modifier = 5
 ITEM.weight = 1.22
 ITEM.flag = "1"
 ITEM.barrel = "medium"
+ITEM.weaponType = "smallarms"
+ITEM.RPM = 7
+ITEM.recoil = -1
 
 ITEM.iconCam = {
 	pos = Vector(-10, 4.5, -2.4000000953674),

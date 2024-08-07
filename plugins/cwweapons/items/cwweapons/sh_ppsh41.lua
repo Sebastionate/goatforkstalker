@@ -16,6 +16,9 @@ ITEM.isPLWeapon = true
 ITEM.modifier = 5
 ITEM.weight = 3.63
 ITEM.barrel = "medium"
+ITEM.weaponType = "smallarms"
+ITEM.RPM = 10
+ITEM.recoil = -2
 
 ITEM.iconCam = {
 	pos = Vector(-10, -12, -35),

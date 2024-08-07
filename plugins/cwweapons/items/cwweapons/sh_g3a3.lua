@@ -1,6 +1,6 @@
 ITEM.name = "G3A3"
 ITEM.description = "A battle rifle that fires 7.62x51mm rounds."
-ITEM.longdesc = "The G3A3 is a 7.62×51mm NATO, select-fire battle rifle developed in the 1950s by the German armament manufacturer Heckler & Koch (H&K) in collaboration with the Spanish state-owned design and development agency CETME.\n\nAmmo: 7.62x51mm\nMagazine Capacity: 20\n\n-Shots per round: 4"
+ITEM.longdesc = "The G3A3 is a 7.62×51mm NATO, select-fire battle rifle developed in the 1950s by the German armament manufacturer Heckler & Koch (H&K) in collaboration with the Spanish state-owned design and development agency CETME.\n\nAmmo: 7.62x51mm\nMagazine Capacity: 20"
 ITEM.model = "models/weapons/ethereal/w_g3a3.mdl"
 ITEM.class = "cw_kk_ins2_g3a3"
 ITEM.weaponCategory = "primary"
@@ -16,3 +16,6 @@ ITEM.modifier = 5
 ITEM.weight = 4.38
 ITEM.flag = "A"
 ITEM.barrel = "long"
+ITEM.weaponType = "rifles"
+ITEM.RPM = 5
+ITEM.recoil = -4

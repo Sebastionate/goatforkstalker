@@ -1,5 +1,5 @@
 ITEM.name = "MAC-10"
-ITEM.description = "The Military Armament Corporation Model 10, officially abbreviated as 'M10' or 'M-10', and more commonly known as the MAC-10, is a compact, blowback operated machine pistol that was developed by Gordon B. Ingram in 1964. It is chambered in 9x19mm.\n\n-This weapon is marked as a Secondary, meaning it can be used while Stunned.\n\n-This weapon is marked as Light, meaning it can be reloaded with 4s of Movement instead of a full action.\n\n-Shots per round: 4"
+ITEM.description = "The Military Armament Corporation Model 10, officially abbreviated as 'M10' or 'M-10', and more commonly known as the MAC-10, is a compact, blowback operated machine pistol that was developed by Gordon B. Ingram in 1964. It is chambered in 9x19mm."
 ITEM.model = "models/weapons/ethereal/w_mac10.mdl"
 ITEM.class = "cw_sil_mac10"
 ITEM.weaponCategory = "secondary"
@@ -16,3 +16,6 @@ ITEM.Range = 30
 ITEM.Pen = 5
 ITEM.Mag = 32
 ITEM.barrel = "short"
+ITEM.weaponType = "smallarms"
+ITEM.RPM = 12
+ITEM.recoil = -1

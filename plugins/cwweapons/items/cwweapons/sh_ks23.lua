@@ -1,5 +1,5 @@
 ITEM.name = "KS-23"
-ITEM.description = "The KS-23 is a Russian shotgun, although because it uses a rifled barrel it is officially designated by the Russian military as a carbine. KS stands for Karabin Spetsialniy, 'Special Carbine'. It is renowned for its large caliber, firing a 23 mm round, equating to 6.27 gauge using the British and American standards of shotgun gauges and approximately 4 gauge using the current European standards, making it the largest-bore shotgun in use today.\n\n-This weapon is designated as Heavy, meaning it adds +1 Weight while equipped.\n\n-Shots per round: 1"
+ITEM.description = "The KS-23 is a Russian shotgun, although because it uses a rifled barrel it is officially designated by the Russian military as a carbine. KS stands for Karabin Spetsialniy, 'Special Carbine'. It is renowned for its large caliber, firing a 23 mm round, equating to 6.27 gauge using the British and American standards of shotgun gauges and approximately 4 gauge using the current European standards, making it the largest-bore shotgun in use today."
 ITEM.model = "models/weapons/ethereal/w_ks23.mdl"
 ITEM.class = "cw_sil_ks23"
 ITEM.weaponCategory = "secondary"
@@ -16,3 +16,6 @@ ITEM.Range = 25
 ITEM.Pen = 18
 ITEM.Mag = 3
 ITEM.barrel = "short"
+ITEM.weaponType = "closequarters"
+ITEM.RPM = 1
+ITEM.recoil = -5

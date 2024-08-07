@@ -1,6 +1,6 @@
 ITEM.name = "M9A1"
 ITEM.description= "A semi-automatic pistol chambered for 9x19mm."
-ITEM.longdesc = "The Beretta 92, also known as the M9, is the Italian-made replacement for the M1911 pistol in the American army.\nIt is a semi-automatic pistol firing the 9x19mm cartridge.\nIt's popular with many stalkers as a sidearm since its ammo is easy to come across and it's very reliable.\n\nAmmo: 9x19mm\nMagazine Capacity: 15\n\n-This weapon is a Secondary, meaning it may be used even when Stunned.\n\n-This weapon is designated as Light, meaning it can be reloaded using 4s of Movement speed instead of a full action.\n\n-Shots per round: 4"
+ITEM.longdesc = "The Beretta 92, also known as the M9, is the Italian-made replacement for the M1911 pistol in the American army.\nIt is a semi-automatic pistol firing the 9x19mm cartridge.\nIt's popular with many stalkers as a sidearm since its ammo is easy to come across and it's very reliable.\n\nAmmo: 9x19mm\nMagazine Capacity: 15"
 ITEM.model = "models/weapons/ethereal/w_m9.mdl"
 ITEM.class = "cw_sil_m9"
 ITEM.weaponCategory = "sidearm"
@@ -16,6 +16,9 @@ ITEM.isPLWeapon = true
 ITEM.modifier = 5
 ITEM.weight = 0.97
 ITEM.barrel = "short"
+ITEM.weaponType = "smallarms"
+ITEM.RPM = 4
+ITEM.recoil = -1
 
 ITEM.iconCam = {
 	pos = Vector(-6, 10, 1.5),

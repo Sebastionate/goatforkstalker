@@ -1,5 +1,5 @@
 ITEM.name = "M4A1"
-ITEM.description = "The M4A1 carbine is a fully automatic variant of the basic M4 carbine intended for special operations use. The M4A1 was introduced in May 1991, and was in service in 1994. Fires 5.56x45 rounds.\n\nShots per round: 8"
+ITEM.description = "The M4A1 carbine is a fully automatic variant of the basic M4 carbine intended for special operations use. The M4A1 was introduced in May 1991, and was in service in 1994. Fires 5.56x45 rounds."
 ITEM.model = "models/weapons/ethereal/w_m4a1.mdl"
 ITEM.class = "cw_sil_m4a1"
 ITEM.weaponCategory = "primary"
@@ -16,7 +16,7 @@ ITEM.flag = "3"
 ITEM.Range = 100
 ITEM.Pen = 12
 ITEM.Mag = 30
-ITEM.RPM = 8
-ITEM.recoil = -2
 ITEM.barrel = "medium"
 ITEM.weaponType = "rifles"
+ITEM.RPM = 7
+ITEM.recoil = -3

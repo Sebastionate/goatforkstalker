@@ -1,5 +1,5 @@
 ITEM.name = "Steyr Scout"
-ITEM.description = "The Steyr Scout is an Austrian bolt-action rifle manufactured by Steyr Mannlicher, and chambered for various calibers. It is intended to fill the role of a versatile lightweight all around rifle. Chambered in 5.56x45mm.\n\n-Shots per round: 1"
+ITEM.description = "The Steyr Scout is an Austrian bolt-action rifle manufactured by Steyr Mannlicher, and chambered for various calibers. It is intended to fill the role of a versatile lightweight all around rifle. Chambered in 5.56x45mm."
 ITEM.model = "models/silver/stalker/weapons/w_scout.mdl"
 ITEM.class = "cw_sil_scout"
 ITEM.weaponCategory = "primary"
@@ -15,6 +15,9 @@ ITEM.isPLWeapon = true
 ITEM.modifier = 5
 ITEM.weight = 2
 ITEM.barrel = "long"
+ITEM.weaponType = "rifles"
+ITEM.RPM = 2
+ITEM.recoil = -3
 
 ITEM.iconCam = {
 	pos = Vector(0, -35, 0),

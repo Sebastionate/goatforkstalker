@@ -1,6 +1,6 @@
 ﻿ITEM.name = "L1A1"
 ITEM.description= "A battle rifle that fires 7.62x51mm rounds."
-ITEM.longdesc = "Nicknamed ”The Right Arm of The Free World”, the FAL was a popular choice for revolutionaries and armies alike.\nIt earned it's reputation in various African wars as a heavy-hitting automatic rifle that could withstand the jungle's conditions.\n\nAmmo: 7.62x51mm\nMagazine Capacity: 20\n\nShots per round: 2"
+ITEM.longdesc = "Nicknamed ”The Right Arm of The Free World”, the FAL was a popular choice for revolutionaries and armies alike.\nIt earned it's reputation in various African wars as a heavy-hitting automatic rifle that could withstand the jungle's conditions.\n\nAmmo: 7.62x51mm\nMagazine Capacity: 20"
 ITEM.model = "models/weapons/w_l1a1.mdl"
 ITEM.class = "cw_sil_l1a1"
 ITEM.weaponCategory = "primary"
@@ -16,6 +16,9 @@ ITEM.modifier = 5
 ITEM.weight = 5.1
 ITEM.flag = "4"
 ITEM.barrel = "medium"
+ITEM.weaponType = "rifles"
+ITEM.RPM = 3
+ITEM.recoil = -5
 
 ITEM.iconCam = {
 	pos = Vector(-12, 32, 1.5),

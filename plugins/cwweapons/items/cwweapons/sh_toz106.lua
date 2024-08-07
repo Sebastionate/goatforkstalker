@@ -1,5 +1,5 @@
 ITEM.name = "Toz-106"
-ITEM.description = "The TOZ-106 is a small, lightweight bolt-action shotgun produced and sold by Tulsky Oruzheiny Zavod. It features a metal stockthat folds underneath the weapon in order to make it more compact, and a pistol grip. The rest of the stock is wooden. This shotgun was officially marketed as a hunting shotgun, but became popular among farmers, adventurers, travelers, campers, truck drivers and other people who needed a self-defense weapon for use in the countryside or wilderness. It received a lukewarm welcome among hunters, though it is somewhat popular for finishing wounded game.\n\n-This Weapon is marked as a Secondary, meaning it can be used while Stunned.\n\n-Shots per round: 1"
+ITEM.description = "The TOZ-106 is a small, lightweight bolt-action shotgun produced and sold by Tulsky Oruzheiny Zavod. It features a metal stockthat folds underneath the weapon in order to make it more compact, and a pistol grip. The rest of the stock is wooden. This shotgun was officially marketed as a hunting shotgun, but became popular among farmers, adventurers, travelers, campers, truck drivers and other people who needed a self-defense weapon for use in the countryside or wilderness. It received a lukewarm welcome among hunters, though it is somewhat popular for finishing wounded game."
 ITEM.model = "models/silver/stalker/weapons/w_toz106.mdl"
 ITEM.class = "cw_sil_toz106"
 ITEM.weaponCategory = "secondary"
@@ -16,3 +16,6 @@ ITEM.Range = 30
 ITEM.Pen = 5
 ITEM.Mag = 4
 ITEM.barrel = "medium"
+ITEM.weaponType = "closequarters"
+ITEM.RPM = 2
+ITEM.recoil = -4

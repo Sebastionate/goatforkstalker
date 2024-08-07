@@ -18,6 +18,9 @@ ITEM.modifier = 5
 ITEM.weight = 2.5
 ITEM.flag = "4"
 ITEM.barrel = "short"
+ITEM.weaponType = "rifles"
+ITEM.RPM = 9
+ITEM.recoil = -3
 
 ITEM.iconCam = {
 	ang= Angle(0, 0, 0),

@@ -1,5 +1,5 @@
 ITEM.name = "Toz-194"
-ITEM.description = "The Toz-194 is a 12 Gauge, pump-action shotgun manufactured by the Tula Arms Plant. Designed during the later years of the Soviet Union, the production of this firearm has started after the Soviet era in Russia, and since then it has gained a certain popularity within civilian shooters in Russia itself and in Europe, and is reported to be in use with some Russian Security forces.\n\n-Shots per round: 2"
+ITEM.description = "The Toz-194 is a 12 Gauge, pump-action shotgun manufactured by the Tula Arms Plant. Designed during the later years of the Soviet Union, the production of this firearm has started after the Soviet era in Russia, and since then it has gained a certain popularity within civilian shooters in Russia itself and in Europe, and is reported to be in use with some Russian Security forces."
 ITEM.model = "models/weapons/w_toz.mdl"
 ITEM.class = "cw_sil_toz194"
 ITEM.weaponCategory = "secondary"
@@ -16,3 +16,6 @@ ITEM.Range = 30
 ITEM.Pen = 5
 ITEM.Mag = 6
 ITEM.barrel = "medium"
+ITEM.weaponType = "closequarters"
+ITEM.RPM = 2
+ITEM.recoil = -3

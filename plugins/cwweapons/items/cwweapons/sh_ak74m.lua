@@ -1,6 +1,6 @@
 ITEM.name = "AK-74M"
 ITEM.description= "A soviet-designed assault rifle chambered for 5.45x39mm."
-ITEM.longdesc = "The AK-74 is the replacement for the AKM and the most notable difference between the two is the drop in caliber from 7.62x39mm to 5.45x39mm.\nThis means the recoil is less intense but the penetration of the bullet also suffers slightly.\nThe 5.45x39mm cartridge is popular with many stalkers since it takes care of mutant and armored humans alike.\n\nAmmo: 5.45x39mm\nMagazine Capacity: 30\n\n-Shots per round: 6"
+ITEM.longdesc = "The AK-74 is the replacement for the AKM and the most notable difference between the two is the drop in caliber from 7.62x39mm to 5.45x39mm.\nThis means the recoil is less intense but the penetration of the bullet also suffers slightly.\nThe 5.45x39mm cartridge is popular with many stalkers since it takes care of mutant and armored humans alike.\n\nAmmo: 5.45x39mm\nMagazine Capacity: 30"
 ITEM.model = "models/silver/stalker/weapons/w_ak74m.mdl"
 ITEM.class = "cw_sil_ak74m"
 ITEM.weaponCategory = "primary"
@@ -16,6 +16,9 @@ ITEM.modifier = 4
 ITEM.weight = 3.4
 ITEM.flag = "3"
 ITEM.barrel = "medium"
+ITEM.weaponType = "rifles"
+ITEM.RPM = 6
+ITEM.recoil = -3
 
 ITEM.iconCam = {
 	pos = Vector(-10, 200, 0),

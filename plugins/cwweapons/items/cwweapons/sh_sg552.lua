@@ -1,11 +1,11 @@
 ITEM.name = "SIG SG 552"
 ITEM.description= "A Swiss assault rifle. Fires 5.56x45mm."
-ITEM.longdesc = "The Sig 552 is the carbine version of the 550 rifle, often agreed to be one of the best modern assault rifles. It's accurate, reliable and easy to use. \nIt's high price and rather rare match ammunition has put many STALKERs off from using this weapon, instead choosing a more common alternative. It has a 700 round per minute rate of fire.\n\nAmmo: 5.56x45mm \nMagazine Capacity: 30\n\n-Shots per round: 7"
+ITEM.longdesc = "The Sig 552 is the carbine version of the 550 rifle, often agreed to be one of the best modern assault rifles. It's accurate, reliable and easy to use. \nIt's high price and rather rare match ammunition has put many STALKERs off from using this weapon, instead choosing a more common alternative. It has a 700 round per minute rate of fire.\n\nAmmo: 5.56x45mm \nMagazine Capacity: 30"
 ITEM.model = "models/weapons/ethereal/sg552/w_sg552.mdl"
 ITEM.class = "cw_sil_sg552"
 ITEM.weaponCategory = "primary"
 ITEM.width = 3
-ITEM.price = 27000
+ITEM.price = 2400
 ITEM.height = 2
 ITEM.flag = "3"
 ITEM.Range = 50
@@ -16,6 +16,9 @@ ITEM.isPLWeapon = true
 ITEM.modifier = 5
 ITEM.weight = 3
 ITEM.barrel = "short"
+ITEM.weaponType = "rifles"
+ITEM.RPM = 7
+ITEM.recoil = -3
 
 ITEM.iconCam = {
 	pos = Vector(-7.5, 156.86274719238, 0),

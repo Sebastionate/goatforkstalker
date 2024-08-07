@@ -1,6 +1,6 @@
 ITEM.name = "AWP"
 ITEM.description= "A British sniper rifle. Fires 7.62x51mm."
-ITEM.longdesc = "The AWP, meaning Arctic Warfare Police, is a rifle designed by Arctic Warfare International. It is a variant of the AWM rifle, rechambered and recolored for Police-Use.\n\nAmmo: 7.62x51mm \nMagazine Capacity: 5\n\n-Shots per round: 1"
+ITEM.longdesc = "The AWP, meaning Arctic Warfare Police, is a rifle designed by Arctic Warfare International. It is a variant of the AWM rifle, rechambered and recolored for Police-Use.\n\nAmmo: 7.62x51mm \nMagazine Capacity: 5"
 ITEM.model = "models/silver/stalker/weapons/w_l96.mdl"
 ITEM.class = "cw_sil_awm"
 ITEM.weaponCategory = "primary"
@@ -16,6 +16,9 @@ ITEM.isPLWeapon = true
 ITEM.modifier = 5
 ITEM.weight = 6.9
 ITEM.barrel = "long"
+ITEM.weaponType = "rifles"
+ITEM.RPM = 1
+ITEM.recoil = -5
 
 ITEM.iconCam = {
 	pos = Vector(0, -35, 0),

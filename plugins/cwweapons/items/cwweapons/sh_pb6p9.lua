@@ -1,6 +1,6 @@
 ITEM.name = "PB6P9"
 ITEM.description= "A Russian steel-framed pistol that fires 9x18 Makarov."
-ITEM.longdesc = "The PB6P9 is a Soviet integrally suppressed semi-automatic pistol developed and manufactured by Izhevsk Mechanical Plant, based on the Makarov pistol.\nSince the merger of Izhevsk Mechanical Plant and Izhevsk Machine-Building Plant to form Kalashnikov Concern, it has continued to be manufactured by Kalashnikov Concern.\nIt entered service in 1967.\n\nAmmo: 9x18mm\nMagazine Capacity: 8\n\n-This weapon is a Secondary, meaning it may be used even when Stunned.\n\n-This weapon is designated as Light, meaning it can be reloaded using 4s of Movement speed instead of a full action.\n\n-Shots per round: 4"
+ITEM.longdesc = "The PB6P9 is a Soviet integrally suppressed semi-automatic pistol developed and manufactured by Izhevsk Mechanical Plant, based on the Makarov pistol.\nSince the merger of Izhevsk Mechanical Plant and Izhevsk Machine-Building Plant to form Kalashnikov Concern, it has continued to be manufactured by Kalashnikov Concern.\nIt entered service in 1967.\n\nAmmo: 9x18mm\nMagazine Capacity: 8
 ITEM.model = "models/silver/stalker/weapons/w_pb6p9.mdl"
 ITEM.class = "cw_sil_pb6p9"
 ITEM.weaponCategory = "sidearm"
@@ -17,6 +17,9 @@ ITEM.isPLWeapon = true
 ITEM.modifier = 5
 ITEM.weight = 0.98
 ITEM.barrel = "short"
+ITEM.weaponType = "smallarms"
+ITEM.RPM = 4
+ITEM.recoil = -1
 
 ITEM.exRender = true
 ITEM.iconCam = {

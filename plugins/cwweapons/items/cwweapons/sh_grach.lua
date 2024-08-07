@@ -1,5 +1,5 @@
 ITEM.name = "MP-443 Grach"
-ITEM.description = "The MP-443 Grach, following traditional Russian naming procedure, is the Russian standard military-issue side arm. It fires 9x19 rounds.\n\n-This weapon is a Secondary, meaning it may be used even when Stunned.\n\n-This weapon is designated as Light, meaning it can be reloaded using 4s of Movement speed instead of a full action.\n\n-Shots per round: 4"
+ITEM.description = "The MP-443 Grach, following traditional Russian naming procedure, is the Russian standard military-issue side arm. It fires 9x19 rounds."
 ITEM.model = "models/weapons/ethereal/w_grach.mdl"
 ITEM.class = "cw_sil_grach"
 ITEM.weaponCategory = "sidearm"
@@ -17,3 +17,6 @@ ITEM.Range = 30
 ITEM.Pen = 5
 ITEM.Mag = 18
 ITEM.barrel = "short"
+ITEM.weaponType = "smallarms"
+ITEM.RPM = 4
+ITEM.recoil = -1

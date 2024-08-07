@@ -1,6 +1,6 @@
 ITEM.name = "HK G36C"
 ITEM.description= "An assault rifle that fires 5.56x45mm rounds."
-ITEM.longdesc = "This subcarbine model is a further development of the G36K.\nIt has a shorter barrel than the G36K, and a four-prong open-type flash hider.\nThe extremely short barrel forced designers to move the gas block closer to the muzzle end and reduce the length of the gas piston operating rod.\nThe handguard and stock were also shortened and the fixed carry handle (with optics) was replaced with a carrying handle with an integrated Picatinny rail.\n\nAmmo: 5.56x45mm \nMagazine Capacity: 30\n\n-Shots per round: 8"
+ITEM.longdesc = "This subcarbine model is a further development of the G36K.\nIt has a shorter barrel than the G36K, and a four-prong open-type flash hider.\nThe extremely short barrel forced designers to move the gas block closer to the muzzle end and reduce the length of the gas piston operating rod.\nThe handguard and stock were also shortened and the fixed carry handle (with optics) was replaced with a carrying handle with an integrated Picatinny rail.\n\nAmmo: 5.56x45mm \nMagazine Capacity: 30"
 ITEM.model = "models/weapons/g36/w_g36.mdl"
 ITEM.class = "cw_sil_g36"
 ITEM.weaponCategory = "primary"
@@ -16,6 +16,9 @@ ITEM.isPLWeapon = true
 ITEM.modifier = 5
 ITEM.weight = 2.82
 ITEM.barrel = "short"
+ITEM.weaponType = "rifles"
+ITEM.RPM = 7
+ITEM.recoil = -3
 
 ITEM.iconCam = {
 	pos = Vector(-6.3000001907349, 22, 1.5),

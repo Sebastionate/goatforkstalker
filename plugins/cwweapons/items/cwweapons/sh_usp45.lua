@@ -1,5 +1,5 @@
 ITEM.name = "USP .45"
-ITEM.description = "The USP is a semi-automatic pistol developed in Germany by Heckler & Koch GmbH (H&K) of Oberndorf am Neckar as a replacement for the P7 series of handguns. This particular variant is chambered for the .45 ACP Round.\n\n-This weapon is a Secondary, meaning it may be used even when Stunned.\n\n-This weapon is designated as Light, meaning it can be reloaded using 4s of Movement speed instead of a full action.\n\n-Shots per round: 4"
+ITEM.description = "The USP is a semi-automatic pistol developed in Germany by Heckler & Koch GmbH (H&K) of Oberndorf am Neckar as a replacement for the P7 series of handguns. This particular variant is chambered for the .45 ACP Round."
 ITEM.model = "models/silver/stalker/weapons/w_usp45.mdl"
 ITEM.class = "cw_sil_usp45"
 ITEM.weaponCategory = "sidearm"
@@ -16,3 +16,6 @@ ITEM.Range = 50
 ITEM.Pen = 4
 ITEM.Mag = 12
 ITEM.barrel = "short"
+ITEM.weaponType = "smallarms"
+ITEM.RPM = 3
+ITEM.recoil = -2

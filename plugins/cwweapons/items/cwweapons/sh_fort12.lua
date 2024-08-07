@@ -1,6 +1,6 @@
 ITEM.name = "Fort-12"
 ITEM.description= "A semi-automatic pistol chambered for 9x18mm."
-ITEM.longdesc = "An Ukranian-made service pistol that has been adopted by many east-block countries.\nAlmost as common as the PMm and is more popular due to its larger magazine capacity.\n\nAmmo: 9x18mm\nMagazine Capacity: 12\n\n-This weapon is a Secondary, meaning it may be used even when Stunned.\n\n-This weapon is designated as Light, meaning it can be reloaded using 4s of Movement speed instead of a full action.\n\n-Shots per round: 4"
+ITEM.longdesc = "An Ukranian-made service pistol that has been adopted by many east-block countries.\nAlmost as common as the PMm and is more popular due to its larger magazine capacity.\n\nAmmo: 9x18mm\nMagazine Capacity: 12"
 ITEM.model = "models/silver/stalker/weapons/w_fort12.mdl"
 ITEM.class = "cw_sil_fort12"
 ITEM.weaponCategory = "sidearm"
@@ -16,6 +16,9 @@ ITEM.isPLWeapon = true
 ITEM.modifier = 5
 ITEM.weight = 0.83
 ITEM.barrel = "short"
+ITEM.weaponType = "smallarms"
+ITEM.RPM = 4
+ITEM.recoil = -1
 
 ITEM.iconCam = {
 	pos = Vector(-6, 8.5, 1.3999999761581),

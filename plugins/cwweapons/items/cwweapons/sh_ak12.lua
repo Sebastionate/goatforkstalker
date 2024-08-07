@@ -1,6 +1,6 @@
 ITEM.name = "AK-12"
 ITEM.description= "A russian-designed assault rifle chambered for 5.45x39mm."
-ITEM.longdesc = "The AK-12 is a Russian assault rifle chambered in 5.45x39mm designed and manufactured by the Kalashnikov Concern, making it the fifth generation of Kalashnikov rifles. The Kalashnikov Concern also offers a variant of the AK-12 chambered in 7.62x39mm, known as the AK-15 due to the request of the Russian military, and a variant chambered in 5.56x45mm upon the request of international clients. The AK-12 project began in an attempt to partipcipate in the Ratnik trials which were held by the Russian Army.\n\nAmmo: 5.45x39mm\nMagazine Capacity: 30\n\n-Shots per round: 7\n\n-This weapon does one step up in damage for its caliber."
+ITEM.longdesc = "The AK-12 is a Russian assault rifle chambered in 5.45x39mm designed and manufactured by the Kalashnikov Concern, making it the fifth generation of Kalashnikov rifles. The Kalashnikov Concern also offers a variant of the AK-12 chambered in 7.62x39mm, known as the AK-15 due to the request of the Russian military, and a variant chambered in 5.56x45mm upon the request of international clients. The AK-12 project began in an attempt to partipcipate in the Ratnik trials which were held by the Russian Army.\n\nAmmo: 5.45x39mm\nMagazine Capacity: 30"
 ITEM.model = "models/silver/outbreak/weapons/w_ak12.mdl"
 ITEM.class = "cw_sil_ak12"
 ITEM.weaponCategory = "primary"
@@ -16,6 +16,9 @@ ITEM.modifier = 4
 ITEM.weight = 3.5
 ITEM.flag = "A"
 ITEM.barrel = "medium"
+ITEM.weaponType = "rifles"
+ITEM.RPM = 7
+ITEM.recoil = -3
 
 ITEM.iconCam = {
 	pos = Vector(-10, 200, 0),

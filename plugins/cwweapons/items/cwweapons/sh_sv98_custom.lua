@@ -16,6 +16,9 @@ ITEM.isPLWeapon = true
 ITEM.modifier = 5
 ITEM.weight = 5.4
 ITEM.barrel = "long"
+ITEM.weaponType = "rifles"
+ITEM.RPM = 2
+ITEM.recoil = -4
 
 ITEM.iconCam = {
 	pos = Vector(0, -35, 0),

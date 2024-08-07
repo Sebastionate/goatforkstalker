@@ -1,5 +1,5 @@
 ITEM.name = "Dragunov SVU"
-ITEM.description = "The OTs-03 SVU is a bullpup configuration of the SVD sniper rifle. The SVU was developed to meet the needs of the security forces of the Russian Ministry of Internal Affairs, such as OMON. The SVU was first seen in use in the First Chechen War. Originally, the plan was to just slightly modernize the aging SVD, but the designers eventually realised that the configuration of the weapon would have to be completely altered, leading to the creation of the SVU.\n\n-Shots per round: 3"
+ITEM.description = "The OTs-03 SVU is a bullpup configuration of the SVD sniper rifle. The SVU was developed to meet the needs of the security forces of the Russian Ministry of Internal Affairs, such as OMON. The SVU was first seen in use in the First Chechen War. Originally, the plan was to just slightly modernize the aging SVD, but the designers eventually realised that the configuration of the weapon would have to be completely altered, leading to the creation of the SVU."
 ITEM.model = "models/weapons/ethereal/w_svu.mdl"
 ITEM.class = "cw_sil_svu"
 ITEM.weaponCategory = "primary"
@@ -16,3 +16,6 @@ ITEM.Range = 150
 ITEM.Pen = 20
 ITEM.Mag = 10
 ITEM.barrel = "medium"
+ITEM.weaponType = "rifles"
+ITEM.RPM = 4
+ITEM.recoil = -4

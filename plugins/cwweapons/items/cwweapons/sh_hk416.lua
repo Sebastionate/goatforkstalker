@@ -1,5 +1,5 @@
 ITEM.name = "HK416"
-ITEM.description = "The HK416 is a gas operated assault rifle chambered for the 5.56x45mm NATO cartridge. Although the deisgn is based on the AR-15 class of firearms, it uses a proprietary short stroke, gas piston system from Heckler & Koch's earlier G36 family of rifles. Fires 5.56x45mm rounds.\n\nShots per round: 9"
+ITEM.description = "The HK416 is a gas operated assault rifle chambered for the 5.56x45mm NATO cartridge. Although the deisgn is based on the AR-15 class of firearms, it uses a proprietary short stroke, gas piston system from Heckler & Koch's earlier G36 family of rifles. Fires 5.56x45mm rounds."
 ITEM.model = "models/weapons/ethereal/w_hk416.mdl"
 ITEM.class = "cw_sil_hk416"
 ITEM.weaponCategory = "primary"
@@ -17,3 +17,6 @@ ITEM.Range = 100
 ITEM.Pen = 12
 ITEM.Mag = 30
 ITEM.barrel = "medium"
+ITEM.weaponType = "rifles"
+ITEM.RPM = 7
+ITEM.recoil = -2

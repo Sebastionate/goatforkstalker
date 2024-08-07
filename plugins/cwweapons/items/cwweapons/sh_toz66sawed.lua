@@ -1,5 +1,5 @@
 ITEM.name = "Sawed Off TOZ-66"
-ITEM.description = "The Izh-43 is a double barrel, breech-loading shotgun built primarily for hunting small to medium game. It has seen extensive use in The Zone due to its high availability and exceptional durability and simplicity. Fires 12 Gauge Shells. This particular one has had the barrels shortened significantly, resulting in higher recoil but easier use in close quarters.\n\n-This weapon is a Secondary, meaning it can be used while Stunned.\n\n-Shots per round: 2"
+ITEM.description = "The Izh-43 is a double barrel, breech-loading shotgun built primarily for hunting small to medium game. It has seen extensive use in The Zone due to its high availability and exceptional durability and simplicity. Fires 12 Gauge Shells. This particular one has had the barrels shortened significantly, resulting in higher recoil but easier use in close quarters."
 ITEM.model = "models/weapons/ethereal/w_sawnoff_db.mdl"
 ITEM.class = "cw_sil_toz66_sawed"
 ITEM.weaponCategory = "secondary"
@@ -16,3 +16,6 @@ ITEM.Range = 30
 ITEM.Pen = 2
 ITEM.Mag = 2
 ITEM.barrel = "short"
+ITEM.weaponType = "closequarters"
+ITEM.RPM = 2
+ITEM.recoil = -5

@@ -1,6 +1,6 @@
 ITEM.name = "PP-19 Bizon"
 ITEM.description = "Russian submachine gun that fires 9x18mm Makarov."
-ITEM.longdesc = "The PP-19 Bizon is a 9x18mm Makarov submachine gun developed in 1993 by the Russian company Izhmash, designed by a team of engineers headed by Victor Kalashnikov and Alexei Dragunov. The Bizon was developed at teh request of the Russian MVD and is primarily intended for counter-terrorist and law enforcement units that need fast and accurate fire at close ranges.\n\nAmmo: 9x18mm\nMagazine Capacity: 64\n\n-Shots per round: 7"
+ITEM.longdesc = "The PP-19 Bizon is a 9x18mm Makarov submachine gun developed in 1993 by the Russian company Izhmash, designed by a team of engineers headed by Victor Kalashnikov and Alexei Dragunov. The Bizon was developed at teh request of the Russian MVD and is primarily intended for counter-terrorist and law enforcement units that need fast and accurate fire at close ranges.\n\nAmmo: 9x18mm\nMagazine Capacity: 64"
 ITEM.model = "models/silver/outbreak/weapons/w_bizon.mdl"
 ITEM.class = "cw_sil_bizon"
 ITEM.weaponCategory = "secondary"
@@ -18,3 +18,6 @@ ITEM.Range = 50
 ITEM.Pen = 6
 ITEM.Mag = 64
 ITEM.barrel = "medium"
+ITEM.weaponType = "smallarms"
+ITEM.RPM = 6
+ITEM.recoil = -1

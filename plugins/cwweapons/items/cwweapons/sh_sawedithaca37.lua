@@ -17,3 +17,6 @@ ITEM.Range = 30
 ITEM.Pen = 2
 ITEM.Mag = 5
 ITEM.barrel = "short"
+ITEM.weaponType = "closequarters"
+ITEM.RPM = 2
+ITEM.recoil = -4

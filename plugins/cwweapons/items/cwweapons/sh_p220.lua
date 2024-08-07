@@ -16,3 +16,6 @@ ITEM.Range = 30
 ITEM.Pen = 5
 ITEM.Mag = 10
 ITEM.barrel = "short"
+ITEM.weaponType = "smallarms"
+ITEM.RPM = 3
+ITEM.recoil = -2

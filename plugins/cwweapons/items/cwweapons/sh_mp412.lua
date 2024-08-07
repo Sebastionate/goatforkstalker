@@ -1,5 +1,5 @@
 ITEM.name = "MP-412 REX"
-ITEM.description = "he MP-412 REX was a Russian double-action/single-action revolver designed by the state-owned Izhevsk Mechanical Plant, with a break-action chamber and an automatic ejector, chambered for the .357 Magnum round.\n\n-This weapon is a Secondary, meaning it may be used even when Stunned.\n\n-This weapon can be designated as Light with Speed-Loaders, meaning it could be reloaded using 4s of Movement speed instead of a full action.\n\n-Shots per round: 2"
+ITEM.description = "he MP-412 REX was a Russian double-action/single-action revolver designed by the state-owned Izhevsk Mechanical Plant, with a break-action chamber and an automatic ejector, chambered for the .357 Magnum round."
 ITEM.model = "models/silver/stalker/weapons/w_mp412.mdl"
 ITEM.class = "cw_sil_mp412"
 ITEM.weaponCategory = "sidearm"
@@ -16,3 +16,6 @@ ITEM.Range = 30
 ITEM.Pen = 4
 ITEM.Mag = 6
 ITEM.barrel = "medium"
+ITEM.weaponType = "smallarms"
+ITEM.RPM = 2
+ITEM.recoil = -3
