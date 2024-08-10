@@ -216,6 +216,9 @@ function ITEM:GetDescription()
 		str = customData.desc
 	end
 
+	if self.RPM then str = str .. "\nRPM: " .. self.RPM end
+	if self.recoil then str = str .. "\nRecoil: " .. self.recoil end 
+
 	if (customData.longdesc) then
 		str = str.. "\n\n" ..customData.longdesc 
 	end

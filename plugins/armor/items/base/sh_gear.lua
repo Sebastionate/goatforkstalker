@@ -118,7 +118,7 @@ function ITEM:GetDescription()
 	end
 
 	if self.ballisticRating then
-		str = str .. "BR: " .. self:GetData("ballisticRating")
+		str = str .. "\n\nBR: " .. self:GetData("ballisticRating")
 	end 
 	
 	if self.res then

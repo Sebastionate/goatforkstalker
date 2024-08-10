@@ -9,6 +9,7 @@ ITEM.height = 2
 ITEM.isWeapon = true
 ITEM.isGrenade = false
 ITEM.weaponCategory = "melee"
+ITEM.noRoll = true
 ITEM.equipIcon = Material("materials/vgui/ui/stalker/misc/equip.png")
 
 

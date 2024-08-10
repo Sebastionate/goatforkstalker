@@ -49,20 +49,49 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(155)
+        self:SetCombatHealthMax(155)
+        self:SetWeaponSkill(25)
+        self:SetDodge(17)
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        if string.find(self:GetModel(), "seva") then
+            -- STS-Seva and Screen Helm
+            self:SetHeadBR(16)
+            self:SetHeadBullet(13)
+            self:SetHeadImpact(15)
+            self:SetHeadRupture(3)
+        
+            self:SetTorsoBR(38)
+            self:SetTorsoBullet(15)
+            self:SetTorsoImpact(16)
+            self:SetTorsoRupture(16)
+        end
+
+        if string.find(self:GetModel(), "metro") then
+            -- Paladin and Assault Helmet
+            self:SetHeadBR(35)
+            self:SetHeadBullet(25)
+            self:SetHeadImpact(30)
+            self:SetHeadRupture(4)
+        
+            self:SetTorsoBR(42)
+            self:SetTorsoBullet(25)
+            self:SetTorsoImpact(15)
+            self:SetTorsoRupture(23)
+        end
+
+        if string.find(self:GetModel(), "exo") then
+            -- Terminator Exosuit and Exohelm
+            self:SetHeadBR(50)
+            self:SetHeadBullet(31)
+            self:SetHeadImpact(40)
+            self:SetHeadRupture(4)
+        
+            self:SetTorsoBR(54)
+            self:SetTorsoBullet(35)
+            self:SetTorsoImpact(35)
+            self:SetTorsoRupture(34)
+        end
 
         local firstname = table.Random(PLUGIN.mercnamesfirst)
 

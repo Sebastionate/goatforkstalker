@@ -1,7 +1,7 @@
 ITEM.name = "Vyraj Power Armor"
 ITEM.model = "models/kek1ch/exolight_outfit.mdl"
 ITEM.replacements = "models/player/stalker_greh/greh_exo/greh_exo.mdl"
-TEM.description = "A set of modified TB-3d heavy armor."
+ITEM.description = "A set of modified TB-3d heavy armor."
 ITEM.longdesc = "This suit of armor was once a regular TB-3, but has had some extra armor plating attached. In addition, a closer look reveals that the exoskeleton parts are not merely clamped on like any other suit, but permanently and roughly bolted on, as if they're holding the entire piece together by existing."
 ITEM.width = 3
 ITEM.height = 3

@@ -17,9 +17,6 @@ ENT.models = {
     "models/nasca/stalker/female_expedition.mdl",
     "models/nasca/stalker/male_nbc_duty.mdl",
     "models/silver/stalker/female_nbc_duty.mdl",
-
-
-
 }
 
 
@@ -55,20 +52,49 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(100)
+        self:SetCombatHealthMax(100)
+        self:SetWeaponSkill(5)
+        self:SetDodge(8)
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        if string.find(self:GetModel(), "hawk") then
+            -- PS5-R and M40
+            self:SetHeadBR(10)
+            self:SetHeadBullet(3)
+            self:SetHeadImpact(8)
+            self:SetHeadRupture(4)
+        
+            self:SetTorsoBR(25)
+            self:SetTorsoBullet(11)
+            self:SetTorsoImpact(15)
+            self:SetTorsoRupture(18)
+        end
+
+        if string.find(self:GetModel(), "expedition") then
+            -- Berkut and Altyn
+            self:SetHeadBR(28)
+            self:SetHeadBullet(20)
+            self:SetHeadImpact(25)
+            self:SetHeadRupture(3)
+        
+            self:SetTorsoBR(25)
+            self:SetTorsoBullet(12)
+            self:SetTorsoImpact(20)
+            self:SetTorsoRupture(35)
+        end
+
+        if string.find(self:GetModel(), "nbc") then
+            -- NBC and GP5
+            self:SetHeadBR(10)
+            self:SetHeadBullet(1)
+            self:SetHeadImpact(6)
+            self:SetHeadRupture(2)
+        
+            self:SetTorsoBR(18)
+            self:SetTorsoBullet(8)
+            self:SetTorsoImpact(10)
+            self:SetTorsoRupture(13)
+        end
 
         
         local firstname = ""

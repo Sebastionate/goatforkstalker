@@ -56,15 +56,31 @@ if (SERVER) then
         self:SetWeaponSkill(0)
         self:SetDodge(0)
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        if string.find(self:GetModel(), "stingray") or string.find(self:GetModel(), "bulat") then
+            -- Stingray-9 and Sphere-12
+            self:SetHeadBR(40)
+            self:SetHeadBullet(27)
+            self:SetHeadImpact(35)
+            self:SetHeadRupture(5)
+        
+            self:SetTorsoBR(40)
+            self:SetTorsoBullet(28)
+            self:SetTorsoImpact(28)
+            self:SetTorsoRupture(23)
+        end
+
+        if string.find(self:GetModel(), "exo") then
+            -- Monolith Exoskeleton and Exohelm
+            self:SetHeadBR(50)
+            self:SetHeadBullet(31)
+            self:SetHeadImpact(40)
+            self:SetHeadRupture(4)
+        
+            self:SetTorsoBR(65)
+            self:SetTorsoBullet(36)
+            self:SetTorsoImpact(41)
+            self:SetTorsoRupture(39)
+        end
 
         local lastname = table.Random(PLUGIN.realnameslast)
 

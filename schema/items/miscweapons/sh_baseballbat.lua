@@ -1,5 +1,5 @@
 ITEM.name = "Baseball Bat"
-ITEM.description = "A metal baseball bat for hitting baseballs, or skulls.\n\nAttacks:\n-Reflex based blunt attack, no modifer to roll.\n\n-Strength based blunt attack, -10 to Strength roll, heavier damage."
+ITEM.description = "A metal baseball bat for hitting baseballs, or skulls."
 ITEM.model = "models/weapons/tfa_nmrih/w_me_bat_metal.mdl"
 ITEM.class = "tfa_nmrih_bat"
 ITEM.weaponCategory = "melee"

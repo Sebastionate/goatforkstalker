@@ -10,6 +10,7 @@ ITEM.isAttachment = true
 ITEM.attSearch = { "cw_sil_leupold_scope",}
 ITEM.weight = 1.133
 ITEM.upgradeIcon = Material("materials/vgui/ui/stalker/weaponupgrades/8xmag.png")
+ITEM.scopetype = "long"
    
 
 -- Slot Numbers Defined:

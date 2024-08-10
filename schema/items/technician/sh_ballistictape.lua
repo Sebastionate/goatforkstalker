@@ -5,9 +5,9 @@ ITEM.longdesc = "A length of kevlar tape, more durable than the household varian
 ITEM.flag = "A"
 ITEM.category = "Technician"
 ITEM.price = 1000
-ITEM.repairAmount = 5
-ITEM.repairTreshhold = 90
-ITEM.maxStack = 1
+ITEM.repairAmount = 6
+ITEM.repairTreshhold = 85
+ITEM.maxStack = 2
 ITEM.sound = "stalkersound/inv_repair_sewing_kit_fast.mp3"
 ITEM.weight = 0.2
  

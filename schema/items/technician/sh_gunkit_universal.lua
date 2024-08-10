@@ -1,18 +1,18 @@
-ITEM.name = "Duct Tape"
-ITEM.model = "models/illusion/eftcontainers/ducttape.mdl"
-ITEM.description = "A roll of duct tape."
-ITEM.longdesc = "A mostly-used-up roll of duct tape, suitable for patching up very minor suit damage in a pinch, or for putting together larger DIY projects."
+ITEM.name = "Universal Cleaning Kit"
+ITEM.model = "models/kek1ch/cleaning_kit_u.mdl"
+ITEM.description = "A complete set of cleaning tools fit for any repair job."
+ITEM.longdesc = "A comprehensive set of just about any tool or spray/oil you'd need to restore a damaged weapon to full condition."
 ITEM.flag = "3"
 ITEM.category = "Technician"
-ITEM.price = 350
-ITEM.repairAmount = 5
-ITEM.repairTreshhold = 95
-ITEM.maxStack = 1
-ITEM.sound = "stalkersound/inv_repair_sewing_kit_fast.mp3"
-ITEM.weight = 0.2
- 
-ITEM.functions.use = {
-	name = "Tape up outfit",
+ITEM.repairAmount = 1500
+ITEM.repairTreshhold = 2000
+ITEM.maxStack = 5
+ITEM.sound = "stalkersound/inv_repair_spray_oil.mp3"
+ITEM.weight = 0.5
+ITEM.price = 15000
+
+ITEM.functions.use = { 
+	name = "Clean Gun",
 	tip = "useTip",
 	icon = "icon16/stalker/repair.png",
 	isMulti = true,
@@ -28,9 +28,9 @@ ITEM.functions.use = {
 				local items = inv:GetItems()
 
 				for k, v in pairs(items) do
-					if (v.isBodyArmor or v.isHelmet or v.isGasmask) and item.repairTreshhold < v:GetData("durability", 0) and v:GetData("durability", 0) < 100 then
+					if v.isWeapon and item.repairTreshhold < (v:GetData("durability", 0)) and v:GetData("durability", 0) < 10000 then
 						table.insert(targets, {
-							name = "Repair "..v.name.." with "..math.Round(v:GetData("durability",0), 2).." percent durability to "..math.Clamp(math.Round(v:GetData("durability",0), 2)+item.repairAmount, 0, 100).." percent durability.",
+							name = "Repair "..v.name.." with "..math.Round((v:GetData("durability",0)/100), 2).." percent durability to "..math.Clamp(math.Round((v:GetData("durability",0)/100), 2)+(item.repairAmount/100),0,100).." percent durability.",
 							data = {v:GetID()},
 						})
 					else
@@ -60,7 +60,7 @@ ITEM.functions.use = {
 					break
 				end
 			else
-				client:Notify("No outfit selected.")
+				client:Notify("No weapon selected.")
 				return false
 			end
 		end
@@ -70,8 +70,8 @@ ITEM.functions.use = {
 		end
 		
 		if target:GetData("equip") != true then
-			if target:GetData("durability",100) > item.repairTreshhold then
-				target:SetData("durability", math.Clamp(target:GetData("durability",100) + item.repairAmount, 0, 100))
+			if target:GetData("durability",10000) > item.repairTreshhold then
+				target:SetData("durability", math.Clamp(target:GetData("durability",10000) + item.repairAmount, 0, 10000))
 				client:Notify(target.name.." successfully repaired.")
 				item.player:EmitSound(item.sound or "items/battery_pickup.wav")
 				if item:GetData("quantity",3) > 1 then
@@ -81,11 +81,11 @@ ITEM.functions.use = {
 					return true
 				end
 			else
-				client:Notify("Óutfit too damaged.")
+				client:Notify("Weapon too damaged.")
 				return false
 			end
 		else
-			client:Notify("Unequip the outfit first!")
+			client:Notify("Unequip the weapon first!")
 			return false	
 		end
 	end,
@@ -103,7 +103,7 @@ function ITEM:GetDescription()
 	if (self.entity) then
 		return self.description.."\n \nThis tool has "..math.Round(quant).." uses left durability."
 	else
-        return (str.."Amount of durability restored: "..self.repairAmount.."% \nMinimum durability percentage: "..self.repairTreshhold.."%".."\n \nThis tool has "..quant.."/"..self.maxStack.." uses left.")
+        return (str.."Amount of durability restored: "..self.repairAmount/100.. "% \nMinimum durability percentage: "..(self.repairTreshhold / 100).."%".."\n \nThis tool has "..quant.."/"..self.maxStack.." uses left.")
 	end
 end
 

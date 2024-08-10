@@ -1,7 +1,7 @@
 ITEM.name = "Berkut Riot Armor (Female)"
 ITEM.model = "models/kek1ch/merc_outfit.mdl"
 ITEM.replacements = "models/nasca/stalker/female_expedition.mdl"
-TEM.description= "A suit of riot gear."
+ITEM.description= "A suit of riot gear."
 ITEM.longdesc = "This uniform is commonly used by police outside of the Zone who use it to control mobs of unruly civilians. As such it is thick, unwieldy and generally possesses poor environmental protection. However, it makes up for this shortcoming with decent ballistic protection, and padding against blunt and bladed strikes, making it a popular choice for mutant hunting."
 ITEM.width = 2
 ITEM.height = 2

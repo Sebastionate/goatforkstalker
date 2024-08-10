@@ -51,20 +51,36 @@ local ranks = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(100)
+        self:SetCombatHealthMax(100)
+        self:SetWeaponSkill(5)
+        self:SetDodge(11)
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        if string.find(self:GetModel(), "expedition") then
+            -- Berkut and Altyn
+            self:SetHeadBR(28)
+            self:SetHeadBullet(20)
+            self:SetHeadImpact(25)
+            self:SetHeadRupture(3)
+        
+            self:SetTorsoBR(25)
+            self:SetTorsoBullet(12)
+            self:SetTorsoImpact(20)
+            self:SetTorsoRupture(35)
+        end
+
+        if string.find(self:GetModel(), "wind") or string.find(self:GetModel(), "guard") then
+            -- Wind of Freedom and PBF
+            self:SetHeadBR(10)
+            self:SetHeadBullet(1)
+            self:SetHeadImpact(6)
+            self:SetHeadRupture(2)
+        
+            self:SetTorsoBR(22)
+            self:SetTorsoBullet(8)
+            self:SetTorsoImpact(10)
+            self:SetTorsoRupture(17)
+        end
 
         local firstname = ""
 

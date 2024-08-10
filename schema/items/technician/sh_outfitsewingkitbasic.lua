@@ -1,13 +1,13 @@
-ITEM.name = "Outfit Sewing Kit"
-ITEM.model = "models/kek1ch/sewing_kit_a.mdl"
+ITEM.name = "Basic Outfit Sewing Kit"
+ITEM.model = "models/kek1ch/sewing_kit_b.mdl"
 ITEM.description = "Common tools and materials for taking care of damaged outfits."
-ITEM.longdesc = "A light sewing kit consisting of a cloth reel, several steel needles and a pair of scissors. It can be used to sew up bullet holes or ruptures in soft fabrics of outfits. Its practical applications are limited due to the short length of the thread and subpar durability of needles, so the kit will be useless in case of more serious damage. For the same reason, it's compatible with only a handful of materials. Nonetheless, it is strongly advised to always use whatever is available to make the kit more effective."
+ITEM.longdesc = "A light sewing kit consisting of a cloth reel, several steel needles and a pair of scissors. It can be used to sew up bullet holes or ruptures in soft fabrics of outfits. Its practical applications are limited due to the short length of the thread and subpar durability of needles, so the kit will be useless in case of more serious damage."
 ITEM.flag = "3"
 ITEM.category = "Technician"
-ITEM.price = 15000
-ITEM.repairAmount = 5
-ITEM.repairTreshhold = 70
-ITEM.maxStack = 3
+ITEM.price = 2500
+ITEM.repairAmount = 8
+ITEM.repairTreshhold = 85
+ITEM.maxStack = 4
 ITEM.sound = "stalkersound/inv_repair_sewing_kit_fast.mp3"
 ITEM.weight = 0.2
  

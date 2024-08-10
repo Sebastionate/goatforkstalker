@@ -51,20 +51,49 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(150)
+        self:SetCombatHealthMax(150)
+        self:SetWeaponSkill(20)
+        self:SetDodge(17)
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        if string.find(self:GetModel(), "seva") then
+            -- PSZ-9md Universal Protection and Screen Helmet
+            self:SetHeadBR(16)
+            self:SetHeadBullet(13)
+            self:SetHeadImpact(15)
+            self:SetHeadRupture(3)
+        
+            self:SetTorsoBR(36)
+            self:SetTorsoBullet(12)
+            self:SetTorsoImpact(17)
+            self:SetTorsoRupture(17)
+        end
+
+        if string.find(self:GetModel(), "psz12") then
+            -- PSZ-12d and Sphere-12
+            self:SetHeadBR(40)
+            self:SetHeadBullet(27)
+            self:SetHeadImpact(35)
+            self:SetHeadRupture(5)
+        
+            self:SetTorsoBR(45)
+            self:SetTorsoBullet(30)
+            self:SetTorsoImpact(28)
+            self:SetTorsoRupture(26)
+        end
+
+        if string.find(self:GetModel(), "exo") then
+            -- TB-3d Exosuit and Exohelm
+            self:SetHeadBR(50)
+            self:SetHeadBullet(31)
+            self:SetHeadImpact(40)
+            self:SetHeadRupture(4)
+        
+            self:SetTorsoBR(50)
+            self:SetTorsoBullet(34)
+            self:SetTorsoImpact(32)
+            self:SetTorsoRupture(33)
+        end
 
         
         local firstname = ""

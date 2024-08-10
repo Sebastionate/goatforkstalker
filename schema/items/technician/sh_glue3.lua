@@ -1,18 +1,18 @@
-ITEM.name = "Gun Cleaning Kit"
-ITEM.model = "models/kek1ch/cleaning_kit_p.mdl"
-ITEM.description = "Common tools and materials for taking care of weaponry."
-ITEM.longdesc = "Advanced gun cleaning kit fitting all common weapon calibers. Besides cleaning and maintenance, it can also be used as an effective repair tool. The set comprises a small portion of efficient lubricant and cleaning solvent as well as some light tools to facilitate access to inner mechanisms of a firearm. In order to maximize effectiveness, combine with additional materials or specialized repair sets."
-ITEM.flag = "7"
+ITEM.name = "'M17' Glue Tube"
+ITEM.model = "models/kek1ch/glue_e.mdl"
+ITEM.description = "Military-strength adhesive."
+ITEM.longdesc = "A small tube of glue specifically formulated in the Soviet Union to be used in emergencies among the military, capable of sealing together damned-near anything."
+ITEM.flag = "3"
 ITEM.category = "Technician"
-ITEM.repairAmount = 500
-ITEM.repairTreshhold = 8000
-ITEM.maxStack = 3
-ITEM.sound = "stalkersound/inv_repair_kit_use_fast_2p8.mp3"
-ITEM.weight = 0.5
-ITEM.price = 15000
-
-ITEM.functions.use = { 
-	name = "Clean Gun",
+ITEM.price = 1400
+ITEM.repairAmount = 5
+ITEM.repairTreshhold = 70
+ITEM.maxStack = 2
+ITEM.sound = "stalkersound/inv_repair_sewing_kit_fast.mp3"
+ITEM.weight = 0.2
+ 
+ITEM.functions.use = {
+	name = "Repair Outfit",
 	tip = "useTip",
 	icon = "icon16/stalker/repair.png",
 	isMulti = true,
@@ -28,9 +28,9 @@ ITEM.functions.use = {
 				local items = inv:GetItems()
 
 				for k, v in pairs(items) do
-					if v.isWeapon and item.repairTreshhold < (v:GetData("durability", 0)) and v:GetData("durability", 0) < 10000 then
+					if (v.isBodyArmor or v.isHelmet or v.isGasmask) and item.repairTreshhold < v:GetData("durability", 0) and v:GetData("durability", 0) < 100 then
 						table.insert(targets, {
-							name = "Repair "..v.name.." with "..math.Round((v:GetData("durability",0)/100), 2).." percent durability to "..math.Clamp(math.Round((v:GetData("durability",0)/100), 2)+(item.repairAmount/100),0,100).." percent durability.",
+							name = "Repair "..v.name.." with "..math.Round(v:GetData("durability",0), 2).." percent durability to "..math.Clamp(math.Round(v:GetData("durability",0), 2)+item.repairAmount, 0, 100).." percent durability.",
 							data = {v:GetID()},
 						})
 					else
@@ -60,7 +60,7 @@ ITEM.functions.use = {
 					break
 				end
 			else
-				client:Notify("No weapon selected.")
+				client:Notify("No outfit selected.")
 				return false
 			end
 		end
@@ -70,8 +70,8 @@ ITEM.functions.use = {
 		end
 		
 		if target:GetData("equip") != true then
-			if target:GetData("durability",10000) > item.repairTreshhold then
-				target:SetData("durability", math.Clamp(target:GetData("durability",10000) + item.repairAmount, 0, 10000))
+			if target:GetData("durability",100) > item.repairTreshhold then
+				target:SetData("durability", math.Clamp(target:GetData("durability",100) + item.repairAmount, 0, 100))
 				client:Notify(target.name.." successfully repaired.")
 				item.player:EmitSound(item.sound or "items/battery_pickup.wav")
 				if item:GetData("quantity",3) > 1 then
@@ -81,11 +81,11 @@ ITEM.functions.use = {
 					return true
 				end
 			else
-				client:Notify("Weapon too damaged.")
+				client:Notify("Óutfit too damaged.")
 				return false
 			end
 		else
-			client:Notify("Unequip the weapon first!")
+			client:Notify("Unequip the outfit first!")
 			return false	
 		end
 	end,
@@ -103,7 +103,7 @@ function ITEM:GetDescription()
 	if (self.entity) then
 		return self.description.."\n \nThis tool has "..math.Round(quant).." uses left durability."
 	else
-        return (str.."Amount of durability restored: "..self.repairAmount.."% \nMinimum durability percentage: "..(self.repairTreshhold / 100).."%".."\n \nThis tool has "..quant.."/"..self.maxStack.." uses left.")
+        return (str.."Amount of durability restored: "..self.repairAmount.."% \nMinimum durability percentage: "..self.repairTreshhold.."%".."\n \nThis tool has "..quant.."/"..self.maxStack.." uses left.")
 	end
 end
 

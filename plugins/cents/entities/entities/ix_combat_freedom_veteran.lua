@@ -54,20 +54,36 @@ local ranks = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(140)
+        self:SetCombatHealthMax(140)
+        self:SetWeaponSkill(15)
+        self:SetDodge(17)
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        if string.find(self:GetModel(), "berill") then
+            -- Guardian of Freedom and Sphere-08
+            self:SetHeadBR(31)
+            self:SetHeadBullet(24)
+            self:SetHeadImpact(30)
+            self:SetHeadRupture(3)
+        
+            self:SetTorsoBR(39)
+            self:SetTorsoBullet(21)
+            self:SetTorsoImpact(19)
+            self:SetTorsoRupture(36)
+        end
+
+        if string.find(self:GetModel(), "seva") then
+            -- Keeper of Freedom and Screen Helmet
+            self:SetHeadBR(16)
+            self:SetHeadBullet(13)
+            self:SetHeadImpact(15)
+            self:SetHeadRupture(3)
+        
+            self:SetTorsoBR(36)
+            self:SetTorsoBullet(12)
+            self:SetTorsoImpact(13)
+            self:SetTorsoRupture(17)
+        end
 
         local firstname = ""
 

@@ -47,20 +47,36 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(145)
+        self:SetCombatHealthMax(145)
+        self:SetWeaponSkill(20)
+        self:SetDodge(14)
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        if string.find(self:GetModel(), "eagle") then
+            -- Nighthunter and Sphere-08
+            self:SetHeadBR(31)
+            self:SetHeadBullet(24)
+            self:SetHeadImpact(30)
+            self:SetHeadRupture(3)
+        
+            self:SetTorsoBR(38)
+            self:SetTorsoBullet(24)
+            self:SetTorsoImpact(18)
+            self:SetTorsoRupture(18)
+        end
+
+        if string.find(self:GetModel(), "seva") then
+            -- STS-Seva and Screen Helm
+            self:SetHeadBR(16)
+            self:SetHeadBullet(13)
+            self:SetHeadImpact(15)
+            self:SetHeadRupture(3)
+        
+            self:SetTorsoBR(38)
+            self:SetTorsoBullet(15)
+            self:SetTorsoImpact(16)
+            self:SetTorsoRupture(16)
+        end
 
         local firstname = table.Random(PLUGIN.mercnamesfirst)
 

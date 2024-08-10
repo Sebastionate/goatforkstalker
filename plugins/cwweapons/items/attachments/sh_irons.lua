@@ -12,6 +12,7 @@ ITEM.attSearch = { "bg_foldsight" }
 ITEM.weight = 0.1
 ITEM.upgradeIcon = Material("materials/vgui/ui/stalker/weaponupgrades/sights.png")
 ITEM.Bal = 5
+ITEM.scopetype = "short"
   
 
 -- Slot Numbers Defined:

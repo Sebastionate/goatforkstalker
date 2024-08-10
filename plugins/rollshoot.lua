@@ -20,6 +20,21 @@ ix.command.Add("togglecombat", {
     end
 } )
 
+ix.command.Add("toggleoverwatch", {
+    description = "Mark whether you're on Overwatch or not.",
+    OnRun = function(self, client )
+        
+		if client:GetData("overwatch", false) == true then
+			client:SetData("overwatch", false) 
+			client:Notify("You've set yourself as no longer on Overwatch.")
+		else
+			client:SetData("overwatch", true )
+			client:Notify("You've set yourself as on Overwatch.")
+		end
+
+    end
+} )
+
 ix.command.Add("RollshootDetails", {
     description = "Toggle whether you want to see extra details about your shots, for debugging or your own interest.",
     OnRun = function(self, client )
@@ -30,6 +45,46 @@ ix.command.Add("RollshootDetails", {
 		else
 			client:SetData("rollshootDetails", true )
 			client:Notify("You'll receive additional data about your shots.")
+		end
+
+    end
+} )
+
+ix.command.Add("CharJamGun", {
+    description = "Toggle a forced mechanical failure on character's next shot.",
+	adminOnly = true,
+	arguments = {
+		ix.type.character,
+	},
+    OnRun = function(self, client, target)
+		local player = target:GetPlayer()
+		local weaponItem = player:GetActiveWeaponItem()
+
+		if weaponItem:GetData("jammed") then 
+			weaponItem:SetData("jammed", false)
+			client:Notify("Unjammed gun wielded by " .. target:GetName())
+		else
+			weaponItem:SetData("jammed", true)
+			client:Notify("Forced a jam on gun wielded by " .. target:GetName())
+		end
+
+    end
+} )
+
+ix.command.Add("Unjam", {
+    description = "Clear a mechanical failure on your firearm - if it has one.",
+    OnRun = function(self, client)
+		local weaponItem = client:GetActiveWeaponItem()
+
+		if not weaponItem then return "You don't have a weapon capable of mechanical failures equipped." end 
+
+		if weaponItem:GetData("jammed") then 
+			weaponItem:SetData("jammed", false)
+			ix.chat.Send(client, "gunjamclear", "", nil, nil)
+			ix.log.Add(client, "gunJamClear")
+			client:EmitSound("weapons/firearms/rifle_sako85/sako_boltopen.wav")
+		else
+			client:Notify("Your weapon isn't jammed!")
 		end
 
     end
@@ -57,10 +112,38 @@ ix.chat.Register("rollshoot", {
     end
 })
 
+ix.chat.Register("gunjam", {
+    format = "** %s tries to fire their weapon, but it jams!",
+    color = Color(155, 111, 176),
+    CanHear = ix.config.Get("chatRange", 280) * 2,
+    deadCanChat = true,
+    OnChatAdd = function(self, speaker, text, bAnonymous, data)
+        chat.AddText(self.color, translated and "** "..translated or string.format(self.format,speaker:Name()))
+    end
+})
+
+ix.chat.Register("gunjamclear", {
+    format = "** %s clears the mechanical failure on their firearm.",
+    color = Color(155, 111, 176),
+    CanHear = ix.config.Get("chatRange", 280) * 2,
+    deadCanChat = true,
+    OnChatAdd = function(self, speaker, text, bAnonymous, data)
+        chat.AddText(self.color, translated and "** "..translated or string.format(self.format,speaker:Name()))
+    end
+})
+
 if (SERVER) then
     ix.log.AddType("rollShoot", function(client, weaponname, clip, capacity, specialammo, total, range, crit, target)
 		if not target then target = "" end 
         return string.format("%s fires their %s (%s/%s) %s: %s at %s distance target %s %s", client:Name(), weaponname, clip, capacity, specialammo, total, range, crit, target)
+    end)
+
+	ix.log.AddType("gunJam", function(client)
+        return string.format("%s tried to fire, but their gun is jammed.", client:Name())
+    end)
+
+	ix.log.AddType("gunJamClear", function(client)
+        return string.format("** %s clears the mechanical failure on their firearm.", client:Name())
     end)
 end
 
@@ -70,11 +153,15 @@ function PLUGIN:WeaponFired(entity)
 
 	if entity:GetData("inCombat", false) == false then return end
 
+
+
 	
 
 	local swep = entity:GetActiveWeapon()
 
-	if (not swep and swep.isCW) then return end
+	if (not swep and not swep.isCW) then return end
+
+	
 
 	local weaponItem
 	local wepclass = swep:GetClass()
@@ -89,13 +176,37 @@ function PLUGIN:WeaponFired(entity)
 		end
 	end
 
+	
+	if weaponItem.noRoll then return end
+
 	local weaponcategory = weaponItem.weaponType or "rifles"
+
+
+
+
+	if weaponItem:GetData("jammed") then 
+		ix.chat.Send(entity, "gunjam", "", nil, nil)
+		ix.log.Add(entity, "gunJam")
+		return 
+	end 
+	local weapondura = weaponItem:GetData("durability", 10000)
+	weapondura = math.Round(weapondura/100)
+
+	-- Poor mans way of making sure a gun never jams at 80% or above without messing with conditionals
+	if weapondura >= 80 then weapondura = 100 end 
+
+	if weapondura < math.random(1, 100) then 
+		weaponItem:SetData("jammed", true)
+	end 
+
+
+
+
 
 	
 
 
 	local distance = self:GetEntityTarget(entity)
-
 	
 	local range = self:MetersToRange(distance)
 
@@ -103,6 +214,7 @@ function PLUGIN:WeaponFired(entity)
 
 	local scope
 	local grip
+	local laser
 	local atts = weaponItem:GetData("attachments")
 	if atts then
 		for k,v in pairs(atts) do
@@ -111,6 +223,7 @@ function PLUGIN:WeaponFired(entity)
 			elseif attItem.scopetype == "medium" then scope = "medium" 
 			elseif attItem.scopetype == "long" then scope = "long"
 			elseif attItem.isGrip then grip = true
+			elseif attItem.isLaser  then laser = true 
 			end 
 		end
 	end
@@ -151,7 +264,11 @@ function PLUGIN:WeaponFired(entity)
 		recoil = weaponItem.recoil
 
 		if grip then recoil = recoil + 1 end
+		if entity:GetData("overwatch") then recoil = recoil - 4 end
+		if entity:GetData("overwatch") and laser then recoil = recoil + 2 end
+
 		recoildebuff = recoil * entity:GetData("shotsfired", 0)
+
 	end 
 
 
@@ -226,13 +343,15 @@ function PLUGIN:MetersToRange(distance)
 
 	if distance < 15 then range = "Short"
 		elseif distance > 15 and distance < 44 then range = "Medium"
-		elseif distance > 44 and distance < 74 then range = "Long"
-		elseif distance > 74 and distance < 125 then range = "Very Long"
-		elseif distance > 125 then range = "Extreme"
+		elseif distance >= 44 and distance < 74 then range = "Long"
+		elseif distance >= 74 and distance < 125 then range = "Very Long"
+		elseif distance >= 125 then range = "Extreme"
 		end 
 
 	return range
 end 
+
+
 
 function PLUGIN:GetScopeBonus(range, scope)
 	local bonus = 0
@@ -240,7 +359,7 @@ function PLUGIN:GetScopeBonus(range, scope)
 
 	-- Short scopes (sights, red dots with no zoom) provide +4 bonus to Short Range only
 	-- Medium scopes with some magnification (ACOG) provide +2 bonus to Short and Medium range
-	-- Long scopes (PU scope, Leupold) provide +4 bonus to Long, +2 to Medium, and -4 to Short 
+	-- Long scopes (PU scope, Leupold) provide +4 bonus to Long, +3 to Very Long, +2 to Long, +2 to Medium, and -4 to Short 
 
 	if range == "short" and scope == "short" then bonus = 4 
 	elseif range == "short" and scope == "medium" then bonus = 2
@@ -254,13 +373,53 @@ function PLUGIN:GetScopeBonus(range, scope)
 end 
 
 
-
-
-
 function PLUGIN:PlayerWeaponChanged(client, weapon)
 	-- Reset count of how many times player has fired if they switch weaponry
 	client:SetData("shotsfired", 0)
 end 
+
+
+local playerMeta = FindMetaTable("Player")
+
+
+function playerMeta:GetActiveWeaponItem()
+
+	local swep = self:GetActiveWeapon()
+	if not swep then return false end 
+	local weaponItem
+	local wepclass = swep:GetClass()
+
+	for k,v in pairs(self:GetChar():GetInv():GetItems()) do
+		if v.isPLWeapon then
+			if v:GetData("equip",false) == true then
+				if wepclass == v.class then
+					weaponItem = v
+				end
+			end
+		end
+	end
+
+	return weaponItem
+
+
+	
+
+end 
+
+--[[ function playerMeta:CanShootWeapon()
+	local swep = self:GetActiveWeapon()
+	if not swep then return true end 
+	local weaponItem = self:GetActiveWeaponItem()
+
+	if weaponItem and weaponItem:GetData("jammed", false) then 
+		return false
+	else 
+		return self:GetNetVar("canShoot", true)
+	end 
+end  ]]
+
+
+
 
 
 

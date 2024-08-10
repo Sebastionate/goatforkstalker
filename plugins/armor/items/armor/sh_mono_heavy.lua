@@ -1,6 +1,6 @@
 ITEM.name = "Reinforced Monolith Suit"
 ITEM.model = "models/kek1ch/exolight_outfit.mdl"
-ITEM.replacements = "models/player/stalker_monolith/monolith_metro/monolith_metro.mdl
+ITEM.replacements = "models/player/stalker_monolith/monolith_metro/monolith_metro.mdl"
 ITEM.description= "A hefty set of assault armor."
 ITEM.longdesc = "An addition to the Monolith suit that adds a hefty amount of additional armor, meant for fire supports that participate in raids or guarding of key sites."
 ITEM.width = 2

@@ -11,6 +11,7 @@ ITEM.attSearch = { "kk_ins2_po4",}
 ITEM.weight = 0.6
 ITEM.upgradeIcon = Material("materials/vgui/ui/stalker/weaponupgrades/4xmag.png")
 ITEM.Range = 10
+ITEM.scopetype = "medium"
    
 
 -- Slot Numbers Defined:

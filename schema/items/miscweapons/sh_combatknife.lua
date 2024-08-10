@@ -1,5 +1,5 @@
 ITEM.name = "Combat Knife"
-ITEM.description = "A knife with serrated back edge, specifically meant for melee combat.\n\nAttacks:\n-Reflex based slash attack, No Modifier, causes Moderate Bleeds.\n\n-Reflex based stab attack, -10 Reflex, causes Heavy Bleeds and deals heavier damages."
+ITEM.description = "A knife with serrated back edge, specifically meant for melee combat."
 ITEM.model = "models/weapons/ethereal/w_marinebayonet.mdl"
 ITEM.class = "cw_kk_ins2_mel_bayonet"
 ITEM.weaponCategory = "melee"

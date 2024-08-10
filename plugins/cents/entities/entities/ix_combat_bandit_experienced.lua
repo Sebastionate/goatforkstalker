@@ -78,20 +78,49 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(100)
+        self:SetCombatHealthMax(100)
+        self:SetWeaponSkill(5)
+        self:SetDodge(8)
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        if string.find(self:GetModel(), "sunrise") or string.find(self:GetModel(), "lone_old") then
+            -- Sunrise and PBF Mask
+            self:SetHeadBR(10)
+            self:SetHeadBullet(1)
+            self:SetHeadImpact(6)
+            self:SetHeadRupture(2)
+        
+            self:SetTorsoBR(20)
+            self:SetTorsoBullet(9)
+            self:SetTorsoImpact(13)
+            self:SetTorsoRupture(16)
+        end
+
+        if string.find(self:GetModel(), "hawk") then
+            -- Black Hawk and M40
+            self:SetHeadBR(10)
+            self:SetHeadBullet(3)
+            self:SetHeadImpact(8)
+            self:SetHeadRupture(4)
+        
+            self:SetTorsoBR(27)
+            self:SetTorsoBullet(12)
+            self:SetTorsoImpact(6)
+            self:SetTorsoRupture(8)
+        end
+
+        if string.find(self:GetModel(), "nbc") then
+            -- NBC and GP5
+            self:SetHeadBR(10)
+            self:SetHeadBullet(1)
+            self:SetHeadImpact(6)
+            self:SetHeadRupture(2)
+        
+            self:SetTorsoBR(18)
+            self:SetTorsoBullet(8)
+            self:SetTorsoImpact(10)
+            self:SetTorsoRupture(13)
+        end
 
         local firstname = table.Random(PLUGIN.firstnamesnormal)
         local lastname = table.Random(PLUGIN.banditnameslast)

@@ -26,4 +26,12 @@ function playerMeta:SetWepRaised(state)
 			weapon:SetSafe(true)
         end
     end
+
+    if (string.sub(weapon:GetClass(), 1, 4) == "doi_") then
+        if (state) then
+            weapon:SetSafe(false)
+        else
+			weapon:SetSafe(true)
+        end
+    end
 end

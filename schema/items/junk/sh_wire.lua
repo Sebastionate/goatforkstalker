@@ -1,0 +1,9 @@
+ITEM.name = "Wire Bundle"
+ITEM.model = "models/illusion/eftcontainers/wires.mdl"
+ITEM.description = "A bundle of wire for electrical work."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 50
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 0.1

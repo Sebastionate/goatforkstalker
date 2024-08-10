@@ -1,0 +1,9 @@
+ITEM.name = "Thread Spool"
+ITEM.model = "models/kek1ch/materials_wire.mdl"
+ITEM.description = "A spool of thread for sewing."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 50
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 0.1

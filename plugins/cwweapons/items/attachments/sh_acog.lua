@@ -12,6 +12,7 @@ ITEM.attSearch = { "kk_ins2_cstm_acog" }
 ITEM.weight = 1.22
 ITEM.upgradeIcon = Material("materials/vgui/ui/stalker/weaponupgrades/4xmag.png")
 ITEM.Range = 10
+ITEM.scopetype = "medium"
 
 -- Slot Numbers Defined:
 

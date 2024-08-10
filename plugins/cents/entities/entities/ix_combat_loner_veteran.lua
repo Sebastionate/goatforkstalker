@@ -61,20 +61,76 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(135)
+        self:SetCombatHealthMax(135)
+        self:SetWeaponSkill(15)
+        self:SetDodge(14)
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+      
+        if string.find(self:GetModel(), "dusk") then
+            -- Dusk and PBF Mask
+            self:SetHeadBR(10)
+            self:SetHeadBullet(1)
+            self:SetHeadImpact(6)
+            self:SetHeadRupture(2)
+        
+            self:SetTorsoBR(30)
+            self:SetTorsoBullet(11)
+            self:SetTorsoImpact(15)
+            self:SetTorsoRupture(27)
+        end
+
+        if string.find(self:GetModel(), "berill") then
+            -- Beril-5m and Sphere-08
+            self:SetHeadBR(31)
+            self:SetHeadBullet(24)
+            self:SetHeadImpact(30)
+            self:SetHeadRupture(3)
+        
+            self:SetTorsoBR(39)
+            self:SetTorsoBullet(21)
+            self:SetTorsoImpact(15)
+            self:SetTorsoRupture(40)
+        end
+
+        if string.find(self:GetModel(), "sunset") then
+            -- Sunset and Sphere-08
+            self:SetHeadBR(31)
+            self:SetHeadBullet(24)
+            self:SetHeadImpact(30)
+            self:SetHeadRupture(3)
+        
+            self:SetTorsoBR(36)
+            self:SetTorsoBullet(21)
+            self:SetTorsoImpact(10)
+            self:SetTorsoRupture(32)
+        end
+
+        if string.find(self:GetModel(), "seva") then
+            -- SEVA and Screen Helm
+            self:SetHeadBR(16)
+            self:SetHeadBullet(13)
+            self:SetHeadImpact(15)
+            self:SetHeadRupture(3)
+        
+            self:SetTorsoBR(36)
+            self:SetTorsoBullet(14)
+            self:SetTorsoImpact(11)
+            self:SetTorsoRupture(17)
+        end
+
+        if string.find(self:GetModel(), "cs3a") then
+            -- CS-3A and Sphere-08
+            self:SetHeadBR(31)
+            self:SetHeadBullet(24)
+            self:SetHeadImpact(30)
+            self:SetHeadRupture(3)
+        
+            self:SetTorsoBR(39)
+            self:SetTorsoBullet(17)
+            self:SetTorsoImpact(16)
+            self:SetTorsoRupture(16)
+        end
 
         local firstname = table.Random(PLUGIN.firstnamesnormal)
         local lastname = table.Random(PLUGIN.lastnamesnormal)

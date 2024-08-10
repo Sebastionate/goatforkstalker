@@ -18,7 +18,6 @@ ENT.models = {
     "models/silver/stalker/female_sunset_lone.mdl",
     "models/silver/stalker/female_dusk_lone.mdl",
     "models/silver/stalker/female_dusk_lone2.mdl"
-
 }
 
 
@@ -54,20 +53,52 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(115)
+        self:SetCombatHealthMax(115)
+        self:SetWeaponSkill(10)
+        self:SetDodge(11)
+
+        if string.find(self:GetModel(), "dusk") then
+            -- Dusk and PBF Mask
+            self:SetHeadBR(10)
+            self:SetHeadBullet(1)
+            self:SetHeadImpact(6)
+            self:SetHeadRupture(2)
+        
+            self:SetTorsoBR(30)
+            self:SetTorsoBullet(11)
+            self:SetTorsoImpact(15)
+            self:SetTorsoRupture(27)
+        end
+
+        if string.find(self:GetModel(), "berill") then
+            -- Beril-5m and Sphere-08
+            self:SetHeadBR(31)
+            self:SetHeadBullet(24)
+            self:SetHeadImpact(30)
+            self:SetHeadRupture(3)
+        
+            self:SetTorsoBR(39)
+            self:SetTorsoBullet(21)
+            self:SetTorsoImpact(15)
+            self:SetTorsoRupture(40)
+        end
+
+        if string.find(self:GetModel(), "sunset") then
+            -- Sunset and Sphere-08
+            self:SetHeadBR(31)
+            self:SetHeadBullet(24)
+            self:SetHeadImpact(30)
+            self:SetHeadRupture(3)
+        
+            self:SetTorsoBR(36)
+            self:SetTorsoBullet(21)
+            self:SetTorsoImpact(10)
+            self:SetTorsoRupture(32)
+        end
+
+
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
 
         local firstname = table.Random(PLUGIN.firstnamesnormal)
         local lastname = table.Random(PLUGIN.lastnamesnormal)

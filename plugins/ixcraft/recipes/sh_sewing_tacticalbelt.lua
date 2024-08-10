@@ -1,20 +1,24 @@
 RECIPE.name = "Tactical Belt"
 RECIPE.description = "Create a tactical belt for holding stuff safely and securely."
 RECIPE.model = "models/weapons/upgrades/a_sling_ithaca_reparented.mdl"
-RECIPE.category = "Advanced Armorsmithing"
-RECIPE.toolkits = {
-    "armorkitadvanced",
-    "armorkitexpert"
-}
-RECIPE.flag = "6"
+RECIPE.category = "Sewing"
+
 
 RECIPE.requirements = {
 ["kevlarscrap"] = 3,
 ["rubberscrap"] = 2,
-["ballistictape"] = 1,
+["thread"] = 3
 }
 
 RECIPE.results = {
-	["pouch3"] = 1
+	["belt3"] = 1
 
 }
+
+RECIPE:PostHook("OnCanSee", function(recipeTable, client)
+	if (client:GetCharacter():GetSkill("mechanic", 0) < 15) then 
+		return false
+	else
+		return true 
+	end 
+end)

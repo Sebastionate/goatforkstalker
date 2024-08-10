@@ -554,7 +554,6 @@ ix.command.Add("CEntChatter", {
 
 			local classname = entity:GetClass()
 	
-
 			entity:EmitSound(PLUGIN:GetChatterVoiceline(entity))
 
 		else
@@ -598,6 +597,7 @@ function PLUGIN:GetChatterVoiceline(entity)
 	local classname = entity:GetClass()
 	local voiceline
 
+
 	if string.find(classname, "loner_") or string.find(classname, "eco_") then 
 		if entity.voicevariant == 1 then voiceline = table.Random(PLUGIN.LonerVoice1) end 
 		if entity.voicevariant == 2 then voiceline = table.Random(PLUGIN.LonerVoice2) end 
@@ -635,8 +635,9 @@ function PLUGIN:GetChatterVoiceline(entity)
 	
 	if string.find(classname, "mono_") then 
 		voiceline = table.Random(PLUGIN.MonoVoice1)
-		return voiceline 
 	end 
+
+	return voiceline 
 
 
 
@@ -684,7 +685,7 @@ function PLUGIN:GetCombatVoiceline(entity)
 	
 	if string.find(classname, "mono_") then 
 		voiceline = table.Random(PLUGIN.MonoVoiceCombat1)
-		return voiceline 
+
 	end 
 
 

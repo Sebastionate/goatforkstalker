@@ -26,7 +26,8 @@ ITEM.quantity = 1
 
 function ITEM:GetDescription()
 	local description = self.description
-	description = description.."\nWeight: "..self.weight.."kg"
+    if (self.isGrip) then description = description .. "\n-1 Recoil" end 
+    if self.scopetype then description = description .. "\n Sight Type: " .. self.scopetype end 
 	return description
 end
 

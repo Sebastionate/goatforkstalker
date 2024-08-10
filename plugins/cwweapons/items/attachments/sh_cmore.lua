@@ -11,6 +11,7 @@ ITEM.attSearch = { "kk_ins2_cstm_cmore" }
 ITEM.weight = 0.127
 ITEM.upgradeIcon = Material("materials/vgui/ui/stalker/weaponupgrades/sights.png")
 ITEM.Bal = 5
+ITEM.scopetype = "short"
   
 
 

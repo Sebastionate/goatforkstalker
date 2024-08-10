@@ -11,6 +11,7 @@ ITEM.attSearch = { "kk_ins2_cstm_eotechxps",}
 ITEM.weight = 0.255
 ITEM.upgradeIcon = Material("materials/vgui/ui/stalker/weaponupgrades/sights.png")
 ITEM.Bal = 5
+ITEM.scopetype = "short"
   
 
 -- Slot Numbers Defined:

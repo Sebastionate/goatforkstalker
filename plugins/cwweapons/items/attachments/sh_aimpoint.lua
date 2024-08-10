@@ -11,6 +11,7 @@ ITEM.attSearch = { "kk_ins2_aimpoint" }
 ITEM.weight = 0.3
 ITEM.upgradeIcon = Material("materials/vgui/ui/stalker/weaponupgrades/sights.png")
 ITEM.Bal = 5
+ITEM.scopetype = "medium"
   
 
 -- Slot Numbers Defined:

@@ -30,10 +30,10 @@ end
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
+        self:SetCombatHealth(25)
+        self:SetCombatHealthMax(25)
         self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetDodge(10)
     
         self:SetHeadBR(0)
         self:SetHeadBullet(0)
@@ -41,9 +41,9 @@ if (SERVER) then
         self:SetHeadRupture(0)
     
         self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        self:SetTorsoBullet(5)
+        self:SetTorsoImpact(5)
+        self:SetTorsoRupture(5)
 
         self:SetCEntSkin(self.skin)
     end

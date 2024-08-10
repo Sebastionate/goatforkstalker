@@ -46,20 +46,22 @@ local ranks = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(120)
+        self:SetCombatHealthMax(120)
+        self:SetWeaponSkill(10)
+        self:SetDodge(11)
+
+        -- Beril-3M, Sphere-04
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
+        self:SetHeadBR(25)
+        self:SetHeadBullet(16)
+        self:SetHeadImpact(15)
+        self:SetHeadRupture(2)
     
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        self:SetTorsoBR(32)
+        self:SetTorsoBullet(15)
+        self:SetTorsoImpact(15)
+        self:SetTorsoRupture(30)
 
         local firstname = ""
 

@@ -39,20 +39,22 @@ end
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(100)
+        self:SetCombatHealthMax(100)
+        self:SetWeaponSkill(5)
+        self:SetDodge(8)
+
+
+        -- SSP-99, Screen helmet
+        self:SetHeadBR(16)
+        self:SetHeadBullet(13)
+        self:SetHeadImpact(15)
+        self:SetHeadRupture(3)
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        self:SetTorsoBR(8)
+        self:SetTorsoBullet(1)
+        self:SetTorsoImpact(6)
+        self:SetTorsoRupture(7)
 
         local firstname = "Professor"
 

@@ -58,20 +58,23 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(125)
+        self:SetCombatHealthMax(125)
+        self:SetWeaponSkill(15)
+        self:SetDodge(11)
+
+
+        -- Monolith Suit and PBF Mask
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
+        self:SetHeadBR(10)
+        self:SetHeadBullet(1)
+        self:SetHeadImpact(6)
+        self:SetHeadRupture(2)
     
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        self:SetTorsoBR(36)
+        self:SetTorsoBullet(14)
+        self:SetTorsoImpact(18)
+        self:SetTorsoRupture(15)
 
         local lastname = table.Random(PLUGIN.realnameslast)
 

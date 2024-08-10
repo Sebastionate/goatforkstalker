@@ -71,20 +71,36 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
+        self:SetCombatHealth(80)
+        self:SetCombatHealthMax(80)
         self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetDodge(5)
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        if string.find(self:GetModel(), "anorak") or string.find(self:GetModel(), "novice") then
+            -- Armored Jacket, No Helmet
+            self:SetHeadBR(0)
+            self:SetHeadBullet(0)
+            self:SetHeadImpact(0)
+            self:SetHeadRupture(0)
+        
+            self:SetTorsoBR(8)
+            self:SetTorsoBullet(7)
+            self:SetTorsoImpact(1)
+            self:SetTorsoRupture(15)
+        end
+
+        if string.find(self:GetModel(), "trenchcoat") then
+            -- Trenchcoat, No Helmet
+            self:SetHeadBR(0)
+            self:SetHeadBullet(0)
+            self:SetHeadImpact(0)
+            self:SetHeadRupture(0)
+        
+            self:SetTorsoBR(12)
+            self:SetTorsoBullet(1)
+            self:SetTorsoImpact(1)
+            self:SetTorsoRupture(11)
+        end
 
         local firstname = table.Random(PLUGIN.firstnamesnormal)
         local lastname = table.Random(PLUGIN.banditnameslast)

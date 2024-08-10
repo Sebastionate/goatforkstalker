@@ -1,4 +1,4 @@
-ITEM.name = "Volos Flak Armor" "
+ITEM.name = "Volos Flak Armor" 
 ITEM.model = "models/kek1ch/stalker_outfit.mdl"
 ITEM.replacements = "models/player/stalker_greh/greh_sunrise/greh_sunrise.mdl"
 ITEM.description= "A modified PSZ-9 suit."
@@ -19,7 +19,7 @@ ITEM.weight = 8
 ITEM.weightClass = 2
 ITEM.ballisticRating = 30
 ITEM.res = {
-	["Impact"] = 0.28
+	["Impact"] = 0.28,
 	["Rupture"] = 0.12,
 	["Bullet"] = 0.12,
 	["Shock"] = 0.25,

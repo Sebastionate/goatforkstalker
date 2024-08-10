@@ -52,20 +52,36 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(145)
+        self:SetCombatHealthMax(145)
+        self:SetWeaponSkill(20)
+        self:SetDodge(14)
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        if string.find(self:GetModel(), "seva") then
+            -- Monolith Scientific and Screen Helm
+            self:SetHeadBR(16)
+            self:SetHeadBullet(13)
+            self:SetHeadImpact(15)
+            self:SetHeadRupture(3)
+        
+            self:SetTorsoBR(36)
+            self:SetTorsoBullet(11)
+            self:SetTorsoImpact(10)
+            self:SetTorsoRupture(17)
+        end
+
+        if string.find(self:GetModel(), "metro") then
+            -- Reinforced Monolith Suit and Assault Helmet
+            self:SetHeadBR(35)
+            self:SetHeadBullet(25)
+            self:SetHeadImpact(30)
+            self:SetHeadRupture(4)
+        
+            self:SetTorsoBR(40)
+            self:SetTorsoBullet(28)
+            self:SetTorsoImpact(18)
+            self:SetTorsoRupture(23)
+        end
 
         local lastname = table.Random(PLUGIN.realnameslast)
 

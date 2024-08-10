@@ -16,3 +16,6 @@ ITEM.Range = 150
 ITEM.Pen = 12
 ITEM.Mag = 200
 ITEM.barrel = "long"
+ITEM.weaponType = "heavyweapons"
+ITEM.RPM = 10
+ITEM.recoil = -3

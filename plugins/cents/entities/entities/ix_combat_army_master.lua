@@ -49,20 +49,21 @@ local ranks = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(170)
+        self:SetCombatHealthMax(170)
+        self:SetWeaponSkill(25)
+        self:SetDodge(20)
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
+        -- Stingray-9m and Sphere-12
+        self:SetHeadBR(40)
+        self:SetHeadBullet(27)
+        self:SetHeadImpact(35)
+        self:SetHeadRupture(5)
     
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        self:SetTorsoBR(50)
+        self:SetTorsoBullet(30)
+        self:SetTorsoImpact(28)
+        self:SetTorsoRupture(26)
 
         local firstname = ""
 

@@ -1,0 +1,9 @@
+ITEM.name = "Broken Nightvision Goggles"
+ITEM.model = "models/arctic_nvgs/nvg_pnv.mdl"
+ITEM.description = "A set of civillian-grade nightvision goggles that met an unfortunate end, with damaged and worn internals. Still fetches a good few rubles as-is, or can be restored to working order again with some knowhow."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 2500
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 0.6

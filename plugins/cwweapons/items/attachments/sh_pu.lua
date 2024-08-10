@@ -12,4 +12,5 @@ ITEM.Range = 10
 ITEM.isAttachment = true
 ITEM.weight = 0.65
 ITEM.attSearch = { "cw_sil_pu_scope"}
+ITEM.scopetype = "long"
    

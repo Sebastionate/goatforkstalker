@@ -11,6 +11,7 @@ ITEM.attSearch = { "kk_ins2_m6x", }
 ITEM.weight = 0.135
 ITEM.upgradeIcon = Material("materials/vgui/ui/stalker/weaponupgrades/1.png")
 ITEM.Bal = 5
+ITEM.isLaser = true
    
 
 

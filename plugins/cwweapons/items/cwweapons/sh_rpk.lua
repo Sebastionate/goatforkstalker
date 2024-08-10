@@ -1,6 +1,6 @@
 ITEM.name = "RPK"
 ITEM.description= "A long-barreled AK with a heavy stock. Fires 7.62x39mm."
-ITEM.longdesc = "A modification of the AK rifle, fit with a more supporting stock, a heavier and longer barrel and a bipod. \nIt can mount any of the AK's attachments apart from a grenade launcher. \nIt lacks the high ammo capacity of most machineguns, but it makes up for this in accuracy and reliability.\n\nAmmo: 7.62x39mm\nMagazine Capacity: 75\n\n-Shots per round: 6"
+ITEM.longdesc = "A modification of the AK rifle, fit with a more supporting stock, a heavier and longer barrel and a bipod. \nIt can mount any of the AK's attachments apart from a grenade launcher. \nIt lacks the high ammo capacity of most machineguns, but it makes up for this in accuracy and reliability.\n\nAmmo: 7.62x39mm\nMagazine Capacity: 75"
 ITEM.model = "models/weapons/w_rpk.mdl"
 ITEM.class = "cw_sil_rpk"
 ITEM.weaponCategory = "primary"
@@ -16,6 +16,11 @@ ITEM.isPLWeapon = true
 ITEM.modifier = 5
 ITEM.weight = 4.8
 ITEM.barrel = "long"
+ITEM.RPM = 6
+ITEM.recoil = -4
+ITEM.weaponType = "heavyweapons"
+ITEM.RPM = 6
+ITEM.recoil = -3
 
 ITEM.iconCam = {
 	pos = Vector(-11, 30, 0),

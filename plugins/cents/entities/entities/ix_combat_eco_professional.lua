@@ -49,20 +49,23 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(120)
+        self:SetCombatHealthMax(120)
+        self:SetWeaponSkill(10)
+        self:SetDodge(11)
+
+
+        -- PSZ-9 and PBF Mask
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
+        self:SetHeadBR(10)
+        self:SetHeadBullet(1)
+        self:SetHeadImpact(6)
+        self:SetHeadRupture(2)
     
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+        self:SetTorsoBR(26)
+        self:SetTorsoBullet(9)
+        self:SetTorsoImpact(10)
+        self:SetTorsoRupture(17)
 
         local firstname = table.Random(PLUGIN.firstnamesnormal)
 

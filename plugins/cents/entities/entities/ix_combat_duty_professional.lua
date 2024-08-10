@@ -53,20 +53,25 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+
+
+        self:SetCombatHealth(120)
+        self:SetCombatHealthMax(120)
+        self:SetWeaponSkill(10)
+        self:SetDodge(8)
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(0)
-        self:SetTorsoBullet(0)
-        self:SetTorsoImpact(0)
-        self:SetTorsoRupture(0)
+
+
+        -- PSZ-9d and PBF Mask
+        self:SetHeadBR(10)
+        self:SetHeadBullet(1)
+        self:SetHeadImpact(6)
+        self:SetHeadRupture(2)
+
+        self:SetTorsoBR(36)
+        self:SetTorsoBullet(15)
+        self:SetTorsoImpact(16)
+        self:SetTorsoRupture(22)
 
         
         local firstname = ""

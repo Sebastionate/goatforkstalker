@@ -68,21 +68,3 @@ if SERVER then
     
     end
 end 
-
-
-
-ix.command.Add( "GiveNVG", {
-    description = "Begin or Finish counting movement.",
-    OnRun = function( self, client )
-        ArcticNVGs_SetPlayerGoggles(client, "nvg_pnv10")
-        client:Notify(client:GetNWInt("nvg"))
-
-    end
-} )
-
-ix.command.Add( "TakeNVG", {
-    description = "Begin or Finish counting movement.",
-    OnRun = function( self, client )
-        client:StripWeapon("arctic_nvg_pnv10")
-    end
-} )

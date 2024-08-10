@@ -1,5 +1,5 @@
 ITEM.name = "Cleaver"
-ITEM.description = "Bring me a nice, crisp piece of meat!\n\nAttacks:\n\n-Reflex based slash attack, no modifier, causes Light Bleeding.\n\n-Strength based chop attack, -5 Strength Modifier, causes Moderate Bleeds."
+ITEM.description = "Bring me a nice, crisp piece of meat!"
 ITEM.model = "models/weapons/tfa_nmrih/w_me_cleaver.mdl"
 ITEM.class = "tfa_nmrih_cleaver"
 ITEM.weaponCategory = "melee"

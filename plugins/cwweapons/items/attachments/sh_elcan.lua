@@ -11,6 +11,7 @@ ITEM.attSearch = { "kk_ins2_elcan", }
 ITEM.weight = 0.632
 ITEM.upgradeIcon = Material("materials/vgui/ui/stalker/weaponupgrades/4xmag.png")
 ITEM.Range = 10
+ITEM.scopetype = "short"
    
 
 -- Slot Numbers Defined:

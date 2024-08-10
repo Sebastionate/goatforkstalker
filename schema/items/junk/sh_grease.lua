@@ -1,4 +1,4 @@
-ITEM.name = "Electrical Fuse"
+ITEM.name = "Grease"
 ITEM.model = "models/kek1ch/grease.mdl"
 ITEM.description = "A jar of grease to keep mechanic parts from seizing up. Never know when you need to get greasy!"
 ITEM.category = "junk"
