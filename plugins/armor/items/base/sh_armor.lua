@@ -226,6 +226,14 @@ function ITEM:RemoveOutfit(client)
 		end
 	end
 
+	
+	if self.weightClass then
+		character:RemoveBoost("weight1", "reflex")
+		character:RemoveBoost("weight3", "reflex")
+		character:RemoveBoost("weight4", "reflex")
+		character:RemoveBoost("weight5", "reflex")
+	end
+
 	for k, _ in pairs(self:GetData("outfitAttachments", {})) do
 		self:RemoveAttachment(k, client)
 	end
@@ -277,6 +285,13 @@ function ITEM:ModelOff(client)
 		for k, _ in pairs(self.attribBoosts) do
 			character:RemoveBoost(self.uniqueID, k)
 		end
+	end
+
+	if self.weightClass then
+		character:RemoveBoost("weight1", "reflex")
+		character:RemoveBoost("weight3", "reflex")
+		character:RemoveBoost("weight4", "reflex")
+		character:RemoveBoost("weight5", "reflex")
 	end
 
 	for k, _ in pairs(self:GetData("outfitAttachments", {})) do
@@ -511,6 +526,14 @@ ITEM.functions.Equip = {
 				character:AddBoost(item.uniqueID, k, v)
 			end
 		end
+
+		if item.weightClass then
+			if item.weightClass == 1 then character:AddBoost("weight1", "reflex", 2) end
+			-- Weight Class 2 is no change
+			if item.weightClass == 3 then character:AddBoost("weight3", "reflex", -2) end
+			if item.weightClass == 4 then character:AddBoost("weight4", "reflex", -4) end
+			if item.weightClass == 5 then character:AddBoost("weight5", "reflex", -4) end
+		end
 		
 		local articont = item.artifactcontainers[1]
 		local mods = item:GetData("mod")
@@ -701,6 +724,10 @@ function ITEM:GetDescription()
 		str = str.. "\n\n" ..customData.longdesc 
 	end
 
+	if self.weightClass then 
+		str = str .. "\n\n Weight Class: " ..self.weightClass
+	end 
+
 	if self.ballisticRating then 
 		str = str .. "\n\n BR: " ..self:GetData("ballisticRating")
 	end 
@@ -768,7 +795,7 @@ function ITEM:GetDescription()
 		
 		for k,v in pairs(resistances) do
 			local durabilitychange = self:GetData("durability") / 100
-			str = str.."\n"..k..": ".. math.Round((v*100) * durabilitychange) .. "%"
+			str = str.."\n"..k..": ".. math.ceil((v*100) * durabilitychange) .. "%"
 		end
 	end
 

@@ -1,13 +1,14 @@
 ITEM.name = "Rate of Fire Upgrade 2"
 ITEM.description = "A set of precision lightened weapon parts used to upgrade a firearm's fire rate a good bit."
-ITEM.longdesc = "A set of quality parts such as lightened bolts and pumps that allow a weapon to cycle faster. \n\nBoosts weapon ROF by given amount depending on which fire mode it's capable of:\nManual Action (bolt, pump): +1\nSemi-Automatic: +3\nFullly Automatic: +4"
+ITEM.longdesc = "A set of quality parts such as lightened bolts and pumps that allow a weapon to cycle faster. \n\n\n\nBoosts weapon ROF by 2"
 ITEM.category = "Upgrades"
 ITEM.isGenericUpgrade = true
 ITEM.model = "models/Items/BoxSRounds.mdl"
 ITEM.width = 2
 ITEM.height = 1
-ITEM.price = 2000
+ITEM.price = 8000
 ITEM.slot = 5
+ITEM.rofBoost = 2
 ITEM.isAttachment = true
 
 ITEM.attSearch = { "fn_rof1", }

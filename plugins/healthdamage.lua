@@ -110,7 +110,8 @@ ix.command.Add("Damage", {
 
     local armordamageamount = math.floor(damage / 10)
 
-    target:DamageArmorScale(armordamageamount, headonly)
+
+    target:DamageArmorScale(armordamageamount, area)
 
     if target:HasTrait("injury_head2") and damagetype == "Psi" then 
       damage = damage + math.floor(damage * 0.20)
@@ -208,8 +209,6 @@ ix.command.Add("DamageBullet", {
 
     playerbr = tonumber(playerbr)
 
-    client:Notify(playerbr)
-
     if br > playerbr then 
 
       player:Notify("It pierces your armor!")
@@ -227,7 +226,7 @@ ix.command.Add("DamageBullet", {
       
       local armordamageamount = (bulletdamage + bluntdamage) / 10
 
-      target:DamageArmorScale(armordamageamount, headshot)
+      target:DamageArmorScale(armordamageamount, area)
 
       if area == "head" and target:HasTrait("injury_head1") then 
         bulletdamage = bulletdamage + math.floor(bulletdamage * 0.15)
@@ -256,6 +255,8 @@ ix.command.Add("DamageBullet", {
 
       local armordamageamount = math.floor(bluntdamage / 10)
 
+
+
       if area == "head" and target:HasTrait("injury_head1") then 
         bluntdamage = bluntdamage + math.floor(bluntdamage * 0.15)
         player:Notify("Your existing head injury made you take more damage.")
@@ -265,6 +266,8 @@ ix.command.Add("DamageBullet", {
         bluntdamage = bluntdamage + math.floor(bluntdamage * 0.15)
         player:Notify("Your existing torso injury made you take more damage.")
       end 
+
+      target:DamageArmorScale(armordamageamount, area)
 
       target:AdjustHealth("hurt", bluntdamage)
 
@@ -525,7 +528,7 @@ function charMeta:AdjustHealth(type, amount)
 end 
 
 
-function charMeta:DamageArmorScale(amount, headonly)
+function charMeta:DamageArmorScale(amount, area)
 
   local bodywear 
   local headwear
@@ -533,7 +536,8 @@ function charMeta:DamageArmorScale(amount, headonly)
 
   for k, v in pairs (inventory:GetItems()) do
     if(!v:GetData("equip", false)) then continue end --ignores unequipped items
-    if headonly and v.isBodyArmor then continue end
+    if area == "head" and v.isBodyArmor then continue end
+    if area == "body" and v.isHelmet then continue end
 
     if v.isBodyArmor then bodywear = v end 
     if v.isHelmet then headwear = v end
@@ -566,22 +570,7 @@ function charMeta:DamageArmorScale(amount, headonly)
 
     totaldamage = totaldamage - math.Round((totaldamage * durabilityreduce))
     bodywear:SetData("durability", durability - totaldamage)
-
-  end 
-
-  if bodywear then
-
-    local durability = bodywear:GetData("durability", 100)
-
-    local damagefactor = 1
-    if durability < 80 and durability > 59 then damagefactor = 2 end
-    if durability < 59 and durability > 39 then damagefactor = 3 end 
-    if durability < 39 then damagefactor = 4 end 
-
-    local totaldamage = amount * damagefactor
-    bodywear:SetData("durability", durability - totaldamage)
-
-    if bodywear:GetData("durability") < 0 then bodywear:SetData("durability", 0) end 
+    if bodywear:GetData("durability") < 0 then bodywear:SetData("durability", 0) end
 
   end 
 

@@ -1,14 +1,16 @@
 ITEM.name = "Accuracy Upgrade 1"
-ITEM.description = "Increases the accuracy of a firearm by a small margin."
+ITEM.description = "Increases the accuracy of a firearm by a small margin.\nFirearm Accuracy +2"
 ITEM.category = "Upgrades"
 ITEM.model = "models/Items/BoxSRounds.mdl"
+ITEM.isGenericUpgrade = true
 ITEM.width = 2
 ITEM.height = 1
-ITEM.price = 800
+ITEM.price = 5000
 ITEM.slot = 4
 ITEM.isAttachment = true
 ITEM.attSearch = { "fn_acc1", }
 ITEM.weight = 0.015
+ITEM.accuracyBoost = 2
 ITEM.upgradeIcon = Material("materials/vgui/ui/stalker/weaponupgrades/accuracy.png")
 
 -- Slot Numbers Defined:

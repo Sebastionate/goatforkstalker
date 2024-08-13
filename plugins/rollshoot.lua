@@ -258,6 +258,19 @@ function PLUGIN:WeaponFired(entity)
 	if string.find(ammotype, "-AP-") then ammobonus = 0 specialammo = "using Armor Piercing Ammo" end
 	if string.find(ammotype, "-HP-") then ammobonus = 0 specialammo = "using Hollow Point Ammo" end
 
+	local rofboost = 0
+	local recoilboost = 0
+	local accuracyboost = 0
+	local atts = weaponItem:GetData("upgrades")
+	if atts then
+		for k,v in pairs(atts) do
+			local upgItem = ix.item.list[v[1]]
+			if upgItem.rofBoost then rofboost = rofboost + upgItem.rofBoost end 
+			if upgItem.recoilBoost then recoilboost = recoilboost + upgItem.recoilBoost end
+			if upgItem.accuracyBoost then accuracyboost = accuracyboost + upgItem.accuracyBoost end 
+			
+		end
+	end
 
 	local recoildebuff = 0
 	if (weaponItem.recoil) then 
@@ -267,20 +280,29 @@ function PLUGIN:WeaponFired(entity)
 		if entity:GetData("overwatch") then recoil = recoil - 4 end
 		if entity:GetData("overwatch") and laser then recoil = recoil + 2 end
 
+		recoil = recoil + recoilboost
+
 		recoildebuff = recoil * entity:GetData("shotsfired", 0)
 
 	end 
 
 
-	local totalamount = value + skillbonus + scopebonus + ammobonus + recoildebuff
+
+
+	local totalamount = value + skillbonus + scopebonus + ammobonus + recoildebuff + accuracyboost
 	
+
 
 
 
 	local shotsfired = entity:GetData("shotsfired", 0) + 1
 	entity:SetData("shotsfired", shotsfired)
 	if (weaponItem.RPM) then 
-		if shotsfired >= weaponItem.RPM then entity:Notify("You've fired your maximum RPM for your current weapon.") end 
+
+		local RPM = weaponItem.RPM + rofboost
+
+
+		if shotsfired >= RPM then entity:Notify("You've fired your maximum RPM for your current weapon.") end 
 	end 
 	local shotsleft = swep:Clip1() - 1
 	local capacity = swep.Primary["ClipSize"]
@@ -319,6 +341,7 @@ function PLUGIN:WeaponFired(entity)
 		shotinfo = shotinfo .. "\nScope Bonus: " .. scopebonus
 		shotinfo = shotinfo .. "\nAmmo Bonus: " .. ammobonus
 		shotinfo = shotinfo .. "\nRecoil Debuff: " .. recoildebuff
+		if accuracyboost ~= 0 then shotinfo = shotinfo .. "\nAccuracy Boost: " .. accuracyboost end
 
 		entity:Notify(shotinfo)
 	end 

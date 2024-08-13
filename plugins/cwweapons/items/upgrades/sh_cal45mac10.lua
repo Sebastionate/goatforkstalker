@@ -1,5 +1,5 @@
 ITEM.name = ".45 Auto Conversion For MAC-10"
-ITEM.description = "A set of magazines, receivers, and barrels for changing a MAC-10 into .45 ACP, offering a heavier hitting, subsonic round at the cost of some fire rate and mag capacity. \n\nROF -2"
+ITEM.description = "A set of magazines, receivers, and barrels for changing a MAC-10 into .45 ACP, offering a heavier hitting, subsonic round at the cost of some fire rate and mag capacity. \n\nConverts to .45 ACP, reducing mag capacity and ROF by 2"
 ITEM.category = "Upgrades"
 ITEM.model = "models/Items/BoxSRounds.mdl"
 ITEM.width = 2
@@ -9,6 +9,7 @@ ITEM.price = 10000
 ITEM.slot = 1
 ITEM.isAttachment = true
 ITEM.attSearch = { "am_cal_45mac10", }
+ITEM.rofBoost = -2
 ITEM.weight = 0.25
 ITEM.upgradeIcon = Material("materials/vgui/ui/stalker/weaponupgrades/rechamber.png")
 
