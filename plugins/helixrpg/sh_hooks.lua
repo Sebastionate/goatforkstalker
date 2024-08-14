@@ -14,7 +14,7 @@ end
 
 function PLUGIN:GetDefaultTraitPoints()
 
-	return ix.config.Get( "maxTraits", 3 )
+	return ix.config.Get( "startingTraits", 3 )
 
 end
 

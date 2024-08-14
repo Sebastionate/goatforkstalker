@@ -1,7 +1,7 @@
 ITEM.name = "Mama's Beads"
 ITEM.model ="models/nasca/etherealsrp_artifacts/mamas_beads.mdl"
 ITEM.description = "Helix-shaped, pulsating artifact."
-ITEM.longdesc = "Though it is known to form in thermal anomalies, much about this artifact remains a mystery to scientists. Pulses in the thicker sections of the artifact force blood coming from open wounds to clot faster, increasing metabolism and forming a scab."
+ITEM.longdesc = "A once-mysterious artifact, the Mama’s Beads still holds some secrets to the scientific community. Shaped as a helix in the heart of thermal anomalies, the Mama’s Beads pulses from one end to another, and upon finishing a cycle the artifact increases the metabolism of nearby organisms, thereby expediting the scabbing process of open wounds. Emits radiation at the start of a pulse."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 32000

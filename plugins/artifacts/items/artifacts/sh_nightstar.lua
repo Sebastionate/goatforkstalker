@@ -1,7 +1,7 @@
 ITEM.name = "Night Star"
 ITEM.model ="models/nasca/etherealsrp_artifacts/nightstar.mdl"
 ITEM.description = "Spikey yellow artifact. Glowing."
-ITEM.longdesc = "Formed under gravitational influences, this glowing artifact generates a local, directed low-gravity field. It is commonly used to reduce the weight of equipment it is placed near."
+ITEM.longdesc = "This artifact resembles in many ways an Urchin, but the quills are soft to the touch and offer no pain, instead glowing a bright yellow. Formed in gravitational anomalies and often at night, the Night Star alters gravity in a small manner within a radius, reducing the impact of fast-moving projectiles against the user. Emits radiation."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 17000

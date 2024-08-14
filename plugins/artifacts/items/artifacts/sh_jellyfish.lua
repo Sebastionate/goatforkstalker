@@ -1,7 +1,7 @@
 ITEM.name = "Jellyfish"
 ITEM.model = "models/nasca/etherealsrp_artifacts/jellyfish.mdl"
 ITEM.description = "Cone artifact. Brown in appearance."
-ITEM.longdesc = "This gravitational artifact attracts and absorbs radioactive particles, reducing the effects of radiation on the body. It is very common in the Zone and is unofficially used outside the Zone for treating acute radiation sickness in exceptional circumstances."
+ITEM.longdesc = "A strange swirl of glossy tendrils forming a pointed orb, the Jellyfish is hollow, and attracts radioactive particles into its core, redirecting any ambient radiation away from the user. With few downsides for most stalkers, the Jellyfish is a common default artifact for many newer stalkers, and their use outside the Zone keeps them relatively worthwhile to sell if strapped for cash."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 2000

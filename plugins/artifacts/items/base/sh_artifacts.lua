@@ -277,7 +277,7 @@ if (CLIENT) then
 
     function ITEM:DrawEntity(entity, item)
 
-        local artifactrenderdistance = 50 + (LocalPlayer():GetCharacter():GetSkill("zonelore") * 10)
+        local artifactrenderdistance = 50 + (LocalPlayer():GetCharacter():GetSkill("zonelore", 0) * 10)
 
         if not self.notAnomalous then 
             if LocalPlayer():GetPos():Distance(entity:GetPos()) > artifactrenderdistance then

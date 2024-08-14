@@ -1,7 +1,7 @@
 ITEM.name = "Mica"
 ITEM.model = "models/nasca/etherealsrp_artifacts/mica.mdl"
 ITEM.description = "Brown artifact."
-ITEM.longdesc = "Formed from chemical anomalies, this artifact is semi-transparent and hard in texture. It is rare, only forming under intense conditions. The artifact is known to mitigate severe bleeding."
+ITEM.longdesc = "A legendary artifact known only to a small handful of Stalkers, the Mica is the ultimate evolution of the Slime line of artifacts, and by far the most potent, even if the weaknesses put the user in harm's way."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 1000000000

@@ -1,7 +1,7 @@
 ITEM.name = "Compass"
 ITEM.model = "models/kali/miscstuff/stalker/artifacts/compass.mdl"
 ITEM.description = "A curious ball with pillars poking out of all its sides."
-ITEM.longdesc = "The Compass, incredibly rare as it is, is so named because of its alleged ability to succesfully navigate any Stalker through an anomaly field, including out of Space Bubbles, but only if it 'chooses' them. While this hasn't been determined for sure due to single digit samples to test at maximum, it does seem to combine several artifacts into one."
+ITEM.longdesc = "One of the Legendary artifacts, the Compass only has a handful of appearances in as many years as the Zone has existed. It is unknown how it is formed, as well as if it is totally unique. Said to guide Stalkers through even the most dangerous of anomaly fields, the Compass provides immense protection from many of the Zones Dangers. Only, legend says the artifact holds a deeper power to those that can unlock it."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 10000000

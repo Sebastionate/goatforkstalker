@@ -1,7 +1,7 @@
 ITEM.name = "Crystal Thorn"
 ITEM.model = "models/nasca/etherealsrp_artifacts/crystal_thorn.mdl"
 ITEM.description = "Pointy artifact."
-ITEM.longdesc = "This artifact forms in Burnt Fuzz anomalies. Like its non-crystalline cousin, it draws radiation from its user through blood. It is known to have a relatively stable price on the artifact black market."
+ITEM.longdesc = "Much like the Thorn, the Crystal Thorn is a dark orb covered in spikes. However, the effects and downsides are more pronounced, as the thorns undulate in and out of the artifact, causing larger wounds to form. For some this is a worthwhile tradeoff, as the Crystal Thorn reduced radiation by a greater amount than its smaller cousin."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 3500

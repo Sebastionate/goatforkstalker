@@ -71,6 +71,26 @@ ix.command.Add("CharJamGun", {
     end
 } )
 
+ix.command.Add("SetRecoil", {
+    description = "Override any equipped gun's recoil value with given number. Set to 0 to reset.",
+	adminOnly = true,
+	arguments = {
+		ix.type.number
+	},
+    OnRun = function(self, client, recoil)
+		local player = client:GetCharacter()
+
+		if recoil == 0 then
+			player:SetData("gmrecoil", nil)
+			client:Notify("Removed Recoil override, now using equipped weapon's recoil.")
+		else 
+			player:SetData("gmrecoil", recoil)
+			client:Notify("Overriding recoil with " .. recoil)
+		end
+	
+    end
+} )
+
 ix.command.Add("Unjam", {
     description = "Clear a mechanical failure on your firearm - if it has one.",
     OnRun = function(self, client)
@@ -281,6 +301,8 @@ function PLUGIN:WeaponFired(entity)
 		if entity:GetData("overwatch") and laser then recoil = recoil + 2 end
 
 		recoil = recoil + recoilboost
+
+		if entity:GetCharacter():GetData("gmrecoil", nil) then recoil = entity:GetCharacter():GetData("gmrecoil", 0) end 
 
 		recoildebuff = recoil * entity:GetData("shotsfired", 0)
 

@@ -1,7 +1,7 @@
 ITEM.name = "Droplet"
 ITEM.model = "models/nasca/etherealsrp_artifacts/droplet.mdl"
 ITEM.description = "Looks like tears."
-ITEM.longdesc = "This artifact forms in thermal anomalies under very high temperatures. Its body is made of a compound with a glassy surface covered in cracks, formed into the shape of a tear. It neutralizes radiation absorbed by the wearer.\n\n-2 Reflex"
+ITEM.longdesc = "A droopy, teardrop artifact formed in extreme heat. The texture is most similar to glass, but the artifact has a bit of weight to it and feels solid. The surface is broken up by cracks, which naturally pull various known and unknown radiation and energies into itself - resulting in tiring the user during use.\n\n-2 Reflex"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 1250

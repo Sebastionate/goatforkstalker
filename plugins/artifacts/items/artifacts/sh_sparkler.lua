@@ -1,7 +1,7 @@
 ITEM.name = "Sparkler"
 ITEM.model ="models/nasca/etherealsrp_artifacts/sparkler.mdl"
 ITEM.description = "Silky in appearance. Artifact."
-ITEM.longdesc = "One of the most common artifacts with electrostatic properties, this artifact is nonetheless valued by scientists. It has the ability to smooth fluctuations in electric field density."
+ITEM.longdesc = "A wavy artifact resembling lightning frozen in a moment, the Sparkler is a common but still prized representative of artifacts formed by electrical anomalies. The Sparkler relaxes fluctuations in electrical fields, resulting in a lessened effect of shocks applied to the user. However, the artifact naturally emits radiation as part of its internal composition."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 2000

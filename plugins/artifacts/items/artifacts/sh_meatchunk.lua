@@ -1,7 +1,7 @@
 ITEM.name = "Meat Chunk"
 ITEM.model ="models/nasca/etherealsrp_artifacts/meatchunk.mdl"
 ITEM.description = "Looks like flayed skin. Artifact."
-ITEM.longdesc = "Formed in gravitational anomalies, this artifact is mostly organic and composed of fossilized and mutated animal tissue. When exposed to chemical contamination, it transforms harmful chemicals into a mucous fluid."
+ITEM.longdesc = "A permanently wet artifact composed of animal tissue (primarily skin, fatty tissues, and bone fragments), the Meat Chunk is in essence a disembodied tumor, dragging exotic chemicals into itself and producing radioactive discharges with the excess energy. This process can save a user from many chemical anomalies, but stalkers recommend careful use."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 4000

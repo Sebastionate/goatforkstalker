@@ -1,6 +1,6 @@
 ITEM.name = "Spring"
 ITEM.description = "A brownish hybrid artifact."
-ITEM.longdesc = "This artifact consists of two disks held together by an invisible force, believed to be formed from a fusion of a Battery and Shell artifact by scientists. It is known to produce a similarly invisible field around the wearer which helps to mitigate blunt trauma."
+ITEM.longdesc = "Believed to be the rare hybrid of a Battery and a Shell, the Spring is one of the legendary artifacts in the Zone. Increasing Impact resistance by an absurd amount and with no downsides, the Spring is sought after by many in and out of the Zone, though many buyers have a higher use in mind for it than merely protecting a person."
 ITEM.category = "Artifacts"
 ITEM.model = "models/srp/items/art_spring.mdl"
 ITEM.width = 1

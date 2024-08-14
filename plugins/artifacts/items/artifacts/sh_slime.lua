@@ -1,7 +1,7 @@
 ITEM.name = "Slime"
 ITEM.model ="models/nasca/etherealsrp_artifacts/slime.mdl"
 ITEM.description = "Slimey."
-ITEM.longdesc = "This artifact forms in various chemical anomalies. While rendering its user susceptible to burns both chemical and thermal in nature, it serves to mitigate the bleeding in open wounds.\n\n+2 Bleed\n-1 Thermal\n-1 Chemical"
+ITEM.longdesc = "This mucus-like artifact is amorphous, with the consistency of jelly - though its connection to itself renders attempts to separate it into parts nearly impossible. Even so, it is difficult to keep in one shape, so many stalkers place it into a thin container. The slime acts as a coagulant, covering and sealing wounds as they appear. However, as the slime generates its formations over the body, it renders the user susceptible to dangerous chemicals and burns.\n\n+2 Bleed\n-1 Thermal\n-1 Chemical"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 2500

@@ -1,7 +1,7 @@
 ITEM.name = "Goldfish"
 ITEM.model = "models/nasca/etherealsrp_artifacts/goldfish.mdl"
 ITEM.description = "A curious fish-shaped artifact."
-ITEM.longdesc = "An artifact that faintly glows orange, resembling a goldfish. It projects an anti-gravity field, which lightens objects in this field."
+ITEM.longdesc = "Rarely spawning at the nexus of many gravitational anomalies, the Goldfish is constantly creating negative gravitational fields, which stalkers can coax into a false suit of armor, increasing resistance against impacts. However, Goldfish seem to suck radiation into themselves, making them dangerous to handle without care."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 200000

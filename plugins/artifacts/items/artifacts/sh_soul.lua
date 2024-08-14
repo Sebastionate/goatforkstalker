@@ -1,7 +1,7 @@
 ITEM.name = "Soul"
 ITEM.model ="models/nasca/etherealsrp_artifacts/soul.mdl"
 ITEM.description = "Spherish, blue artifact."
-ITEM.longdesc = "A rare artifact seemingly formed of organic materials, it nonetheless has a striking appearance. It increases the body's overall recovery rate from any sort of damage through unknown means, but does not accelerate the accumulation of toxins."
+ITEM.longdesc = "A unique artifact sought by many stalkers, the Soul is able to assist organisms by increasing overall recovery rate from damage of any kind, without accelerating accumulation of toxins. It is poorly understood how the Soul achieves this, but the power of it lends it to being a valued collectors item, even if it is radioactive."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 85000

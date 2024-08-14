@@ -4,7 +4,7 @@ ITEM.description = "A thick roll of Pseudogiant hide, the mother of all hides."
 ITEM.longdesc = "A Pseudogiant's hide is very thick and heavy, often compared to a weighted blanket. Its thick hide is resistant to radiation and most forms of physical harm, and is often worn as a cloak or sewn into clothing, but it will certainly slow you down. "
 ITEM.width = 1
 ITEM.height = 1
-ITEM.price = 35000
+ITEM.price = 65000
 ITEM.flag = "A"
 ITEM.skin = 1
 ITEM.isArtefact = true
@@ -18,6 +18,6 @@ ITEM.res = {
 }
 
 ITEM.buffs = {
-	["reflex"] = -10
+	["reflex"] = -5
 }
 

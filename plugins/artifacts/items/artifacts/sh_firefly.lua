@@ -1,7 +1,7 @@
 ITEM.name = "Firefly"
 ITEM.model ="models/nasca/etherealsrp_artifacts/firefly.mdl"
 ITEM.description = "Green and beautiful artifact."
-ITEM.longdesc = "Interacting with energy fields unknown to science, this artifact considerably speeds up the regeneration of tissue and organs and normalizes metabolic processes. It is rumored to be able to bring Stalkers back from the dead, though this remains unclear."
+ITEM.longdesc = "One of the rarest artifacts in the Zone, the Firefly is the ultimate in healing ability. Through matters totally unknown to science, the Firefly increases and augments metabolism of anyone wounded to restore them, even from the brink of death. Extremely rare and sought by many. Emits radiation."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 1000000000

@@ -18,7 +18,7 @@ ITEM.weight = 3.85
 ITEM.barrel = "medium"
 ITEM.weaponType = "rifles"
 ITEM.RPM = 4
-ITEM.recoil = -3
+ITEM.recoil = -2
 
 ITEM.iconCam = {
 	pos = Vector(10, -30, 0),

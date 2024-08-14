@@ -1,7 +1,7 @@
 ITEM.name = "Battery"
 ITEM.model = "models/nasca/etherealsrp_artifacts/battery.mdl"
 ITEM.description = "An electric artifact."
-ITEM.longdesc = "The composition of this artifact includes dielectric elements, though the conditions of its formation remain unidentified by science. It is observed to make its user feel energized, though prolonged use is tiring.\n+5 Reflex"
+ITEM.longdesc = "An enigma amongst the scientific community, it is unconfirmed how the Battery forms; All that is known is that its composition includes dielectric elements. Even so, the Battery is a favorite amongst stalkers new and old for its energizing properties, making long trips and careful attacks that much easier to pull off. However, the battery emits radiation as a side effect, and has been known to trigger fatigue in users.\n+5 Reflex"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 14000

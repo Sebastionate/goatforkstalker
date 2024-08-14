@@ -1,7 +1,7 @@
 ITEM.name = "Wrenched"
 ITEM.model ="models/nasca/etherealsrp_artifacts/wrenched.mdl"
 ITEM.description = "Bizarre, whalelike artifact."
-ITEM.longdesc = "A strangely shaped artifact resulting from gravitational anomalies, this artifact acts as a sponge absorbing radioactive particles both from the environment and the body of its user."
+ITEM.longdesc = "This bizarrely-shaped artifact appears in places with increased gravitational activity. The Wrenched behaves not unlike a sponge, sucking in radioactive particles both in the environment and inside those that use it, effectively scrubbing radiation from anything near it. The Wrenched was once considered a junk artifact and exceedingly common, but recently its value has skyrocketed due to changes in its abilities as well as availability."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 39000

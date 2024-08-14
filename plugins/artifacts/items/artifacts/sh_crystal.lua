@@ -1,7 +1,7 @@
 ITEM.name = "Crystal"
 ITEM.model ="models/nasca/etherealsrp_artifacts/crystal.mdl"
 ITEM.description = "A crystal-like artifact."
-ITEM.longdesc = "It is observed to form when heavy metals are exposed to anomalous zones of intense thermal activity. The artifact absorbs excess heat in its surroundings, and remains consistently cool to the touch."
+ITEM.longdesc = "As its name implies, this artifact resembles a bright red crystalline structure, with an apparent flame frozen in a moment encased within. Primarily formed within flame anomalies, scientists believe the Crystal is made up of heavy metals which have been flash-heated by anomalies into a unique structure. When held, the Crystal is noticeably cool, and pools any excessive heat into itself, expelling radiation as a result."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 1000

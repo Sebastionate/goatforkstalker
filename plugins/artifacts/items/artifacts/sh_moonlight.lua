@@ -1,7 +1,7 @@
 ITEM.name = "Moonlight"
 ITEM.model = "models/nasca/etherealsrp_artifacts/moonlight.mdl"
 ITEM.description = "Light emits from this artifact."
-ITEM.longdesc = "A glowing, almost perfectly spherical formation originating from electrical anomalies, this artifact resonates under the influence of psi waves. Through fine-tuning, it resonates in the opposite phase to psi waves, serving to neutralize them in the process."
+ITEM.longdesc = "This unique and rare artifact resonates under the influence of psy-waves. Though potentially dangerous, the Moonlight can be attuned with the user, thereby counter-resonating against sources of psy radiation. In this way, the Moonlight can significantly or totally neutralize their effects on the user’s mind, at the cost of high radioactive excess."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 160000

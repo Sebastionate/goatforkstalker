@@ -1,7 +1,7 @@
 ITEM.name = "Stone Flower"
 ITEM.model ="models/nasca/etherealsrp_artifacts/stoneflower.mdl"
 ITEM.description = "Looks like its melted and ripped apart. Artifact."
-ITEM.longdesc = "Composed of a granite-like formation deformed by gravitational forces, the metallic compounds within this artifact form a crystalline structure unexplained by science. With a beautiful luminescence, this artifact is known to have a calming effect that offers minor protection from psi-emissions."
+ITEM.longdesc = "A hard stone deformed by the extreme pressures of gravitational anomalies, the Stone Flower is a flat, misshapen disc with several reflective bubble-like crystals inset in a pattern around the top face. Though appearing solid at first, the Stone Flower is actually hollow, with the inset crystals acting as directional antennas pointing towards the unseen center. The Stone Flower acts as a receiver for psionic radiation, resulting in an increased psy resistance."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 6000

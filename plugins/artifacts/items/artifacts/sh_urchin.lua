@@ -1,7 +1,7 @@
 ITEM.name = "Urchin"
 ITEM.model ="models/nasca/etherealsrp_artifacts/urchin.mdl"
 ITEM.description = "Spikey and brown artifact."
-ITEM.longdesc = "Rarely forming in Burnt Fuzz anomalies, this artifact causes an increase in blood pressure along with the rapid removal of radiation contaminating the bloodstream. Scientists struggle to find a means to replicate this artifact in laboratory conditions."
+ITEM.longdesc = "Currently, the Urchin is the rarest of the Thorn family of artifacts, and easily the most potent. Reducing radiation by an extreme amount, the Urchin in turn provides the greatest blood loss. Ecologists are known to coat their suits in processed Urchins, leading to the perfected radioactive protection the SSP line of suits provides."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 24000

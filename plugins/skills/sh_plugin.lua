@@ -8,7 +8,7 @@ PLUGIN.desc = "Define and upgrade skills."
 ix.char.RegisterVar("UtilitySkillPoints", {
     field = "utilityskillpoints",
     fieldType = ix.type.number,
-    default = 0,
+    default = 10,
     isLocal = true,
     bNoDisplay = true
 })

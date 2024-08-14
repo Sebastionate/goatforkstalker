@@ -1,7 +1,7 @@
 ITEM.name = "Fireball"
 ITEM.model ="models/nasca/etherealsrp_artifacts/fireball.mdl"
 ITEM.description = "A ball of fire. Artifact."
-ITEM.longdesc = "A crystal-like artifact formed in thermal anomalies, this artifact maintains a temperature of 75 degrees Fahrenheit at all times within a small radius, seemingly regardless of surrounding factors. It does not burn the user, though it does emit radiation."
+ITEM.longdesc = "A favorite among stalkers, the Fireball is an artifact formed in flame-based anomalies that dissipates heat via an equalization process unknown to science. Despite appearing as a crystalized orb of fire, the Fireball maintains a temperature of 75° Fahrenheit in a radius around itself, which stalkers can use to lessen the ambient heat around them. However, the Fireball emits radiation during the cooling process."
 ITEM.width = 1
 ITEM.height = 1
 ITEM.price = 7500
