@@ -40,7 +40,7 @@ if (SERVER) then
         self:SetHeadImpact(20)
         self:SetHeadRupture(20)
     
-        self:SetTorsoBR(50)
+        self:SetTorsoBR(0)
         self:SetTorsoBullet(50)
         self:SetTorsoImpact(50)
         self:SetTorsoRupture(50)

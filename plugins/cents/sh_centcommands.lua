@@ -553,6 +553,8 @@ ix.command.Add("CEntChatter", {
 		if (IsValid(entity) and entity.combatEntity) then
 
 			local classname = entity:GetClass()
+
+			if not PLUGIN:GetChatterVoiceline(entity) then return "No chatter voice lines are set for this CENT." end 
 	
 			entity:EmitSound(PLUGIN:GetChatterVoiceline(entity))
 
@@ -578,6 +580,8 @@ ix.command.Add("CEntCombatBark", {
 		if (IsValid(entity) and entity.combatEntity) then
 
 			local classname = entity:GetClass()
+
+			if not PLUGIN:GetCombatVoiceline(entity) then return "No combat voice lines are set for this CENT." end 
 	
 
 			entity:EmitSound(PLUGIN:GetCombatVoiceline(entity))
@@ -596,6 +600,9 @@ function PLUGIN:GetChatterVoiceline(entity)
 
 	local classname = entity:GetClass()
 	local voiceline
+
+
+	-- Humans --
 
 
 	if string.find(classname, "loner_") or string.find(classname, "eco_") then 
@@ -636,6 +643,145 @@ function PLUGIN:GetChatterVoiceline(entity)
 	if string.find(classname, "mono_") then 
 		voiceline = table.Random(PLUGIN.MonoVoice1)
 	end 
+
+
+	-- Mutants --
+
+	if string.find(classname, "mutant_dog") then 
+		local idles = {
+			"hgn/stalker/creature/dog/bdog_idle_1.wav",
+			"hgn/stalker/creature/dog/bdog_idle_2.wav",
+			"hgn/stalker/creature/dog/bdog_idle_3.wav"
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_tushkano") then 
+		local idles = {
+			"hgn/stalker/creature/rodent/tushkano_idle_0.wav",
+			"hgn/stalker/creature/rodent/tushkano_idle_1.wav",
+			"hgn/stalker/creature/rodent/tushkano_idle_2.wav",
+			"hgn/stalker/creature/rodent/tushkano_idle_3.wav"
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_flesh") then 
+		local idles = {
+			"hgn/stalker/creature/flesh/flesh_idle_1.wav",
+			"hgn/stalker/creature/flesh/flesh_idle_2.wav",
+			"hgn/stalker/creature/flesh/flesh_idle_3.wav",
+			"hgn/stalker/creature/flesh/flesh_idle_4.wav",
+			"hgn/stalker/creature/flesh/flesh_idle_5.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_boar") then 
+		local idles = {
+			"hgn/stalker/creature/boar/boar_idle_0.mp3",
+			"hgn/stalker/creature/boar/boar_idle_1.mp3",
+			"hgn/stalker/creature/boar/boar_idle_2.mp3",
+			"hgn/stalker/creature/boar/boar_idle_3.mp3",
+		}
+		voiceline = table.Random(idles)
+	end
+
+	if string.find(classname, "mutant_pseudodog") or string.find(classname, "mutant_psydog") then 
+		local idles = {
+			"hgn/stalker/creature/pseudodog/pdog_idle_0.mp3",
+			"hgn/stalker/creature/pseudodog/pdog_idle_1.mp3",
+			"hgn/stalker/creature/pseudodog/pdog_idle_2.mp3",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_cat") then 
+		local idles = {
+			"hgn/stalker/creature/cat/cat_idle.wav",
+			"hgn/stalker/creature/cat/9.wav",
+			"hgn/stalker/creature/cat/3.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_zombie") then 
+		local idles = {
+			"hgn/stalker/creature/zombie/zombie_idle_1.wav",
+			"hgn/stalker/creature/zombie/zombie_idle_2.wav",
+			"hgn/stalker/creature/zombie/zombie_idle_3.wav",
+			"hgn/stalker/creature/zombie/zombie_idle_4.wav",
+			"hgn/stalker/creature/zombie/zombie_idle_5.wav",
+			"hgn/stalker/creature/zombie/zombie_idle_6.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_snork") then 
+		local idles = {
+			"hgn/stalker/creature/snork/snork_idle_0.wav",
+			"hgn/stalker/creature/snork/snork_idle_1.wav",
+			"hgn/stalker/creature/snork/snork_idle_2.wav",
+			"hgn/stalker/creature/snork/snork_idle_3.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_izlom") then 
+		local idles = {
+			"hgn/stalker/creature/izlom/idle1.wav",
+			"hgn/stalker/creature/izlom/idle2.wav",
+			"hgn/stalker/creature/izlom/idle3.wav",
+			"hgn/stalker/creature/izlom/idle4.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_bloodsucker") then 
+		local idles = {
+			"hgn/stalker/creature/bs/idle_1.wav",
+			"hgn/stalker/creature/bs/idle_2.wav",
+			"hgn/stalker/creature/bs/idle_3.wav",
+			"hgn/stalker/creature/bs/idle_4.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_burer") then 
+		local idles = {
+			"hgn/stalker/creature/burer/burer_idle_0.mp3",
+			"hgn/stalker/creature/burer/burer_idle_1.mp3",
+			"hgn/stalker/creature/burer/burer_idle_2.mp3",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_controller") then 
+		local idles = {
+			"gsc/s.t.a.l.k.e.r/monsters/controller/controller_presence_1.wav",
+			"gsc/s.t.a.l.k.e.r/monsters/controller/controller_presence_2.wav",
+			"gsc/s.t.a.l.k.e.r/monsters/controller/controller_presence_3.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	
+	if string.find(classname, "mutant_chimera") then 
+		local idles = {
+			"hgn/stalker/creature/chimera/chimera_idle_1.wav",
+			"hgn/stalker/creature/chimera/chimera_idle_2.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_pseudogiant") then 
+		local idles = {
+			"hgn/stalker/creature/giant/idle_1.wav",
+			"hgn/stalker/creature/giant/idle_2.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
 
 	return voiceline 
 
@@ -685,7 +831,140 @@ function PLUGIN:GetCombatVoiceline(entity)
 	
 	if string.find(classname, "mono_") then 
 		voiceline = table.Random(PLUGIN.MonoVoiceCombat1)
+	end 
 
+
+	-- Mutants --
+
+	if string.find(classname, "mutant_dog") then 
+		local idles = {
+			"hgn/stalker/creature/dog/bdog_attack_1.wav",
+			"hgn/stalker/creature/dog/bdog_attack_2.wav",
+			"hgn/stalker/creature/dog/bdog_attack_3.wav",
+			"hgn/stalker/creature/dog/bdog_attack_4.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_tushkano") then 
+		local idles = {
+			"hgn/stalker/creature/rodent/tushkano_aggressive_0.wav",
+			"hgn/stalker/creature/rodent/tushkano_aggressive_1.wav",
+			"hgn/stalker/creature/rodent/tushkano_aggressive_2.wav",
+			"hgn/stalker/creature/rodent/tushkano_aggressive_3.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_flesh") then 
+		local idles = {
+			"hgn/stalker/creature/flesh/flesh_aggressive_0.mp3",
+			"hgn/stalker/creature/flesh/flesh_aggressive_1.mp3",
+			"hgn/stalker/creature/flesh/flesh_aggressive_2.mp3",
+			"hgn/stalker/creature/flesh/flesh_aggressive_3.mp3",
+			"hgn/stalker/creature/flesh/flesh_aggressive_4.mp3",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_boar") then 
+		local idles = {
+			"hgn/stalker/creature/boar/boar_aggressive_1.wav",
+			"hgn/stalker/creature/boar/boar_aggressive_2.wav",
+			"hgn/stalker/creature/boar/boar_aggressive_3.wav",
+			"hgn/stalker/creature/boar/boar_aggressive_4.wav",
+		}
+		voiceline = table.Random(idles)
+	end
+
+	if string.find(classname, "mutant_pseudodog") or string.find(classname, "mutant_psydog") then 
+		local idles = {
+			"hgn/stalker/creature/pseudodog/pdog_aggression_0.mp3",
+			"hgn/stalker/creature/pseudodog/pdog_aggression_1.mp3",
+			"hgn/stalker/creature/pseudodog/pdog_aggression_2.mp3",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_cat") then 
+		local idles = {
+			"hgn/stalker/creature/cat/cat_agr.wav",
+			"hgn/stalker/creature/cat/cat_threat.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_zombie") then 
+		local idles = {
+			"hgn/stalker/creature/zombie/zombie_attack_1.wav",
+			"hgn/stalker/creature/zombie/zombie_attack_2.wav",
+			"hgn/stalker/creature/zombie/zombie_attack_3.wav",
+			"hgn/stalker/creature/zombie/zombie_attack_4.wav",
+			"hgn/stalker/creature/zombie/zombie_attack_5.wav",
+			"hgn/stalker/creature/zombie/zombie_attack_6.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_snork") then 
+		local idles = {
+			"hgn/stalker/creature/snork/snork_attack_0.wav",
+			"hgn/stalker/creature/snork/snork_attack_1.wav",
+			"hgn/stalker/creature/snork/snork_attack_2.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_izlom") then 
+		local idles = {
+			"hgn/stalker/creature/izlom/attack1.wav",
+			"hgn/stalker/creature/izlom/attack2.wav",
+			"hgn/stalker/creature/izlom/attack3.wav",
+			"hgn/stalker/creature/izlom/attack4.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_bloodsucker") then 
+		local idles = {
+			"hgn/stalker/creature/bs/attack_0.mp3",
+			"hgn/stalker/creature/bs/attack_1.mp3",
+			"hgn/stalker/creature/bs/attack_2.mp3",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_burer") then 
+		local idles = {
+			"hgn/stalker/creature/burer/burer_attack_0.mp3",
+			"hgn/stalker/creature/burer/burer_attacking_0.mp3",
+			"hgn/stalker/creature/burer/burer_telekinetic_0.mp3",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_controller") then 
+		local idles = {
+			"gsc/s.t.a.l.k.e.r/monsters/controller/controller_attack_hit.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	
+	if string.find(classname, "mutant_chimera") then 
+		local idles = {
+			"hgn/stalker/creature/chimera/chimera_attack_1.wav",
+			"hgn/stalker/creature/chimera/chimera_attack_2.wav",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_pseudogiant") then 
+		local idles = {
+			"hgn/stalker/creature/giant/attack_0.wav",
+			"hgn/stalker/creature/giant/attack_1.wav",
+		}
+		voiceline = table.Random(idles)
 	end 
 
 

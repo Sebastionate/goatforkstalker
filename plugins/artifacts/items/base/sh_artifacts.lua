@@ -315,7 +315,7 @@ ITEM.functions.Sell = {
         local client = item.player
 		local character = client:GetCharacter()
 		
-        client:Notify( "Sold for "..(item.price * 0.25).." rubles." )
+        client:Notify( "Sold for "..(item.price * 0.40).." rubles." )
         character:GiveMoney(item.price/1.25)
 		
         if (item:GetData("equip")) then
@@ -340,7 +340,7 @@ ITEM.functions.Value = {
     sound = "physics/metal/chain_impact_soft2.wav",
     OnRun = function(item)
         local client = item.player
-        client:Notify( "Item is sellable for "..(item.price * 0.25).." rubles." )
+        client:Notify( "Item is sellable for "..(item.price * 0.40).." rubles." )
         return false
     end,
     OnCanRun = function(item)

@@ -51,10 +51,10 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(50)
-        self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(0)
-        self:SetDodge(0)
+        self:SetCombatHealth(175)
+        self:SetCombatHealthMax(175)
+        self:SetWeaponSkill(30)
+        self:SetDodge(20)
     
         if string.find(self:GetModel(), "stingray") or string.find(self:GetModel(), "bulat") then
             -- Stingray-9 and Sphere-12

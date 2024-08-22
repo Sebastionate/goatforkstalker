@@ -21,7 +21,6 @@ ENT.models = {
 
 
 ENT.skin = 1
-ENT.head = table.Random({"0"})
 ENT.hood = table.Random({"0", "1"})
 ENT.vest = table.Random({"0", "1"})
 

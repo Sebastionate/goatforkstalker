@@ -258,7 +258,7 @@ ix.command.Add("CharGetFactionRep", {
         str = str .. "Freedom: " .. char:GetFreedomRep() .. "\n"
         str = str .. "Ukranian Military: " .. char:GetArmyRep() .. "\n"
         str = str .. "Ecologists: " .. char:GetEcoRep() .. "\n"
-        str = str .. "Sultan's Bratva: " .. char:GetMobRep() .. "\n"
+        str = str .. "Bandits: " .. char:GetMobRep() .. "\n"
         str = str .. "Blue Eagle: " .. char:GetMercRep() .. "\n"
    
         return str
@@ -350,7 +350,7 @@ ix.command.Add("CharAddFactionRep", {
         end
 
 
-        return "Invalid faction. Valid factions are: Duty, Freedom, Army, Eco, Bandit, and Merc."
+        return "Invalid faction. Valid factions are: Loner, Freedom, Duty, Freedom, Army, Eco, Bandit, and Merc."
 
     end
 })

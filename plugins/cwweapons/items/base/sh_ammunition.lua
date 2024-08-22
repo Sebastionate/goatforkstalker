@@ -233,8 +233,8 @@ ITEM.functions.Sell = {
 	sound = "physics/metal/chain_impact_soft2.wav",
 	OnRun = function(item)
 		local client = item.player
-		client:Notify( "Sold for "..(math.Round((item.price * 0.25)*(item:GetData("quantity",1)/item.ammoAmount))).." rubles." )
-		client:GetCharacter():GiveMoney(math.Round((item.price * 0.25)*(item:GetData("quantity",1)/item.ammoAmount)))
+		client:Notify( "Sold for "..(math.Round((item.price * 0.40)*(item:GetData("quantity",1)/item.ammoAmount))).." rubles." )
+		client:GetCharacter():GiveMoney(math.Round((item.price * 0.40)*(item:GetData("quantity",1)/item.ammoAmount)))
 	end,
 	OnCanRun = function(item)
 		return !IsValid(item.entity) and item:GetOwner():GetCharacter():HasFlags("1")
@@ -247,7 +247,7 @@ ITEM.functions.Value = {
 	sound = "physics/metal/chain_impact_soft2.wav",
 	OnRun = function(item)
 		local client = item.player
-		client:Notify( "Item is sellable for "..(math.Round((item.price * 0.25)*(item:GetData("quantity",1)/item.ammoAmount))).." rubles." )
+		client:Notify( "Item is sellable for "..(math.Round((item.price * 0.40)*(item:GetData("quantity",1)/item.ammoAmount))).." rubles." )
 		return false
 	end,
 	OnCanRun = function(item)

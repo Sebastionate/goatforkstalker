@@ -91,6 +91,46 @@ ix.command.Add("SetRecoil", {
     end
 } )
 
+ix.command.Add("SetAccuracy", {
+    description = "Override all skill and ammo based buffs with given number. Set to 0 to reset.",
+	adminOnly = true,
+	arguments = {
+		ix.type.number
+	},
+    OnRun = function(self, client, accuracy)
+		local player = client:GetCharacter()
+
+		if accuracy == 0 then
+			player:SetData("gmaccuracy", nil)
+			client:Notify("Removed Accuracy override, now using equipped weapon's accuracy.")
+		else 
+			player:SetData("gmaccuracy", accuracy)
+			client:Notify("Overriding Accuracy with " .. accuracy)
+		end
+	
+    end
+} )
+
+ix.command.Add("SetSkill", {
+    description = "Override all skill based buffs with given number. Set to 0 to reset. SetAccuracy takes priority.",
+	adminOnly = true,
+	arguments = {
+		ix.type.number
+	},
+    OnRun = function(self, client, skill)
+		local player = client:GetCharacter()
+
+		if skill == 0 then
+			player:SetData("gmskill", nil)
+			client:Notify("Removed Skill override, now using character's skill.")
+		else 
+			player:SetData("gmskill", skill)
+			client:Notify("Overriding Skill with " .. skill)
+		end
+	
+    end
+} )
+
 ix.command.Add("Unjam", {
     description = "Clear a mechanical failure on your firearm - if it has one.",
     OnRun = function(self, client)
@@ -277,6 +317,7 @@ function PLUGIN:WeaponFired(entity)
 	if string.find(ammotype, "-ZL-") then ammobonus = -2 specialammo = "using Zone-Loaded Ammo" end
 	if string.find(ammotype, "-AP-") then ammobonus = 0 specialammo = "using Armor Piercing Ammo" end
 	if string.find(ammotype, "-HP-") then ammobonus = 0 specialammo = "using Hollow Point Ammo" end
+	if string.find(ammotype, "-SG-") then ammobonus = 3 specialammo = "using Slug Rounds" end
 
 	local rofboost = 0
 	local recoilboost = 0
@@ -308,8 +349,17 @@ function PLUGIN:WeaponFired(entity)
 
 	end 
 
+	if entity:GetCharacter():GetData("gmskill", nil) then 
+		skillbonus = entity:GetCharacter():GetData("gmskill")
+	end 
 
 
+	if entity:GetCharacter():GetData("gmaccuracy", nil) then 
+		skillbonus = 0
+		scopebonus = 0
+		ammobonus = 0
+		accuracyboost = entity:GetCharacter():GetData("gmaccuracy")
+	end 
 
 	local totalamount = value + skillbonus + scopebonus + ammobonus + recoildebuff + accuracyboost
 	
@@ -392,6 +442,8 @@ function PLUGIN:MetersToRange(distance)
 		elseif distance >= 74 and distance < 125 then range = "Very Long"
 		elseif distance >= 125 then range = "Extreme"
 		end 
+
+		if range == nil then range = self:MetersToRange(distance + 1) end 
 
 	return range
 end 

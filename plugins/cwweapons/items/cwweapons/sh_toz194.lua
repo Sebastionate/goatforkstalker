@@ -18,4 +18,4 @@ ITEM.Mag = 6
 ITEM.barrel = "medium"
 ITEM.weaponType = "closequarters"
 ITEM.RPM = 2
-ITEM.recoil = -3
+ITEM.recoil = -4
