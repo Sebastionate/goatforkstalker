@@ -50,7 +50,7 @@ if (SERVER) then
 
         self:SetCombatHealth(140)
         self:SetCombatHealthMax(140)
-        self:SetWeaponSkill(15)
+        self:SetWeaponSkill(20)
         self:SetDodge(17)
     
         if string.find(self:GetModel(), "sunset") then

@@ -45,7 +45,7 @@ if (SERVER) then
 
         self:SetCombatHealth(105)
         self:SetCombatHealthMax(105)
-        self:SetWeaponSkill(10)
+        self:SetWeaponSkill(15)
         self:SetDodge(8)
 
         -- Hawk and M40 Mask

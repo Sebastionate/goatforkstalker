@@ -18,6 +18,11 @@ function ENT:IsAdmin()
   	return false
 end
 
+function ENT:ID()
+    return 0
+end
+
+
 function ENT:Description()
     return self:GetNetVar("desc", self.description or "")
 end

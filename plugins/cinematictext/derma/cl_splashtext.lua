@@ -7,6 +7,7 @@ local music
 local contents = {
     text = "",
     bigText = "",
+    musicFile = "",
     color = color_white,
     duration = 6,
     music = true
@@ -122,6 +123,7 @@ vgui.Register("cinematicSplashText", PANEL, "DPanel")
 net.Receive("triggerCinematicSplashMenu", function()
     contents.text = net.ReadString()
     contents.bigText = net.ReadString()
+    contents.musicFile = net.ReadString()
     contents.duration = net.ReadUInt(6)
     local blackbars = net.ReadBool()
     contents.music = net.ReadBool()

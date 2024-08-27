@@ -668,7 +668,7 @@ ITEM.functions.Sell = {
 	OnRun = function(item)
 		local client = item.player
 		local sellprice = item:GetData("RealPrice") or item.price
-		sellprice = math.Round((sellprice*(item:GetData("durability",0)/100))*0.25)
+		sellprice = math.Round((sellprice*(item:GetData("durability",0)/100))*0.60)
 		if item:GetData("durability",0) < 50 then
 			client:Notify("Must be Repaired")
 			return false
@@ -688,7 +688,7 @@ ITEM.functions.Value = {
 	OnRun = function(item)
 		local client = item.player
 		local sellprice = item:GetData("RealPrice") or item.price
-		sellprice = math.Round((sellprice*(item:GetData("durability",0)/100))*0.25)
+		sellprice = math.Round((sellprice*(item:GetData("durability",0)/100))*0.60)
 		if item:GetData("durability",0) < 50 then
 			client:Notify("Must be Repaired")
 			return false

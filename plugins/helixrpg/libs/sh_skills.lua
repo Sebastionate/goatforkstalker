@@ -54,7 +54,7 @@ do
 			if (skill) then
 				local skl = self:GetSkills()
 
-				skl[key] = math.min((skl[key] or 0) + value, skill.maxValue or ix.config.Get("maxAttributes", 100))
+				skl[key] = math.min((skl[key] or 0) + value, skill.maxValue or ix.config.Get("maxSkills", 30))
 
 				if (IsValid(client)) then
 					net.Start("ixSkillUpdate")

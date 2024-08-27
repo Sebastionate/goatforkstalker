@@ -1,7 +1,7 @@
 ITEM.name = "Assault Helmet"
 ITEM.description = "A heavy combat helmet."
 ITEM.longdesc = "A combat helmet that tends to be used by individuals or groups without access to the similar Sphere-12 to equip their heavier units. It serves its purpose well, and many Loners will take either if they intend to get into heavy combat."
-ITEM.model = "models/shtokerbox/ground_headgear_sam.mdl"
+ITEM.model = "models/shtokerbox/ground_headgear_psz12.mdl"
 ITEM.price = 20000
 ITEM.flag = "4"
 ITEM.br = 0.2

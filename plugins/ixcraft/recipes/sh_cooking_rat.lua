@@ -4,7 +4,6 @@ RECIPE.model = "models/kek1ch/meat_tushkano.mdl"
 RECIPE.category = "Cooking"
 
 RECIPE.requirements = {
-	["waterclean"] = 1,
 	["ratmeatraw"] = 1
 }
 

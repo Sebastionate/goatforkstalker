@@ -34,7 +34,7 @@ if (SERVER) then
 
         self:SetCombatHealth(60)
         self:SetCombatHealthMax(60)
-        self:SetWeaponSkill(0)
+        self:SetWeaponSkill(5)
         self:SetDodge(10)
     
         self:SetHeadBR(0)

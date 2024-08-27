@@ -56,7 +56,7 @@ if (SERVER) then
 
         self:SetCombatHealth(120)
         self:SetCombatHealthMax(120)
-        self:SetWeaponSkill(10)
+        self:SetWeaponSkill(15)
         self:SetDodge(14)
 
         -- Sentinel of Freedom and PBF

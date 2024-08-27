@@ -9,3 +9,7 @@ ITEM.height = 1
 ITEM.flag = "5"
 ITEM.sound = "stalkersound/inv_bread1.mp3"
 ITEM.weight = 0.1
+ITEM:Hook("use", function(item)
+	item.player:EmitSound(item.sound or "items/battery_pickup.wav")
+	ix.chat.Send(item.player, "iteminternal", "eats their "..item.name..".", false)
+end)

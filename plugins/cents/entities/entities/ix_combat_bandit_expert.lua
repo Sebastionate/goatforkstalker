@@ -38,7 +38,6 @@ end
 
 local riflegrip = {
     "models/tnb/weapons/w_fal.mdl",
-    "models/tnb/weapons/w_ump.mdl",
     "models/tnb/weapons/w_famas.mdl",
     "models/tnb/weapons/w_akm.mdl",
     "models/tnb/weapons/w_ak74.mdl",
@@ -56,7 +55,7 @@ if (SERVER) then
 
         self:SetCombatHealth(150)
         self:SetCombatHealthMax(150)
-        self:SetWeaponSkill(20)
+        self:SetWeaponSkill(25)
         self:SetDodge(17)
     
         if string.find(self:GetModel(), "seva") then

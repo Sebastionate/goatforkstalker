@@ -55,7 +55,7 @@ if (SERVER) then
 
         self:SetCombatHealth(115)
         self:SetCombatHealthMax(115)
-        self:SetWeaponSkill(10)
+        self:SetWeaponSkill(15)
         self:SetDodge(11)
 
         if string.find(self:GetModel(), "dusk") then

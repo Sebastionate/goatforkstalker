@@ -35,7 +35,7 @@ ITEM.functions.Value = {
 	sound = "physics/metal/chain_impact_soft2.wav",
 	OnRun = function(item)
 		local client = item.player
-		local sellprice = (item.price * 0.40)
+		local sellprice = (item.price * 0.60)
 		
 		if item.quantity > 1 then
 			sellprice = (sellprice * (item:GetData("quantity",item.quantity)/item.quantity))

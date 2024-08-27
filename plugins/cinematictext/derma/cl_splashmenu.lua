@@ -23,7 +23,7 @@ function PANEL:Init()
 
     local textEntryTall = ScrH*0.045
 
-    self:SetSize(ScrW*0.6, ScrH*0.6)
+    self:SetSize(ScrW*0.70, ScrH*0.70)
     self:Center()
     self:MakePopup()
     self:SetTitle("Cinematic Splash Text Menu")
@@ -147,7 +147,7 @@ function PANEL:Init()
 
     local postButton = self:Add("DButton")
     postButton:Dock(BOTTOM)
-    postButton:DockMargin( 20, 5, 20, 0 )
+    postButton:DockMargin( 20, 10, 20, 0 )
     postButton:SetText("POST")
     postButton:SetTextColor(color_white)
     postButton:SetFont("cinematicSplashFontSmall")
@@ -155,6 +155,7 @@ function PANEL:Init()
     postButton.DoClick = function()
         if not (self.contents and (self.contents.text or self.contents.bigText)) then ix.util.Notify("Something went horribly wrong. Try reloading this panel") return end
         if  self.contents.text == "" and self.contents.bigText == "" then ix.util.Notify("Text is missing. Enter some text to display") return end
+        if not self.contents.musicFile then self.contents.musicFile = "" end
 
         net.Start("triggerCinematicSplashMenu")
             net.WriteString(self.contents.text) -- the normal text
@@ -174,6 +175,7 @@ function PANEL:Init()
     self.contents.color = newColor --ValueChanged doesn't include the color metatable, so we just define it here. Also remove any alpha changes
     textLabel:SetTextColor(newColor)
     bigTextLabel:SetTextColor(newColor)
+    musicFileLabel:SetTextColor(newColor)
     durationLabel:SetTextColor(newColor)
     postButton:SetTextColor(newColor)
     end

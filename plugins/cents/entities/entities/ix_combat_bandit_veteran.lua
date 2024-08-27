@@ -69,10 +69,10 @@ if (SERVER) then
 
         self:SetCombatHealth(140)
         self:SetCombatHealthMax(140)
-        self:SetWeaponSkill(15)
+        self:SetWeaponSkill(20)
         self:SetDodge(14)
     
-        if string.find(self:GetModel(), "gp5") or string.find(self:GetModel(), "lone_old") then
+        if string.find(self:GetModel(), "gp5") or string.find(self:GetModel(), "bandit_old") then
             -- Vulture and GP-5
 
             self:SetHeadBR(10)

@@ -50,7 +50,7 @@ if (SERVER) then
 
         self:SetCombatHealth(150)
         self:SetCombatHealthMax(150)
-        self:SetWeaponSkill(20)
+        self:SetWeaponSkill(25)
         self:SetDodge(20)
     
         if string.find(self:GetModel(), "stingray") then

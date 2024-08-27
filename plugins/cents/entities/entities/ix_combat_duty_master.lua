@@ -52,7 +52,7 @@ if (SERVER) then
 
         self:SetCombatHealth(170)
         self:SetCombatHealthMax(170)
-        self:SetWeaponSkill(25)
+        self:SetWeaponSkill(30)
         self:SetDodge(20)
     
         if string.find(self:GetModel(), "psz12") then

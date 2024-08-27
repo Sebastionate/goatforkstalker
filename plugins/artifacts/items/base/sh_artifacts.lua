@@ -277,7 +277,12 @@ if (CLIENT) then
 
     function ITEM:DrawEntity(entity, item)
 
-        local artifactrenderdistance = 50 + (LocalPlayer():GetCharacter():GetSkill("zonelore", 0) * 10)
+        local skillbonus = 0
+        if LocalPlayer():GetCharacter() then 
+            skillbonus = skillbonus + LocalPlayer():GetCharacter():GetSkill("zonelore", 0) * 10
+        end
+
+        local artifactrenderdistance = 50 + skillbonus
 
         if not self.notAnomalous then 
             if LocalPlayer():GetPos():Distance(entity:GetPos()) > artifactrenderdistance then
@@ -315,7 +320,7 @@ ITEM.functions.Sell = {
         local client = item.player
 		local character = client:GetCharacter()
 		
-        client:Notify( "Sold for "..(item.price * 0.40).." rubles." )
+        client:Notify( "Sold for "..(item.price * 0.60).." rubles." )
         character:GiveMoney(item.price/1.25)
 		
         if (item:GetData("equip")) then
@@ -340,7 +345,7 @@ ITEM.functions.Value = {
     sound = "physics/metal/chain_impact_soft2.wav",
     OnRun = function(item)
         local client = item.player
-        client:Notify( "Item is sellable for "..(item.price * 0.40).." rubles." )
+        client:Notify( "Item is sellable for "..(item.price * 0.60).." rubles." )
         return false
     end,
     OnCanRun = function(item)

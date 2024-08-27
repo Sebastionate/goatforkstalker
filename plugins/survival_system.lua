@@ -111,7 +111,7 @@ if SERVER then
 
 			local duration = 300
 			if ply:GetHungerReduce() ~= 0 then 
-				local duration = duration + (duration * ply:GetHungerReduce())
+				local duration = duration + (duration * ply:GetHungerReduce() or 0)
 			end 
 
 			ply:SetNetVar("hungertick", duration + CurTime())

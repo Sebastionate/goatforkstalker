@@ -33,6 +33,9 @@ do
 	end
 
 	function PLUGIN:IsCharacterRecognized(char, id)
+
+		if char.combatEntity then return true end 
+		
 		if (char.id == id) then
 			return true
 		end

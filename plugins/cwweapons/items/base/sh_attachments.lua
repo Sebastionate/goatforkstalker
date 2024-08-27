@@ -172,10 +172,10 @@ ITEM.functions.Sell = {
 	sound = "physics/metal/chain_impact_soft2.wav",
 	OnRun = function(item)
 		local client = item.player
-		local sellprice = item.price/0.25
+		local sellprice = item.price * 0.60
 		
 		if item.quantity > 1 then
-			sellprice = ((item.price/0.25) * (item:GetData("quantity",item.quantity)/item.quantity))
+			sellprice = ((item.price * 0.60) * (item:GetData("quantity",item.quantity)/item.quantity))
 		end
 		sellprice = math.Round(sellprice)
 		client:Notify( "Sold for "..(sellprice).." rubles." )

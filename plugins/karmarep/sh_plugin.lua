@@ -6,7 +6,7 @@ PLUGIN.desc = "Reputation System"
 ix.char.RegisterVar("CombatSkillPoints", {
     field = "combatskillpoints",
     fieldType = ix.type.number,
-    default = 10,
+    default = 0,
     isLocal = true,
     bNoDisplay = true
 })
@@ -263,14 +263,14 @@ ix.command.Add("SpendCombatSkillpoints", {
                 return
             end 
 
-            if (skillLevel + pointstospend > 25) then
-                client:Notify("You cannot raise a skill above 25.")
+            if (skillLevel + pointstospend > 30) then
+                client:Notify("You cannot raise a skill above 30.")
                 return
             end 
 
             char:UpdateSkill(skill, pointstospend)
             local newlevel = char:GetSkills()[skill]
-            char:SetUtilitySkillPoints(char:GetCombatSkillPoints() - pointstospend)
+            char:SetCombatSkillPoints(char:GetCombatSkillPoints() - pointstospend)
             client:Notify("Your " .. skill .. " skill has been increased from " ..skillLevel.. " to " ..newlevel.. ". \n Combat Skillpoints Remaining: " .. char:GetCombatSkillPoints())
         else 
             client:Notify("Invalid skill name.")

@@ -85,6 +85,7 @@ ITEM.functions.usetarget = {
 		if (IsValid(target) and target:IsPlayer()) then
 
 			local char = item.player:GetCharacter()
+			target = target:GetCharacter()
 			local skillbonusheal = (char:GetSkill("medic") / 100)
 			skillbonusheal = skillbonusheal * 2
 			skillbonusheal = item.heal + (skillbonusheal * item.heal)

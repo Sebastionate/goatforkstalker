@@ -4,7 +4,6 @@ RECIPE.model = "models/kek1ch/meat_bloodsucker.mdl"
 RECIPE.category = "Cooking"
 
 RECIPE.requirements = {
-	["waterclean"] = 1,
 	["humanmeatraw"] = 1
 }
 

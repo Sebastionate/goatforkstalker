@@ -69,7 +69,7 @@ if (SERVER) then
 
         self:SetCombatHealth(120)
         self:SetCombatHealthMax(50)
-        self:SetWeaponSkill(10)
+        self:SetWeaponSkill(15)
         self:SetDodge(11)
     
         if string.find(self:GetModel(), "gp5") or string.find(self:GetModel(), "lone_old") then

@@ -4,7 +4,6 @@ RECIPE.model = "models/kek1ch/meat_flesh.mdl"
 RECIPE.category = "Cooking"
 
 RECIPE.requirements = {
-	["waterclean"] = 1,
 	["fleshmeatraw"] = 1
 }
 

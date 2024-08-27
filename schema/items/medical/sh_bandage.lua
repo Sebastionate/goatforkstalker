@@ -49,6 +49,7 @@ ITEM.functions.usetarget = {
 		local quantity = item:GetData("quantity", item.quantity)
 		if (IsValid(target) and target:IsPlayer()) then
 
+			target = target:GetCharacter()
 			local quantity = item:GetData("quantity", item.quantity)
 			ix.chat.Send(item.player, "iteminternal", "applies a " ..item.name .. " to " ..target:Name(), false)
 			local char = item.player:GetCharacter()

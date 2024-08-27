@@ -9,6 +9,7 @@ net.Receive("triggerCinematicSplashMenu", function(_, client)
     net.Start("triggerCinematicSplashMenu")
         net.WriteString(net.ReadString()) -- text
         net.WriteString(net.ReadString()) --bigtext
+        net.WriteString(net.ReadString()) -- Musicfile
         net.WriteUInt(net.ReadUInt(6), 6) --duration
         net.WriteBool(net.ReadBool()) -- blackBars
         net.WriteBool(net.ReadBool()) -- music

@@ -30,6 +30,16 @@ if (SERVER) then
   ix.log.AddType("damage", function(client, target, actiontype, damage, status)
       return string.format("%s has %s %s damage %s", target:GetName(), actiontype, damage, status)
   end)
+
+  function PLUGIN:OnCharacterCreated(client, character)
+    
+    local healthbonus = character:GetAttribute("fortitude") * 5
+
+    character:SetMaxhp(character:GetMaxhp() + healthbonus)
+    character:SetCurrenthp(character:GetMaxhp())
+  end
+
+
 end
 
 
@@ -295,7 +305,6 @@ ix.command.Add("Heal", {
 
 ix.command.Add("Status", {
   description = "Get your current health and total protection levels..",
-  adminOnly = true,
   OnRun = function(self, client)
     local char = client:GetCharacter()
 

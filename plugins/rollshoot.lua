@@ -151,7 +151,7 @@ ix.command.Add("Unjam", {
 } )
 
 ix.chat.Register("rollshoot", {
-    format = "** %s fires their %s (%s/%s) %s: %s at %s distance target %s %s",
+    format = "** %s fires their %s (%s/%s) %s: %s at %s distance target%s %s",
     color = Color(155, 111, 176),
     CanHear = ix.config.Get("chatRange", 280) * 2,
     deadCanChat = true,
@@ -384,8 +384,11 @@ function PLUGIN:WeaponFired(entity)
 	local shootingCent = entity:GetEyeTrace().Entity
 
 	
-	if IsValid(shootingCent) and shootingCent.combatEntity then 
-		target = shootingCent:Name()
+	if IsValid(shootingCent) and (shootingCent.combatEntity or shootingCent:IsPlayer()) then 
+
+		-- Cents return themselves as players 
+
+		target = shootingCent:GetCharacter():Name()
 	end 
 
 	

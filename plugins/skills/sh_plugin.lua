@@ -8,7 +8,7 @@ PLUGIN.desc = "Define and upgrade skills."
 ix.char.RegisterVar("UtilitySkillPoints", {
     field = "utilityskillpoints",
     fieldType = ix.type.number,
-    default = 10,
+    default = 0,
     isLocal = true,
     bNoDisplay = true
 })
@@ -44,6 +44,17 @@ ix.char.RegisterVar("LifetimeUtilityXP", {
     isLocal = true,
     bNoDisplay = true
 })
+
+if (SERVER) then
+    function PLUGIN:OnCharacterCreated(client, character)
+      
+      character:SetCombatSkillPoints(10)
+      character:SetUtilitySkillPoints(10)
+  
+
+    end
+  
+end  
 
 ix.command.Add("CharRewardUtilityXP", {
     description = "Add Utility XP to a character.",
@@ -156,8 +167,8 @@ ix.command.Add("SpendUtilitySkillpoints", {
                 return
             end 
 
-            if (skillLevel + pointstospend > 25) then
-                client:Notify("You cannot raise a skill above 25.")
+            if (skillLevel + pointstospend > 30) then
+                client:Notify("You cannot raise a skill above 30.")
                 return
             end 
 
@@ -264,7 +275,7 @@ function charmeta:AddUtilityXp(target, points)
     local currentxp = target:GetUtilityXP()
     local currentlifetimexp = target:GetLifetimeUtilityXP()
     local currentlevel = target:GetUtilityLevel()
-    local currentskillpoints = target:GetSkillPoints()
+    local currentskillpoints = target:GetUtilitySkillPoints()
 
     
 

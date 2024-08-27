@@ -47,7 +47,7 @@ if (SERVER) then
 
         self:SetCombatHealth(175)
         self:SetCombatHealthMax(175)
-        self:SetWeaponSkill(30)
+        self:SetWeaponSkill(35)
         self:SetDodge(20)
     
        -- Terminator Exosuit and Exohelm

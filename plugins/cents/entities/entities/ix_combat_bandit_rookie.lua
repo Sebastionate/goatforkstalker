@@ -73,7 +73,7 @@ if (SERVER) then
 
         self:SetCombatHealth(80)
         self:SetCombatHealthMax(80)
-        self:SetWeaponSkill(0)
+        self:SetWeaponSkill(5)
         self:SetDodge(5)
     
         if string.find(self:GetModel(), "anorak") or string.find(self:GetModel(), "novice") then

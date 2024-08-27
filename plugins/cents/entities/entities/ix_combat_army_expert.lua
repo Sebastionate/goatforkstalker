@@ -50,7 +50,7 @@ if (SERVER) then
 
         self:SetCombatHealth(150)
         self:SetCombatHealthMax(150)
-        self:SetWeaponSkill(20)
+        self:SetWeaponSkill(25)
         self:SetDodge(17)
     
         -- Stingray-9 and Sphere-12

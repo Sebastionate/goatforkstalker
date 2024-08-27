@@ -149,7 +149,7 @@ ITEM.functions.Sell = {
 	sound = "physics/metal/chain_impact_soft2.wav",
 	OnRun = function(item)
 		local client = item.player
-		local sellprice = (item.price * 0.40)
+		local sellprice = (item.price * 0.60)
 		sellprice = math.Round(sellprice)
 		client:Notify( "Sold for "..(sellprice).." rubles." )
 		client:GetCharacter():GiveMoney(sellprice)
@@ -166,7 +166,7 @@ ITEM.functions.Value = {
 	sound = "physics/metal/chain_impact_soft2.wav",
 	OnRun = function(item)
 		local client = item.player
-		local sellprice = (item.price * 0.40)
+		local sellprice = (item.price * 0.60)
 		sellprice = math.Round(sellprice)
 		client:Notify( "Item is sellable for "..(sellprice).." rubles." )
 		return false

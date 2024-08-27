@@ -54,7 +54,7 @@ if (SERVER) then
 
         self:SetCombatHealth(145)
         self:SetCombatHealthMax(145)
-        self:SetWeaponSkill(20)
+        self:SetWeaponSkill(25)
         self:SetDodge(14)
     
         if string.find(self:GetModel(), "seva") then

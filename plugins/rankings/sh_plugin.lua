@@ -547,29 +547,7 @@ if CLIENT then
 			end
 			infodesc:SizeToContentsY()
 			
-			local infobacklabel = descbackbox:Add("DLabel")
-			infobacklabel:Dock(TOP)
-			infobacklabel:SetWidth(((.328125)*ScrW()))
-			infobacklabel:SetAutoStretchVertical(true)
-			infobacklabel:SetTextColor(headcolor)
-			infobacklabel:SetFont("stalkerregularfont")
-			infobacklabel:SetText("Backstory:")
-			
-			local infoback = descbackbox:Add("DTextEntry_Edit")
-			infoback:SetDrawBackground(false)
-			infoback:SetMultiline(true)
-			infoback:SetTextColor(Color(255,255,255))
-			infoback:SetFont("stalkerregularfont")
-			infoback:SetEditable(false)
-			infoback:SetWidth(((.328125)*ScrW()))
-			infoback:Dock(TOP)
-			infoback:DockMargin(0,(.0092592592592593*ScrH()),0,0)
-			if desc then
-				infoback:SetValue(backstory)
-			else
-				infoback:SetValue("N/A")
-			end
-			infoback:SizeToContentsY()
+		
 		end)
 		
 		netstream.Start("GetRankListData")
