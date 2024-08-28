@@ -84,7 +84,7 @@ ix.command.Add("CharRewardUtilityXP", {
 
 ix.command.Add("CharGetSkills", {
 	description = "View given player's skills.",
-    AdminOnly = true,
+    adminOnly = true,
     arguments = 
     {ix.type.character},
 	OnRun = function(self, client, target)

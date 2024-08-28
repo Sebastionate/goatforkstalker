@@ -96,7 +96,7 @@ if (CLIENT) then
 			local character = client:GetCharacter()
 			local ourCharacter = LocalPlayer():GetCharacter()
 
-			if (ourCharacter and character and !ourCharacter:DoesRecognize(character) and !hook.Run("IsPlayerRecognized", client)) then
+			if (ourCharacter and not client.combatEntity and character and !ourCharacter:DoesRecognize(character) and !hook.Run("IsPlayerRecognized", client)) then
 				if (chatType and hook.Run("IsRecognizedChatType", chatType)) then
 					local description = character:GetDescription()
 
