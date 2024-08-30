@@ -51,7 +51,7 @@ ITEM.functions.usetarget = {
 
 			target = target:GetCharacter()
 			local quantity = item:GetData("quantity", item.quantity)
-			ix.chat.Send(item.player, "iteminternal", "applies a " ..item.name .. " to " ..target:Name(), false)
+			ix.chat.Send(item.player, "iteminternal", "applies a " ..item.name .. " to " ..target:GetName(), false)
 			local char = item.player:GetCharacter()
 			target:RemoveBleedStacks(1)
 			

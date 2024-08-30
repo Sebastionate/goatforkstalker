@@ -65,10 +65,6 @@ ITEM.functions.use = {
 			end
 		end
 		
-		if item:GetData("quantity",3) > 3 then
-			item:SetData("quantity",3)
-		end
-		
 		if target:GetData("equip") != true then
 			if target:GetData("durability",10000) > item.repairTreshhold then
 				target:SetData("durability", math.Clamp(target:GetData("durability",10000) + item.repairAmount, 0, 10000))

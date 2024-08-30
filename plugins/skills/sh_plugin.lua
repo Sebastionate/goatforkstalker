@@ -255,7 +255,7 @@ ix.command.Add("FirstAid", {
         if not (IsValid(target) and target:IsPlayer() and target:GetCharacter()) then return "You need to be looking at another character." end 
 
         local medicskill = char:GetSkill("medic", 0)
-        local healamt = math.random(1, 20 + medicskill)
+        local healamt = math.random(1, 20) + medicskill
         local bleedstacksreduce = math.random(1, math.floor(medicskill / 5))
 
 
@@ -294,7 +294,7 @@ function charmeta:AddUtilityXp(target, points)
 
         target:SetUtilityXP (target:GetUtilityXP() - target:GetUtilityXPToNextLevel())
 
-        target:SetUtilityXPToNextLevel(target:GetUtilityXPToNextLevel()  * 2)
+        target:SetUtilityXPToNextLevel(target:GetUtilityXPToNextLevel()  * 1.5)
         target:SetUtilityXPToNextLevel(math.floor(target:GetUtilityXPToNextLevel()))
 
         target:SetUtilitySkillPoints(target:GetUtilitySkillPoints() + 5)

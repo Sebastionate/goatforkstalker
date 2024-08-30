@@ -95,13 +95,13 @@ ITEM.functions.usetarget = {
 
 
 			target:AdjustHealth("heal", skillbonusheal)
-			item.player:Notify("Healed " .. target:Name() .. " for " .. skillbonusheal .. "hp.")
-			target:GetPlayer():Notify(char:Name() .. " heals you for " .. skillbonusheal .. "hp.")
+			item.player:Notify("Healed " .. target:GetGetName() .. " for " .. skillbonusheal .. "hp.")
+			target:GetPlayer():Notify(char:GetName() .. " heals you for " .. skillbonusheal .. "hp.")
 			target:RemoveBleedStacks(2)
 
 
 			
-			ix.chat.send(item.player, "iteminternal", "opens a "..item.name.." and uses it on "..target:Name()..".", false)
+			ix.chat.send(item.player, "iteminternal", "opens a "..item.name.." and uses it on "..target:GetName()..".", false)
 			
 			quantity = quantity - 1
 

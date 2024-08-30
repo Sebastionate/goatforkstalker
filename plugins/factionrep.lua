@@ -84,7 +84,7 @@ ix.command.Add("MyFactionRep", {
 
         -- Army --
         str = str .. "Ukranian Military: " .. char:GetData("armyrep", 0) ..", "
-        if (char:GetArmyRep(0) <= -30) then
+        if (char:GetData("armyrep", 0) <= -30) then
             str = str .. "Abysmal\n"
         end
         if (char:GetData("armyrep", 0) <= -15 and char:GetData("armyrep", 0) > -30) then
