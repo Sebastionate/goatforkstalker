@@ -1,9 +1,0 @@
-ITEM.name = "Reloading Powder"
-ITEM.model = "models/illusion/eftcontainers/gpblue.mdl"
-ITEM.description = "A container of black gunpowder, useful for reloading cartridges or making makeshift explosives. Tends to also be utilized as a sporadic firestarter."
-ITEM.category = "junk"
-ITEM.flag = "1"
-ITEM.price = 1500
-ITEM.width = 1
-ITEM.height = 2
-ITEM.weight = 0.01
