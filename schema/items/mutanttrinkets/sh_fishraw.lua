@@ -1,0 +1,11 @@
+ITEM.name = "Raw Fish"
+ITEM.model = "models/carp.mdl"
+ITEM.description = "A raw fish of some sort."
+ITEM.longdesc = "The body of a freshwater fish, sizeable enough to fillet for a decent meal. It is surprising species of Fish still manage to survive among the irradiated waters of the Chernobyl Exclusion Zone."
+ITEM.width = 2
+ITEM.height = 1
+ITEM.price = 60
+ITEM.flag = "1"
+ITEM.quantity = 1
+ITEM.value = ITEM.price*1*1
+ITEM.weight = 1.5
