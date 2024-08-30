@@ -1,17 +1,19 @@
-RECIPE.name = "Dog Soup"
-RECIPE.description = "Cook up some.. delicious... dog soup!"
-RECIPE.model = "models/kek1ch/meat_dog.mdl"
+RECIPE.name = "Beef Stew"
+RECIPE.description = "Blend various meats and spices into a delicious meal. Makes four servings."
+RECIPE.model = "models/mosi/fnv/props/food/strangemeatpie.mdl"
 RECIPE.category = "Cooking"
 
 RECIPE.requirements = {
-	["waterclean"] = 2,
-	["dogmeatraw"] = 2
+	["seasoning"] = 1,
+	["cannedbeef"] = 1,
+	["boarmeatraw"] = 1,
+	["seasoning"] = 1,
 }
 
 RECIPE.tools = {"ironpot"}
 
 RECIPE.results = {
-["roasteddog"] = 1
+["beefstew"] = 4
 }
 
 RECIPE:PostHook("OnCanCraft", function(recipeTable, client)

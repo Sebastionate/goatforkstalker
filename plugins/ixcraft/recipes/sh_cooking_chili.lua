@@ -1,17 +1,19 @@
-RECIPE.name = "Dog Soup"
-RECIPE.description = "Cook up some.. delicious... dog soup!"
-RECIPE.model = "models/kek1ch/meat_dog.mdl"
+RECIPE.name = "Flesh Chili"
+RECIPE.description = "Blend Flesh meat, tomato sauce, and kidney beans into Chili. Makes four servings."
+RECIPE.model = "models/arskvshborsch/borsch.mdl"
 RECIPE.category = "Cooking"
 
 RECIPE.requirements = {
-	["waterclean"] = 2,
-	["dogmeatraw"] = 2
+	["cannedtomatoes"] = 1,
+	["cannedbeans"] = 1,
+	["fleshmeatraw"] = 1,
+	["seasoning"] = 1,
 }
 
 RECIPE.tools = {"ironpot"}
 
 RECIPE.results = {
-["roasteddog"] = 1
+["chili"] = 4
 }
 
 RECIPE:PostHook("OnCanCraft", function(recipeTable, client)

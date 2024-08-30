@@ -1,17 +1,17 @@
-RECIPE.name = "Dog Soup"
-RECIPE.description = "Cook up some.. delicious... dog soup!"
-RECIPE.model = "models/kek1ch/meat_dog.mdl"
+RECIPE.name = "Tushkebab"
+RECIPE.description = "Roast Tushkano meat in canned tomato chunks and its sauce."
+RECIPE.model = "models/shampur.mdl"
 RECIPE.category = "Cooking"
 
 RECIPE.requirements = {
-	["waterclean"] = 2,
-	["dogmeatraw"] = 2
+	["cannedtomatoes"] = 1,
+	["ratmeatraw"] = 2
 }
 
 RECIPE.tools = {"ironpot"}
 
 RECIPE.results = {
-["roasteddog"] = 1
+["skeweredrat"] = 1
 }
 
 RECIPE:PostHook("OnCanCraft", function(recipeTable, client)
