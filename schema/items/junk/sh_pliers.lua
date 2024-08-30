@@ -1,0 +1,9 @@
+ITEM.name = "Pliers"
+ITEM.model = "models/illusion/eftcontainers/pliers.mdl"
+ITEM.description = "A handy pair of yellow, rubber-gripped pliers, fit for pinching and precision-gripping minor parts on devices and machines."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 650
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 0.1
