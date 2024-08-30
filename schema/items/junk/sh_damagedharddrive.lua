@@ -1,0 +1,9 @@
+ITEM.name = "Damaged Hard Drive"
+ITEM.model = "models/illusion/eftcontainers/hdd.mdl"
+ITEM.description = "A damaged, civilian grade hard drive that does not seem to serviceable. Still able to be refurbished and, although very doubtful, could contain something of value. Or a fuck ton of porn."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 5000
+ITEM.width = 2
+ITEM.height = 1
+ITEM.weight = 0.01

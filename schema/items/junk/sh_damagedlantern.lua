@@ -1,0 +1,9 @@
+ITEM.name = "Damaged Lantern"
+ITEM.model = "models/mosi/fallout4/props/junk/lantern.mdl"
+ITEM.description = "A rusted kerosene lantern that's seen its fair share of use. Its flame-bulb is shattered and its igniter is shot, though you can hear a bit of kerosene sloshing around inside of it."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 650
+ITEM.width = 1
+ITEM.height = 2
+ITEM.weight = 0.2

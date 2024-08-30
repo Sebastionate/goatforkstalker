@@ -1,0 +1,9 @@
+ITEM.name = "Screwdriver"
+ITEM.model = "models/illusion/eftcontainers/screwdriver.mdl"
+ITEM.description = "A firm-handled, flat-headed tool used for screwing and unscrewing screws, also suitable for minor prying ability."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 650
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 0.1
