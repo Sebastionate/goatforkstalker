@@ -8,6 +8,6 @@ RECIPE.requirements = {
 
 
 RECIPE.results = {
-	["gunpowder"] = 1
+	["reloadingpowder"] = 1
 
 }
