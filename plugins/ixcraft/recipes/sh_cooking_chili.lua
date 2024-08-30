@@ -22,7 +22,7 @@ RECIPE:PostHook("OnCanCraft", function(recipeTable, client)
 		return false
 	end 
 
-	for _, v in pairs(ents.FindByClass("st_vj_fireplace2")) do
+	for _, v in pairs(ents.FindByClass("sent_vj_fireplace")) do
 		if (client:GetPos():DistToSqr(v:GetPos()) < 100 * 100) then
 			return true
 		end
