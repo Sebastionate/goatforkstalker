@@ -1,10 +1,10 @@
 ITEM.name = "Water Jug"
 ITEM.model = "models/illusion/eftcontainers/purewater.mdl"
-ITEM.thirst = 40
+ITEM.thirst = 30
 ITEM.description = "A large plastic jug containing water."
 ITEM.longdesc = "A large jug containing water which has been cleansed inside the zone. The result is a radiation-free product, albeit it still has a sour taste. The container is much too large and impractical to keep on hand, and is generally used only for bulk trades."
 ITEM.quantity = 26
-ITEM.price = 800
+ITEM.price = 2200
 ITEM.width = 3
 ITEM.height = 2
 ITEM.cookable = false

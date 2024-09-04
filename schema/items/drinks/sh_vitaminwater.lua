@@ -1,6 +1,6 @@
 ITEM.name = "Vitamin Water"
 ITEM.model = "models/illusion/eftcontainers/aquamari.mdl"
-ITEM.thirst = 35
+ITEM.thirst = 45
 ITEM.description = "A plastic bottle of sweet water."
 ITEM.longdesc = "A plastic bottle of artificially sweetened water branded for pro-health effects. Unfortunately its sweeteners prove to be rather unhealthy in the long run, but at least it's low calorie and tastes good!"
 ITEM.quantity = 4

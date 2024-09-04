@@ -1,6 +1,6 @@
 ITEM.name = "Jaguar Energy Drink"
 ITEM.model = "models/kek1ch/dev_drink_stalker.mdl"
-ITEM.thirst = 30
+ITEM.thirst = 35
 ITEM.description = "An aluminium can with energy drink inside."
 ITEM.longdesc = "This energy drink is one of the best on the market, and provides long-lasting energy for stalkers who need to stay clear-headed, and light-footed for a while."
 ITEM.quantity = 2

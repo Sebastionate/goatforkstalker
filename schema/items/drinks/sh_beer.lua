@@ -1,10 +1,10 @@
 ITEM.name = "Ochakovo Beer, 2l"
 ITEM.model = "models/kek1ch/dev_beer.mdl"
-ITEM.thirst = 28
+ITEM.thirst = 20
 ITEM.description = "A bottle of beer"
 ITEM.longdesc = "Ochakovo Beer is not subject to pasteurization. \nLong-term storage is based on cold filtering technology with the use of fine-meshed polymeric membranes which filter out even the smallest yeast."
 ITEM.quantity = 3
-ITEM.price = 95
+ITEM.price = 400
 ITEM.width = 1
 ITEM.height = 2
 ITEM.cookable = false

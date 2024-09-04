@@ -1,6 +1,6 @@
 ITEM.name = "Sparkling Water"
 ITEM.model = "models/illusion/eftcontainers/waterbottle.mdl"
-ITEM.thirst = 55
+ITEM.thirst = 45
 ITEM.description = "A small unopened bottle."
 ITEM.longdesc = "Sparkling water for thirsty stalkers. It has some exhilarating effect when you're tired."
 ITEM.quantity = 3

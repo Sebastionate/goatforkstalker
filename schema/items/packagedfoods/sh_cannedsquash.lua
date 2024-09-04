@@ -1,10 +1,10 @@
 ITEM.name = "Canned Squash"
 ITEM.model = "models/illusion/eftcontainers/squash.mdl"
-ITEM.hunger = 21
+ITEM.hunger = 25
 ITEM.description = "A can with something edible inside"
 ITEM.longdesc = "Canned squash imported from the outside. Can be eaten as it is, but there are some who use it as a soup ingredient."
 ITEM.quantity = 3
-ITEM.price = 75
+ITEM.price = 250
 ITEM.width = 1
 ITEM.height = 1
 ITEM.flag = "5"

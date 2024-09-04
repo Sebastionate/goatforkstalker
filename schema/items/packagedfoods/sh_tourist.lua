@@ -1,10 +1,10 @@
 ITEM.name = "Tourists' Delight"
 ITEM.model = "models/hgn/srp/items/can-food.mdl"
-ITEM.hunger = 20
+ITEM.hunger = 40
 ITEM.description = "A can with something edible inside."
 ITEM.longdesc = "Canned meat with jello, seems to be up to standards. Eaten cold, hot, mixed with other food or on it's own, it's a great source of long-lasting meat.Make sure the seal isn't broken before opening."
 ITEM.quantity = 2
-ITEM.price = 75
+ITEM.price = 275
 ITEM.width = 1
 ITEM.height = 1
 ITEM.flag = "5"

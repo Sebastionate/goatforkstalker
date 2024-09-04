@@ -1,6 +1,6 @@
 ITEM.name = "Moonshine"
 ITEM.model = "models/kek1ch/drink_flask.mdl"
-ITEM.thirst = 35
+ITEM.thirst = 25
 ITEM.description = "An old hip flask"
 ITEM.longdesc = "Strong alcohol, made in the zone. It's contained within an old hip flask, which smells of old leather." 
 ITEM.quantity = 3

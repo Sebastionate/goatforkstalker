@@ -1,10 +1,10 @@
 ITEM.name = "Canned Sprats"
 ITEM.model = "models/illusion/eftcontainers/sprats.mdl"
-ITEM.hunger = 22
+ITEM.hunger = 30
 ITEM.description = "A can with something edible inside"
 ITEM.longdesc = "Tins of fresh sprats are a rare sight in the Zone. A popular and highly tradable item for stalkers, but also spoils quickly."
 ITEM.quantity = 3
-ITEM.price = 75
+ITEM.price = 225
 ITEM.width = 1
 ITEM.height = 1
 ITEM.flag = "5"

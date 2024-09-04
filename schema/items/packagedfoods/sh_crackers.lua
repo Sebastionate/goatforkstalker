@@ -1,10 +1,10 @@
 ITEM.name = "Crackers"
 ITEM.model = "models/illusion/eftcontainers/galette.mdl"
-ITEM.hunger = 12
+ITEM.hunger = 15
 ITEM.description = "A pack of crackers."
 ITEM.longdesc = "A fairly cheap and unfullfilling pack of crackers that can be seen fairly commonly in the Zone, it doesn't make for much of a meal."
 ITEM.quantity = 2
-ITEM.price = 20
+ITEM.price = 125
 ITEM.width = 1
 ITEM.height = 1
 ITEM.flag = "5"

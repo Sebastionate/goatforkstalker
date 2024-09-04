@@ -1,6 +1,6 @@
 ITEM.name = "Canned Beef"
 ITEM.model = "models/banka.mdl"
-ITEM.hunger = 15
+ITEM.hunger = 35
 ITEM.description = "A can with something edible inside."
 ITEM.longdesc = "A tin can full of preserved beef-chunks stored in a watery, brown gravy. Not the most appetizing meal on its own, but certainly not one any Stalker would turn down."
 ITEM.quantity = 3

@@ -1,10 +1,10 @@
 ITEM.name = "Canned Tuna"
 ITEM.model =  "models/kek1ch/dev_conserv.mdl"
-ITEM.hunger = 23
+ITEM.hunger = 30
 ITEM.description = "A can with something edible inside"
 ITEM.longdesc = "An old tin can containing tuna."
 ITEM.quantity = 3
-ITEM.price = 85
+ITEM.price = 325
 ITEM.width = 1
 ITEM.height = 1
 ITEM.flag = "5"

@@ -1,10 +1,10 @@
 ITEM.name = "Canned Herring"
 ITEM.model = "models/illusion/eftcontainers/herring.mdl"
-ITEM.hunger = 20
+ITEM.hunger = 30
 ITEM.description = "A can with something edible inside"
 ITEM.longdesc = "A can of herring, a relatively unfilling meal of fish, but still relatively fresh. It makes a small and compact item to carry in most Stalker's packs, making it good for trips throughout the Zone."
 ITEM.quantity = 3
-ITEM.price = 60
+ITEM.price = 300
 ITEM.width = 1
 ITEM.height = 1
 ITEM.flag = "5"
