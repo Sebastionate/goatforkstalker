@@ -1,10 +1,10 @@
 ITEM.name = "MRE (Russian)"
 ITEM.model = "models/kek1ch/ration_ru.mdl"
-ITEM.hunger = 32
+ITEM.hunger = 35
 ITEM.description = "A Russian pack of rations"
 ITEM.longdesc = "Breakfast, dinner and supper all in one package. Includes various food items whose function is to provide the body with all minerals and microelements essential for your health as well as cooking equipment (small metal frame, fuel tablets, matches, striker) and other items (e.g. napkins) facilitating use in field conditions. Comes with a polymeric box that protects the ingredients from hazardous environmental conditions. The polymeric box has 3 sections, each respectively for breakfast, dinner and supper."
 ITEM.quantity = 8
-ITEM.price = 1100
+ITEM.price = 1500
 ITEM.width = 2
 ITEM.height = 1
 ITEM.flag = "5"

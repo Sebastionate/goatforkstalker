@@ -1,6 +1,6 @@
 ITEM.name = "Zone-Produced Vodka"
 ITEM.model = "models/kek1ch/drink_vodka.mdl"
-ITEM.thirst = 36
+ITEM.thirst = 35
 ITEM.description = "A hip flask with a clear substance inside."
 ITEM.longdesc = "This hip flask contains zone-produced vodka produced from relatively good ingredients."
 ITEM.quantity = 3

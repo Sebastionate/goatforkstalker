@@ -1,10 +1,10 @@
 ITEM.name = "Canned Chili Beans"
 ITEM.model = "models/kek1ch/dev_chili.mdl"
-ITEM.hunger = 21
+ITEM.hunger = 30
 ITEM.description = "A can with something edible inside"
 ITEM.longdesc = "Pinto beans, chili peppers, onion & garlic in a zesty tomato sauce."
 ITEM.quantity = 3
-ITEM.price = 60
+ITEM.price = 300
 ITEM.width = 1
 ITEM.height = 1
 ITEM.flag = "5"

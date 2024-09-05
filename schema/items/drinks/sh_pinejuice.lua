@@ -1,6 +1,6 @@
 ITEM.name = "Pineapple Juice"
 ITEM.model = "models/illusion/eftcontainers/carton.mdl"
-ITEM.thirst = 32
+ITEM.thirst = 35
 ITEM.description = "A carton of juice."
 ITEM.longdesc = "A carton of pineapple juice. It's briefly refreshing."
 ITEM.quantity = 3

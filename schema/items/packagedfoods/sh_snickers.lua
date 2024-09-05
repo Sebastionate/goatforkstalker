@@ -1,6 +1,6 @@
 ITEM.name = "Snickers"
 ITEM.model = "models/illusion/eftcontainers/slickers.mdl"
-ITEM.hunger = 11
+ITEM.hunger = 25
 ITEM.description = "A snickers bar."
 ITEM.longdesc = "The favorite treat of many in the West. An excellent remedy for a bad mood, but relatively rare."
 ITEM.quantity = 2

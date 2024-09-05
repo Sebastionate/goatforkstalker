@@ -1,10 +1,10 @@
 ITEM.name = "Canned Peas"
 ITEM.model = "models/illusion/eftcontainers/peas.mdl"
-ITEM.hunger = 18
+ITEM.hunger = 20
 ITEM.description = "A can with something edible inside"
 ITEM.longdesc = "Tins of fresh peas are a rare sight in the Zone. A popular and highly tradable item for stalkers, but also spoils quickly."
 ITEM.quantity = 3
-ITEM.price = 60
+ITEM.price = 200
 ITEM.width = 1
 ITEM.height = 1
 ITEM.flag = "5"

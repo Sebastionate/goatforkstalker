@@ -1,10 +1,10 @@
 ITEM.name = "Assorted Nuts"
 ITEM.model = "models/kek1ch/dev_nuts.mdl"
-ITEM.hunger = 12
+ITEM.hunger = 15
 ITEM.description = "A small bag with nuts inside."
 ITEM.longdesc = "This bag includes several different nutritious nuts, good for eating on the go in the zone. A favourite among stalkers on patrols, or if they just need a quick snack."
 ITEM.quantity = 5
-ITEM.price = 55
+ITEM.price = 175
 ITEM.width = 1
 ITEM.height = 1
 ITEM.flag = "5"

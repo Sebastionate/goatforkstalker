@@ -1,10 +1,10 @@
 ITEM.name = "Raisins"
 ITEM.model = "models/kek1ch/dev_raisins.mdl"
-ITEM.hunger = 11
+ITEM.hunger = 10
 ITEM.description = "A small bag containing raisins."
 ITEM.longdesc = "A small bag with raisins inside. They seem hard and dry, but edible regardless. Useful when you are on the go and need a quick snack."
 ITEM.quantity = 4
-ITEM.price = 55
+ITEM.price = 75
 ITEM.width = 1
 ITEM.height = 1
 ITEM.flag = "5"

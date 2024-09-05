@@ -1,10 +1,10 @@
 ITEM.name = "Banka Beer"
 ITEM.model = "models/banka2.mdl"
-ITEM.thirst = 18
+ITEM.thirst = 15
 ITEM.description = "A can of beer"
 ITEM.longdesc = "A piss-cheap beer fermented and packaged in various facilities across Western Russia. Not the mos quality of taste, but it certainly serves the roll of beer."
 ITEM.quantity = 3
-ITEM.price = 50
+ITEM.price = 175
 ITEM.width = 1
 ITEM.height = 1
 ITEM.cookable = false

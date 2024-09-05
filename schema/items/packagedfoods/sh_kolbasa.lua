@@ -1,10 +1,10 @@
 ITEM.name = "Moskovskaya"
 ITEM.model = "models/kek1ch/dev_kolbasa.mdl"
-ITEM.hunger = 23
+ITEM.hunger = 45
 ITEM.description = "A lump of sausage"
 ITEM.longdesc = "Boiled and smoked. The popular Moskovskaya contains pieces of dark meat and fat, milk, cream, flour and starch. \nDelicious when served cold. It can be preserved for 10 to 15 days."
 ITEM.quantity = 3
-ITEM.price = 75
+ITEM.price = 250
 ITEM.width = 1
 ITEM.height = 1
 ITEM.flag = "5"
