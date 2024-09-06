@@ -1,0 +1,9 @@
+ITEM.name = "Duct Tape"
+ITEM.model = "models/illusion/eftcontainers/ducttape.mdl"
+ITEM.description = "A large roll of very durable and sticky tape, useful for everyday repairs and the like."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 750
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 0.8
