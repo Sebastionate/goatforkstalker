@@ -1,0 +1,9 @@
+ITEM.name = "Bag Of Yeast"
+ITEM.model = "models/mosi/fnv/props/food/yeast.mdl"
+ITEM.description = "A sack of a granular substance with the label of 'Yeast'. Rumored to be smuggled in by profitable bootleggers that keep the local bars in stock, and Stalkers inebriated enough to endure the atrocities of the Exclusion Zone."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 1400
+ITEM.width = 2
+ITEM.height = 2
+ITEM.weight = 0.1

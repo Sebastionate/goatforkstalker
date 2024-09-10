@@ -8,6 +8,6 @@ RECIPE.requirements = {
 
 
 RECIPE.results = {
-	["models/kek1ch/kerosene.mdl"] = 1
+	["kerosene"] = 1
 
 }

@@ -1,0 +1,9 @@
+ITEM.name = "Baggy Of Flour"
+ITEM.model = "models/items/jewels/purses/big_purse.mdl"
+ITEM.description = "A small, tied off baggy of what at first appears to be cocaine, though, anyone who's ever baked in their life could easily deduce it as flour. Typically smuggled in for flavorful meals and carb intake among the more equipped factions."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 275
+ITEM.width = 1
+ITEM.height = 1
+ITEM.weight = 0.1

@@ -1,19 +1,20 @@
-RECIPE.name = "Brew Hot Chocolate"
-RECIPE.description = "Brew up some Hot Chocolate, makes about four mugs worth."
-RECIPE.model = "models/mosi/fnv/props/junk/coffeemug.mdl"
+RECIPE.name = "Fiery Syrup Sauce"
+RECIPE.description = "Simmer Hot Sauce, sugar, and various seasonings together to make a very tasteful sauce."
+RECIPE.model = "models/mosi/fnv/props/food/bloodpaste.mdl"
 RECIPE.category = "Cooking"
 
 RECIPE.requirements = {
-	["condensedmilk"] = 1,
-	["alenka"] = 1,
-	["waterclean"] = 1
+["hotsauce"] = 1,
+["sugar"] = 1,
+["seasoning"] = 1
 }
 
-RECIPE.tools = {"kettle"}
+RECIPE.tools = {"ironpot"}
 
 RECIPE.results = {
-["hotchocolate"] = 4
+["firesyrup"] = 3
 }
+
 
 RECIPE:PostHook("OnCanCraft", function(recipeTable, client)
 	for _, v in pairs(ents.FindByClass("sent_vj_fireplace")) do

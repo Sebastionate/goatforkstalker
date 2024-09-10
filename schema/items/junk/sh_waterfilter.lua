@@ -1,0 +1,9 @@
+ITEM.name = "Water Filter"
+ITEM.model = "models/illusion/eftcontainers/waterfilter.mdl"
+ITEM.description = "A water filtering device typically meant to be attached to a pumping system. It is rather useless on its own, but those with technical know-how could find some use out of it."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 7500
+ITEM.width = 1
+ITEM.height = 2
+ITEM.weight = 0.1

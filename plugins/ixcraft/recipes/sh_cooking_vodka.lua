@@ -1,18 +1,19 @@
-RECIPE.name = "Brew Hot Chocolate"
-RECIPE.description = "Brew up some Hot Chocolate, makes about four mugs worth."
-RECIPE.model = "models/mosi/fnv/props/junk/coffeemug.mdl"
+RECIPE.name = "Brew Vodka"
+RECIPE.description = "Shottily ferment potatoes with yeast and water into a strong liquor."
+RECIPE.model = "models/ethprops/consumable/flask_water.mdl"
 RECIPE.category = "Cooking"
 
 RECIPE.requirements = {
-	["condensedmilk"] = 1,
-	["alenka"] = 1,
-	["waterclean"] = 1
+	["yeast"] = 1,
+	["waterclean"] = 1,
+	["potato"] = 3,
 }
 
-RECIPE.tools = {"kettle"}
+RECIPE.tools = {"ironpot",
+	"bootlegger",}
 
 RECIPE.results = {
-["hotchocolate"] = 4
+["vodka2"] = 3
 }
 
 RECIPE:PostHook("OnCanCraft", function(recipeTable, client)

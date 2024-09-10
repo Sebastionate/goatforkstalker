@@ -1,10 +1,10 @@
-ITEM.name = "Vegetable Stew"
-ITEM.model = "models/arskvshborsch/borsch.mdl"
-ITEM.hunger = 35
-ITEM.description = "A stew made with various canned vegetables."
-ITEM.longdesc = "An absolutely delicious meal made up of different roasted vegetables and flavorings. A rich source of nutrients, vitamins, and calories."
-ITEM.quantity = 3
-ITEM.price = 450
+ITEM.name = "Fried Potatoes"
+ITEM.model = "models/mosi/fnv/props/food/alienfood03.mdl"
+ITEM.hunger = 60
+ITEM.description = "A small containers of sliced and cooked potatoes."
+ITEM.longdesc = "Sliced, seasoned, and fried potatoes. A great side to any meal really, though most importantly a great source of calories."
+ITEM.quantity = 1
+ITEM.price = 250
 ITEM.width = 1
 ITEM.height = 1
 ITEM.flag = "5"
