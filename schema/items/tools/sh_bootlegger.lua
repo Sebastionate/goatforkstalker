@@ -1,0 +1,9 @@
+ITEM.name = "Bootlegger's Kit"
+ITEM.model = "models/shtokerbox/ground_backpack_tubes2.mdl"
+ITEM.description = "A kit of bottles, tanks, and piping to succesfully, although very crudely, brew alcohol in the Exclusion Zone."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 8000
+ITEM.width = 2
+ITEM.height = 2
+ITEM.weight = 1.2

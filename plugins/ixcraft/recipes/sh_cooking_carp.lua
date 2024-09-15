@@ -1,18 +1,16 @@
-RECIPE.name = "Brew Hot Chocolate"
-RECIPE.description = "Brew up some Hot Chocolate, makes about four mugs worth."
-RECIPE.model = "models/mosi/fnv/props/junk/coffeemug.mdl"
+RECIPE.name = "Roast Carp Fillet"
+RECIPE.description = "Fillet and Cook a Carp."
+RECIPE.model = "models/mosi/fnv/props/food/geckosteak.mdl"
 RECIPE.category = "Cooking"
 
 RECIPE.requirements = {
-	["condensedmilk"] = 1,
-	["alenka"] = 1,
-	["waterclean"] = 1
+	["fishraw"] = 1
 }
 
-RECIPE.tools = {"kettle"}
+RECIPE.tools = {"ironpot"}
 
 RECIPE.results = {
-["hotchocolate"] = 4
+["cookecarp"] = 2
 }
 
 RECIPE:PostHook("OnCanCraft", function(recipeTable, client)

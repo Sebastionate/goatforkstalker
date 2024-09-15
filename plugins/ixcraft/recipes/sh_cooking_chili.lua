@@ -5,7 +5,7 @@ RECIPE.category = "Cooking"
 
 RECIPE.requirements = {
 	["cannedtomatoes"] = 1,
-	["cannedbeans"] = 1,
+	["cannedchilibeans"] = 1,
 	["fleshmeatraw"] = 1,
 	["seasoning"] = 1,
 }

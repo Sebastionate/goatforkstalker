@@ -1,10 +1,10 @@
-ITEM.name = "Roasted Flesh Meat"
-ITEM.model = "models/kek1ch/meat_flesh.mdl"
-ITEM.hunger = 30
-ITEM.description = "Roasted mutant meat."
-ITEM.longdesc = "Remains of a flesh, cleaned and roasted on a campfire. Could almost call it a kebab. Not very healthy."
-ITEM.quantity = 3
-ITEM.price = 50
+ITEM.name = "Cooked Carp Fillet"
+ITEM.model = "models/mosi/fnv/props/food/geckosteak.mdl"
+ITEM.hunger = 25
+ITEM.description = "A slab of oily scales and cooked fish."
+ITEM.longdesc = "A filleted and cooked Carp. Not the best as it's probably been baking in radiation for a while, but still filled with protein. Yummy."
+ITEM.quantity = 2
+ITEM.price = 125
 ITEM.width = 1
 ITEM.height = 1
 ITEM.flag = "5"

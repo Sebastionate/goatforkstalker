@@ -170,3 +170,73 @@ ix.container.Register("models/illusion/eftcontainers/ammocase.mdl", {
 	width = 3,
 	height = 2
 })
+
+ix.container.Register("models/props/toolbox1.mdl", {
+	name = "Tool Box",
+	description = "A metal tool box.",
+	width = 4,
+	height = 3
+})
+
+ix.container.Register("models/tnb/props/filing_cabinet_small.mdl", {
+	name = "Rusted Filing Cabinet",
+	description = "An old, rusted filing Cabine with a few drawers.",
+	width = 2,
+	height = 8
+})
+
+ix.container.Register("models/kali/props/cases/hard case c.mdl", {
+	name = "Large Hardcase",
+	description = "A Military Storage Hardcase.",
+	width = 5,
+	height = 4
+})
+
+ix.container.Register("models/illusion/eftcontainers/weaponcase.mdl", {
+	name = "Weapons Hardcase",
+	description = "A long weapons hardcase.",
+	width = 4,
+	height = 3
+})
+
+ix.container.Register("models/illusion/eftcontainers/moneycase.mdl", {
+	name = "Bank Hardcase",
+	description = "A briefcase fit for storing rubles.",
+	width = 3,
+	height = 3
+})
+
+ix.container.Register("models/illusion/eftcontainers/thermobag.mdl", {
+	name = "Cooler Box",
+	description = "A refrigerated cooler box.",
+	width = 3,
+	height = 3
+})
+
+ix.container.Register("models/hgn/srp/containers/metal_box_04.mdl", {
+	name = "Soviet Storage Case",
+	description = "An old, rusted transport case.",
+	width = 6,
+	height = 5
+})
+
+ix.container.Register("models/hgn/srp/containers/safe_01.mdl", {
+	name = "Aged Safe",
+	description = "A sturdy, old safe.",
+	width = 4,
+	height = 6
+})
+
+ix.container.Register("models/maver1k_xvii/stalker/props/box/expl_dinamit.mdl", {
+	name = "Explosives Crate",
+	description = "A small, labeled crate.",
+	width = 4,
+	height = 4
+})
+
+ix.container.Register("models/z-o-m-b-i-e/st/box/st_box_metall_01.mdl", {
+	name = "Supply Box",
+	description = "A small, metallic case.",
+	width = 2,
+	height = 2
+})

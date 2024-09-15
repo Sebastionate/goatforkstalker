@@ -12,7 +12,7 @@ RECIPE.tools = {
 }
 
 RECIPE.results = {
-	["wirebundle"] = 4,
+	["wire"] = 4,
 	["spareelectronics"] = 2,
 	["capacitors"] = 3,
 	["resistors"] = 2,
