@@ -12,7 +12,7 @@ RECIPE.requirements = {
 RECIPE.tools = {"kettle"}
 
 RECIPE.results = {
-["hotchocolate"] = 4
+["cuphotchocolate"] = 4
 }
 
 RECIPE:PostHook("OnCanCraft", function(recipeTable, client)
