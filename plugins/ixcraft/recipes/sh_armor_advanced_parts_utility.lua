@@ -9,10 +9,10 @@ RECIPE.toolkits = {
 RECIPE.flag = "6"
 
 RECIPE.requirements = {
-["spareelectronics"] = 10,
-["capacitors"] = 10,
-["resistors"] = 10,
-["screws"] = 10
+["spareelectronics"] = 6,
+["capacitors"] = 6,
+["resistors"] = 6,
+["screws"] = 6
 }
 
 RECIPE.results = {

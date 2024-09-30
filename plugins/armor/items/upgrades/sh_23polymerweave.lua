@@ -11,7 +11,7 @@ ITEM.flag = "4"
 ITEM.weight = 0.75
 ITEM.isArmorUpg = true
 ITEM.res = {
-	["Bullet"] = 0.05,
-	["Rupture"] = 0.05
+	["Bullet"] = 0.10,
+	["Rupture"] = 0.10
 }
 

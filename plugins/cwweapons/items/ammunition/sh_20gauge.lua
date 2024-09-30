@@ -10,3 +10,8 @@ ITEM.longdesc = "Standard 20 gauge shell filled with 6 mm shot. Highly lethal at
 ITEM.flag = "1"
 ITEM.weight = 0.4
 ITEM.isAmmo = true
+ITEM.stats = {
+	["BR"] = 21,
+	["Pierce"] = 75,
+	["Blunt"] = 15,
+}

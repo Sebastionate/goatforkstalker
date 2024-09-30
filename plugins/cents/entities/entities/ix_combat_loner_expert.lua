@@ -56,75 +56,50 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(145)
-        self:SetCombatHealthMax(145)
+        self:SetCombatHealth(165)
+        self:SetCombatHealthMax(165)
         self:SetWeaponSkill(25)
         self:SetDodge(17)
 
         if string.find(self:GetModel(), "berill") then
             -- Beril-5m and Sphere-08
-            self:SetHeadBR(31)
-            self:SetHeadBullet(24)
-            self:SetHeadImpact(30)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(39)
-            self:SetTorsoBullet(21)
-            self:SetTorsoImpact(15)
-            self:SetTorsoRupture(40)
+            self:EquipSuit("berill5m")
+            self:EquipHelmet("sphere08")
         end
 
         if string.find(self:GetModel(), "seva") then
             -- SEVA and Screen Helm
-            self:SetHeadBR(16)
-            self:SetHeadBullet(13)
-            self:SetHeadImpact(15)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(36)
-            self:SetTorsoBullet(14)
-            self:SetTorsoImpact(11)
-            self:SetTorsoRupture(17)
+            self:EquipSuit("seva")
+            self:EquipHelmet("screenhelm")
         end
 
         if string.find(self:GetModel(), "cs3a") then
             -- CS-3A and Sphere-08
-            self:SetHeadBR(31)
-            self:SetHeadBullet(24)
-            self:SetHeadImpact(30)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(39)
-            self:SetTorsoBullet(17)
-            self:SetTorsoImpact(16)
-            self:SetTorsoRupture(16)
+            self:EquipSuit("cs3a")
+            self:EquipHelmet("sphere08")
         end
 
         if string.find(self:GetModel(), "psz12") then
             -- PSZ-12d and Sphere-12
-            self:SetHeadBR(40)
-            self:SetHeadBullet(27)
-            self:SetHeadImpact(35)
-            self:SetHeadRupture(5)
-        
-            self:SetTorsoBR(45)
-            self:SetTorsoBullet(30)
-            self:SetTorsoImpact(28)
-            self:SetTorsoRupture(26)
+          self:EquipSuit("psz12d_duty")
+          self:EquipHelmet("sphere12")
         end
 
         if string.find(self:GetModel(), "exo") then
             -- TB-3 Exosuit and Exohelm
-            self:SetHeadBR(50)
-            self:SetHeadBullet(31)
-            self:SetHeadImpact(40)
-            self:SetHeadRupture(4)
-        
-            self:SetTorsoBR(50)
-            self:SetTorsoBullet(31)
-            self:SetTorsoImpact(28)
-            self:SetTorsoRupture(30)
+            self:EquipSuit("radsuit")
+            self:EquipHelmet("exohelmet")
         end
+
+        
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_steeplate") end
+        if randomAccessory1 == 2 then self:EquipAccessory("belt_kevlarimproved") end
+
+        local randomAccessory2 = math.random(1, 4)
+        if randomAccessory2 == 1 then self:EquipAccessory("gravi") end
+        if randomAccessory2 == 2 then self:EquipAccessory("goldfish") end
+        if randomAccessory2 == 3 then self:EquipAccessory("empty") end
 
 
 

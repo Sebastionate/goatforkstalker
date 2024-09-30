@@ -8,3 +8,8 @@ ITEM.price = 1800
 ITEM.flag = "3"
 ITEM.weight = 0.2
 ITEM.isAmmo = true
+ITEM.stats = {
+	["BR"] = 25,
+	["Pierce"] = 20,
+	["Blunt"] = 11,
+}

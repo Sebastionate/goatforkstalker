@@ -49,23 +49,21 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(120)
-        self:SetCombatHealthMax(120)
+        self:SetCombatHealth(135)
+        self:SetCombatHealthMax(135)
         self:SetWeaponSkill(15)
         self:SetDodge(11)
 
 
         -- PSZ-9 and PBF Mask
-    
-        self:SetHeadBR(10)
-        self:SetHeadBullet(1)
-        self:SetHeadImpact(6)
-        self:SetHeadRupture(2)
-    
-        self:SetTorsoBR(26)
-        self:SetTorsoBullet(9)
-        self:SetTorsoImpact(10)
-        self:SetTorsoRupture(17)
+        self:EquipSuit("psz9")
+        self:EquipHelmet("pbfgasmask")
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("gravi") end
+        if randomAccessory1 == 2 then self:EquipAccessory("empty") end 
+        if randomAccessory1 == 3 then self:EquipAccessory("medusa") end 
+        if randomAccessory1 == 4 then self:EquipAccessory("belt_kevlarimproved") end 
 
         local firstname = table.Random(PLUGIN.firstnamesnormal)
 

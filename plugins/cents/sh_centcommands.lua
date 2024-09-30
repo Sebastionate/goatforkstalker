@@ -782,6 +782,47 @@ function PLUGIN:GetChatterVoiceline(entity)
 		voiceline = table.Random(idles)
 	end 
 
+	if string.find(classname, "mutant_amoeba") then 
+		local idles = {
+			"senator/psy_1.ogg",
+			"senator/psy_2.ogg",
+			"senator/psy_3.ogg",
+			"senator/psy_4.ogg",
+			"senator/psy_5.ogg",
+			"senator/psy_6.ogg",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_biomass") then 
+		local idles = {
+			"npc/corpus/org_moan_1.ogg",
+			"npc/corpus/org_moan_2.ogg",
+			"npc/corpus/org_moan_3.ogg",
+			"npc/corpus/org_moan_4.ogg",
+			"npc/corpus/org_moan_5.ogg",
+			"npc/corpus/org_moan_6.ogg",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+
+	if string.find(classname, "mutant_lost") then 
+		local idles = {
+			"npc/psevdohuman/idle_0.ogg",
+			"npc/psevdohuman/idle_1.ogg",
+			"npc/psevdohuman/idle_2.ogg",
+			"npc/psevdohuman/idle_3.ogg",
+			"npc/psevdohuman/idle_4.ogg",
+			"npc/psevdohuman/idle_5.ogg",
+			"npc/psevdohuman/idle_6.ogg",
+			"npc/psevdohuman/idle_7.ogg",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+
+
 
 	return voiceline 
 
@@ -967,6 +1008,40 @@ function PLUGIN:GetCombatVoiceline(entity)
 		voiceline = table.Random(idles)
 	end 
 
+	if string.find(classname, "mutant_amoeba") then 
+		local idles = {
+			"senator/psy_1.ogg",
+			"senator/psy_2.ogg",
+			"senator/psy_3.ogg",
+			"senator/psy_4.ogg",
+			"senator/psy_5.ogg",
+			"senator/psy_6.ogg",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_biomass") then 
+		local idles = {
+			"npc/corpus/org_moan_1.ogg",
+			"npc/corpus/org_moan_2.ogg",
+			"npc/corpus/org_moan_3.ogg",
+			"npc/corpus/org_moan_4.ogg",
+			"npc/corpus/org_moan_5.ogg",
+			"npc/corpus/org_moan_6.ogg",
+		}
+		voiceline = table.Random(idles)
+	end 
+
+	if string.find(classname, "mutant_lost") then 
+		local idles = {
+			"npc/psevdohuman/attack_0.ogg",
+			"npc/psevdohuman/attack_1.ogg",
+			"npc/psevdohuman/attack_2.ogg",
+			"npc/psevdohuman/attack_3.ogg",
+		}
+		voiceline = table.Random(idles)
+	end 
+
 
 
 	return voiceline 
@@ -1043,6 +1118,58 @@ ix.command.Add("CEntcrouchtoggle", {
 
 	end
 
+})
+
+ix.command.Add("CEntwalktoggle", {
+	adminOnly = true,
+	syntax = "<string name>",
+	OnRun = function(self, client)
+		local entity = client:GetEyeTrace().Entity
+
+		if (IsValid(entity) and entity.combatEntity) then
+
+			if entity:GetNetVar("walkToggle") == true then 
+				client:Notify("Toggled off auto-walk. CEnt will now walk or run depending on distance")
+				entity:SetNetVar("walkToggle", false)
+				entity:SetNetVar("runToggle", false)
+			else
+				client:Notify("Toggled on auto-walk. CEnt will now always walk to destination.")
+				entity:SetNetVar("walkToggle", true)
+				entity:SetNetVar("runToggle", false)
+			end 
+		else
+
+			client:Notify("You must be looking at a combat entity.")
+
+		end
+
+	end
+})
+
+ix.command.Add("CEntruntoggle", {
+	adminOnly = true,
+	syntax = "<string name>",
+	OnRun = function(self, client)
+		local entity = client:GetEyeTrace().Entity
+		
+		if (IsValid(entity) and entity.combatEntity) then
+
+			if entity:GetNetVar("runToggle") == true then 
+				client:Notify("Toggled off auto-run. CEnt will now walk or run depending on distance")
+				entity:SetNetVar("runToggle", false)
+				entity:SetNetVar("walkToggle", false)
+			else
+				client:Notify("Toggled on auto-run. CEnt will now always run to destination.")
+				entity:SetNetVar("runToggle", true)
+				entity:SetNetVar("walkToggle", false)
+			end 
+		else
+
+			client:Notify("You must be looking at a combat entity.")
+
+		end
+
+	end
 })
 
 ix.command.Add("CEntmaxhp", {
@@ -1270,7 +1397,76 @@ ix.command.Add("CentDamage", {
 })
 
 ix.command.Add("CentDamageBullet", {
-	description = "Inflict bullet damage on a CEnt.",
+	description = "Inflict bullet damage on a CEnt by choosing a pre-configured caliber.",
+	adminOnly = true,
+	arguments = {
+    ix.type.string,
+    bit.bor(ix.type.bool, ix.type.optional)
+	},
+	OnRun = function(self, client, bullet, headshot)
+
+	local entity = client:GetEyeTrace().Entity
+	if not (IsValid(entity) and entity.combatEntity) then return "You need to be looking at a CEnt." end
+	local target = entity 
+
+	local bulletData = ix.item.Get(bullet)
+	if not bulletData or not bulletData.stats then return "Cannot find bullet of type " .. bullet .. " !" end 
+	local bulletname = bulletData.name
+	local br = bulletData.stats["BR"]
+	local pierce = bulletData.stats["Pierce"]
+	local bluntforce = bulletData.stats["Blunt"]
+
+    local area 
+	local playerbr
+	local bulletresist
+	local bluntresist
+
+
+
+	
+    if headshot then area = "head" else area = "body" end 
+
+	if area == "head" then 
+		playerbr = target:GetHeadBR() 
+		bulletresist = target:GetHeadBullet() / 100
+		bluntresist = target:GetHeadImpact() / 100
+	else 
+		playerbr = target:GetTorsoBR()
+		bulletresist = target:GetTorsoBullet() / 100
+		bluntresist = target:GetTorsoImpact() / 100
+	end 
+
+	playerbr = tonumber(playerbr)
+
+    if br > playerbr then 
+
+      local bulletdamage = math.floor(pierce * (1 - bulletresist))
+      local bluntdamage = math.floor(bluntforce * (1 - bluntresist))
+      client:Notify(target:Name() .. " takes " .. bulletdamage .. " ballistic damage and " .. bluntdamage .. " blunt force trauma damage!")
+
+
+	  target:SetCombatHealth(target:GetCombatHealth() - bulletdamage)
+	  target:SetCombatHealth(target:GetCombatHealth() - bluntdamage)
+	  if target:GetCombatHealth() <= 0 then target:Die() end
+
+    else
+
+
+      local bluntdamage = math.floor(bluntforce * (1 - bluntresist))
+      client:Notify(target:Name() .. " takes " .. bluntdamage .. " blunt force trauma damage!")
+
+
+	  target:SetCombatHealth(target:GetCombatHealth() - bluntdamage)
+	  if target:GetCombatHealth() <= 0 then target:Die() end
+
+    end 
+		
+
+	end
+})
+
+ix.command.Add("CentDamageBulletCustom", {
+	description = "Inflict bullet damage on a CEnt, entering your own ballistic values.",
 	adminOnly = true,
 	arguments = {
     ix.type.number,
@@ -1327,6 +1523,71 @@ ix.command.Add("CentDamageBullet", {
 
     end 
 		
+
+	end
+})
+
+ix.command.Add("CentEquipSuit", {
+	description = "Equip a CENT with a given armor suit, and optionally change its model to fit.",
+	adminOnly = true,
+	arguments = {
+    ix.type.string,
+    bit.bor(ix.type.bool, ix.type.optional)
+	},
+	OnRun = function(self, client, suit, changemodel)
+
+	local entity = client:GetEyeTrace().Entity
+	if not (IsValid(entity) and entity.combatEntity) then return "You need to be looking at a CEnt." end
+	local target = entity 
+
+	local suitExists = ix.item.Get(suit)
+	if not suitExists or not suitExists.isBodyArmor then return "Cannot find armor suit of type " .. suit .. " !" end 
+
+	entity:EquipSuit(suit, changemodel)
+
+	return "Equipped " .. entity:Name() .. " with " .. suitExists.name .. "."
+
+	end
+})
+
+ix.command.Add("CentEquipHelmet", {
+	description = "Equip a CENT with a given piece of headgear.",
+	adminOnly = true,
+	arguments = {
+    ix.type.string,
+	},
+	OnRun = function(self, client, helmet)
+
+	local entity = client:GetEyeTrace().Entity
+	if not (IsValid(entity) and entity.combatEntity) then return "You need to be looking at a CEnt." end
+	local target = entity 
+
+	local helmetExists = ix.item.Get(helmet)
+	if not helmetExists or not helmetExists.isHelmet then return "Cannot find headgear of type " .. helmet .. " !" end 
+
+	entity:EquipHelmet(helmet)
+	return "Equipped " .. entity:Name() .. " with " .. helmetExists.name .. "."
+
+	end
+})
+
+ix.command.Add("CentEquipAccessory", {
+	description = "Equip a CENT with a given accessory - artifact or belt slot item.",
+	adminOnly = true,
+	arguments = {
+    ix.type.string,
+	},
+	OnRun = function(self, client, accessory)
+
+	local entity = client:GetEyeTrace().Entity
+	if not (IsValid(entity) and entity.combatEntity) then return "You need to be looking at a CEnt." end
+	local target = entity 
+
+	local accessoryExists = ix.item.Get(accessory)
+	if not accessoryExists or not accessoryExists.isArtefact then return "Cannot find accessory of type " .. accessory .. " !" end 
+	
+	entity:EquipAccessory(accessory)
+	return "Equipped " .. entity:Name() .. " with " .. accessoryExists.name .. "."
 
 	end
 })

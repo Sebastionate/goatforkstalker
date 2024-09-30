@@ -104,7 +104,7 @@ ITEM.functions.usetarget = {
 
 
 			
-			ix.chat.send(item.player, "iteminternal", "opens a "..item.name.." and uses it on "..target:GetName()..".", false)
+			ix.chat.Send(item.player, "iteminternal", "opens a "..item.name.." and uses it on "..target:GetName()..".", false)
 			
 			quantity = quantity - 1
 

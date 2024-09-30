@@ -1,0 +1,10 @@
+ITEM.name = "Foresight"
+ITEM.model ="models/artefacts/lobster.mdl"
+ITEM.description = "A strange artifact resembling two eyeballs tethered together and looking in different directions."
+ITEM.longdesc = "When held, the artifact emits a unique psi emission to the user, improving their observational skills and insight skills. The eyes will close thereafter, and will not open for another 12 hours. Many stalkers believe this artifact to be the eyes of a strange mutant hiding in the zone, and that every use of it gives this creature the perspective of the user.\n+5 Modifier to Observation and Insight for one hour, once per day"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 10000
+ITEM.flag = "A"
+ITEM.isArtefact = true
+ITEM.weight = 0.6

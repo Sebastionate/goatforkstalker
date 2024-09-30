@@ -67,65 +67,44 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(140)
-        self:SetCombatHealthMax(140)
+        self:SetCombatHealth(150)
+        self:SetCombatHealthMax(150)
         self:SetWeaponSkill(20)
         self:SetDodge(14)
     
         if string.find(self:GetModel(), "gp5") or string.find(self:GetModel(), "bandit_old") then
             -- Vulture and GP-5
-
-            self:SetHeadBR(10)
-            self:SetHeadBullet(1)
-            self:SetHeadImpact(6)
-            self:SetHeadRupture(2)
-        
-            self:SetTorsoBR(36)
-            self:SetTorsoBullet(14)
-            self:SetTorsoImpact(6)
-            self:SetTorsoRupture(16)
+            self:EquipSuit("psz9_bandit")
+            self:EquipHelmet("gp5gasmask")
         end
 
         if string.find(self:GetModel(), "berill") then
             -- Beril-5m and Sphere-08
-            self:SetHeadBR(31)
-            self:SetHeadBullet(24)
-            self:SetHeadImpact(30)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(39)
-            self:SetTorsoBullet(21)
-            self:SetTorsoImpact(15)
-            self:SetTorsoRupture(40)
+            self:EquipSuit("berill5m")
+            self:EquipHelmet("sphere08")
         end
 
         if string.find(self:GetModel(), "eagle") then
             -- Nighthunter and Sphere-08
-            self:SetHeadBR(31)
-            self:SetHeadBullet(24)
-            self:SetHeadImpact(30)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(38)
-            self:SetTorsoBullet(24)
-            self:SetTorsoImpact(18)
-            self:SetTorsoRupture(18)
+            self:EquipSuit("merc_nighthunter")
+            self:EquipHelmet("sphere08")
         end
 
         if string.find(self:GetModel(), "seva") then
             -- Shakedown SEVA and Screen Helm
-            self:SetHeadBR(16)
-            self:SetHeadBullet(13)
-            self:SetHeadImpact(15)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(36)
-            self:SetTorsoBullet(19)
-            self:SetTorsoImpact(11)
-            self:SetTorsoRupture(15)
+            self:EquipSuit("seva_bandit")
+            self:EquipHelmet("screenhelm")
         end
 
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_pseudodoghide") end
+        if randomAccessory1 == 2 then self:EquipAccessory("belt_fleshhide") end 
+        if randomAccessory1 == 3 then self:EquipAccessory("belt_kevlarimproved") end 
 
+        local randomAccessory2 = math.random(1, 4)
+        if randomAccessory2 == 1 then self:EquipAccessory("nightstar") end
+
+    
         local firstname = table.Random(PLUGIN.firstnamesnormal)
         local lastname = table.Random(PLUGIN.banditnameslast)
 

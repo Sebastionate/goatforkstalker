@@ -11,7 +11,7 @@ ITEM.flag = "4"
 ITEM.weight = 0.75
 ITEM.isHelmetUpg = true
 ITEM.res = {
-	["Bullet"] = 0.05,
+	["Bullet"] = 0.10,
 }
 
 

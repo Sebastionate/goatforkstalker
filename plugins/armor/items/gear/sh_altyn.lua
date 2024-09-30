@@ -14,7 +14,7 @@ ITEM.ballisticlevels = {"lll-a"}
 ITEM.ballisticrpglevels = {["head"] = "12"}
 ITEM.anomalousrpglevels = {"10","0","0","0","0"}
 ITEM.weight = 5.5
-ITEM.ballisticRating = 28
+ITEM.ballisticRating = 25
 ITEM.res = {
 	["Impact"] = 0.25,
 	["Rupture"] = 0.03,

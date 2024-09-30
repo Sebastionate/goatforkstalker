@@ -19,18 +19,17 @@ ITEM.artifactcontainers = {"3"}
 ITEM.weight = 12
 ITEM.maxArmor = 10
 ITEM.weightClass = 1
-ITEM.ballisticRating = 18
+ITEM.ballisticRating = 20
 ITEM.res = {
-	["Impact"] = 0.10,
-	["Rupture"] = 0.13,
-	["Bullet"] = 0.08,
+	["Impact"] = 0.13,
+	["Rupture"] = 0.16,
+	["Bullet"] = 0.09,
 	["Shock"] = 0.10,
 	["Burn"] = 0.18,
 	["Radiation"] = 0.10,
 	["Chemical"] = 0.10,
 	["Psi"] = 0.05,
 }
-
 ITEM.newSkin = 0
 ITEM.bodygroup = {0}
 ITEM.bodygroupsub = {0}

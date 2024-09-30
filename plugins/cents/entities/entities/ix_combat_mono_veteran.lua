@@ -52,36 +52,34 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(145)
-        self:SetCombatHealthMax(145)
+        self:SetCombatHealth(150)
+        self:SetCombatHealthMax(150)
         self:SetWeaponSkill(25)
         self:SetDodge(14)
     
         if string.find(self:GetModel(), "seva") then
             -- Monolith Scientific and Screen Helm
-            self:SetHeadBR(16)
-            self:SetHeadBullet(13)
-            self:SetHeadImpact(15)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(36)
-            self:SetTorsoBullet(11)
-            self:SetTorsoImpact(10)
-            self:SetTorsoRupture(17)
+            self:EquipSuit("seva_mono")
+            self:EquipHelmet("screenhelm")
         end
 
         if string.find(self:GetModel(), "metro") then
             -- Reinforced Monolith Suit and Assault Helmet
-            self:SetHeadBR(35)
-            self:SetHeadBullet(25)
-            self:SetHeadImpact(30)
-            self:SetHeadRupture(4)
-        
-            self:SetTorsoBR(40)
-            self:SetTorsoBullet(28)
-            self:SetTorsoImpact(18)
-            self:SetTorsoRupture(23)
+            self:EquipSuit("mono_heavy")
+            self:EquipHelmet("assaulthelmet")
         end
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_kevlarimproved") end
+        if randomAccessory1 == 2 then self:EquipAccessory("belt_kevlarimproved") end
+
+        local randomAccessory2 = math.random(1, 4)
+        if randomAccessory2 == 1 then self:EquipAccessory("gravi") end
+        if randomAccessory2 == 2 then self:EquipAccessory("gravi") end
+
+        local randomAccessory3 = math.random(1, 4)
+        if randomAccessory3 == 1 then self:EquipAccessory("belt_controllerhide") end
+        if randomAccessory3 == 2 then self:EquipAccessory("belt_controllerhide") end
 
         local lastname = table.Random(PLUGIN.realnameslast)
 

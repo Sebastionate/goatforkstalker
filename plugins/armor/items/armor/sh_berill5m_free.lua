@@ -15,7 +15,7 @@ ITEM.isArmor = true
 ITEM.overlayPath = "vgui/overlays/hud_merc"
 ITEM.img = Material("vgui/hud/xm40.png")
 ITEM.noBusiness = true
-ITEM.artifactcontainers = {"2"}
+ITEM.artifactcontainers = {"3"}
 ITEM.weight = 14
 ITEM.weightClass = 1
 ITEM.ballisticRating = 39
@@ -23,10 +23,10 @@ ITEM.res = {
 	["Impact"] = 0.19,
 	["Rupture"] = 0.36,
 	["Bullet"] = 0.21,
-	["Shock"] = 0.06,
-	["Burn"] = 0.13,
-	["Radiation"] = 0.07,
-	["Chemical"] = 0.05,
+	["Shock"] = 0.08,
+	["Burn"] = 0.16,
+	["Radiation"] = 0.09,
+	["Chemical"] = 0.07,
 	["Psi"] = 0.08,
 }
 

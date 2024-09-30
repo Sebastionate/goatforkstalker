@@ -53,49 +53,28 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(150)
-        self:SetCombatHealthMax(150)
+        self:SetCombatHealth(165)
+        self:SetCombatHealthMax(165)
         self:SetWeaponSkill(25)
         self:SetDodge(17)
     
         if string.find(self:GetModel(), "seva") then
             -- Shakedown SEVA and Screen Helm
-            self:SetHeadBR(16)
-            self:SetHeadBullet(13)
-            self:SetHeadImpact(15)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(36)
-            self:SetTorsoBullet(19)
-            self:SetTorsoImpact(11)
-            self:SetTorsoRupture(15)
+            self:EquipSuit("seva_bandit")
+            self:EquipHelmet("screenhelm")
         end
 
         
         if string.find(self:GetModel(), "metro") then
             -- Tomb Raider and Assault Helmet
-            self:SetHeadBR(35)
-            self:SetHeadBullet(25)
-            self:SetHeadImpact(30)
-            self:SetHeadRupture(4)
-        
-            self:SetTorsoBR(40)
-            self:SetTorsoBullet(21)
-            self:SetTorsoImpact(11)
-            self:SetTorsoRupture(23)
+            self:EquipSuit("bandit_heavy")
+            self:EquipHelmet("assaulthelmet")
         end
 
         if string.find(self:GetModel(), "exo") then
             -- Warlord Exosuit and Exohelm
-            self:SetHeadBR(50)
-            self:SetHeadBullet(31)
-            self:SetHeadImpact(40)
-            self:SetHeadRupture(4)
-        
-            self:SetTorsoBR(59)
-            self:SetTorsoBullet(31)
-            self:SetTorsoImpact(28)
-            self:SetTorsoRupture(29)
+            self:EquipSuit("bandit_radsuit")
+            self:EquipHelmet("exohelmet")
         end
 
         local firstname = table.Random(PLUGIN.firstnamesnormal)
@@ -109,6 +88,14 @@ if (SERVER) then
 
         local chosenweapon = table.Random(riflegrip)
         self:SetCEntWeaponModel(chosenweapon)
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_pseudodoghide") end
+        if randomAccessory1 == 2 then self:EquipAccessory("belt_fleshhide") end 
+        if randomAccessory1 == 3 then self:EquipAccessory("belt_steelplate") end 
+ 
+        local randomAccessory2 = math.random(1, 4)
+        if randomAccessory2 == 1 then self:EquipAccessory("gravi") end
 
 
 

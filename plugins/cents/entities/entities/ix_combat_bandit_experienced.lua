@@ -77,49 +77,32 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(100)
-        self:SetCombatHealthMax(100)
+        self:SetCombatHealth(120)
+        self:SetCombatHealthMax(120)
         self:SetWeaponSkill(10)
         self:SetDodge(8)
     
         if string.find(self:GetModel(), "sunrise") or string.find(self:GetModel(), "lone_old") then
             -- Sunrise and PBF Mask
-            self:SetHeadBR(10)
-            self:SetHeadBullet(1)
-            self:SetHeadImpact(6)
-            self:SetHeadRupture(2)
-        
-            self:SetTorsoBR(20)
-            self:SetTorsoBullet(9)
-            self:SetTorsoImpact(13)
-            self:SetTorsoRupture(16)
+            self:EquipSuit("sunrise")
+            self:EquipHelmet("pbfgasmask")
         end
 
         if string.find(self:GetModel(), "hawk") then
             -- Black Hawk and M40
-            self:SetHeadBR(10)
-            self:SetHeadBullet(3)
-            self:SetHeadImpact(8)
-            self:SetHeadRupture(4)
-        
-            self:SetTorsoBR(27)
-            self:SetTorsoBullet(12)
-            self:SetTorsoImpact(6)
-            self:SetTorsoRupture(8)
+            self:EquipSuit("bandit_hawk")
+            self:EquipHelmet("m40gasmask")
         end
 
         if string.find(self:GetModel(), "nbc") then
             -- NBC and GP5
-            self:SetHeadBR(10)
-            self:SetHeadBullet(1)
-            self:SetHeadImpact(6)
-            self:SetHeadRupture(2)
-        
-            self:SetTorsoBR(18)
-            self:SetTorsoBullet(8)
-            self:SetTorsoImpact(10)
-            self:SetTorsoRupture(13)
+            self:EquipSuit("nbc")
+            self:EquipHelmet("gp5gasmask")
         end
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_pseudodoghide") end
+        if randomAccessory1 == 2 then self:EquipAccessory("belt_fleshhide") end 
 
         local firstname = table.Random(PLUGIN.firstnamesnormal)
         local lastname = table.Random(PLUGIN.banditnameslast)
@@ -151,6 +134,7 @@ if (SERVER) then
         self:SetCEntBodyGroups(self.head .. self.hood .. self.vest)
    
     end
+
 end
 
 

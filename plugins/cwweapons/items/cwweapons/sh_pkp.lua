@@ -20,3 +20,4 @@ ITEM.barrel = "medium"
 ITEM.weaponType = "heavyweapons"
 ITEM.RPM = 8
 ITEM.recoil = -4
+ITEM.bipodIncluded = true

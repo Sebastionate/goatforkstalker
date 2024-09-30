@@ -13,7 +13,7 @@ RECIPE.requirements = {
 ["clothscrap"] = 5,
 ["canvasscrap"] = 3,
 ["metalscrap"] = 2,
-["ducttape"] = 2,
+["thread"] = 2,
 }
 
 RECIPE.results = {

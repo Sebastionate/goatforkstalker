@@ -1,0 +1,9 @@
+ITEM.name = "Luxury Watch"
+ITEM.model = "models/illusion/eftcontainers/rolex.mdl"
+ITEM.description = "A fancy time-telling fashion piece."
+ITEM.longdesc = "An expensive watch. Many will bring these things into the Zone as family heirlooms, not knowing any better, and soon find out that gold is a very flashy target. "
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 12000
+ITEM.width = 1
+ITEM.height = 1

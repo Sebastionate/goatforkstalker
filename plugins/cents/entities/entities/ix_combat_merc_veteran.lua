@@ -47,36 +47,31 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(145)
-        self:SetCombatHealthMax(145)
+        self:SetCombatHealth(150)
+        self:SetCombatHealthMax(150)
         self:SetWeaponSkill(25)
         self:SetDodge(14)
     
         if string.find(self:GetModel(), "eagle") then
             -- Nighthunter and Sphere-08
-            self:SetHeadBR(31)
-            self:SetHeadBullet(24)
-            self:SetHeadImpact(30)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(38)
-            self:SetTorsoBullet(24)
-            self:SetTorsoImpact(18)
-            self:SetTorsoRupture(18)
+            self:EquipSuit("merc_nighthunter")
+            self:EquipHelmet("sphere08")
         end
 
         if string.find(self:GetModel(), "seva") then
             -- STS-Seva and Screen Helm
-            self:SetHeadBR(16)
-            self:SetHeadBullet(13)
-            self:SetHeadImpact(15)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(38)
-            self:SetTorsoBullet(15)
-            self:SetTorsoImpact(16)
-            self:SetTorsoRupture(16)
+            self:EquipSuit("merc_seva")
+            self:EquipHelmet("screenhelm")
         end
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_kevlarimproved") end
+
+        local randomAccessory2 = math.random(1, 4)
+        if randomAccessory2 == 1 then self:EquipAccessory("gravi") end
+
+        local randomAccessory3 = math.random(1, 4)
+        if randomAccessory3 == 1 then self:EquipAccessory("belt_controllerhide") end
 
         local firstname = table.Random(PLUGIN.mercnamesfirst)
 

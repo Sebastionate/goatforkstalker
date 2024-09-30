@@ -1,0 +1,10 @@
+ITEM.name = "Cobblestone"
+ITEM.model ="models/artefacts/sun.mdl"
+ITEM.description = "A seemingly useless artifact, resembling an orb that should have something inside it, but doesn't."
+ITEM.longdesc = "Not worth much to those that are unfamiliar with it, but some say it is the early stages of an artifact, and that, through some method, can be used to create an artifact. Science is still out on the specifics of this mechanic, so Ecologists may pay more than you'd expect for such a rock."
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 5000
+ITEM.flag = "A"
+ITEM.isArtefact = true
+ITEM.weight = 0.6

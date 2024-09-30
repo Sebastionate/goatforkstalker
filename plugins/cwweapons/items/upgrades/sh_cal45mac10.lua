@@ -10,6 +10,7 @@ ITEM.slot = 1
 ITEM.isAttachment = true
 ITEM.attSearch = { "am_cal_45mac10", }
 ITEM.rofBoost = -2
+ITEM.recoilBoost = -1
 ITEM.weight = 0.25
 ITEM.upgradeIcon = Material("materials/vgui/ui/stalker/weaponupgrades/rechamber.png")
 

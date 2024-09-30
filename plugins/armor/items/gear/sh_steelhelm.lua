@@ -13,7 +13,7 @@ ITEM.isHelmet = true
 ITEM.ballisticlevels = {"ll"}
 ITEM.ballisticrpglevels = {["head"] = "18"}
 ITEM.anomalousrpglevels = {"10","0","0","0","0"}
-ITEM.ballisticRating = 25
+ITEM.ballisticRating = 20
 ITEM.res = {
 	["Impact"] = 0.15,
 	["Rupture"] = 0.02,

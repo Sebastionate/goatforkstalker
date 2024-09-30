@@ -225,6 +225,8 @@ function playerMeta:GetHungerReduce()
 
 		end
 		return hungerreduce
+	else 
+		return 0
 	end 
 end 
 
@@ -250,6 +252,8 @@ function playerMeta:GetThirstReduce()
 
 		end
 		return thirstreduce
+	else 
+		return 0
 	end 
 end 
 

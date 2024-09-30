@@ -24,7 +24,7 @@ function ITEM:GetDescription()
     end 
 
     if self.bonusMove then
-        str = str .. "\nExtra Movement: +" .. self.bonusMove .. "m" 
+        str = str .. "\nMovement: " .. self.bonusMove .. "m" 
     end 
 
     if self.res then

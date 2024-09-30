@@ -1,0 +1,9 @@
+ITEM.name = "Gold Chain"
+ITEM.model = "models/illusion/eftcontainers/goldchain.mdl"
+ITEM.description = "A piece of bling."
+ITEM.longdesc = "A chain made of Gold, very popular among Bandits."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 10000
+ITEM.width = 1
+ITEM.height = 1

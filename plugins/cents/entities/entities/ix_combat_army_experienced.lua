@@ -46,21 +46,16 @@ local ranks = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(100)
-        self:SetCombatHealthMax(100)
+        self:SetCombatHealth(120)
+        self:SetCombatHealthMax(120)
         self:SetWeaponSkill(10)
         self:SetDodge(8)
     
         -- Beril-1, no helmet
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(19)
-        self:SetTorsoBullet(7)
-        self:SetTorsoImpact(1)
-        self:SetTorsoRupture(19)
+        self:EquipSuit("berill1")
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_kevlar") end
 
         local firstname = ""
 

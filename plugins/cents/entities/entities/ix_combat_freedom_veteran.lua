@@ -54,36 +54,28 @@ local ranks = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(140)
-        self:SetCombatHealthMax(140)
+        self:SetCombatHealth(150)
+        self:SetCombatHealthMax(150)
         self:SetWeaponSkill(20)
         self:SetDodge(17)
     
         if string.find(self:GetModel(), "berill") then
             -- Guardian of Freedom and Sphere-08
-            self:SetHeadBR(31)
-            self:SetHeadBullet(24)
-            self:SetHeadImpact(30)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(39)
-            self:SetTorsoBullet(21)
-            self:SetTorsoImpact(19)
-            self:SetTorsoRupture(36)
+            self:EquipSuit("berill5m_free")
+            self:EquipHelmet("sphere08")
         end
 
         if string.find(self:GetModel(), "seva") then
             -- Keeper of Freedom and Screen Helmet
-            self:SetHeadBR(16)
-            self:SetHeadBullet(13)
-            self:SetHeadImpact(15)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(36)
-            self:SetTorsoBullet(12)
-            self:SetTorsoImpact(13)
-            self:SetTorsoRupture(17)
+            self:EquipSuit("seva_free")
+            self:EquipHelmet("screenhelm")
         end
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("goldfish") end
+        if randomAccessory1 == 2 then self:EquipAccessory("empty") end 
+        if randomAccessory1 == 3 then self:EquipAccessory("gravi") end 
+        if randomAccessory1 == 4 then self:EquipAccessory("belt_kevlarimproved") end 
 
         local firstname = ""
 

@@ -7,6 +7,10 @@ ix.command.Add( "Movement", {
     description = "Begin or Finish counting movement.",
     OnRun = function( self, client )
         char = client:GetCharacter()
+
+
+        if client:GetData("steadyaim") then return "You cannot move or take other actions when using Steady Aim!" end
+
         if char:GetVar("isMoving") then
             local startPos = char:GetVar("isMoving")
             local endPos = client:GetPos()
@@ -64,6 +68,8 @@ ix.command.Add( "rangefinder", {
         elseif distance > 74 and distance < 125 then range = "Very Long"
         elseif distance > 125 then range = "Extreme"
         end 
+
+        if range == nil then range = self:MetersToRange(distance + 1) end 
 
         str = str .. "\nRange: " .. range
 

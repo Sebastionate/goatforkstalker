@@ -50,23 +50,24 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(170)
-        self:SetCombatHealthMax(170)
+        self:SetCombatHealth(180)
+        self:SetCombatHealthMax(180)
         self:SetWeaponSkill(30)
         self:SetDodge(20)
     
         if string.find(self:GetModel(), "exo") then
             -- Warlord Exoskeleton and Exohelm
-            self:SetHeadBR(50)
-            self:SetHeadBullet(31)
-            self:SetHeadImpact(40)
-            self:SetHeadRupture(4)
-        
-            self:SetTorsoBR(59)
-            self:SetTorsoBullet(33)
-            self:SetTorsoImpact(28)
-            self:SetTorsoRupture(34)
+            self:EquipSuit("exoskeleton_bandit")
+            self:EquipHelmet("exohelmet")
         end
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_pseudodoghide") end
+        if randomAccessory1 == 2 then self:EquipAccessory("belt_steelplate") end 
+        if randomAccessory1 == 3 then self:EquipAccessory("belt_steelplateimproved") end 
+
+        local randomAccessory2 = math.random(1, 4)
+        if randomAccessory2 == 1 then self:EquipAccessory("empty") end
 
         local firstname = table.Random(PLUGIN.firstnamesnormal)
         local lastname = table.Random(PLUGIN.banditnameslast)

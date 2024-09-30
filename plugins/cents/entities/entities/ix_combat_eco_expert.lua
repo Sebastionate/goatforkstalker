@@ -49,36 +49,28 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(150)
-        self:SetCombatHealthMax(150)
+        self:SetCombatHealth(165)
+        self:SetCombatHealthMax(165)
         self:SetWeaponSkill(25)
         self:SetDodge(17)
     
         if string.find(self:GetModel(), "exo") then
             -- TB-3 Exosuit and Exohelm
-            self:SetHeadBR(50)
-            self:SetHeadBullet(31)
-            self:SetHeadImpact(40)
-            self:SetHeadRupture(4)
-        
-            self:SetTorsoBR(50)
-            self:SetTorsoBullet(31)
-            self:SetTorsoImpact(28)
-            self:SetTorsoRupture(30)
+            self:EquipSuit("radsuit")
+            self:EquipHelmet("exohelmet")
         end
 
         if string.find(self:GetModel(), "jupiter") then
             -- Jupiter and Screen Helm
-            self:SetHeadBR(16)
-            self:SetHeadBullet(13)
-            self:SetHeadImpact(15)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(40)
-            self:SetTorsoBullet(25)
-            self:SetTorsoImpact(25)
-            self:SetTorsoRupture(33)
+            self:EquipSuit("jupiter")
+            self:EquipHelmet("screenhelmet")
         end
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("goldfish") end
+        if randomAccessory1 == 2 then self:EquipAccessory("fullempty") end 
+        if randomAccessory1 == 3 then self:EquipAccessory("empty") end 
+        if randomAccessory1 == 4 then self:EquipAccessory("belt_steelplate") end 
 
         local firstname = table.Random(PLUGIN.firstnamesnormal)
 

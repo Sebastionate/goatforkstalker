@@ -10,3 +10,8 @@ ITEM.width = 1
 ITEM.height = 1
 ITEM.weight = 0.5
 ITEM.isAmmo = true
+ITEM.stats = {
+	["BR"] = 24,
+	["Pierce"] = 20,
+	["Blunt"] = 28,
+}

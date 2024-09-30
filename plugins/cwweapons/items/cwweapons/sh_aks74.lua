@@ -16,6 +16,8 @@ ITEM.modifier = 4
 ITEM.weight = 2.97
 ITEM.flag = "3"
 ITEM.barrel = "medium"
+ITEM.RPM = 6
+ITEM.recoil = -3
 
 ITEM.iconCam = {
 	pos = Vector(-10, 200, 0),

@@ -10,3 +10,8 @@ ITEM.flag = "4"
 ITEM.ammoAmount = 5
 ITEM.weight = 1
 ITEM.isAmmo = true
+ITEM.stats = {
+	["BR"] = 36,
+	["Pierce"] = 215,
+	["Blunt"] = 50,
+}

@@ -49,49 +49,37 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(155)
-        self:SetCombatHealthMax(155)
+        self:SetCombatHealth(165)
+        self:SetCombatHealthMax(165)
         self:SetWeaponSkill(30)
         self:SetDodge(17)
     
         if string.find(self:GetModel(), "seva") then
             -- STS-Seva and Screen Helm
-            self:SetHeadBR(16)
-            self:SetHeadBullet(13)
-            self:SetHeadImpact(15)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(38)
-            self:SetTorsoBullet(15)
-            self:SetTorsoImpact(16)
-            self:SetTorsoRupture(16)
+            self:EquipSuit("merc_seva")
+            self:EquipHelmet("screenhelm")
         end
 
         if string.find(self:GetModel(), "metro") then
             -- Paladin and Assault Helmet
-            self:SetHeadBR(35)
-            self:SetHeadBullet(25)
-            self:SetHeadImpact(30)
-            self:SetHeadRupture(4)
-        
-            self:SetTorsoBR(42)
-            self:SetTorsoBullet(25)
-            self:SetTorsoImpact(15)
-            self:SetTorsoRupture(23)
+            self:EquipSuit("merc_paladin")
+            self:EquipHelmet("assaulthelmet")
         end
 
         if string.find(self:GetModel(), "exo") then
             -- Terminator Exosuit and Exohelm
-            self:SetHeadBR(50)
-            self:SetHeadBullet(31)
-            self:SetHeadImpact(40)
-            self:SetHeadRupture(4)
-        
-            self:SetTorsoBR(54)
-            self:SetTorsoBullet(35)
-            self:SetTorsoImpact(35)
-            self:SetTorsoRupture(34)
+            self:EquipSuit("merc_terminator")
+            self:EquipHelmet("exohelmet")
         end
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_steelplate") end
+
+        local randomAccessory2 = math.random(1, 4)
+        if randomAccessory2 == 1 then self:EquipAccessory("goldfish") end
+
+        local randomAccessory3 = math.random(1, 4)
+        if randomAccessory3 == 1 then self:EquipAccessory("belt_chimerahide") end
 
         local firstname = table.Random(PLUGIN.mercnamesfirst)
 

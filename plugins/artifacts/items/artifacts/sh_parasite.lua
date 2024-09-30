@@ -1,0 +1,11 @@
+ITEM.name = "Parasite"
+ITEM.model ="models/artefacts/bracelet.mdl"
+ITEM.description = "A rather alluring artifact shaped like a bracelet."
+ITEM.longdesc = "A rather alluring artifact, the Parasite is, as its name implies, something of a trap. Shaped like an ornate bracelet and slightly squishy to the touch (as if it were made of plant matter), the Parasite hooks into the user, and greatly improves clotting potential, almost totally reducing bleeds before they can take hold. However, the artifact also blocks the body from healing, making any medical usage difficult to apply. Stalkers tend to be superstitious about the Parasite, as regardless if it is truly alive and feeding off the stalker or merely another dangerous rock, some older stalkers say the artifact will transform the user into a monster upon their demise."
+ITEM.height = 1
+ITEM.price = 20000
+ITEM.flag = "A"
+ITEM.isArtefact = true
+ITEM.passiveHeal = -40
+ITEM.weight = 3
+ITEM.bleedReduce = 4

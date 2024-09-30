@@ -58,23 +58,27 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(125)
-        self:SetCombatHealthMax(125)
+        self:SetCombatHealth(135)
+        self:SetCombatHealthMax(135)
         self:SetWeaponSkill(20)
         self:SetDodge(11)
 
 
         -- Monolith Suit and PBF Mask
-    
-        self:SetHeadBR(10)
-        self:SetHeadBullet(1)
-        self:SetHeadImpact(6)
-        self:SetHeadRupture(2)
-    
-        self:SetTorsoBR(36)
-        self:SetTorsoBullet(14)
-        self:SetTorsoImpact(18)
-        self:SetTorsoRupture(15)
+        self:EquipSuit("mono")
+        self:EquipHelmet("pbfgasmask")
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_kevlar") end
+        if randomAccessory1 == 2 then self:EquipAccessory("belt_kevlar") end
+
+        local randomAccessory2 = math.random(1, 4)
+        if randomAccessory2 == 1 then self:EquipAccessory("medusa") end
+        if randomAccessory2 == 2 then self:EquipAccessory("medusa") end
+
+        local randomAccessory3 = math.random(1, 4)
+        if randomAccessory3 == 1 then self:EquipAccessory("belt_pseudodoghide") end
+        if randomAccessory3 == 2 then self:EquipAccessory("belt_pseudodoghide") end
 
         local lastname = table.Random(PLUGIN.realnameslast)
 

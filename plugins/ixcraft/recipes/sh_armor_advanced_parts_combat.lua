@@ -9,10 +9,10 @@ RECIPE.toolkits = {
 RECIPE.flag = "6"
 
 RECIPE.requirements = {
-["kevlarscrap"] = 10,
-["ceramicscrap"] = 10,
-["armorplatingscrap"] = 10,
-["metalscrap"] = 10,
+["kevlarscrap"] = 6,
+["ceramicscrap"] = 6,
+["armorplatingscrap"] = 6,
+["metalscrap"] = 6,
 }
 
 RECIPE.results = {

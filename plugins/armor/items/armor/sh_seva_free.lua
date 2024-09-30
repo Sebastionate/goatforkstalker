@@ -23,10 +23,10 @@ ITEM.res = {
 	["Impact"] = 0.13,
 	["Rupture"] = 0.17,
 	["Bullet"] = 0.12,
-	["Shock"] = 0.18,
-	["Burn"] = 0.12,
+	["Shock"] = 0.23,
+	["Burn"] = 0.16,
 	["Radiation"] = 0.07,
-	["Chemical"] = 0.06,
+	["Chemical"] = 0.09,
 	["Psi"] = 0.10,
 }
 

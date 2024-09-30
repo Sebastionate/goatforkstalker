@@ -759,9 +759,11 @@ ITEM.functions.RemoveUpgrade = {
 			return false
 		end
 		
-		if item.player:GetChar():HasFlags("7") then
+		if item.player:GetChar():HasFlags("A") then
 			return (!IsValid(item.entity))
-		end
+		end 
+
+		
 		
 		return false
 	end,

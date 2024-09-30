@@ -10,15 +10,15 @@ RECIPE.toolkits = {
 RECIPE.flag = "6"
 
 RECIPE.requirements = {
+["pbfgasmask"] = 1,
 ["steelhelm"] = 1,
-["gasmaskhelm"] = 1,
-["ducttape"] = 1,
+["thread"] = 1,
 }
 
 
 
 RECIPE.results = {
-	["sphere4"] = 1
+	["sphere04"] = 1
 
 }
 

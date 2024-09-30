@@ -17,12 +17,12 @@ PLUGIN.repDefs = {
 	{"Rookie", 1000},
 	{"Trainee", 2500},
 	{"Experienced", 5000},
-	{"Seasoned", 7250},
-    {"Professional", 12500},
-	{"Long-Timer", 17250},
-	{"Veteran", 25000},
-    {"Expert", 35000},
-	{"Master", 50000},
+	{"Seasoned", 10000},
+    {"Professional", 20000},
+	{"Long-Timer", 40000},
+	{"Veteran", 80000},
+    {"Expert", 160000},
+	{"Master", 320000},
 }
 
 local playerMeta = FindMetaTable("Player")
@@ -136,6 +136,8 @@ ix.command.Add("charaddreputation", {
 		
 
 		local oldrank = target:getCurrentRankName()
+
+		if oldrank == "Professional" then return "Player has hit the current XP cap and cannot gain any more currently." end 
 		target:addReputation(reputation)
 		local newrank = target:getCurrentRankName()
 

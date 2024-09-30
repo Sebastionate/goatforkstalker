@@ -13,7 +13,7 @@ RECIPE.flag = "6"
 RECIPE.requirements = {
 ["psz9"] = 1,
 ["horizon"] = 1,
-["ducttape"] = 1,
+["thread"] = 1,
 ["plexiglasscrap"]= 1,
 ["rubberscrap"] = 1,
 }

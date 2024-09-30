@@ -1,0 +1,10 @@
+ITEM.name = "Reverse"
+ITEM.model ="models/wick/anarchycell/items/artefacts/soc/anarchycell_strelok.mdl"
+ITEM.description = "A rarer artifact, formed primarily in locations that have been touched by spatial anomalies."
+ITEM.longdesc = "The sciences behind it are unexplained and its a valuable find for Ecologists, due to the fact that, when activated, it will effectively 'rewind time' for the user. Any actions taken in recent memory will reverse - movement back to its starting point, weapons unfired, damages undone - before destroying itself. It has no effect on any except the user themselves.\n Allows a turn to be redone, consumes self as a result"
+ITEM.width = 1
+ITEM.height = 1
+ITEM.price = 20000
+ITEM.flag = "A"
+ITEM.isArtefact = true
+ITEM.weight = 0.6

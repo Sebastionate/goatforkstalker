@@ -66,20 +66,13 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(75)
-        self:SetCombatHealthMax(75)
+        self:SetCombatHealth(105)
+        self:SetCombatHealthMax(105)
         self:SetWeaponSkill(5)
         self:SetDodge(5)
     
-        self:SetHeadBR(0)
-        self:SetHeadBullet(0)
-        self:SetHeadImpact(0)
-        self:SetHeadRupture(0)
-    
-        self:SetTorsoBR(8)
-        self:SetTorsoBullet(1)
-        self:SetTorsoImpact(1)
-        self:SetTorsoRupture(11)
+       self:EquipSuit("mailjacket")
+       self:EquipHelmet("respirator")
 
         local firstname = table.Random(PLUGIN.firstnamesnormal)
         local lastname = table.Random(PLUGIN.lastnamesnormal)

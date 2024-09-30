@@ -37,6 +37,8 @@ if (SERVER) then
 
     character:SetMaxhp(character:GetMaxhp() + healthbonus)
     character:SetCurrenthp(character:GetMaxhp())
+
+
   end
 
 
@@ -118,7 +120,7 @@ ix.command.Add("Damage", {
 
     
 
-    local armordamageamount = math.floor(damage / 10)
+    local armordamageamount = math.floor(damage / 20)
 
 
     target:DamageArmorScale(armordamageamount, area)
@@ -139,6 +141,7 @@ ix.command.Add("Damage", {
     end 
 
     target:GetPlayer():Notify("You take " .. damage .. " damage!")
+    client:Notify(target:GetName() .. " has taken " .. damage .. "damage!")
 
     target:AdjustHealth("hurt", damage)
 
@@ -169,7 +172,141 @@ ix.command.Add("DamageDirect", {
 
 
 ix.command.Add("DamageBullet", {
-	description = "Inflict bullet damage on a player.",
+	description = "Inflict bullet damage on a player by choosing a pre-configured caliber.",
+	adminOnly = true,
+	arguments = {
+		ix.type.character,
+    ix.type.string,
+    bit.bor(ix.type.bool, ix.type.optional)
+	},
+	OnRun = function(self, client, target, bullet, headshot)
+
+    local inventory = target:GetInventory()
+    local player = target:GetPlayer()
+    local playerbr = 0
+    local headshotstring = ""
+
+    local bulletData = ix.item.Get(bullet)
+	  if not bulletData or not bulletData.stats then return "Cannot find bullet of type " .. bullet .. " !" end 
+	
+
+
+    
+
+    local bulletname = bulletData.name
+    local br = bulletData.stats["BR"]
+    local pierce = bulletData.stats["Pierce"]
+    local bluntforce = bulletData.stats["Blunt"]
+
+
+    if headshot then headshotstring = " in the head" end
+
+    player:Notify("You're hit by a " .. bulletname ..  " bullet" .. headshotstring .. "!")
+
+    for k, v in pairs (inventory:GetItems()) do
+      if(!v:GetData("equip", false)) then continue end --ignores unequipped items
+      if headshot and v.isBodyArmor then continue end -- Ignores body armor if shot in the head (artifacts affect your full body)
+      if headshot and v.notAnomalous then continue end -- Ignores non-anomalous belt slot items like kevlar inserts because they don't affect full body
+      if not headshot and v.isHelmet then continue end -- Ignores helmet armor if it hits your body
+  
+      local br = v:GetData("ballisticRating")
+      if br then
+        playerbr = playerbr + br
+      end
+
+      local mods = v:GetData("mod")
+
+      if mods and not headshot then
+        for x,y in pairs(mods) do
+          local moditem = ix.item.Get(y[1])
+          if moditem.ballisticRating then playerbr = playerbr + moditem.ballisticRating end 
+          
+
+        end
+      end
+
+
+
+    end
+
+    local area 
+    if headshot then area = "head" else area = "body" end 
+
+    playerbr = tonumber(playerbr)
+
+    if br > playerbr then 
+
+      player:Notify("It pierces your armor!")
+
+      
+      local bulletresist = target:GetResistance("Bullet", area)
+      local bluntresist = target:GetResistance("Impact", area)
+
+      player:Notify("Your armor reduces the ballistic damage by " .. bulletresist*100  .."% and blunt force trauma by " .. bluntresist*100 .. "%!")
+      local bulletdamage = math.floor(pierce * (1 - bulletresist))
+      local bluntdamage = math.floor(bluntforce * (1 - bluntresist))
+
+      player:Notify("You take " .. bulletdamage .. " ballistic damage and " .. bluntdamage .. " blunt force trauma damage!")
+      client:Notify(target:GetName() .. " has taken " .. bulletdamage .. " ballistic damage and " .. bluntdamage .. " blunt force damage!" )
+
+      
+      local armordamageamount = (bulletdamage + bluntdamage) / 20
+
+      target:DamageArmorScale(armordamageamount, area)
+
+      if area == "head" and target:HasTrait("injury_head1") then 
+        bulletdamage = bulletdamage + math.floor(bulletdamage * 0.15)
+        bluntdamage = bluntdamage + math.floor(bluntdamage * 0.15)
+        player:Notify("Your existing head injury made you take more damage.")
+      end 
+
+      if area == "body" and target:HasTrait("injury_torso1") then 
+        bulletdamage = bulletdamage + math.floor(bulletdamage * 0.15)
+        bluntdamage = bluntdamage + math.floor(bluntdamage * 0.15)
+        player:Notify("Your existing torso injury made you take more damage.")
+      end 
+
+      target:AdjustHealth("hurt", bluntdamage + bulletdamage)
+      target:AddBleedStacks(1)
+
+
+    else
+
+      player:Notify("It fails to pierce your armor!")
+      local bluntresist = target:GetResistance("Impact", area)
+      player:Notify("Your armor reduces the remaining blunt force trauma by " .. bluntresist*100 .. "%!")
+
+      local bluntdamage = math.floor(bluntforce * (1 - bluntresist))
+      player:Notify("You take " .. bluntdamage .. " blunt force trauma damage!")
+      client:Notify(target:GetName() .. " has taken " .. bluntdamage .. " blunt force damage!" )
+
+      local armordamageamount = math.floor(bluntdamage / 20)
+
+
+
+      if area == "head" and target:HasTrait("injury_head1") then 
+        bluntdamage = bluntdamage + math.floor(bluntdamage * 0.15)
+        player:Notify("Your existing head injury made you take more damage.")
+      end 
+
+      if area == "body" and target:HasTrait("injury_torso1") then 
+        bluntdamage = bluntdamage + math.floor(bluntdamage * 0.15)
+        player:Notify("Your existing torso injury made you take more damage.")
+      end 
+
+      target:DamageArmorScale(armordamageamount, area)
+
+      target:AdjustHealth("hurt", bluntdamage)
+
+
+    end 
+		
+
+	end
+})
+
+ix.command.Add("DamageBulletCustom", {
+	description = "Inflict bullet damage on a player. Provide your own ballistic stats.",
 	adminOnly = true,
 	arguments = {
 		ix.type.character,
@@ -232,9 +369,10 @@ ix.command.Add("DamageBullet", {
       local bluntdamage = math.floor(bluntforce * (1 - bluntresist))
 
       player:Notify("You take " .. bulletdamage .. " ballistic damage and " .. bluntdamage .. " blunt force trauma damage!")
+      client:Notify(target:GetName() .. " has taken " .. bulletdamage .. " ballistic damage and " .. bluntdamage .. " blunt force damage!" )
 
       
-      local armordamageamount = (bulletdamage + bluntdamage) / 10
+      local armordamageamount = (bulletdamage + bluntdamage) / 20
 
       target:DamageArmorScale(armordamageamount, area)
 
@@ -262,8 +400,9 @@ ix.command.Add("DamageBullet", {
 
       local bluntdamage = math.floor(bluntforce * (1 - bluntresist))
       player:Notify("You take " .. bluntdamage .. " blunt force trauma damage!")
+      client:Notify(target:GetName() .. " has taken " .. bluntdamage .. " blunt force damage!" )
 
-      local armordamageamount = math.floor(bluntdamage / 10)
+      local armordamageamount = math.floor(bluntdamage / 20)
 
 
 
@@ -287,6 +426,7 @@ ix.command.Add("DamageBullet", {
 
 	end
 })
+
 
 
 ix.command.Add("Heal", {
@@ -335,6 +475,44 @@ ix.command.Add("Status", {
 
   end
 })
+
+ix.command.Add("CharGetStatus", {
+  description = "Get your current health and total protection levels..",
+  adminOnly = true,
+  arguments = {ix.type.character},
+  OnRun = function(self, client, target)
+    local char = target
+
+    local str = "Stats for " .. char:GetName()
+
+    str = str .. "\nHealth: " .. char:GetCurrenthp() .. "/" .. target:GetPlayer():GetTotalHp() .. "\n"
+
+    local res = {
+      ["Impact"] = 0,
+      ["Rupture"] = 0,
+      ["Bullet"] = 0,
+      ["Shock"] = 0,
+      ["Burn"] = 0,
+      ["Radiation"] = 0,
+      ["Chemical"] = 0,
+      ["Psi"] = 0,
+    }
+
+   
+
+    for k, _ in pairs(res) do
+
+      str = str ..k.. ": " .. char:GetResistance(k) * 100 .. "%\n"
+    end 
+
+        
+    return str
+
+
+
+  end
+})
+
 
 
 
@@ -454,10 +632,30 @@ function charMeta:AdjustHealth(type, amount)
       char:AddBoost("incap", "observation", -4)
       char:AddBoost("incap", "strength", -4)
 
+      char:AddSkillBoost("incap", "smallarms", -15)
+      char:AddSkillBoost("incap", "rifles", -15)
+      char:AddSkillBoost("incap", "closequarters", -15)
+      char:AddSkillBoost("incap", "heavyweapons", -15)
+
+      char:RemoveSkillBoost("stun", "smallarms")
+      char:RemoveSkillBoost("stun", "rifles")
+      char:RemoveSkillBoost("stun", "closequarters")
+      char:RemoveSkillBoost("stun", "heavyweapons")
+
+      char:RemoveSkillBoost("stagger", "smallarms")
+      char:RemoveSkillBoost("stagger", "rifles")
+      char:RemoveSkillBoost("stagger", "closequarters")
+      char:RemoveSkillBoost("stagger", "heavyweapons")
+
       char:RemoveBoost("stun", "fortitude")
       char:RemoveBoost("stun", "reflex")
       char:RemoveBoost("stun", "observation")
       char:RemoveBoost("stun", "strength")
+
+      char:RemoveBoost("stagger", "fortitude")
+      char:RemoveBoost("stagger", "reflex")
+      char:RemoveBoost("stagger", "observation")
+      char:RemoveBoost("stagger", "strength")
       return
 
   elseif newhp <= stun then
@@ -473,6 +671,21 @@ function charMeta:AdjustHealth(type, amount)
       char:AddBoost("stun", "reflex", -3)
       char:AddBoost("stun", "observation", -3)
       char:AddBoost("stun", "strength", -3)
+
+      char:AddSkillBoost("stun", "smallarms", -10)
+      char:AddSkillBoost("stun", "rifles", -10)
+      char:AddSkillBoost("stun", "closequarters", -10)
+      char:AddSkillBoost("stun", "heavyweapons", -10)
+
+      char:RemoveSkillBoost("incap", "smallarms")
+      char:RemoveSkillBoost("incap", "rifles")
+      char:RemoveSkillBoost("incap", "closequarters")
+      char:RemoveSkillBoost("incap", "heavyweapons")
+
+      char:RemoveSkillBoost("stagger", "smallarms")
+      char:RemoveSkillBoost("stagger", "rifles")
+      char:RemoveSkillBoost("stagger", "closequarters")
+      char:RemoveSkillBoost("stagger", "heavyweapons")
 
       char:RemoveBoost("stagger", "fortitude")
       char:RemoveBoost("stagger", "reflex")
@@ -499,6 +712,22 @@ function charMeta:AdjustHealth(type, amount)
       char:AddBoost("stagger", "reflex", -1)
       char:AddBoost("stagger", "observation", -1)
       char:AddBoost("stagger", "strength", -1)
+
+      char:AddSkillBoost("stagger", "smallarms", -5)
+      char:AddSkillBoost("stagger", "rifles", -5)
+      char:AddSkillBoost("stagger", "closequarters", -5)
+      char:AddSkillBoost("stagger", "heavyweapons", -5)
+
+      char:RemoveSkillBoost("incap", "smallarms")
+      char:RemoveSkillBoost("incap", "rifles")
+      char:RemoveSkillBoost("incap", "closequarters")
+      char:RemoveSkillBoost("incap", "heavyweapons")
+
+      char:RemoveSkillBoost("stun", "smallarms")
+      char:RemoveSkillBoost("stun", "rifles")
+      char:RemoveSkillBoost("stun", "closequarters")
+      char:RemoveSkillBoost("stun", "heavyweapons")
+
 
       char:RemoveBoost("incap", "fortitude")
       char:RemoveBoost("incap", "reflex")
@@ -533,12 +762,28 @@ function charMeta:AdjustHealth(type, amount)
       char:RemoveBoost("stagger", "reflex")
       char:RemoveBoost("stagger", "observation")
       char:RemoveBoost("stagger", "strength")
+
+      char:RemoveSkillBoost("incap", "smallarms")
+      char:RemoveSkillBoost("incap", "rifles")
+      char:RemoveSkillBoost("incap", "closequarters")
+      char:RemoveSkillBoost("incap", "heavyweapons")
+
+      char:RemoveSkillBoost("stun", "smallarms")
+      char:RemoveSkillBoost("stun", "rifles")
+      char:RemoveSkillBoost("stun", "closequarters")
+      char:RemoveSkillBoost("stun", "heavyweapons")
+
+      char:RemoveSkillBoost("stagger", "smallarms")
+      char:RemoveSkillBoost("stagger", "rifles")
+      char:RemoveSkillBoost("stagger", "closequarters")
+      char:RemoveSkillBoost("stagger", "heavyweapons")
+
+
   end 
 end 
 
 
 function charMeta:DamageArmorScale(amount, area)
-
   local bodywear 
   local headwear
   local inventory = self:GetInventory()
@@ -558,9 +803,9 @@ function charMeta:DamageArmorScale(amount, area)
     local durability = bodywear:GetData("durability", 100)
 
     local damagefactor = 1
-    if durability < 80 and durability > 59 then damagefactor = 2 end
-    if durability < 59 and durability > 39 then damagefactor = 3 end 
-    if durability < 39 then damagefactor = 4 end 
+    if durability < 70 and durability > 49 then damagefactor = 2 end
+    if durability < 49 and durability > 29 then damagefactor = 3 end 
+    if durability < 29 then damagefactor = 4 end 
 
 
     local durabilityreduce = 0
@@ -761,8 +1006,6 @@ end
 --Injuries--
 --------
 
-
-
 ix.command.Add("AddInjury", {
   description = "Add an injury to a player.",
   adminOnly = true,
@@ -813,3 +1056,15 @@ ix.command.Add("RemoveInjury", {
     end
   end
 })
+
+
+-- Helper Functions --
+
+function PLUGIN:GetBullet(bullet)
+	ix.item.Get(bullet)
+	if not bullet or not bullet.stats then 
+		return nil
+	else
+		return bullet 
+	end
+end 

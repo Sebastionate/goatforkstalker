@@ -3,9 +3,11 @@ local PLUGIN = PLUGIN
 function ENT:WalkAnimation(range)
     local run
 
-    if range > 300 then
+    if range > 300 or self:GetNetVar("runToggle", false) == true then
         run = true
     end
+
+    if self:GetNetVar("walkToggle", false) == true then run = false end 
 
     local sequence
     local activity

@@ -12,7 +12,7 @@ RECIPE.tools = {
 }
 
 RECIPE.results = {
-	["explosivematerial] = 2
+	["explosivematerial"] = 2
 
 }
 

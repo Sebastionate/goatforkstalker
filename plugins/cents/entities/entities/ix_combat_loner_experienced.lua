@@ -56,62 +56,41 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(95)
-        self:SetCombatHealthMax(95)
+        self:SetCombatHealth(120)
+        self:SetCombatHealthMax(120)
         self:SetWeaponSkill(10)
         self:SetDodge(5)
 
         if string.find(self:GetModel(), "sunrise") or string.find(self:GetModel(), "lone_old") then
             -- Sunrise and PBF Mask
-            self:SetHeadBR(10)
-            self:SetHeadBullet(1)
-            self:SetHeadImpact(6)
-            self:SetHeadRupture(2)
-        
-            self:SetTorsoBR(20)
-            self:SetTorsoBullet(9)
-            self:SetTorsoImpact(13)
-            self:SetTorsoRupture(16)
+            self:EquipSuit("sunrise")
+            self:EquipHelmet("pbfgasmask")
         end
 
         if string.find(self:GetModel(), "hawk") then
             -- SAS-H Hawk and M40
-            self:SetHeadBR(10)
-            self:SetHeadBullet(3)
-            self:SetHeadImpact(8)
-            self:SetHeadRupture(4)
-        
-            self:SetTorsoBR(23)
-            self:SetTorsoBullet(9)
-            self:SetTorsoImpact(8)
-            self:SetTorsoRupture(11)
+            self:EquipSuit("merc_hawk")
+            self:EquipHelmet("m40gasmask")
         end
 
         if string.find(self:GetModel(), "expedition") then
             -- Berkut and Altyn
-            self:SetHeadBR(28)
-            self:SetHeadBullet(20)
-            self:SetHeadImpact(25)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(25)
-            self:SetTorsoBullet(12)
-            self:SetTorsoImpact(20)
-            self:SetTorsoRupture(35)
+            self:EquipSuit("berkut")
+            self:EquipHelmet("altyn")
         end
 
         if string.find(self:GetModel(), "nbc") then
             -- NBC and GP5
-            self:SetHeadBR(10)
-            self:SetHeadBullet(1)
-            self:SetHeadImpact(6)
-            self:SetHeadRupture(2)
-        
-            self:SetTorsoBR(18)
-            self:SetTorsoBullet(8)
-            self:SetTorsoImpact(10)
-            self:SetTorsoRupture(13)
+            self:EquipSuit("nbc")
+            self:EquipHelmet("gp5gasmask")
         end
+
+        local randomAccessory = math.random(1, 4)
+        if randomAccessory == 1 then self:EquipAccessory("belt_fleshhide") end
+        if randomAccessory == 2 then self:EquipAccessory("belt_pseudodoghide") end
+        if randomAccessory == 3 then self:EquipAccessory("gravi") end
+
+
 
 
 

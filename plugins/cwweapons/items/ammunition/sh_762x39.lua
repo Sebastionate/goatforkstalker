@@ -11,3 +11,8 @@ ITEM.img = Material("vgui/hud/762x39.png")
 ITEM.flag = "1"
 ITEM.weight = 0.5
 ITEM.isAmmo = true
+ITEM.stats = {
+	["BR"] = 27,
+	["Pierce"] = 25,
+	["Blunt"] = 30,
+}

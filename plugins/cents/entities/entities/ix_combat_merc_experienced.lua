@@ -43,22 +43,25 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(105)
-        self:SetCombatHealthMax(105)
+        self:SetCombatHealth(120)
+        self:SetCombatHealthMax(120)
         self:SetWeaponSkill(15)
         self:SetDodge(8)
 
         -- Hawk and M40 Mask
     
-        self:SetHeadBR(10)
-        self:SetHeadBullet(3)
-        self:SetHeadImpact(8)
-        self:SetHeadRupture(4)
-    
-        self:SetTorsoBR(23)
-        self:SetTorsoBullet(9)
-        self:SetTorsoImpact(8)
-        self:SetTorsoRupture(11)
+        self:EquipSuit("merc_hawk")
+        self:EquipHelmet("m40gasmask")
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_kevlar") end
+
+        local randomAccessory2 = math.random(1, 4)
+        if randomAccessory2 == 1 then self:EquipAccessory("nightstar") end
+
+        local randomAccessory3 = math.random(1, 4)
+        if randomAccessory3 == 1 then self:EquipAccessory("fleshhide") end
+
 
         local firstname = table.Random(PLUGIN.mercnamesfirst)
 

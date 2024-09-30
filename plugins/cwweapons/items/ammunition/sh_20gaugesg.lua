@@ -14,3 +14,8 @@ ITEM.Dmg = 1
 ITEM.Pen = 5
 ITEM.weight = 0.5
 ITEM.isAmmo = true
+ITEM.stats = {
+	["BR"] = 23,
+	["Pierce"] = 40,
+	["Blunt"] = 45,
+}

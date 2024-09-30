@@ -6,7 +6,7 @@ RECIPE.requirements = {
 ["wire"] = 2,
 ["capacitors"] = 2,
 ["resistors"] = 2,
-["sparelectronics"] = 2,
+["spareelectronics"] = 2,
 }
 
 

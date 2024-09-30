@@ -20,7 +20,8 @@ ITEM.RPM = 6
 ITEM.recoil = -4
 ITEM.weaponType = "heavyweapons"
 ITEM.RPM = 6
-ITEM.recoil = -3
+ITEM.recoil = -4
+ITEM.bipodIncluded = true
 
 ITEM.iconCam = {
 	pos = Vector(-11, 30, 0),

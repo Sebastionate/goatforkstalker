@@ -46,22 +46,23 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(125)
-        self:SetCombatHealthMax(125)
+        self:SetCombatHealth(135)
+        self:SetCombatHealthMax(135)
         self:SetWeaponSkill(20)
         self:SetDodge(11)
 
-        -- Wolven and PBF
-    
-        self:SetHeadBR(10)
-        self:SetHeadBullet(1)
-        self:SetHeadImpact(6)
-        self:SetHeadRupture(2)
-    
-        self:SetTorsoBR(32)
-        self:SetTorsoBullet(11)
-        self:SetTorsoImpact(8)
-        self:SetTorsoRupture(13)
+        -- Wolven and PMK
+        self:EquipSuit("merc_wolven")
+        self:EquipHelmet("pmk3gasmask")
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_kevlar") end
+
+        local randomAccessory2 = math.random(1, 4)
+        if randomAccessory2 == 1 then self:EquipAccessory("medusa") end
+
+        local randomAccessory3 = math.random(1, 4)
+        if randomAccessory3 == 1 then self:EquipAccessory("belt_pseudodoghide") end
 
         local firstname = table.Random(PLUGIN.mercnamesfirst)
 

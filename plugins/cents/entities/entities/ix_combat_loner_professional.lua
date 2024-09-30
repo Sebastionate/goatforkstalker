@@ -53,49 +53,33 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(115)
-        self:SetCombatHealthMax(115)
+        self:SetCombatHealth(135)
+        self:SetCombatHealthMax(135)
         self:SetWeaponSkill(15)
         self:SetDodge(11)
 
         if string.find(self:GetModel(), "dusk") then
             -- Dusk and PBF Mask
-            self:SetHeadBR(10)
-            self:SetHeadBullet(1)
-            self:SetHeadImpact(6)
-            self:SetHeadRupture(2)
-        
-            self:SetTorsoBR(30)
-            self:SetTorsoBullet(11)
-            self:SetTorsoImpact(15)
-            self:SetTorsoRupture(27)
+            self:EquipSuit("dusk")
+            self:EquipHelmet("pbfgasmask")
         end
 
         if string.find(self:GetModel(), "berill") then
             -- Beril-5m and Sphere-08
-            self:SetHeadBR(31)
-            self:SetHeadBullet(24)
-            self:SetHeadImpact(30)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(39)
-            self:SetTorsoBullet(21)
-            self:SetTorsoImpact(15)
-            self:SetTorsoRupture(40)
+            self:EquipSuit("berill5m")
+            self:EquipHelmet("sphere08")
         end
 
         if string.find(self:GetModel(), "sunset") then
             -- Sunset and Sphere-08
-            self:SetHeadBR(31)
-            self:SetHeadBullet(24)
-            self:SetHeadImpact(30)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(36)
-            self:SetTorsoBullet(21)
-            self:SetTorsoImpact(10)
-            self:SetTorsoRupture(32)
+            self:EquipSuit("sunset")
+            self:EquipHelmet("sphere08")
         end
+
+        local randomAccessory = math.random(1, 4)
+        if randomAccessory == 1 then self:EquipAccessory("nightstar") end
+        if randomAccessory == 2 then self:EquipAccessory("belt_pseudodoghide") end
+        if randomAccessory == 3 then self:EquipAccessory("belt_kevlar") end
 
 
     

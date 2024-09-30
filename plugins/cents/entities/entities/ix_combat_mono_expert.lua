@@ -51,36 +51,35 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(155)
-        self:SetCombatHealthMax(155)
+        self:SetCombatHealth(165)
+        self:SetCombatHealthMax(165)
         self:SetWeaponSkill(30)
         self:SetDodge(17)
     
         if string.find(self:GetModel(), "stingray") or string.find(self:GetModel(), "bulat") then
             -- Stingray-9 and Sphere-12
-            self:SetHeadBR(40)
-            self:SetHeadBullet(27)
-            self:SetHeadImpact(35)
-            self:SetHeadRupture(5)
-        
-            self:SetTorsoBR(40)
-            self:SetTorsoBullet(28)
-            self:SetTorsoImpact(28)
-            self:SetTorsoRupture(23)
+            self:EquipSuit("skat9")
+            self:EquipHelmet("assaulthelmet")
         end
 
         if string.find(self:GetModel(), "exo") then
             -- Monolith Exosuit and Exohelm
-            self:SetHeadBR(50)
-            self:SetHeadBullet(31)
-            self:SetHeadImpact(40)
-            self:SetHeadRupture(4)
-        
-            self:SetTorsoBR(54)
-            self:SetTorsoBullet(35)
-            self:SetTorsoImpact(38)
-            self:SetTorsoRupture(35)
+            self:EquipSuit("radsuit_mono")
+            self:EquipHelmet("exohelmet")
         end
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_steelplate") end
+        if randomAccessory1 == 2 then self:EquipAccessory("belt_steelplate") end
+
+        local randomAccessory2 = math.random(1, 4)
+        if randomAccessory2 == 1 then self:EquipAccessory("goldfish") end
+        if randomAccessory2 == 2 then self:EquipAccessory("goldfish") end
+
+
+        local randomAccessory3 = math.random(1, 4)
+        if randomAccessory3 == 1 then self:EquipAccessory("belt_chimerahide") end
+        if randomAccessory3 == 2 then self:EquipAccessory("belt_chimerahide") end
 
         local lastname = table.Random(PLUGIN.realnameslast)
 

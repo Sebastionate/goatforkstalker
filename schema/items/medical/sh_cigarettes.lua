@@ -1,6 +1,6 @@
 ITEM.name = "Cigarettes"
 ITEM.description = "An old pack of cigarettes, a bit damaged, but still smokable."
-ITEM.longdesc = "Old Russian cigarettes commonly sold throughout the exclusion zone, containing tobacco and various other chemicals within it. Notoriously bad for someone's health.\n+2 Insight, Fortitude, Observation for 8 turns"
+ITEM.longdesc = "Old Russian cigarettes commonly sold throughout the exclusion zone, containing tobacco and various other chemicals within it. Notoriously bad for someone's health.\n+2 Insight, Fortune, Observation for 8 turns"
 ITEM.model = "models/ethprops/consumable/cigar1.mdl"
 ITEM.width = 1
 ITEM.height = 1
@@ -42,7 +42,7 @@ ITEM.functions.use = {
 		duration = item.duration
 
 		curplayer:AddBoost("cigarette", "observation", 2)
-		curplayer:AddBoost("cigarette", "foritude", 2)
+		curplayer:AddBoost("cigarette", "fortune", 2)
 		curplayer:AddBoost("cigarette", "insight", 2)
 
 
@@ -51,7 +51,7 @@ ITEM.functions.use = {
 			curplayer:GetPlayer():Notify(item.name .. " has worn off.")
 			curplayer:SetData("usingCigarette", false)
 			curplayer:RemoveBoost("cigarette", "observation")
-			curplayer:RemoveBoost("cigarette", "fortitude")
+			curplayer:RemoveBoost("cigarette", "fortune")
 			curplayer:RemoveBoost("cigarette", "insight")
 
 		end)

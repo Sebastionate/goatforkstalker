@@ -1,0 +1,9 @@
+ITEM.name = "Silver Chain"
+ITEM.model = "models/illusion/eftcontainers/chain.mdl"
+ITEM.description = "A piece of bling."
+ITEM.longdesc = "A chain made of Silver, worn by all sorts of people for adding a bit of style to your outfit without being too flashy."
+ITEM.category = "junk"
+ITEM.flag = "1"
+ITEM.price = 5000
+ITEM.width = 1
+ITEM.height = 1

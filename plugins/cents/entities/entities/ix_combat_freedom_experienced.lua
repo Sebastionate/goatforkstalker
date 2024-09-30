@@ -51,36 +51,27 @@ local ranks = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(100)
-        self:SetCombatHealthMax(100)
+        self:SetCombatHealth(120)
+        self:SetCombatHealthMax(120)
         self:SetWeaponSkill(10)
         self:SetDodge(11)
     
         if string.find(self:GetModel(), "expedition") then
             -- Berkut and Altyn
-            self:SetHeadBR(28)
-            self:SetHeadBullet(20)
-            self:SetHeadImpact(25)
-            self:SetHeadRupture(3)
-        
-            self:SetTorsoBR(25)
-            self:SetTorsoBullet(12)
-            self:SetTorsoImpact(20)
-            self:SetTorsoRupture(35)
+            self:EquipSuit("berkut")
+            self:EquipHelmet("altyn")
         end
 
         if string.find(self:GetModel(), "wind") or string.find(self:GetModel(), "guard") then
             -- Wind of Freedom and PBF
-            self:SetHeadBR(10)
-            self:SetHeadBullet(1)
-            self:SetHeadImpact(6)
-            self:SetHeadRupture(2)
-        
-            self:SetTorsoBR(22)
-            self:SetTorsoBullet(8)
-            self:SetTorsoImpact(10)
-            self:SetTorsoRupture(17)
+            self:EquipSuit("wind_free")
+            self:EquipHelmet("pbfgasmask")
         end
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("nightstar") end
+        if randomAccessory1 == 2 then self:EquipAccessory("medusa") end 
+        if randomAccessory1 == 3 then self:EquipAccessory("belt_kevlar") end 
 
         local firstname = ""
 

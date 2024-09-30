@@ -99,7 +99,7 @@ ITEM.functions.usetarget = {
 			target:GetPlayer():Notify(char:GetName() .. " heals you for " .. skillbonusheal .. "hp.")
 
 			
-			ix.chat.send(item.player, "iteminternal", "opens a "..item.name.." and uses it on "..target:GetName()..".", false)
+			ix.chat.Send(item.player, "iteminternal", "opens a "..item.name.." and uses it on "..target:GetName()..".", false)
 			
 			quantity = quantity - 1
 

@@ -11,6 +11,6 @@ ITEM.flag = "4"
 ITEM.weight = 0.75
 ITEM.isArmorUpg = true
 ITEM.res = {
-	["Radiation"] = 0.05,
+	["Radiation"] = 0.10,
 }
 

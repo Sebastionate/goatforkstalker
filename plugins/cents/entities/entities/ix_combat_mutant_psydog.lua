@@ -31,8 +31,8 @@ end
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(85)
-        self:SetCombatHealthMax(85)
+        self:SetCombatHealth(170)
+        self:SetCombatHealthMax(170)
         self:SetWeaponSkill(5)
         self:SetDodge(8)
     

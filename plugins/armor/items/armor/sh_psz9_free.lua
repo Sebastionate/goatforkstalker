@@ -5,7 +5,7 @@ ITEM.description= "A PSZ-9 suit used by Freedom."
 ITEM.longdesc = "This PSZ-9 suit is issued to the majority of Freedom members. It is roughly comparable to the suits used by many stalkers, along with those of their rivals in Duty. It boasts decent protection against firearms and anomalies and is very comfortable to wear."
 ITEM.width = 2
 ITEM.height = 2
-ITEM.price = 36000
+ITEM.price = 25000
 ITEM.flag = "3"
 ITEM.br = 0.2
 ITEM.fbr = 7
@@ -23,10 +23,10 @@ ITEM.res = {
 	["Impact"] = 0.10,
 	["Rupture"] = 0.14,
 	["Bullet"] = 0.13,
-	["Shock"] = 0.05,
-	["Burn"] = 0.12,
-	["Radiation"] = 0.06,
-	["Chemical"] = 0.05,
+	["Shock"] = 0.09,
+	["Burn"] = 0.15,
+	["Radiation"] = 0.11,
+	["Chemical"] = 0.09,
 	["Psi"] = 0,
 }
 

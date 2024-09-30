@@ -56,13 +56,10 @@ ITEM.functions.RemoveUpgrade = {
 	for k, v in pairs(item:GetData("mod", {})) do
 		local attTable = ix.item.list[v[1]]
 		local niceName = attTable:GetName()
-
-		if (attTable.slot == 15 or item.player:GetChar():HasFlags("6")) then
 		table.insert(targets, {
 			name = niceName,
 			data = {k},
 		})
-		end 
     end
     return targets
 	end,
@@ -74,6 +71,8 @@ ITEM.functions.RemoveUpgrade = {
 		if item:GetData("equip") then
 			return false
 		end
+
+		if not item.player:GetCharacter():HasFlags("A") then return false end 
 	end,
 	OnRun = function(item, data)
 		local client = item.player
@@ -232,6 +231,10 @@ function ITEM:RemoveOutfit(client)
 		character:RemoveBoost("weight3", "reflex")
 		character:RemoveBoost("weight4", "reflex")
 		character:RemoveBoost("weight5", "reflex")
+		character:RemoveSkillBoost("weight1", "evasion")
+		character:RemoveSkillBoost("weight3", "evasion")
+		character:RemoveSkillBoost("weight4", "evasion")
+		character:RemoveSkillBoost("weight5", "evasion")
 	end
 
 	for k, _ in pairs(self:GetData("outfitAttachments", {})) do
@@ -292,6 +295,10 @@ function ITEM:ModelOff(client)
 		character:RemoveBoost("weight3", "reflex")
 		character:RemoveBoost("weight4", "reflex")
 		character:RemoveBoost("weight5", "reflex")
+		character:RemoveSkillBoost("weight1", "evasion")
+		character:RemoveSkillBoost("weight3", "evasion")
+		character:RemoveSkillBoost("weight4", "evasion")
+		character:RemoveSkillBoost("weight5", "evasion")
 	end
 
 	for k, _ in pairs(self:GetData("outfitAttachments", {})) do
@@ -528,11 +535,11 @@ ITEM.functions.Equip = {
 		end
 
 		if item.weightClass then
-			if item.weightClass == 1 then character:AddBoost("weight1", "reflex", 2) end
+			if item.weightClass == 1 then character:AddBoost("weight1", "reflex", 2) character:AddSkillBoost("weight1", "evasion", 5) end
 			-- Weight Class 2 is no change
-			if item.weightClass == 3 then character:AddBoost("weight3", "reflex", -2) end
-			if item.weightClass == 4 then character:AddBoost("weight4", "reflex", -4) end
-			if item.weightClass == 5 then character:AddBoost("weight5", "reflex", -4) end
+			if item.weightClass == 3 then character:AddBoost("weight3", "reflex", -2) character:AddSkillBoost("weight3", "evasion", -5) end
+			if item.weightClass == 4 then character:AddBoost("weight4", "reflex", -4) character:AddSkillBoost("weight4", "evasion", -10) end
+			if item.weightClass == 5 then character:AddBoost("weight5", "reflex", -4) character:AddSkillBoost("weight5", "evasion", -15) end
 		end
 		
 		local articont = item.artifactcontainers[1]

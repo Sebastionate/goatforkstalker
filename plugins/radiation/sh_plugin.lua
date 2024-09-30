@@ -180,7 +180,7 @@ end
 
 
 -- Register HUD Bars.
-if (CLIENT) then
+if (CLIENT and LocalPlayer():GetCharacter()) then
 	local char = LocalPlayer():GetCharacter()
 	local color = Color(39, 174, 96)
 	function PLUGIN:RenderScreenspaceEffects()

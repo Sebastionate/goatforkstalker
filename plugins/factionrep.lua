@@ -9,175 +9,13 @@ ix.command.Add("MyFactionRep", {
 		local str = ""
         local char = client:GetCharacter()
 
-
-        -- Loners --
         str = str .. "Loner: " .. char:GetData("lonerrep", 0) ..", "
-        if (char:GetData("lonerrep", 0) <= -30) then
-            str = str .. "Abysmal\n"
-        end
-        if (char:GetData("lonerrep", 0) <= -15 and char:GetData("lonerrep", 0) > -30) then
-            str = str .. "Awful\n"
-        end 
-        if (char:GetData("lonerrep", 0) < 0 and char:GetData("lonerrep", 0) > -15) then
-            str = str .. "Bad\n"
-        end
-        if (char:GetData("lonerrep", 0) <= 4 and char:GetData("lonerrep", 0) >= 0) then
-            str = str .. "Neutral\n"
-        end
-        if (char:GetData("lonerrep", 0) >= 5 and char:GetData("lonerrep", 0) < 15)  then
-            str = str .. "Good\n"
-        end
-        if (char:GetData("lonerrep", 0) >= 15 and char:GetData("lonerrep", 0) < 30)  then
-            str = str .. "Great\n"
-        end
-        if (char:GetData("lonerrep", 0) >= 30)   then
-            str = str .. "Excellent\n"
-        end
- 
-        -- Duty --
         str = str .. "Duty: " .. char:GetData("dutyrep", 0) ..", "
-        if (char:GetData("dutyrep", 0) <= -30) then
-            str = str .. "Abysmal\n"
-        end
-        if (char:GetData("dutyrep", 0) <= -15 and char:GetData("dutyrep", 0) > -30) then
-            str = str .. "Awful\n"
-        end 
-        if (char:GetData("dutyrep", 0) < 0 and char:GetData("dutyrep", 0) > -15) then
-            str = str .. "Bad\n"
-        end
-        if (char:GetData("dutyrep", 0) <= 4 and char:GetData("dutyrep", 0) >= 0) then
-            str = str .. "Neutral\n"
-        end
-        if (char:GetData("dutyrep", 0) >= 5 and char:GetData("dutyrep", 0) < 15)  then
-            str = str .. "Good\n"
-        end
-        if (char:GetData("dutyrep", 0) >= 15 and char:GetData("dutyrep", 0) < 30)  then
-            str = str .. "Great\n"
-        end
-        if (char:GetData("dutyrep", 0) >= 30)   then
-            str = str .. "Excellent\n"
-        end
-
-        -- Freedom --
         str = str .. "Freedom: " .. char:GetData("freedomrep", 0) ..", "
-        if (char:GetData("freedomrep", 0) <= -30) then
-            str = str .. "Abysmal\n"
-        end
-        if (char:GetData("freedomrep", 0) <= -15 and char:GetData("freedomrep", 0) > -30) then
-            str = str .. "Awful\n"
-        end
-        if (char:GetData("freedomrep", 0) < 0 and char:GetData("freedomrep", 0) > -15) then
-            str = str .. "Bad\n"
-        end
-        if (char:GetData("freedomrep", 0) <= 4 and char:GetData("freedomrep", 0) >=  0) then
-            str = str .. "Neutral\n"
-        end
-        if (char:GetData("freedomrep", 0) >= 5 and char:GetData("freedomrep", 0) < 15)  then
-            str = str .. "Good\n"
-        end
-        if (char:GetData("freedomrep", 0) >= 15 and char:GetData("freedomrep", 0) < 30)  then
-            str = str .. "Great\n"
-        end
-        if (char:GetData("freedomrep", 0) >= 30)   then
-            str = str .. "Excellent\n"
-        end
-
-        -- Army --
         str = str .. "Ukranian Military: " .. char:GetData("armyrep", 0) ..", "
-        if (char:GetData("armyrep", 0) <= -30) then
-            str = str .. "Abysmal\n"
-        end
-        if (char:GetData("armyrep", 0) <= -15 and char:GetData("armyrep", 0) > -30) then
-            str = str .. "Awful\n"
-        end
-        if (char:GetData("armyrep", 0) < 0 and char:GetData("armyrep", 0) > -15) then
-            str = str .. "Bad\n"
-        end
-        if (char:GetData("armyrep", 0) <= 4 and char:GetData("armyrep", 0) >= 0) then
-            str = str .. "Neutral\n"
-        end
-        if (char:GetData("armyrep", 0) >= 5 and char:GetData("armyrep", 0) < 15)  then
-            str = str .. "Good\n"
-        end
-        if (char:GetData("armyrep", 0) >= 15 and char:GetData("armyrep", 0) < 30)  then
-            str = str .. "Great\n"
-        end
-        if (char:GetData("armyrep", 0) >= 30)   then
-            str = str .. "Excellent\n"
-        end
-
-         -- Eco --
-         str = str .. "Ecologists: " .. char:GetData("ecorep", 0) ..", "
-         if (char:GetData("ecorep", 0) <= -30) then
-             str = str .. "Abysmal\n"
-         end
-         if (char:GetData("ecorep", 0) <= -15 and char:GetData("ecorep", 0) > -30) then
-             str = str .. "Awful\n"
-         end
-         if (char:GetData("ecorep", 0) < 0 and char:GetData("ecorep", 0) > -15) then
-             str = str .. "Bad\n"
-         end
-         if (char:GetData("ecorep", 0) <= 4 and char:GetData("ecorep", 0) >= 0) then
-             str = str .. "Neutral\n"
-         end
-         if (char:GetData("ecorep", 0) >= 5 and char:GetData("ecorep", 0) < 15)  then
-             str = str .. "Good\n"
-         end
-         if (char:GetData("ecorep", 0) >= 15 and char:GetData("ecorep", 0) < 30)  then
-             str = str .. "Great\n"
-         end
-         if (char:GetData("ecorep", 0) >= 30)   then
-             str = str .. "Excellent\n"
-         end
-
-         -- Bandits --
-         str = str .. "Sultan's Bandits: " .. char:GetData("banditrep", 0) ..", "
-         if (char:GetData("banditrep", 0) <= -30) then
-             str = str .. "Abysmal\n"
-         end
-         if (char:GetData("banditrep", 0) <= -15 and char:GetData("banditrep", 0) > -30) then
-             str = str .. "Awful\n"
-         end
-         if (char:GetData("banditrep", 0) < 0 and char:GetData("banditrep", 0) > -15) then
-             str = str .. "Bad\n"
-         end
-         if (char:GetData("banditrep", 0) <= 4 and char:GetData("banditrep", 0) >= 0) then
-             str = str .. "Neutral\n"
-         end
-         if (char:GetData("banditrep", 0) >= 5 and char:GetData("banditrep", 0) < 15)  then
-             str = str .. "Good\n"
-         end
-         if (char:GetData("banditrep", 0) >= 15 and char:GetData("banditrep", 0) < 30)  then
-             str = str .. "Great\n"
-         end
-         if (char:GetData("banditrep", 0) >= 30)   then
-             str = str .. "Excellent\n"
-         end
-
-        -- Blue Eagle --
+        str = str .. "Ecologists: " .. char:GetData("ecorep", 0) ..", "
+        str = str .. "Sultan's Bandits: " .. char:GetData("banditrep", 0) ..", "
         str = str .. "Blue Eagle PMC: " .. char:GetData("mercrep", 0) ..", "
-        if (char:GetData("mercrep", 0) <= -30) then
-            str = str .. "Abysmal\n"
-        end
-        if (char:GetData("mercrep", 0) <= -15 and char:GetData("mercrep", 0) > -30) then
-            str = str .. "Awful\n"
-        end
-        if (char:GetData("mercrep", 0) < 0 and char:GetData("mercrep", 0) > -15) then
-            str = str .. "Bad\n"
-        end
-        if (char:GetData("mercrep", 0) <= 4 and char:GetData("mercrep", 0) >= 0) then
-            str = str .. "Neutral\n" 
-        end
-        if (char:GetData("mercrep", 0) >= 5 and char:GetData("mercrep", 0) < 15)  then
-            str = str .. "Good\n"
-        end
-        if (char:GetData("mercrep", 0) >= 15 and char:GetData("mercrep", 0) < 30)  then
-            str = str .. "Great\n"
-        end
-        if (char:GetData("mercrep", 0) >= 30)   then
-            str = str .. "Excellent\n"
-        end
-
 
         return str
 
@@ -221,6 +59,13 @@ ix.command.Add("CharAddFactionRep", {
         end
 
         if string.upper(faction) == "LONER" then
+
+            if amount > 0 then
+                if char:GetData("lonerrep", 0) >= 5 and amount < 0.5 then return "Character's rep with this faction is too high to get less than 0.5 points." end 
+                if char:GetData("lonerrep", 0) >= 10 and amount < 1 then return "Character's rep with this faction is too high to get less than 1 point." end 
+            end 
+
+
             char:SetData("lonerrep", (char:GetData("lonerrep", 0) + amount))
             if amount < 0 then
                 char:GetPlayer():Notify("You lose favor with the Loner community.")
@@ -231,6 +76,13 @@ ix.command.Add("CharAddFactionRep", {
         end
 
         if string.upper(faction) == "DUTY" then
+
+            
+            if amount > 0 then
+                if char:GetData("dutyrep", 0) <= 5 and amount > 0.5 then return "Character's rep with this faction is too high to get less than 0.5 points." end 
+                if char:GetData("dutyrep", 0) <= 10 and amount > 1 then return "Character's rep with this faction is too high to get less than 1 point." end 
+            end 
+
             char:SetData("dutyrep", (char:GetData("dutyrep", 0) + amount))
             if amount < 0 then
                 char:GetPlayer():Notify("You lose favor with Duty.")
@@ -241,6 +93,15 @@ ix.command.Add("CharAddFactionRep", {
         end
 
         if string.upper(faction) == "FREEDOM" then
+
+            
+            if amount > 0 then
+                if char:GetData("freedomrep", 0) <= 5 and amount > 0.5 then return "Character's rep with this faction is too high to get less than 0.5 points." end 
+                if char:GetData("freedomrep", 0) <= 10 and amount > 1 then return "Character's rep with this faction is too high to get less than 1 point." end 
+            end 
+
+
+
             char:SetData("freedomrep", (char:GetData("freedomrep", 0) + amount))
             if amount < 0 then
                 char:GetPlayer():Notify("You lose favor with Freedom.")
@@ -251,6 +112,12 @@ ix.command.Add("CharAddFactionRep", {
         end
 
         if string.upper(faction)== "ARMY" then
+
+            if amount > 0 then
+                if char:GetData("armyrep", 0) <= 5 and amount > 0.5 then return "Character's rep with this faction is too high to get less than 0.5 points." end 
+                if char:GetData("armyrep", 0) <= 10 and amount > 1 then return "Character's rep with this faction is too high to get less than 1 point." end 
+            end 
+
             char:SetData("armyrep", (char:GetData("armyrep", 0) + amount))
             if amount < 0 then
                 char:GetPlayer():Notify("You lose favor with the Ukranian Military.")
@@ -261,6 +128,12 @@ ix.command.Add("CharAddFactionRep", {
         end
 
         if string.upper(faction) == "ECO" then
+
+            if amount > 0 then
+                if char:GetData("ecorep", 0) <= 5 and amount > 0.5 then return "Character's rep with this faction is too high to get less than 0.5 points." end 
+                if char:GetData("ecorep", 0) <= 10 and amount > 1 then return "Character's rep with this faction is too high to get less than 1 point." end 
+            end 
+
             char:SetData("ecorep", (char:GetData("ecorep", 0) + amount))
             if amount < 0 then
                 char:GetPlayer():Notify("You lose favor with the Ecologists.")
@@ -271,6 +144,12 @@ ix.command.Add("CharAddFactionRep", {
         end
 
         if string.upper(faction) == "BANDIT" then
+
+            if amount > 0 then
+                if char:GetData("banditrep", 0) <= 5 and amount > 0.5 then return "Character's rep with this faction is too high to get less than 0.5 points." end 
+                if char:GetData("banditrep", 0) <= 10 and amount > 1 then return "Character's rep with this faction is too high to get less than 1 point." end 
+            end 
+
             char:SetData("banditrep", (char:GetData("banditrep", 0) + amount))
             if amount < 0 then
                 char:GetPlayer():Notify("You lose favor with Sultan's Bratva.")
@@ -281,6 +160,12 @@ ix.command.Add("CharAddFactionRep", {
         end
 
         if string.upper(faction) == "MERC" then
+
+            if amount > 0 then
+                if char:GetData("mercrep", 0) <= 5 and amount > 0.5 then return "Character's rep with this faction is too high to get less than 0.5 points." end 
+                if char:GetData("mercrep", 0) <= 10 and amount > 1 then return "Character's rep with this faction is too high to get less than 1 point." end 
+            end 
+
             char:SetData("mercrep", (char:GetData("mercrep", 0) + amount))
             if amount < 0 then
                 char:GetPlayer():Notify("You lose favor with Blue Eagle.")

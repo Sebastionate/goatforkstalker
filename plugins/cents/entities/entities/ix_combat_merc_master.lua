@@ -45,21 +45,24 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(175)
-        self:SetCombatHealthMax(175)
+        self:SetCombatHealth(180)
+        self:SetCombatHealthMax(180)
         self:SetWeaponSkill(35)
         self:SetDodge(20)
     
-       -- Terminator Exosuit and Exohelm
-       self:SetHeadBR(50)
-       self:SetHeadBullet(31)
-       self:SetHeadImpact(40)
-       self:SetHeadRupture(4)
-   
-       self:SetTorsoBR(59)
-       self:SetTorsoBullet(36)
-       self:SetTorsoImpact(35)
-       self:SetTorsoRupture(35)
+       -- Terminator Exoskeleton and Exohelm
+        self:EquipSuit("exoskeleton_merc")
+        self:EquipHelmet("exohelmet")
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_steelplateimproved") end
+
+        local randomAccessory2 = math.random(1, 4)
+        if randomAccessory2 == 1 then self:EquipAccessory("fullempty") end
+
+        local randomAccessory3 = math.random(1, 4)
+        if randomAccessory3 == 1 then self:EquipAccessory("belt_pseudogianthide") end
+
 
         local firstname = table.Random(PLUGIN.mercnamesfirst)
 

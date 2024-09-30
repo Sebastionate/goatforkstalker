@@ -12,7 +12,7 @@ RECIPE.flag = "6"
 RECIPE.requirements = {
 ["berill1"] = 1,
 ["b3parts"] = 1,
-["ducttape"] = 1,
+["thread"] = 1,
 ["metalscrap"] = 3,
 ["clothscrap"] = 3,
 }

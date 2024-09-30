@@ -68,7 +68,7 @@ ix.command.Add("CharRewardUtilityXP", {
             return "Cannot give zero or negative XP."
         end 
 
-        if (currentlevel == 10) then
+        if (currentlevel == 6) then
             return "Character is max level."
         end 
 
@@ -261,9 +261,9 @@ ix.command.Add("FirstAid", {
 
         target:GetCharacter():AdjustHealth("heal", healamt)
         target:GetCharacter():RemoveBleedStacks(bleedstacksreduce)
-        client:SetData("firstAidCooldown", CurTime() + 2700)
+        char:SetData("firstAidCooldown", CurTime() + 2700)
         client:Notify("You restore " .. healamt .. " health to " .. target:GetCharacter():GetName() .. " and remove up to " .. bleedstacksreduce .. " stacks of Bleed.")
-        target:GetPlayer():Notify(char:GetName() .. " has restored " .. healamt .. "  of your health and removed up to " .. bleedstacksreduce .. " stacks of Bleed.")
+        target:Notify(char:GetName() .. " has restored " .. healamt .. "  of your health and removed up to " .. bleedstacksreduce .. " stacks of Bleed.")
         
     end
 })

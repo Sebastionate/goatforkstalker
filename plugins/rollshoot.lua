@@ -28,8 +28,26 @@ ix.command.Add("toggleoverwatch", {
 			client:SetData("overwatch", false) 
 			client:Notify("You've set yourself as no longer on Overwatch.")
 		else
+			if client:GetData("steadyaim", false) then return "You cannot use Steady Aim during Overwatch." end 
 			client:SetData("overwatch", true )
 			client:Notify("You've set yourself as on Overwatch.")
+		end
+
+    end
+} )
+
+ix.command.Add("togglesteadyaim", {
+    description = "Mark whether you're using Steady Aim or not.",
+    OnRun = function(self, client )
+
+		if client:GetData("overwatch", false) then return "You cannot use Steady Aim during Overwatch." end 
+        
+		if client:GetData("steadyaim", false) == true then
+			client:SetData("steadyaim", false) 
+			client:Notify("You've set yourself as no longer using Steady Aim.")
+		else
+			client:SetData("steadyaim", true )
+			client:Notify("You've set yourself as using Steady Aim.")
 		end
 
     end
@@ -255,7 +273,7 @@ function PLUGIN:WeaponFired(entity)
 	-- Poor mans way of making sure a gun never jams at 80% or above without messing with conditionals
 	if weapondura >= 80 then weapondura = 100 end 
 
-	if weapondura < math.random(1, 100) then 
+	if weapondura + 15 < (math.random(1, 100)) then 
 		weaponItem:SetData("jammed", true)
 	end 
 
@@ -275,6 +293,7 @@ function PLUGIN:WeaponFired(entity)
 	local scope
 	local grip
 	local laser
+	local bipod
 	local atts = weaponItem:GetData("attachments")
 	if atts then
 		for k,v in pairs(atts) do
@@ -283,6 +302,7 @@ function PLUGIN:WeaponFired(entity)
 			elseif attItem.scopetype == "medium" then scope = "medium" 
 			elseif attItem.scopetype == "long" then scope = "long"
 			elseif attItem.isGrip then grip = true
+			elseif attItem.isBipod then bipod = true
 			elseif attItem.isLaser  then laser = true 
 			end 
 		end
@@ -318,6 +338,7 @@ function PLUGIN:WeaponFired(entity)
 	if string.find(ammotype, "-AP-") then ammobonus = 0 specialammo = "using Armor Piercing Ammo" end
 	if string.find(ammotype, "-HP-") then ammobonus = 0 specialammo = "using Hollow Point Ammo" end
 	if string.find(ammotype, "-SG-") then ammobonus = 3 specialammo = "using Slug Rounds" end
+	if string.find(ammotype, "-FT-") then ammobonus = 0 specialammo = "using Flechettes" end
 
 	local rofboost = 0
 	local recoilboost = 0
@@ -335,17 +356,20 @@ function PLUGIN:WeaponFired(entity)
 
 	local recoildebuff = 0
 	if (weaponItem.recoil) then 
-		recoil = weaponItem.recoil
+		local recoil = weaponItem.recoil
+		local recoilow = 0
 
-		if grip then recoil = recoil + 1 end
-		if entity:GetData("overwatch") then recoil = recoil - 4 end
-		if entity:GetData("overwatch") and laser then recoil = recoil + 2 end
+		if grip or weaponItem.gripIncluded then recoil = recoil + 1 end
+		if entity:GetData("overwatch") then recoilow = recoilow - 4 end
+		if entity:GetData("overwatch") and laser then recoilow = recoilow + 2 end
+
+		if entity:GetCharacter():HasTrait("crackshot") and entity:GetData("shotsfired", 0) == 0 then recoilow = 0 end 
 
 		recoil = recoil + recoilboost
 
 		if entity:GetCharacter():GetData("gmrecoil", nil) then recoil = entity:GetCharacter():GetData("gmrecoil", 0) end 
 
-		recoildebuff = recoil * entity:GetData("shotsfired", 0)
+		recoildebuff = (recoil * entity:GetData("shotsfired", 0)) + recoilow
 
 	end 
 
@@ -360,6 +384,11 @@ function PLUGIN:WeaponFired(entity)
 		ammobonus = 0
 		accuracyboost = entity:GetCharacter():GetData("gmaccuracy")
 	end 
+
+	if entity:GetData("steadyaim") then 
+		accuracyboost = accuracyboost + 3
+		if bipod or weaponItem.bipodIncluded then accuracyboost = accuracyboost + 2 end
+	end
 
 	local totalamount = value + skillbonus + scopebonus + ammobonus + recoildebuff + accuracyboost
 	
@@ -388,7 +417,9 @@ function PLUGIN:WeaponFired(entity)
 
 		-- Cents return themselves as players 
 
-		target = shootingCent:GetCharacter():Name()
+		if shootingCent.combatEntity then target = shootingCent:GetCharacter():Name()
+
+		else target = shootingCent:GetCharacter():GetName() end 
 	end 
 
 	
@@ -465,6 +496,7 @@ function PLUGIN:GetScopeBonus(range, scope)
 	elseif range == "short" and scope == "medium" then bonus = 2
 	elseif range == "short" and scope == "long" then bonus = -4
 	elseif range == "medium" and scope == "medium" then bonus = 2
+	elseif range == "medium" and scope == "long" then bonus = 2
 	elseif range == "long" and scope == "long" then bonus = 4
 	elseif range == "very long" and scope == "long" then bonus = 3
 	elseif range == "extreme" and scope == "long" then bonus = 2
@@ -505,21 +537,3 @@ function playerMeta:GetActiveWeaponItem()
 	
 
 end 
-
---[[ function playerMeta:CanShootWeapon()
-	local swep = self:GetActiveWeapon()
-	if not swep then return true end 
-	local weaponItem = self:GetActiveWeaponItem()
-
-	if weaponItem and weaponItem:GetData("jammed", false) then 
-		return false
-	else 
-		return self:GetNetVar("canShoot", true)
-	end 
-end  ]]
-
-
-
-
-
-

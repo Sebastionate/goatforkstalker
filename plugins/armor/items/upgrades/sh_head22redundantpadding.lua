@@ -10,5 +10,5 @@ ITEM.isUpgrade = true
 ITEM.flag = "4"
 ITEM.weight = 0.75
 ITEM.isHelmetUpg = true
-ITEM.durabilityReduce = 0.05
+ITEM.durabilityReduce = 0.10
 

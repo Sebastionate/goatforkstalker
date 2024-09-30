@@ -51,36 +51,35 @@ local riflegrip = {
 if (SERVER) then
     function ENT:CustomInitialize()
 
-        self:SetCombatHealth(175)
-        self:SetCombatHealthMax(175)
+        self:SetCombatHealth(180)
+        self:SetCombatHealthMax(180)
         self:SetWeaponSkill(35)
         self:SetDodge(20)
     
         if string.find(self:GetModel(), "stingray") or string.find(self:GetModel(), "bulat") then
             -- Stingray-9 and Sphere-12
-            self:SetHeadBR(40)
-            self:SetHeadBullet(27)
-            self:SetHeadImpact(35)
-            self:SetHeadRupture(5)
-        
-            self:SetTorsoBR(40)
-            self:SetTorsoBullet(28)
-            self:SetTorsoImpact(28)
-            self:SetTorsoRupture(23)
+            self:EquipSuit("skat9")
+            self:EquipHelmet("sphere12")
         end
 
         if string.find(self:GetModel(), "exo") then
             -- Monolith Exoskeleton and Exohelm
-            self:SetHeadBR(50)
-            self:SetHeadBullet(31)
-            self:SetHeadImpact(40)
-            self:SetHeadRupture(4)
-        
-            self:SetTorsoBR(65)
-            self:SetTorsoBullet(36)
-            self:SetTorsoImpact(41)
-            self:SetTorsoRupture(39)
+            self:EquipSuit("exoskeleton_mono")
+            self:EquipHelmet("exohelmet")
         end
+
+        local randomAccessory1 = math.random(1, 4)
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_steelplateimproved") end
+        if randomAccessory1 == 1 then self:EquipAccessory("belt_steelplateimproved") end
+
+        local randomAccessory2 = math.random(1, 4)
+        if randomAccessory2 == 1 then self:EquipAccessory("fullempty") end
+        if randomAccessory2 == 1 then self:EquipAccessory("fullempty") end
+        
+
+        local randomAccessory3 = math.random(1, 4)
+        if randomAccessory3 == 1 then self:EquipAccessory("belt_pseudogianthide") end
+        if randomAccessory3 == 1 then self:EquipAccessory("belt_pseudogianthide") end
 
         local lastname = table.Random(PLUGIN.realnameslast)
 
